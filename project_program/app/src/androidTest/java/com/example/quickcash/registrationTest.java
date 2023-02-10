@@ -69,8 +69,13 @@ public class registrationTest {
         onView(withId(R.id.passwordRepeatTextBox)).check(matches(withText("")));
     }
 
-
-
-
-
+    @Test
+    public void checkIfSwitched2LoginPage() {
+        onView(withId(R.id.emailTextBox)).perform(typeText("aa111111@dal.ca"));
+        onView(withId(R.id.CardTextBox)).perform(typeText("1111111111111111"));
+        onView(withId(R.id.passwordTextBox)).perform(typeText("Aaa111111@"));
+        onView(withId(R.id.passwordRepeatTextBox)).perform(typeText("Aaa111111@"));
+        onView(withId(R.id.loginLink)).perform(click());
+        intended(hasComponent(LoginPage.class.getName()));
+    }
 }
