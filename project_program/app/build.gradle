@@ -35,6 +35,7 @@ dependencies {
     implementation 'com.google.firebase:firebase-auth:21.1.0'
     testImplementation 'junit:junit:4.13.2'
     testImplementation 'org.junit.jupiter:junit-jupiter'
+<<<<<<< HEAD
     testImplementation 'org.junit.jupiter:junit-jupiter'
     testImplementation 'org.junit.jupiter:junit-jupiter'
     testImplementation 'org.junit.jupiter:junit-jupiter'
@@ -42,6 +43,8 @@ dependencies {
     testImplementation 'org.junit.jupiter:junit-jupiter'
     testImplementation 'org.junit.jupiter:junit-jupiter'
     testImplementation 'org.junit.jupiter:junit-jupiter'
+=======
+>>>>>>> a0810cc21ec81975b0d139e24ac8d7e899a01a5e
     //noinspection GradleCompatible
     androidTestImplementation 'com.android.support.test:runner:1.0.2'
     androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.2'
