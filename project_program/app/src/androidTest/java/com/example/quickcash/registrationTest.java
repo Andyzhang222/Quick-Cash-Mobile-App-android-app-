@@ -61,7 +61,7 @@ public class registrationTest {
 
 
     @Test
-    public void checkIfLandingPageIsVisible() {
+    public void checkIfRegistrationPageIsVisible() {
         onView(withId(R.id.registerText1)).check(matches(withText("REGISTER PAGE")));
         onView(withId(R.id.emailTextBox)).check(matches(withText("")));
         onView(withId(R.id.CardTextBox)).check(matches(withText("")));
