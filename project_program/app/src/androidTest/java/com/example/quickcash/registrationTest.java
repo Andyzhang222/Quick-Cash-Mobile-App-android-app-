@@ -22,7 +22,8 @@ import static androidx.test.espresso.intent.Intents.intended;
 import static androidx.test.espresso.intent.matcher.IntentMatchers.hasComponent;
 import static androidx.test.espresso.matcher.ViewMatchers.withId;
 import static androidx.test.espresso.matcher.ViewMatchers.withText;
-import static org.junit.Assert.assertEquals;
+
+
 
 import static org.junit.Assert.*;
 
@@ -32,11 +33,44 @@ import static org.junit.Assert.*;
  * @see <a href="http://d.android.com/tools/testing">Testing documentation</a>
  */
 @RunWith(AndroidJUnit4.class)
-public class EspresspTest {
+public class registrationTest {
+
+    @Rule
+    public ActivityScenarioRule<RegisterPage> myRule = new ActivityScenarioRule<>(RegisterPage.class);
+    public IntentsTestRule<RegisterPage> myIntentRule = new IntentsTestRule<>(RegisterPage.class);
+
+
+    @BeforeClass
+    public static void setup() {
+        Intents.init();
+    }
+
+    @AfterClass
+    public static void tearDown() {
+        System.gc();
+    }
+
+
     @Test
     public void useAppContext() {
         // Context of the app under test.
         Context appContext = InstrumentationRegistry.getInstrumentation().getTargetContext();
         assertEquals("com.example.quickcash", appContext.getPackageName());
+
     }
+
+
+    @Test
+    public void checkIfLandingPageIsVisible() {
+        onView(withId(R.id.registerText1)).check(matches(withText("REGISTER PAGE")));
+        onView(withId(R.id.emailTextBox)).check(matches(withText("")));
+        onView(withId(R.id.CardTextBox)).check(matches(withText("")));
+        onView(withId(R.id.passwordTextBox)).check(matches(withText("")));
+        onView(withId(R.id.passwordRepeatTextBox)).check(matches(withText("")));
+    }
+
+
+
+
+
 }

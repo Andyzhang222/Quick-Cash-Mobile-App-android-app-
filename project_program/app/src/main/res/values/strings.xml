@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">QuIckCash</string>
+    <string name="EMPTY_STRING" />
 </resources>
