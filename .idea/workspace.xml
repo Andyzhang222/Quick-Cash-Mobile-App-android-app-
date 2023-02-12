@@ -5,13 +5,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="e494fe94-15a9-49fe-b0ee-381db43e2537" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/project_program/app/src/main/java/com/example/quickcash/ValidateRegisterPwd.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/project_program/app/src/test/java/com/example/quickcash/ValidateEmailTest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/project_program/app/src/test/java/com/example/quickcash/ValidateRegisterPwdTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/project_program/app/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/project_program/app/build.gradle" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/project_program/app/src/main/java/com/example/quickcash/ValidateEmail.java" beforeDir="false" afterPath="$PROJECT_DIR$/project_program/app/src/main/java/com/example/quickcash/ValidateEmail.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/project_program/app/src/test/java/com/example/quickcash/ValidateRegisterEmail.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/project_program/app/src/main/java/com/example/quickcash/ValidateEmail.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/project_program/app/src/main/java/com/example/quickcash/ValidateRegisterPwd.java" beforeDir="false" afterPath="$PROJECT_DIR$/project_program/app/src/main/java/com/example/quickcash/ValidateRegisterPwd.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/project_program/app/src/test/java/com/example/quickcash/ValidateEmailTest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/project_program/app/src/test/java/com/example/quickcash/ValidateRegisterPwdTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/project_program/app/src/test/java/com/example/quickcash/ValidateRegisterPwdTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
