@@ -40,4 +40,17 @@ public class LoginPageTest{
 
     }
 
+    @Test
+    public void checkPasswordSpecialCharTest(){
+        Validator v1 = new Validator("password","zh448118@dal.ca"); // No Special Charater
+        Validator v2 = new Validator("Java2blog@","zh448118@dal.ca"); // one Special Character
+        Validator v3 = new Validator("Password#","zh448118@dal.ca"); // one special character # which is not allowed as special character
+
+        assertTrue(v1.checkPasswordSpecialChar());
+        assertTrue(v2.checkPasswordSpecialChar());
+        assertFalse(v3.checkPasswordSpecialChar());
+    }
+
+
+
 }
