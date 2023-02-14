@@ -52,5 +52,10 @@ public class LoginPageTest{
     }
 
 
+    @Test
+    public void checkIfEmailIsValid() {
+        Validator v1 = new Validator("password","zh448118@dal.ca");
 
+        assertTrue(v1.isValidEmailAddress("zh447118@dal.ca"));
+    }
 }
