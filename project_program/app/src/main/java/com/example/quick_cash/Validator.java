@@ -5,9 +5,19 @@ import java.util.regex.Pattern;
 
 public class Validator {
     private String passWord;
+    private String email;
 
-    public Validator(String passWord) {
+    public Validator(String passWord,String email) {
         this.passWord = passWord;
+        this.email = email;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
     }
 
     public void setPassWord(String passWord) {
@@ -52,6 +62,18 @@ public class Validator {
         Matcher matcher = pattern.matcher(passWord);
         return matcher.matches();
 
+    }
+
+    protected boolean isValidEmailAddress(String emailAddress) {
+        //buggy method, fix it.
+        Boolean result = true;
+        Pattern pat = Pattern.compile("^^(.+)@(.+)$",Pattern.CASE_INSENSITIVE);
+        Matcher matcher = pat.matcher(emailAddress);
+
+        if (!matcher.matches()){
+            result = false;
+        }
+        return result;
     }
 
 }

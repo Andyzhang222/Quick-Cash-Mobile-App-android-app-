@@ -4,7 +4,10 @@
     <option name="autoReloadType" value="NONE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e31d8cf5-7dca-496a-9e82-e3c5691d36b6" name="Changes" comment="" />
+    <list default="true" id="e31d8cf5-7dca-496a-9e82-e3c5691d36b6" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/project_program/app/src/main/java/com/example/quick_cash/Validator.java" beforeDir="false" afterPath="$PROJECT_DIR$/project_program/app/src/main/java/com/example/quick_cash/Validator.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/project_program/app/src/test/java/com/example/quick_cash/LoginPageTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/project_program/app/src/test/java/com/example/quick_cash/LoginPageTest.java" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -21,15 +24,15 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "RunOnceActivity.cidr.known.project.marker": "true",
-    "cidr.known.project.marker": "true",
-    "last_opened_file_path": "/Users/zihao/3130repository/csci-3130-group-11/3130-project-quick-cash/3130-project-quick-cash"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.cidr.known.project.marker&quot;: &quot;true&quot;,
+    &quot;cidr.known.project.marker&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/Users/zihao/3130repository/csci-3130-group-11/3130-project-quick-cash/3130-project-quick-cash&quot;
   }
-}]]></component>
+}</component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
