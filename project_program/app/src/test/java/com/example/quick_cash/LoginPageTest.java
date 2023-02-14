@@ -26,5 +26,18 @@ public class LoginPageTest{
         assertTrue(v3.checkPasswordLength());
     }
 
+    @Test
+    public void checkPasswordCaseTest(){
+        Validator v1 = new Validator("a123456","zh448118@dal.ca"); // all lower cases
+        Validator v2 = new Validator("A123456","zh448118@dal.ca"); // all upper cases
+        Validator v3 = new Validator("Aa123456","zh448118@dal.ca"); // At lease one upper and one lower case
+        Validator v4 = new Validator("","zh448118@dal.ca"); // Blank String
+
+        assertFalse(v1.checkPasswordCase());
+        assertFalse(v2.checkPasswordCase());
+        assertTrue(v3.checkPasswordCase());
+        assertFalse(v4.checkPasswordCase());
+
+    }
 
 }
