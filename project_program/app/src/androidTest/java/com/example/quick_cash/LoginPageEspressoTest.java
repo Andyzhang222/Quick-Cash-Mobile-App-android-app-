@@ -1,10 +1,7 @@
 package com.example.quick_cash;
 
-import static org.junit.Assert.*;
-
 import static androidx.test.espresso.Espresso.onView;
 import static androidx.test.espresso.action.ViewActions.click;
-import static androidx.test.espresso.action.ViewActions.typeText;
 import static androidx.test.espresso.assertion.ViewAssertions.matches;
 import static androidx.test.espresso.matcher.ViewMatchers.withId;
 import static androidx.test.espresso.matcher.ViewMatchers.withText;
@@ -17,10 +14,9 @@ import org.junit.Before;
 import org.junit.Rule;
 import org.junit.Test;
 import org.junit.runner.RunWith;
-import org.junit.runners.JUnit4;
 
 @RunWith(AndroidJUnit4.class)
-public class LoginPageTest {
+public class LoginPageEspressoTest {
     @Rule
     public ActivityScenarioRule<LoginPage> myRule = new ActivityScenarioRule<>(LoginPage.class);
 
@@ -28,6 +24,13 @@ public class LoginPageTest {
     public void setUp() throws Exception {
 
     }
+
+    @Test
+    public void checkIfLandingPageIsVisible() {
+        onView(withId(R.id.EmailTextBox)).check(matches(withText("")));
+        onView(withId(R.id.PasswordTextBox)).check(matches(withText("")));
+    }
+
 
 
     @After

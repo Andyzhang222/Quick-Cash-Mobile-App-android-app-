@@ -10,41 +10,61 @@
         android:id="@+id/PasswordTextBox"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="85dp"
+        android:layout_marginBottom="64dp"
         android:ems="10"
         android:inputType="textPassword"
-        tools:layout_editor_absoluteX="85dp"
-        tools:layout_editor_absoluteY="343dp" />
+        app:layout_constraintBottom_toTopOf="@+id/LoginButton"
+        app:layout_constraintStart_toStartOf="parent" />
 
     <EditText
         android:id="@+id/EmailTextBox"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginBottom="76dp"
         android:ems="10"
         android:inputType="textEmailAddress"
-        tools:layout_editor_absoluteX="85dp"
-        tools:layout_editor_absoluteY="222dp" />
+        app:layout_constraintBottom_toTopOf="@+id/PasswordTextBox"
+        app:layout_constraintEnd_toEndOf="@+id/PasswordTextBox"
+        app:layout_constraintStart_toStartOf="@+id/PasswordTextBox" />
 
     <TextView
         android:id="@+id/LoginPage"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="113dp"
+        android:layout_marginTop="116dp"
         android:text="Quick Cash  Login Page"
-        tools:layout_editor_absoluteX="113dp"
-        tools:layout_editor_absoluteY="116dp" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/RegisterLink"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginBottom="174dp"
         android:text="Click to Register Page"
-        tools:layout_editor_absoluteX="136dp"
-        tools:layout_editor_absoluteY="538dp" />
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
 
     <Button
         android:id="@+id/LoginButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="14dp"
+        android:layout_marginBottom="38dp"
         android:text="Login"
-        tools:layout_editor_absoluteX="150dp"
-        tools:layout_editor_absoluteY="452dp" />
+        app:layout_constraintBottom_toTopOf="@+id/RegisterLink"
+        app:layout_constraintStart_toStartOf="@+id/RegisterLink" />
+
+    <TextView
+        android:id="@+id/statusLable"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        app:layout_constraintEnd_toStartOf="@+id/PasswordTextBox"
+        app:layout_constraintStart_toStartOf="@+id/PasswordTextBox"
+        app:layout_constraintTop_toBottomOf="@+id/PasswordTextBox" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

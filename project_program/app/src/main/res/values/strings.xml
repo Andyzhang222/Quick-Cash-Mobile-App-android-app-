@@ -1,3 +1,7 @@
 <resources>
     <string name="app_name">Quick-Cash</string>
+    <string name="EMPTY_EMAIL">Empty email address</string>
+    <string name="INVALID_EMAIL_ADDRESS">Invalid email address</string>
+    <string name="INVALID_PASSWORD">Invalid password</string>
+    <string name="EMPTY_STRING">""</string>
 </resources>
