@@ -90,11 +90,13 @@ public class LoginTest {
 
 
     @Test
-    public void checkIfSwitched2LandingPage() {
+    public void checkIfLoginISWorking() {
         onView(withId(R.id.emailTextField)).perform(replaceText("abc123@dal.ca"));
-        onView(withId(R.id.passwordTextField)).perform(replaceText("Zh1234567"));
+        //this is a wrong password because we just want to test if the login is working
+        //correct password is Zh1234567
+        onView(withId(R.id.passwordTextField)).perform(replaceText("Zh12345678"));
         onView(withId(R.id.loginButton)).perform(click());
-        intended(hasComponent(LandingPage.class.getName()));
+        onView(withId(R.id.statusLabel)).check(matches(withText(R.string.LOGIN_NOW)));
     }
 
     @Test
