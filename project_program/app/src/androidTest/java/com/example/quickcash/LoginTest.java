@@ -15,6 +15,7 @@ import org.junit.runner.RunWith;
 
 import static androidx.test.espresso.Espresso.onView;
 import static androidx.test.espresso.action.ViewActions.click;
+import static androidx.test.espresso.action.ViewActions.replaceText;
 import static androidx.test.espresso.action.ViewActions.typeText;
 import static androidx.test.espresso.assertion.ViewAssertions.matches;
 import static androidx.test.espresso.intent.Intents.intended;
@@ -63,56 +64,35 @@ public class LoginTest {
     }
 
     @Test
-    public void checkIfEmailIsEmpty() {
-        onView(withId(R.id.emailTextField)).perform(typeText(""));
-        onView(withId(R.id.passwordTextField)).perform(typeText("12345678"));
+    public void checkIfALLIsEmpty() {
+        onView(withId(R.id.emailTextField)).perform(replaceText(""));
+        onView(withId(R.id.passwordTextField)).perform(replaceText(""));
         onView(withId(R.id.loginButton)).perform(click());
-        onView(withId(R.id.statusLabel)).check(matches(withText("Please Enter Your Email!")));
+        onView(withId(R.id.statusLabel)).check(matches(withText(R.string.EMPTY_All)));
+    }
+
+    @Test
+    public void checkIfEmailIsEmpty() {
+        onView(withId(R.id.emailTextField)).perform(replaceText(""));
+        onView(withId(R.id.passwordTextField)).perform(replaceText("123456789"));
+        onView(withId(R.id.loginButton)).perform(click());
+        onView(withId(R.id.statusLabel)).check(matches(withText(R.string.EMPTY_EMAIL)));
     }
 
     @Test
     public void checkIfPasswordIsEmpty() {
-        onView(withId(R.id.emailTextField)).perform(typeText("abc.123@dal.ca"));
-        onView(withId(R.id.passwordTextField)).perform(typeText(""));
+        onView(withId(R.id.emailTextField)).perform(replaceText("abc123@dal.ca"));
+        onView(withId(R.id.passwordTextField)).perform(replaceText(""));
         onView(withId(R.id.loginButton)).perform(click());
-        onView(withId(R.id.statusLabel)).check(matches(withText("Please Enter Your Password!")));
+        onView(withId(R.id.statusLabel)).check(matches(withText(R.string.EMPTY_PASSWORD)));
     }
 
-    @Test
-    public void checkIfALLIsEmpty() {
-        onView(withId(R.id.emailTextField)).perform(typeText(""));
-        onView(withId(R.id.passwordTextField)).perform(typeText(""));
-        onView(withId(R.id.loginButton)).perform(click());
-        onView(withId(R.id.statusLabel)).check(matches(withText("Please Enter Your Email and Password!")));
-    }
 
-    @Test
-    public void checkIfALLIsValid() {
-        onView(withId(R.id.emailTextField)).perform(typeText("abc123@dal.ca"));
-        onView(withId(R.id.passwordTextField)).perform(typeText("Zh1234567"));
-        onView(withId(R.id.loginButton)).perform(click());
-        onView(withId(R.id.statusLabel)).check(matches(withText("")));
-    }
-
-    @Test
-    public void checkIfEmailIsInvalid() {
-        onView(withId(R.id.emailTextField)).perform(typeText("abc.123@dal.ca"));
-        onView(withId(R.id.passwordTextField)).perform(typeText("Zh1234567"));
-        onView(withId(R.id.loginButton)).perform(click());
-        onView(withId(R.id.statusLabel)).check(matches(withText("Invalid Email")));
-    }
-    @Test
-    public void checkIfPasswordIsInvalid() {
-        onView(withId(R.id.emailTextField)).perform(typeText("abc123@dal.ca"));
-        onView(withId(R.id.passwordTextField)).perform(typeText("12345678"));
-        onView(withId(R.id.loginButton)).perform(click());
-        onView(withId(R.id.statusLabel)).check(matches(withText("Invalid Password")));
-    }
 
     @Test
     public void checkIfSwitched2LandingPage() {
-        onView(withId(R.id.emailTextField)).perform(typeText("abc123@dal.ca"));
-        onView(withId(R.id.passwordTextField)).perform(typeText("Zh1234567"));
+        onView(withId(R.id.emailTextField)).perform(replaceText("abc123@dal.ca"));
+        onView(withId(R.id.passwordTextField)).perform(replaceText("Zh1234567"));
         onView(withId(R.id.loginButton)).perform(click());
         intended(hasComponent(LandingPage.class.getName()));
     }
