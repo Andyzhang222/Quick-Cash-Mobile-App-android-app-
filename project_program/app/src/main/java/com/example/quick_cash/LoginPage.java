@@ -71,8 +71,7 @@ public class LoginPage extends AppCompatActivity implements View.OnClickListener
     public void onClick(View view) {
         String emailAddress = getEmailAddress();
         String passWord = getPw();
-        String errorMessage = new String();
-        Toast.makeText(getApplicationContext(),"emailAddress: "+emailAddress,Toast.LENGTH_LONG).show();
+        String errorMessage = "";
 
         if (isEmptyEmail(emailAddress)) {
             errorMessage = getResources().getString(R.string.EMPTY_EMAIL).trim();
