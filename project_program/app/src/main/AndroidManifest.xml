@@ -18,6 +18,9 @@
             android:name=".EmployeePage"
             android:exported="false" />
         <activity
+            android:name=".EmployerPage"
+            android:exported="false" />
+        <activity
             android:name=".RegisterPage"
             android:exported="false" />
         <activity

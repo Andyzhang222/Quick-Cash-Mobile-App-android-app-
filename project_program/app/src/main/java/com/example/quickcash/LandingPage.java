@@ -28,5 +28,13 @@ public class LandingPage extends AppCompatActivity {
             }
         });
 
+        employerBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent switchIntent = new Intent(LandingPage.this, EmployerPage.class);
+                startActivity(switchIntent);
+            }
+        });
+
     }
 }
