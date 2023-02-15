@@ -23,8 +23,13 @@ public class ValidateRegisterPwd {
 public class ValidateEmail {
 
     // Validate using regex
-    public boolean validateEmail(String email){
-        return true;
+    public static boolean validateEmail(String email)
+    {
+        //String emailRegex format= "[a-zA-Z0-9._-]+@[a-z]+\\.+[a-z]+";
+        String emailRegex = "^([a-zA-Z0-9]*[-_]?[.]?[a-zA-Z0-9]+)*@([a-zA-Z0-9]*[-_]?[a-zA-Z0-9]+)+[\\.][A-Za-z]{2,3}([\\.][A-Za-z]{2})?$";
+        return email.matches(emailRegex);
     }
+
+
 
 }
