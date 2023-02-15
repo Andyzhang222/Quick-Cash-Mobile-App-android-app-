@@ -3,6 +3,7 @@ package com.example.quick_cash;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -31,14 +32,7 @@ public class LoginPage extends AppCompatActivity implements View.OnClickListener
         return pwTextBox.getText().toString().trim();
     }
 
-    protected String getEmailAddress() {
-        EditText emailTextBox = findViewById(R.id.EmailTextBox);
-        return emailTextBox.getText().toString().trim();
-    }
 
-    protected boolean isEmptyEmail(String email) {
-        return email.isEmpty();
-    }
 
     protected boolean isValidEmailAddress(String emailAddress) {
         Pattern pattern = Pattern.compile("^^(.+)@(.+)$",Pattern.CASE_INSENSITIVE);
@@ -63,15 +57,31 @@ public class LoginPage extends AppCompatActivity implements View.OnClickListener
     }
 
     protected void setStatusMessage(String message) {
-        TextView statusLabel = findViewById(R.id.statusLable);
-        statusLabel.setText(message.trim());
+
+        TextView statusLabel = findViewById(R.id.statusLabel);
+        statusLabel.setText(R.string.EMPTY_EMAIL);
+        Log.e("email", "statuslabel");
+    }
+
+    protected String getEmailAddress() {
+        EditText emailTextBox = findViewById(R.id.EmailTextBox);
+        return emailTextBox.getText().toString().trim();
+    }
+
+    protected boolean isEmptyEmail(String email) {
+
+        return email.isEmpty();
     }
 
     @Override
     public void onClick(View view) {
+//        Toast.makeText(getApplicationContext(),"perform onClick------------------------",Toast.LENGTH_LONG).show();
+
         String emailAddress = getEmailAddress();
         String passWord = getPw();
-        String errorMessage = "";
+        String errorMessage = new String();
+
+//        Toast.makeText(getApplicationContext(),"emailAddress-----("+emailAddress+")------",Toast.LENGTH_LONG).show();
 
         if (isEmptyEmail(emailAddress)) {
             errorMessage = getResources().getString(R.string.EMPTY_EMAIL).trim();
