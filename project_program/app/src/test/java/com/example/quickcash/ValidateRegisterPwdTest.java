@@ -148,19 +148,19 @@ public class ValidateRegisterPwdTest extends TestCase {
         }
 
 
-        private ValidateEmail email = new ValidateEmail();
+        //private ValidateEmail email = new ValidateEmail();
 
-        static RegisterPage registerPage;
+        //static RegisterPage registerPage;
 
-        @BeforeClass
-        public static void setup() {
-            registerPage = new RegisterPage();
-        }
+      //  @BeforeClass
+      ///  public static void setup() {
+      //      registerPage = new RegisterPage();
+      //  }
 
-        @AfterClass
-        public  void tearDown() {
-            System.gc();
-        }
+      //  @AfterClass
+       // public  void tearDown() {
+         //   System.gc();
+     //   }
 
         // Email format : letters,numbers,symbols+@+letters+"."+letters
 
@@ -168,9 +168,9 @@ public class ValidateRegisterPwdTest extends TestCase {
 
         @Test
         public void checkEmailHasAtSymbolTest() {
-            ValidateEmail v1 = new ValidateEmail();
-            ValidateEmail v2 = new ValidateEmail();
-            ValidateEmail v3 = new ValidateEmail();
+            ValidateRegisterPwd v1 = new ValidateRegisterPwd();
+            ValidateRegisterPwd v2 = new ValidateRegisterPwd();
+            ValidateRegisterPwd v3 = new ValidateRegisterPwd();
             assertFalse(v1.validateEmail("Abcd2023.fdsa.sss"));// upper case & lower case+ . +letters+ . +letters
             assertFalse(v2.validateEmail("abjshd.com"));// without @ symbol
             assertFalse(v3.validateEmail("abjshd@@dal.com"));// extra at symbol
@@ -180,9 +180,9 @@ public class ValidateRegisterPwdTest extends TestCase {
 
         @Test
         public void checkEmailHasDotSymbolTest() {
-            ValidateEmail v1 = new ValidateEmail();
-            ValidateEmail v2 = new ValidateEmail();
-            ValidateEmail v3 = new ValidateEmail();
+            ValidateRegisterPwd v1 = new ValidateRegisterPwd();
+            ValidateRegisterPwd v2 = new ValidateRegisterPwd();
+            ValidateRegisterPwd v3 = new ValidateRegisterPwd();
 
             assertTrue(v1.validateEmail("asdf@com"));// without the dot symbol
             assertTrue(v2.validateEmail("asdf@dal.ca"));// right format
@@ -192,8 +192,8 @@ public class ValidateRegisterPwdTest extends TestCase {
 
         @Test
         public void checkEmailSequenceTest() {
-            ValidateEmail v1 = new ValidateEmail();
-            ValidateEmail v2 = new ValidateEmail();
+            ValidateRegisterPwd v1 = new ValidateRegisterPwd();
+            ValidateRegisterPwd v2 = new ValidateRegisterPwd();
 
             assertTrue(v1.validateEmail("asdf.dal@com"));// dot symbol is in front of at symbol
             assertTrue(v2.validateEmail("asdf@dal.ca"));// right format

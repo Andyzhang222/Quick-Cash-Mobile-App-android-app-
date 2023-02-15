@@ -10,7 +10,7 @@ public class ValidateRegisterPwd {
     }
 
     public boolean validateCreditCard (String credit) {return true;}
-}
+
 
 
 /*
@@ -20,7 +20,6 @@ public class ValidateRegisterPwd {
 
 //import androidx.appcompat.app.AppCompatActivity;
 // import android.os.Bundle;
-public class ValidateEmail {
 
     // Validate using regex
     public boolean validateEmail(String email){
