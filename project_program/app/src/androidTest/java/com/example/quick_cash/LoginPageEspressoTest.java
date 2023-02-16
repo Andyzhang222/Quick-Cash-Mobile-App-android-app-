@@ -52,6 +52,13 @@ public class LoginPageEspressoTest {
         onView(withId(R.id.LoginButton)).perform(click());
         onView(withId(R.id.statusLabel)).check(matches(withText(R.string.EMPTY_STRING)));
     }
+    @Test
+    public void checkIfEmailIsInValid() {
+        onView(withId(R.id.EmailTextBox)).perform(typeText("abc.123gmail.ca"));
+        Espresso.closeSoftKeyboard();
+        onView(withId(R.id.LoginButton)).perform(click());
+        onView(withId(R.id.statusLabel)).check(matches(withText(R.string.INVALID_EMAIL_ADDRESS)));
+    }
 
 
 
