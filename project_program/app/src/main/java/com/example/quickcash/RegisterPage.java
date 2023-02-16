@@ -10,11 +10,9 @@ import android.widget.TextView;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.util.PatternsCompat;
 
-import com.google.android.gms.tasks.Task;
-import com.google.firebase.database.DatabaseReference;
-import com.google.firebase.database.FirebaseDatabase;
+public class RegisterPage extends AppCompatActivity implements View.OnClickListener{
 
-public class RegisterPage extends AppCompatActivity {
+    ValidateRegisterPwd validate = new ValidateRegisterPwd();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -22,7 +20,7 @@ public class RegisterPage extends AppCompatActivity {
         setContentView(R.layout.activity_register_page);
 
         Button registerButton = findViewById(R.id.RegisterButton);
-        registerButton.setOnClickListener(this::onClick);
+        registerButton.setOnClickListener(this);
     }
 
     protected void setStatusMessage(String message) {
@@ -31,47 +29,105 @@ public class RegisterPage extends AppCompatActivity {
     }
 
     protected String getEmail() {
-        return "";
+        EditText email = findViewById(R.id.emailTextBox);
+        return email.getText().toString().trim();
     }
 
     protected String getCreditCard() {
-        return "";
+        EditText cc = findViewById(R.id.CardTextBox);
+        return cc.getText().toString().trim();
     }
 
     protected String getPwd() {
-        return "";
+        EditText password = findViewById(R.id.passwordTextBox);
+        return password.getText().toString().trim();
     }
 
+    protected String getRepeatPwd() {
+        EditText password = findViewById(R.id.passwordRepeatTextBox);
+        return password.getText().toString().trim();
+    }
 
     protected boolean validatePwdLength(String pwd) {
-        return true;
+        if (validate.validatePwdLength(pwd)) {
+            return true;
+        }
+        return false;
     }
 
     protected boolean validatePwdFormat(String pwd) {
-        return true;
+        if (validate.validatePwdFormat(pwd)) {
+            return true;
+        }
+        return false;
     }
 
     protected boolean validatePwdEmptyNull(String pwd) {
-        return true;
+        return !pwd.isEmpty();
     }
 
-    protected boolean validateRepeatPwd (String pwd) {return true;}
+    protected boolean validateRepeatPwd (String pwd, String repeatPwd) {
+        if (pwd.equals(repeatPwd)) {
+            return true;
+        }
+        return false;
+    }
 
     protected boolean isValidEmail(String email) {
-        return true;
+        if (validate.validateEmail(email)) {
+            return true;
+        }
+        return false;
     }
 
 
     protected boolean validCCLength(String cc) {
-        return true;
+        if (validate.validateCCLength(cc)) {
+            return true;
+        }
+        return false;
     }
 
     protected boolean validCCFormat(String cc) {
-        return true;
+        if (validate.validateCCFormat(cc)) {
+            return true;
+        }
+        return false;
     }
 
 
+    @Override
     public void onClick (View view) {
+        String email = getEmail();
+        String password = getPwd();
+        String creditCard = getCreditCard();
+        String repeatPwd = getRepeatPwd();
+        String emailErrorMessage = new String();
+        String pwdErrorMessage = new String();
+        String ccErrorMessage = new String();
+
+        if (!isValidEmail(email)) {
+            emailErrorMessage = getResources().getString(R.string.WRONG_EMAIL).trim();
+            setStatusMessage(emailErrorMessage);
+        } else if (!validCCLength(creditCard)) {
+            ccErrorMessage = getResources().getString(R.string.WRONG_CREDIT_CARD_LENGTH).trim();
+            setStatusMessage(ccErrorMessage);
+        } else if (!validCCFormat(creditCard)) {
+            ccErrorMessage = getResources().getString(R.string.WRONG_CREDIT_CARD_FORMAT).trim();
+            setStatusMessage(ccErrorMessage);
+        } else if (!validatePwdEmptyNull(password)) {
+            pwdErrorMessage = getResources().getString(R.string.EMPTY_PASSWORD).trim();
+            setStatusMessage(pwdErrorMessage);
+        } else if (!validatePwdLength(password)) {
+            pwdErrorMessage = getResources().getString(R.string.WRONG_LENGTH_PASSWORD).trim();
+            setStatusMessage(pwdErrorMessage);
+        } else if (!validatePwdFormat(password)) {
+            pwdErrorMessage = getResources().getString(R.string.WRONG_FORMAT_PASSWORD).trim();
+            setStatusMessage(pwdErrorMessage);
+        } else if (!validateRepeatPwd(password,repeatPwd)) {
+            pwdErrorMessage = getResources().getString(R.string.PASSWORD_DOES_NOT_MATCH).trim();
+            setStatusMessage(pwdErrorMessage);
+        }
 
     }
 
