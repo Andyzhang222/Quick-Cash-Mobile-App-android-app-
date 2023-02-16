@@ -123,45 +123,9 @@ public class ValidateRegisterPwdTest extends TestCase {
         assertFalse(pwd.validatePwdNullEmpty(blankPwd));
     }
 
-    /**
-     * Test the blank or null credit card
-     */
-    public void creditIsBlankOrNull () {
-        String credit = "";
-        String creditNull = null;
-        assertFalse(pwd.validateCCFormat(credit));
-        assertFalse(pwd.validateCCFormat(creditNull));
-    }
 
-    /**
-     * Test the length of credit card that not equal to 16
-     */
-    @Test
-    public void testCreditCarWrongLength () {
-        String credit = "123456";
-        String longCredit = "0000000000000000000";
 
-        assertFalse(pwd.validateCCLength(credit));
-        assertFalse(pwd.validateCCLength(longCredit));
-    }
 
-    /**
-     * Test the correct length and format credit card
-     */
-    @Test
-    public void testCorrectCreditCard () {
-        String credit = "1111111111111111";
-        assertTrue(pwd.validateCC(credit));
-    }
-
-    /**
-     * Test with wrong format credit card
-     */
-    @Test
-    public void testCreditCardWrongFormat (){
-        String credit = "Adsdd";
-        assertFalse(pwd.validateCCFormat(credit));
-    }
 
 
 

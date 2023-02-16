@@ -92,44 +92,6 @@ public class RegisterPageValidationTest {
     }
 
 
-    @Test
-    public void checkValidCC() {
-        Espresso.onView(withId(R.id.emailTextBox)).perform(typeText("abcdef@dal.ca"));
-        Espresso.onView(withId(R.id.CardTextBox)).perform(typeText("1234567891234567"));
-        Espresso.closeSoftKeyboard();
-        Espresso.onView(withId(R.id.passwordTextBox)).perform(typeText("Wang_Ziyue12"));
-        Espresso.closeSoftKeyboard();
-        Espresso.onView(withId(R.id.passwordRepeatTextBox)).perform(typeText("Wang_Ziyue12"));
-        Espresso.closeSoftKeyboard();
-        Espresso.onView(withId(R.id.RegisterButton)).perform(click());
-        Espresso.onView(withId(R.id.statusLabel)).check(matches(withText("")));
-    }
-
-    @Test
-    public void checkWrongLengthCC() {
-        Espresso.onView(withId(R.id.emailTextBox)).perform(typeText("abcdef@dal.ca"));
-        Espresso.onView(withId(R.id.CardTextBox)).perform(typeText("0000000000000000000"));
-        Espresso.closeSoftKeyboard();
-        Espresso.onView(withId(R.id.passwordTextBox)).perform(typeText("Wang_Ziyue12"));
-        Espresso.closeSoftKeyboard();
-        Espresso.onView(withId(R.id.passwordRepeatTextBox)).perform(typeText("Wang_Ziyue12"));
-        Espresso.closeSoftKeyboard();
-        Espresso.onView(withId(R.id.RegisterButton)).perform(click());
-        Espresso.onView(withId(R.id.statusLabel)).check(matches(withText(R.string.WRONG_CREDIT_CARD_LENGTH)));
-    }
-
-    @Test
-    public void checkWrongFormatCC() {
-        Espresso.onView(withId(R.id.emailTextBox)).perform(typeText("abcdef@dal.ca"));
-        Espresso.onView(withId(R.id.CardTextBox)).perform(typeText("123456789123456a"));
-        Espresso.closeSoftKeyboard();
-        Espresso.onView(withId(R.id.passwordTextBox)).perform(typeText("Wang_Ziyue12"));
-        Espresso.closeSoftKeyboard();
-        Espresso.onView(withId(R.id.passwordRepeatTextBox)).perform(typeText("Wang_Ziyue12"));
-        Espresso.closeSoftKeyboard();
-        Espresso.onView(withId(R.id.RegisterButton)).perform(click());
-        Espresso.onView(withId(R.id.statusLabel)).check(matches(withText(R.string.WRONG_CREDIT_CARD_FORMAT)));
-    }
 
     @Test
     public void checkValidPwd() {

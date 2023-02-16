@@ -59,31 +59,6 @@ public class ValidateRegisterPwd {
 
 
 
-    /**
-     * The method that check if the credit card is validated or not
-     * @param credit the credit number
-     * @return true if the foramat are all numbers, and the length equal to 16
-     *          false if the format and length is wrong
-     */
-    public boolean validateCCFormat (String credit) {
-        if (credit == null || credit == "") return false;
-        if (!credit.matches("[0-9]{16}")) {
-            return false;
-        }
-        return true;
-    }
-
-    public boolean validateCCLength (String credit) {
-        if (credit.length() != 16) {
-            return false;
-        }
-        return true;
-    }
-
-    public boolean validateCC (String cc) {
-        if (validateCCFormat(cc) && validateCCLength(cc)) return true;
-        return false;
-    }
 
 
 

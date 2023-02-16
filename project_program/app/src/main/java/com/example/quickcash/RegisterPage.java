@@ -87,19 +87,6 @@ public class RegisterPage extends AppCompatActivity implements View.OnClickListe
     }
 
 
-    protected boolean validCCLength(String cc) {
-        if (validate.validateCCLength(cc)) {
-            return true;
-        }
-        return false;
-    }
-
-    protected boolean validCCFormat(String cc) {
-        if (validate.validateCCFormat(cc)) {
-            return true;
-        }
-        return false;
-    }
 
 
     @Override
@@ -119,14 +106,6 @@ public class RegisterPage extends AppCompatActivity implements View.OnClickListe
         else if (!isValidEmail(email)) {
             emailErrorMessage = getResources().getString(R.string.WRONG_EMAIL).trim();
             setStatusMessage(emailErrorMessage);
-        }
-        else if (!validCCLength(creditCard)) {
-            ccErrorMessage = getResources().getString(R.string.WRONG_CREDIT_CARD_LENGTH).trim();
-            setStatusMessage(ccErrorMessage);
-        }
-        else if (!validCCFormat(creditCard)) {
-            ccErrorMessage = getResources().getString(R.string.WRONG_CREDIT_CARD_FORMAT).trim();
-            setStatusMessage(ccErrorMessage);
         }
         else if (!validatePwdEmptyNull(password)) {
             pwdErrorMessage = getResources().getString(R.string.EMPTY_PASSWORD).trim();
