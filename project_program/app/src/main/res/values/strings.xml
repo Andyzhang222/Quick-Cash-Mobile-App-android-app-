@@ -1,4 +1,7 @@
 <resources>
     <string name="app_name">QuIckCash</string>
-    <string name="EMPTY_STRING" />
+    <string name="EMPTY_All">Please Enter Your Email and Password!</string>
+    <string name="EMPTY_EMAIL">Please Enter Your Email!</string>
+    <string name="EMPTY_PASSWORD">Please Enter Your Password!</string>
+    <string name="LOGIN_NOW">Logging in now</string>
 </resources>

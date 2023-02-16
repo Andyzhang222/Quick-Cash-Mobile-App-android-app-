@@ -16,5 +16,25 @@ public class LandingPage extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_landing_page);
+
+        Button employeeBtn = findViewById(R.id.employeeButton);
+        Button employerBtn = findViewById(R.id.employerButton);
+
+        employeeBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent switchIntent = new Intent(LandingPage.this,EmployeePage.class);
+                startActivity(switchIntent);
+            }
+        });
+
+        employerBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent switchIntent = new Intent(LandingPage.this, EmployerPage.class);
+                startActivity(switchIntent);
+            }
+        });
+
     }
 }
