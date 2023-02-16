@@ -40,11 +40,20 @@ public class LoginPageEspressoTest {
     @Test
     public void checkIfEmailIsEmpty() {
         onView(withId(R.id.EmailTextBox)).perform(typeText(""));
-        onView(withId(R.id.PasswordTextBox)).perform(typeText("Aa223322111@"));
         Espresso.closeSoftKeyboard();
         onView(withId(R.id.LoginButton)).perform(click());
         onView(withId(R.id.statusLabel)).check(matches(withText(R.string.EMPTY_EMAIL)));
     }
+
+    @Test
+    public void checkIfEmailIsValid() {
+        onView(withId(R.id.EmailTextBox)).perform(typeText("abc.123@gmail.ca"));
+        Espresso.closeSoftKeyboard();
+        onView(withId(R.id.LoginButton)).perform(click());
+        onView(withId(R.id.statusLabel)).check(matches(withText(R.string.EMPTY_STRING)));
+    }
+
+
 
     @After
     public void tearDown() throws Exception {
