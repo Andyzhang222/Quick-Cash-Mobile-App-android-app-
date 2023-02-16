@@ -69,8 +69,17 @@ public class LoginPageEspressoTest {
         onView(withId(R.id.statusLabel)).check(matches(withText(R.string.EMPTY_STRING)));
     }
 
+    @Test
+    public void checkIfPassWordIsInValid(){
+        onView(withId(R.id.EmailTextBox)).perform(typeText("abc.123@gmail.ca"));
+        onView(withId(R.id.PasswordTextBox)).perform(typeText("abc"));
+        Espresso.closeSoftKeyboard();
+        onView(withId(R.id.LoginButton)).perform(click());
+        onView(withId(R.id.statusLabel)).check(matches(withText(R.string.INVALID_PASSWORD)));
+    }
 
-    @After
+
+        @After
     public void tearDown() throws Exception {
         System.gc();
     }
