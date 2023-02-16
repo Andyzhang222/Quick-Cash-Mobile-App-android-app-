@@ -118,87 +118,81 @@ public class ValidateRegisterPwdTest extends TestCase {
         assertFalse(pwd.validatePwd(blankPwd));
     }
 
-    @Test
-    public void testCreditCarWrongLength () {
-        String credit = "989898";
+    /**
+     * Test the blank or null credit card
+     */
+    public void creditIsBlankOrNull () {
+        String credit = "";
+        String creditNull = null;
         assertFalse(pwd.validateCreditCard(credit));
+        assertFalse(pwd.validateCreditCard(creditNull));
     }
 
+    /**
+     * Test the length of credit card that not equal to 16
+     */
+    @Test
+    public void testCreditCarWrongLength () {
+        String credit = String.valueOf(123456);
+        String longCredit = String.valueOf(0000000000000000);
+
+        assertFalse(pwd.validateCreditCard(credit));
+        assertFalse(pwd.validateCreditCard(longCredit));
+    }
+
+    /**
+     * Test the correct length and format credit card
+     */
     @Test
     public void testCorrectCreditCard () {
-        String credit = "1234567891234567";
+        String credit = "1111111111111111";
         assertTrue(pwd.validateCreditCard(credit));
     }
 
+    /**
+     * Test with wrong format credit card
+     */
     @Test
-    public void testCreditCardWrongFormat () {
+    public void testCreditCardWrongFormat (){
         String credit = "Adsdd";
         assertFalse(pwd.validateCreditCard(credit));
     }
 
-    
-    
-    /*
-    email validate test part
-    */
-    public static class ValidateRegisterEmailTest {
-
-        public void addition_isCorrect() {
-            assertEquals(4, 2 + 2);
-        }
 
 
-        //private ValidateEmail email = new ValidateEmail();
-
-        //static RegisterPage registerPage;
-
-      //  @BeforeClass
-      ///  public static void setup() {
-      //      registerPage = new RegisterPage();
-      //  }
-
-      //  @AfterClass
-       // public  void tearDown() {
-         //   System.gc();
-     //   }
-
-        // Email format : letters,numbers,symbols+@+letters+"."+letters
-
-
-
-        @Test
-        public void checkEmailHasAtSymbolTest() {
-            ValidateRegisterPwd v1 = new ValidateRegisterPwd();
-            ValidateRegisterPwd v2 = new ValidateRegisterPwd();
-            ValidateRegisterPwd v3 = new ValidateRegisterPwd();
-            assertFalse(v1.validateEmail("Abcd2023.fdsa.sss"));// upper case & lower case+ . +letters+ . +letters
-            assertFalse(v2.validateEmail("abjshd.com"));// without @ symbol
-            assertFalse(v3.validateEmail("abjshd@@dal.com"));// extra at symbol
-
-        }
-
-
-        @Test
-        public void checkEmailHasDotSymbolTest() {
-            ValidateRegisterPwd v1 = new ValidateRegisterPwd();
-            ValidateRegisterPwd v2 = new ValidateRegisterPwd();
-            ValidateRegisterPwd v3 = new ValidateRegisterPwd();
-
-            assertTrue(v1.validateEmail("asdf@com"));// without the dot symbol
-            assertTrue(v2.validateEmail("asdf@dal.ca"));// right format
-            assertTrue(v3.validateEmail("asdf@dal..ca"));// extra dot symbol
-        }
-
-
-        @Test
-        public void checkEmailSequenceTest() {
-            ValidateRegisterPwd v1 = new ValidateRegisterPwd();
-            ValidateRegisterPwd v2 = new ValidateRegisterPwd();
-
-            assertTrue(v1.validateEmail("asdf.dal@com"));// dot symbol is in front of at symbol
-            assertTrue(v2.validateEmail("asdf@dal.ca"));// right format
-        }
-
+    @Test
+    public void checkEmailHasAtSymbolTest() {
+        ValidateRegisterPwd v1 = new ValidateRegisterPwd();
+        ValidateRegisterPwd v2 = new ValidateRegisterPwd();
+        ValidateRegisterPwd v3 = new ValidateRegisterPwd();
+        assertFalse(v1.validateEmail("Abcd2023.fdsa.sss"));// upper case & lower case+ . +letters+ . +letters
+        assertFalse(v2.validateEmail("abjshd.com"));// without @ symbol
+        assertFalse(v3.validateEmail("abjshd@@dal.com"));// extra at symbol
 
     }
+
+
+    @Test
+    public void checkEmailHasDotSymbolTest() {
+        ValidateRegisterPwd v1 = new ValidateRegisterPwd();
+        ValidateRegisterPwd v2 = new ValidateRegisterPwd();
+        ValidateRegisterPwd v3 = new ValidateRegisterPwd();
+
+        assertTrue(v1.validateEmail("asdf@com"));// without the dot symbol
+        assertTrue(v2.validateEmail("asdf@dal.ca"));// right format
+        assertTrue(v3.validateEmail("asdf@dal..ca"));// extra dot symbol
+    }
+
+
+    @Test
+    public void checkEmailSequenceTest() {
+        ValidateRegisterPwd v1 = new ValidateRegisterPwd();
+        ValidateRegisterPwd v2 = new ValidateRegisterPwd();
+
+        assertTrue(v1.validateEmail("asdf.dal@com"));// dot symbol is in front of at symbol
+        assertTrue(v2.validateEmail("asdf@dal.ca"));// right format
+    }
+
+
+
 }
