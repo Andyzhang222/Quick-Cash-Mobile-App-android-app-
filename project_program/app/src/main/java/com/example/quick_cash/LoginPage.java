@@ -50,7 +50,7 @@ public class LoginPage extends AppCompatActivity implements View.OnClickListener
         Pattern pattern = Pattern.compile(PASSWORD_PATTERN);
         Matcher matcher = pattern.matcher(pw);
 
-        if (!matcher.matches()) {
+        if (matcher.matches()) {
             return true;
         }
         return false;
@@ -80,7 +80,7 @@ public class LoginPage extends AppCompatActivity implements View.OnClickListener
         String passWord = getPw();
         String errorMessage = new String();
 
-        Toast.makeText(getApplicationContext(),"1111-----("+!isValidEmailAddress(emailAddress)+")------",Toast.LENGTH_LONG).show();
+        Toast.makeText(getApplicationContext(),"1111-----("+isValidPassword(passWord)+")------",Toast.LENGTH_LONG).show();
 
         if (isEmptyEmail(emailAddress)) {
             errorMessage = getResources().getString(R.string.EMPTY_EMAIL).trim();
