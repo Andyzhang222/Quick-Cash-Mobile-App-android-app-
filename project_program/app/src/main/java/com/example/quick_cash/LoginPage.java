@@ -79,8 +79,8 @@ public class LoginPage extends AppCompatActivity implements View.OnClickListener
         String emailAddress = getEmailAddress();
         String passWord = getPw();
         String errorMessage = new String();
-
-        Toast.makeText(getApplicationContext(),"1111-----("+isValidPassword(passWord)+")------",Toast.LENGTH_LONG).show();
+//        Toast.makeText(getApplicationContext(),"1111-----("+emailAddress+")------",Toast.LENGTH_SHORT).show();
+//        Toast.makeText(getApplicationContext(),"222-----("+isEmptyEmail(emailAddress)+")------",Toast.LENGTH_SHORT).show();
 
         if (isEmptyEmail(emailAddress)) {
             errorMessage = getResources().getString(R.string.EMPTY_EMAIL).trim();
@@ -93,7 +93,7 @@ public class LoginPage extends AppCompatActivity implements View.OnClickListener
             setStatusMessage(errorMessage);
         }
 
-        Toast.makeText(getApplicationContext(),"emailAddress-----("+errorMessage+")------",Toast.LENGTH_LONG).show();
+//        Toast.makeText(getApplicationContext(),"emailAddress-----("+errorMessage+")------",Toast.LENGTH_LONG).show();
 
 
         //if all input are correct, then jump to another activity
