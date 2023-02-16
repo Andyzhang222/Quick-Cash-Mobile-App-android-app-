@@ -2,6 +2,7 @@ package com.example.quickcash;
 
 import android.content.Context;
 
+import androidx.test.espresso.Espresso;
 import androidx.test.espresso.intent.Intents;
 import androidx.test.espresso.intent.rule.IntentsTestRule;
 import androidx.test.ext.junit.rules.ActivityScenarioRule;
@@ -59,10 +60,9 @@ public class registrationTest {
 
     }
 
-
     @Test
     public void checkIfRegistrationPageIsVisible() {
-        onView(withId(R.id.registerText1)).check(matches(withText("REGISTER PAGE")));
+        onView(withId(R.id.registerText1)).check(matches(withText("REGISTER")));
         onView(withId(R.id.emailTextBox)).check(matches(withText("")));
         onView(withId(R.id.CardTextBox)).check(matches(withText("")));
         onView(withId(R.id.passwordTextBox)).check(matches(withText("")));
@@ -72,9 +72,13 @@ public class registrationTest {
     @Test
     public void checkIfSwitched2LoginPage() {
         onView(withId(R.id.emailTextBox)).perform(typeText("aa111111@dal.ca"));
+        Espresso.closeSoftKeyboard();
         onView(withId(R.id.CardTextBox)).perform(typeText("1111111111111111"));
+        Espresso.closeSoftKeyboard();
         onView(withId(R.id.passwordTextBox)).perform(typeText("Aaa111111@"));
+        Espresso.closeSoftKeyboard();
         onView(withId(R.id.passwordRepeatTextBox)).perform(typeText("Aaa111111@"));
+        Espresso.closeSoftKeyboard();
         onView(withId(R.id.loginLink)).perform(click());
         intended(hasComponent(LoginPage.class.getName()));
     }
