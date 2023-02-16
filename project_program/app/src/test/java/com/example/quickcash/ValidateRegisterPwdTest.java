@@ -38,7 +38,7 @@ public class ValidateRegisterPwdTest extends TestCase {
         String pwdWihoutCapitalLetter = "wang_ziyue12";
         String correctPassword = "Wang_Ziyue12";
         assertTrue(pwd.validatePwd(correctPassword));
-        assertFalse(pwd.validatePwd(pwdWihoutCapitalLetter));
+        assertFalse(pwd.validatePwdFormat(pwdWihoutCapitalLetter));
     }
 
     /**
@@ -49,7 +49,8 @@ public class ValidateRegisterPwdTest extends TestCase {
         String pwdWithoutLowerCase = "WANGZIYUE_12";
         String correctPassword = "Wang_Ziyue12";
         assertTrue(pwd.validatePwd(correctPassword));
-        assertFalse(pwd.validatePwd(pwdWithoutLowerCase));
+        assertTrue(pwd.validatePwdLength(pwdWithoutLowerCase));
+        assertFalse(pwd.validatePwdFormat(pwdWithoutLowerCase));
     }
 
     /**
@@ -60,7 +61,8 @@ public class ValidateRegisterPwdTest extends TestCase {
         String pwdWithoutNumber = "Wang_ziyue";
         String correctPassword = "Wang_Ziyue12";
         assertTrue(pwd.validatePwd(correctPassword));
-        assertFalse(pwd.validatePwd(pwdWithoutNumber));
+        assertTrue(pwd.validatePwdLength(pwdWithoutNumber));
+        assertFalse(pwd.validatePwdFormat(pwdWithoutNumber));
     }
 
     /**
@@ -71,7 +73,8 @@ public class ValidateRegisterPwdTest extends TestCase {
         String pwdWithoutSymbol = "Wangziyue123";
         String correctPassword = "Wang_Ziyue12";
         assertTrue(pwd.validatePwd(correctPassword));
-        assertFalse(pwd.validatePwd(pwdWithoutSymbol));
+        assertTrue(pwd.validatePwdLength(pwdWithoutSymbol));
+        assertFalse(pwd.validatePwdFormat(pwdWithoutSymbol));
     }
 
     /**
@@ -82,7 +85,8 @@ public class ValidateRegisterPwdTest extends TestCase {
         String pwdLessEight = "a_W1";
         String correctPassword = "Wang_Ziyue12";
         assertTrue(pwd.validatePwd(correctPassword));
-        assertFalse(pwd.validatePwd(pwdLessEight));
+        assertTrue(pwd.validatePwdFormat(pwdLessEight));
+        assertFalse(pwd.validatePwdLength(pwdLessEight));
     }
 
     /**
@@ -93,7 +97,8 @@ public class ValidateRegisterPwdTest extends TestCase {
         String pwdMoreThanThirteen = "Wang_ziyue123123123123123";
         String correctPassword = "Wang_Ziyue12";
         assertTrue(pwd.validatePwd(correctPassword));
-        assertFalse(pwd.validatePwd(pwdMoreThanThirteen));
+        assertTrue(pwd.validatePwdFormat(pwdMoreThanThirteen));
+        assertFalse(pwd.validatePwdLength(pwdMoreThanThirteen));
     }
 
     /**
@@ -104,7 +109,7 @@ public class ValidateRegisterPwdTest extends TestCase {
         String nullPwd = null;
         String correctPassword = "Wang_Ziyue12";
         assertTrue(pwd.validatePwd(correctPassword));
-        assertFalse(pwd.validatePwd(nullPwd));
+        assertFalse(pwd.validatePwdNullEmpty(nullPwd));
     }
 
     /**
@@ -115,7 +120,7 @@ public class ValidateRegisterPwdTest extends TestCase {
         String blankPwd = "";
         String correctPassword = "Wang_Ziyue12";
         assertTrue(pwd.validatePwd(correctPassword));
-        assertFalse(pwd.validatePwd(blankPwd));
+        assertFalse(pwd.validatePwdNullEmpty(blankPwd));
     }
 
     /**
@@ -124,8 +129,8 @@ public class ValidateRegisterPwdTest extends TestCase {
     public void creditIsBlankOrNull () {
         String credit = "";
         String creditNull = null;
-        assertFalse(pwd.validateCreditCard(credit));
-        assertFalse(pwd.validateCreditCard(creditNull));
+        assertFalse(pwd.validateCCFormat(credit));
+        assertFalse(pwd.validateCCFormat(creditNull));
     }
 
     /**
@@ -133,11 +138,11 @@ public class ValidateRegisterPwdTest extends TestCase {
      */
     @Test
     public void testCreditCarWrongLength () {
-        String credit = String.valueOf(123456);
-        String longCredit = String.valueOf(0000000000000000);
+        String credit = "123456";
+        String longCredit = "0000000000000000000";
 
-        assertFalse(pwd.validateCreditCard(credit));
-        assertFalse(pwd.validateCreditCard(longCredit));
+        assertFalse(pwd.validateCCLength(credit));
+        assertFalse(pwd.validateCCLength(longCredit));
     }
 
     /**
@@ -146,7 +151,7 @@ public class ValidateRegisterPwdTest extends TestCase {
     @Test
     public void testCorrectCreditCard () {
         String credit = "1111111111111111";
-        assertTrue(pwd.validateCreditCard(credit));
+        assertTrue(pwd.validateCC(credit));
     }
 
     /**
@@ -155,7 +160,7 @@ public class ValidateRegisterPwdTest extends TestCase {
     @Test
     public void testCreditCardWrongFormat (){
         String credit = "Adsdd";
-        assertFalse(pwd.validateCreditCard(credit));
+        assertFalse(pwd.validateCCFormat(credit));
     }
 
 

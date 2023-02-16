@@ -6,12 +6,12 @@ package com.example.quickcash;
 
 public class ValidateRegisterPwd {
     /**
-     * The method that check if the register password is validated or not
+     * These methods that check if the register password is validated or not
      * @param pwd the password that read from register format
      * @return true if the password contain at least one Capital letter, one lower case, one symbol,
      *          and the length is less than 13 more than 8
      */
-    public boolean validatePwd (String pwd) {
+    public boolean validatePwdNullEmpty (String pwd) {
         boolean bool = true;
         if (pwd == null) {
             bool = false;
@@ -19,10 +19,21 @@ public class ValidateRegisterPwd {
         else if (pwd == "") {
             bool = false;
         }
-        else if (pwd.length() < 8 || pwd.length() > 13) {
+        return bool;
+    }
+    public boolean validatePwdLength (String pwd) {
+        boolean bool = true;
+
+        if (pwd.length() < 8 || pwd.length() > 13) {
             bool = false;
         }
-        else if (!pwd.matches(".*[A-Z].*")) {
+
+        return bool;
+    }
+
+    public boolean validatePwdFormat (String pwd) {
+        Boolean bool = true;
+        if (!pwd.matches(".*[A-Z].*")) {
             bool = false;
         }
         else if (!pwd.matches(".*[a-z].*")) {
@@ -34,11 +45,19 @@ public class ValidateRegisterPwd {
         else if (!pwd.matches(".*[-+_!@#$%^&*.,?].*")) {
             bool = false;
         }
-        else if (pwd.matches("^([A-Z]+|[a-z]+|[0-9]+|[-+_!@#$%^&*.,?]+){8,13}$")){
+        return bool;
+    }
+
+    public boolean validatePwd (String pwd) {
+        boolean bool = false;
+        boolean correct = validatePwdLength(pwd) && validatePwdFormat(pwd) && validatePwdNullEmpty(pwd);
+        if (correct && pwd.matches("^([A-Z]+|[a-z]+|[0-9]+|[-+_!@#$%^&*.,?]+){8,13}$")){
             bool = true;
         }
         return bool;
     }
+
+
 
     /**
      * The method that check if the credit card is validated or not
@@ -46,15 +65,24 @@ public class ValidateRegisterPwd {
      * @return true if the foramat are all numbers, and the length equal to 16
      *          false if the format and length is wrong
      */
-    public boolean validateCreditCard (String credit) {
+    public boolean validateCCFormat (String credit) {
         if (credit == null || credit == "") return false;
         if (!credit.matches("[0-9]{16}")) {
             return false;
         }
-        else if (credit.length() != 16) {
+        return true;
+    }
+
+    public boolean validateCCLength (String credit) {
+        if (credit.length() != 16) {
             return false;
         }
         return true;
+    }
+
+    public boolean validateCC (String cc) {
+        if (validateCCFormat(cc) && validateCCLength(cc)) return true;
+        return false;
     }
 
 
