@@ -75,10 +75,7 @@ public class RegisterPage extends AppCompatActivity implements View.OnClickListe
 
 
     protected boolean isNullEmptyEmail(String email) {
-        if (validate. validateEMailNullEmpty(email)) {
-            return false;
-        }
-        return true;
+        return !email.isEmpty();
     }
 
 
