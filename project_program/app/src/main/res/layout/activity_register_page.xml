@@ -8,22 +8,22 @@
 
     <TextView
         android:id="@+id/registerText1"
-        android:layout_width="223dp"
-        android:layout_height="56dp"
-        android:layout_marginTop="118dp"
-        android:layout_marginBottom="74dp"
+        android:layout_width="271dp"
+        android:layout_height="62dp"
+        android:layout_marginBottom="10dp"
         android:text="REGISTER"
         android:textSize="48sp"
         app:layout_constraintBottom_toTopOf="@+id/emailTextBox"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.671"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@+id/imageView" />
 
     <EditText
         android:id="@+id/emailTextBox"
-        android:layout_width="0dp"
+        android:layout_width="239dp"
         android:layout_height="0dp"
-        android:layout_marginBottom="33dp"
+        android:layout_marginBottom="34dp"
         android:background="@drawable/custom_input"
         android:drawableStart="@drawable/baseline_email"
         android:ems="10"
@@ -31,13 +31,13 @@
         android:hint="Enter  Email"
         android:inputType="textEmailAddress"
         app:layout_constraintBottom_toTopOf="@+id/CardTextBox"
-        app:layout_constraintEnd_toEndOf="@+id/passwordRepeatTextBox"
-        app:layout_constraintStart_toStartOf="@+id/CardTextBox"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/registerText1" />
 
     <EditText
         android:id="@+id/CardTextBox"
-        android:layout_width="0dp"
+        android:layout_width="238dp"
         android:layout_height="0dp"
         android:layout_marginBottom="33dp"
         android:background="@drawable/custom_input"
@@ -47,8 +47,8 @@
         android:hint="Enter Credit Card"
         android:inputType="textPersonName"
         app:layout_constraintBottom_toTopOf="@+id/passwordTextBox"
-        app:layout_constraintEnd_toEndOf="@+id/passwordTextBox"
-        app:layout_constraintStart_toStartOf="@+id/passwordTextBox"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/emailTextBox" />
 
     <EditText
@@ -71,7 +71,7 @@
         android:id="@+id/passwordRepeatTextBox"
         android:layout_width="240dp"
         android:layout_height="0dp"
-        android:layout_marginBottom="28dp"
+        android:layout_marginBottom="29dp"
         android:background="@drawable/custom_input"
         android:drawableStart="@drawable/baseline_password_24"
         android:ems="10"
@@ -104,5 +104,17 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/RegisterButton" />
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="238dp"
+        android:layout_height="145dp"
+        android:layout_marginTop="21dp"
+        app:layout_constraintBottom_toTopOf="@+id/registerText1"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.543"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/logo" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
