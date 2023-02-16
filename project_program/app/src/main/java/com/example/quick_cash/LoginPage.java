@@ -35,7 +35,7 @@ public class LoginPage extends AppCompatActivity implements View.OnClickListener
 
 
     protected boolean isValidEmailAddress(String emailAddress) {
-        Pattern pattern = Pattern.compile("^^(.+)@(.+)$",Pattern.CASE_INSENSITIVE);
+        Pattern pattern = Pattern.compile("^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,}$", Pattern.CASE_INSENSITIVE);
         Matcher matcher = pattern.matcher(emailAddress);
 
         if (matcher.matches()){
@@ -46,21 +46,20 @@ public class LoginPage extends AppCompatActivity implements View.OnClickListener
 
     protected boolean isValidPassword(String pw){
         //It contains minimum 8 characters at least 1 Alphabet, 1 Number and 1 Special
-        String PASSWORD_PATTERN = "^(?=.*[A-Z])(?=.*[@_.]).*$";
+        String PASSWORD_PATTERN = "^(?=.*[A-Z])(?=.*[@_.])(?=.*\\d).{8,}$";
         Pattern pattern = Pattern.compile(PASSWORD_PATTERN);
         Matcher matcher = pattern.matcher(pw);
 
-        if (!pw.matches(".*\\d.*") || !matcher.matches()) {
+        if (!matcher.matches()) {
             return true;
         }
         return false;
     }
 
-    protected void setStatusMessage(String message) {
 
+    protected void setStatusMessage(String message) {
         TextView statusLabel = findViewById(R.id.statusLabel);
-        statusLabel.setText(R.string.EMPTY_EMAIL);
-        Log.e("email", "statuslabel");
+        statusLabel.setText(message.trim());
     }
 
     protected String getEmailAddress() {
@@ -81,7 +80,7 @@ public class LoginPage extends AppCompatActivity implements View.OnClickListener
         String passWord = getPw();
         String errorMessage = new String();
 
-//        Toast.makeText(getApplicationContext(),"emailAddress-----("+emailAddress+")------",Toast.LENGTH_LONG).show();
+        Toast.makeText(getApplicationContext(),"emailAddress-----("+isValidEmailAddress(emailAddress)+")------",Toast.LENGTH_LONG).show();
 
         if (isEmptyEmail(emailAddress)) {
             errorMessage = getResources().getString(R.string.EMPTY_EMAIL).trim();
@@ -93,6 +92,9 @@ public class LoginPage extends AppCompatActivity implements View.OnClickListener
             errorMessage = getResources().getString(R.string.INVALID_PASSWORD).trim();
             setStatusMessage(errorMessage);
         }
+
+        Toast.makeText(getApplicationContext(),"emailAddress-----("+errorMessage+")------",Toast.LENGTH_LONG).show();
+
 
         //if all input are correct, then jump to another activity
         //wait for other member's design...

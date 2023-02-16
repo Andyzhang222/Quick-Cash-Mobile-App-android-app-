@@ -2,6 +2,7 @@ package com.example.quick_cash;
 
 import static androidx.test.espresso.Espresso.onView;
 import static androidx.test.espresso.action.ViewActions.click;
+import static androidx.test.espresso.action.ViewActions.replaceText;
 import static androidx.test.espresso.action.ViewActions.typeText;
 import static androidx.test.espresso.assertion.ViewAssertions.matches;
 import static androidx.test.espresso.matcher.ViewMatchers.hasErrorText;
@@ -40,6 +41,7 @@ public class LoginPageEspressoTest {
     public void checkIfEmailIsEmpty() {
         onView(withId(R.id.EmailTextBox)).perform(typeText(""));
         onView(withId(R.id.PasswordTextBox)).perform(typeText("Aa223322111@"));
+        Espresso.closeSoftKeyboard();
         onView(withId(R.id.LoginButton)).perform(click());
         onView(withId(R.id.statusLabel)).check(matches(withText(R.string.EMPTY_EMAIL)));
     }
