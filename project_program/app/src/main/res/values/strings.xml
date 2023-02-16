@@ -12,4 +12,5 @@
     <string name="WRONG_CREDIT_CARD_LENGTH">WRONG_CREDIT_CARD_LENGTH</string>
     <string name="WRONG_CREDIT_CARD_FORMAT">WRONG_CREDIT_CARD_FORMAT</string>
     <string name="PASSWORD_DOES_NOT_MATCH">PASSWORD_DOES_NOT_MATCH</string>
+    <string name="EMPTY_EMAIL">EMPTY_EMAIL</string>
 </resources>

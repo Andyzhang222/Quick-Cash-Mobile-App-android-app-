@@ -77,6 +77,17 @@ public class RegisterPageValidationTest {
         Espresso.onView(withId(R.id.statusLabel)).check(matches(withText(R.string.WRONG_EMAIL)));
     }
 
+    @Test
+    public void checkEmptyNullEmail () {
+        Espresso.onView(withId(R.id.emailTextBox)).perform(typeText(""));
+        Espresso.onView(withId(R.id.CardTextBox)).perform(typeText("1234567891234567"));
+        Espresso.onView(withId(R.id.passwordTextBox)).perform(typeText("Finn-finn123"));
+        Espresso.onView(withId(R.id.passwordRepeatTextBox)).perform(typeText("Finn-finn123"));
+        Espresso.closeSoftKeyboard();
+        Espresso.onView(withId(R.id.RegisterButton)).perform(click());
+        Espresso.onView(withId(R.id.statusLabel)).check(matches(withText(R.string.EMPTY_EMAIL)));
+    }
+
 
     @Test
     public void checkValidCC() {

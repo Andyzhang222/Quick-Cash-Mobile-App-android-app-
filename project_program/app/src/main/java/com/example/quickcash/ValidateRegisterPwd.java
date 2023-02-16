@@ -103,6 +103,16 @@ public class ValidateRegisterPwd {
         return email.matches(emailRegex);
     }
 
+    public boolean validateEMailNullEmpty (String email) {
+        boolean bool = true;
+        if (email == null) {
+            bool = false;
+        }
+        else if (email == "") {
+            bool = false;
+        }
+        return bool;
+    }
 
 
 }
