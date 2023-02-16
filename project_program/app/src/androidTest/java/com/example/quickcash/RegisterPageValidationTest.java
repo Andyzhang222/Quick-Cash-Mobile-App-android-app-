@@ -1,5 +1,6 @@
 package com.example.quickcash;
 
+
 import android.content.Context;
 
 import androidx.test.espresso.Espresso;
@@ -52,7 +53,7 @@ public class RegisterPageValidationTest {
 
 
     @Test
-    public void checkValidEmail() {
+    public void checkIfEmailIsValid() {
         Espresso.onView(withId(R.id.emailTextBox)).perform(typeText("abcdef@dal.ca"));
         Espresso.onView(withId(R.id.CardTextBox)).perform(typeText("1234567891234567"));
         Espresso.closeSoftKeyboard();
@@ -61,12 +62,12 @@ public class RegisterPageValidationTest {
         Espresso.onView(withId(R.id.passwordRepeatTextBox)).perform(typeText("Wang_Ziyue12"));
         Espresso.closeSoftKeyboard();
         Espresso.onView(withId(R.id.RegisterButton)).perform(click());
-        Espresso.onView(withId(R.id.statusLabel)).check(matches(withText(R.string.EMPTY_STRING)));
+        onView(withId(R.id.statusLabel)).check(matches(withText("")));
     }
 
     @Test
     public void checkInvalidEmail() {
-        Espresso.onView(withId(R.id.emailTextBox)).perform(typeText("Abcd2023.fdsa.sss"));
+        Espresso.onView(withId(R.id.emailTextBox)).perform(typeText("dsd.sd.sd"));
         Espresso.onView(withId(R.id.CardTextBox)).perform(typeText("1234567891234567"));
         Espresso.closeSoftKeyboard();
         Espresso.onView(withId(R.id.passwordTextBox)).perform(typeText("Wang_Ziyue12"));
@@ -74,7 +75,7 @@ public class RegisterPageValidationTest {
         Espresso.onView(withId(R.id.passwordRepeatTextBox)).perform(typeText("Wang_Ziyue12"));
         Espresso.closeSoftKeyboard();
         Espresso.onView(withId(R.id.RegisterButton)).perform(click());
-        Espresso.onView(withId(R.id.statusLabel)).check(matches(withText(R.string.WRONG_EMAIL)));
+        onView(withId(R.id.statusLabel)).check(matches(withText(R.string.WRONG_EMAIL)));
     }
 
 
@@ -82,18 +83,22 @@ public class RegisterPageValidationTest {
     public void checkValidCC() {
         Espresso.onView(withId(R.id.emailTextBox)).perform(typeText("abcdef@dal.ca"));
         Espresso.onView(withId(R.id.CardTextBox)).perform(typeText("1234567891234567"));
+        Espresso.closeSoftKeyboard();
         Espresso.onView(withId(R.id.passwordTextBox)).perform(typeText("Wang_Ziyue12"));
+        Espresso.closeSoftKeyboard();
         Espresso.onView(withId(R.id.passwordRepeatTextBox)).perform(typeText("Wang_Ziyue12"));
         Espresso.closeSoftKeyboard();
         Espresso.onView(withId(R.id.RegisterButton)).perform(click());
-        Espresso.onView(withId(R.id.statusLabel)).check(matches(withText(R.string.EMPTY_STRING)));
+        Espresso.onView(withId(R.id.statusLabel)).check(matches(withText("")));
     }
 
     @Test
     public void checkWrongLengthCC() {
         Espresso.onView(withId(R.id.emailTextBox)).perform(typeText("abcdef@dal.ca"));
         Espresso.onView(withId(R.id.CardTextBox)).perform(typeText("0000000000000000000"));
+        Espresso.closeSoftKeyboard();
         Espresso.onView(withId(R.id.passwordTextBox)).perform(typeText("Wang_Ziyue12"));
+        Espresso.closeSoftKeyboard();
         Espresso.onView(withId(R.id.passwordRepeatTextBox)).perform(typeText("Wang_Ziyue12"));
         Espresso.closeSoftKeyboard();
         Espresso.onView(withId(R.id.RegisterButton)).perform(click());
@@ -103,8 +108,10 @@ public class RegisterPageValidationTest {
     @Test
     public void checkWrongFormatCC() {
         Espresso.onView(withId(R.id.emailTextBox)).perform(typeText("abcdef@dal.ca"));
-        Espresso.onView(withId(R.id.CardTextBox)).perform(typeText("aaaaaaaaaaaaaaaaa"));
+        Espresso.onView(withId(R.id.CardTextBox)).perform(typeText("123456789123456a"));
+        Espresso.closeSoftKeyboard();
         Espresso.onView(withId(R.id.passwordTextBox)).perform(typeText("Wang_Ziyue12"));
+        Espresso.closeSoftKeyboard();
         Espresso.onView(withId(R.id.passwordRepeatTextBox)).perform(typeText("Wang_Ziyue12"));
         Espresso.closeSoftKeyboard();
         Espresso.onView(withId(R.id.RegisterButton)).perform(click());
@@ -115,18 +122,22 @@ public class RegisterPageValidationTest {
     public void checkValidPwd() {
         Espresso.onView(withId(R.id.emailTextBox)).perform(typeText("abcdef@dal.ca"));
         Espresso.onView(withId(R.id.CardTextBox)).perform(typeText("1234567891234567"));
+        Espresso.closeSoftKeyboard();
         Espresso.onView(withId(R.id.passwordTextBox)).perform(typeText("Wang_Ziyue12"));
+        Espresso.closeSoftKeyboard();
         Espresso.onView(withId(R.id.passwordRepeatTextBox)).perform(typeText("Wang_Ziyue12"));
         Espresso.closeSoftKeyboard();
         Espresso.onView(withId(R.id.RegisterButton)).perform(click());
-        Espresso.onView(withId(R.id.statusLabel)).check(matches(withText(R.string.EMPTY_STRING)));
+        Espresso.onView(withId(R.id.statusLabel)).check(matches(withText("")));
     }
 
     @Test
     public void checkEmptyNullPwd () {
         Espresso.onView(withId(R.id.emailTextBox)).perform(typeText("abcdef@dal.ca"));
         Espresso.onView(withId(R.id.CardTextBox)).perform(typeText("1234567891234567"));
+        Espresso.closeSoftKeyboard();
         Espresso.onView(withId(R.id.passwordTextBox)).perform(typeText(""));
+        Espresso.closeSoftKeyboard();
         Espresso.onView(withId(R.id.passwordRepeatTextBox)).perform(typeText(""));
         Espresso.closeSoftKeyboard();
         Espresso.onView(withId(R.id.RegisterButton)).perform(click());
@@ -137,7 +148,9 @@ public class RegisterPageValidationTest {
     public void checkWrongLengthPwd () {
         Espresso.onView(withId(R.id.emailTextBox)).perform(typeText("abcdef@dal.ca"));
         Espresso.onView(withId(R.id.CardTextBox)).perform(typeText("1234567891234567"));
+        Espresso.closeSoftKeyboard();
         Espresso.onView(withId(R.id.passwordTextBox)).perform(typeText("WangZiyue_12345667721334"));
+        Espresso.closeSoftKeyboard();
         Espresso.onView(withId(R.id.passwordRepeatTextBox)).perform(typeText("WangZiyue_12345667721334"));
         Espresso.closeSoftKeyboard();
         Espresso.onView(withId(R.id.RegisterButton)).perform(click());
@@ -148,8 +161,10 @@ public class RegisterPageValidationTest {
     public void checkWrongFormatPwd () {
         Espresso.onView(withId(R.id.emailTextBox)).perform(typeText("abcdef@dal.ca"));
         Espresso.onView(withId(R.id.CardTextBox)).perform(typeText("1234567891234567"));
-        Espresso.onView(withId(R.id.passwordTextBox)).perform(typeText("WangZiyue12345667721334"));
-        Espresso.onView(withId(R.id.passwordRepeatTextBox)).perform(typeText("WangZiyue12345667721334"));
+        Espresso.closeSoftKeyboard();
+        Espresso.onView(withId(R.id.passwordTextBox)).perform(typeText("WangZiyue123"));
+        Espresso.closeSoftKeyboard();
+        Espresso.onView(withId(R.id.passwordRepeatTextBox)).perform(typeText("WangZiyue123"));
         Espresso.closeSoftKeyboard();
         Espresso.onView(withId(R.id.RegisterButton)).perform(click());
         Espresso.onView(withId(R.id.statusLabel)).check(matches(withText(R.string.WRONG_FORMAT_PASSWORD)));
@@ -159,18 +174,22 @@ public class RegisterPageValidationTest {
     public void checkMatchPwd() {
         Espresso.onView(withId(R.id.emailTextBox)).perform(typeText("abcdef@dal.ca"));
         Espresso.onView(withId(R.id.CardTextBox)).perform(typeText("1234567891234567"));
+        Espresso.closeSoftKeyboard();
         Espresso.onView(withId(R.id.passwordTextBox)).perform(typeText("Wang_Ziyue12"));
+        Espresso.closeSoftKeyboard();
         Espresso.onView(withId(R.id.passwordRepeatTextBox)).perform(typeText("Wang_Ziyue12"));
         Espresso.closeSoftKeyboard();
         Espresso.onView(withId(R.id.RegisterButton)).perform(click());
-        Espresso.onView(withId(R.id.statusLabel)).check(matches(withText(R.string.EMPTY_STRING)));
+        Espresso.onView(withId(R.id.statusLabel)).check(matches(withText("")));
     }
 
     @Test
     public void checkNotMatchPwd () {
         Espresso.onView(withId(R.id.emailTextBox)).perform(typeText("abcdef@dal.ca"));
         Espresso.onView(withId(R.id.CardTextBox)).perform(typeText("1234567891234567"));
+        Espresso.closeSoftKeyboard();
         Espresso.onView(withId(R.id.passwordTextBox)).perform(typeText("Wang_Ziyue12"));
+        Espresso.closeSoftKeyboard();
         Espresso.onView(withId(R.id.passwordRepeatTextBox)).perform(typeText("Wang_Ziyue1"));
         Espresso.closeSoftKeyboard();
         Espresso.onView(withId(R.id.RegisterButton)).perform(click());
@@ -184,7 +203,6 @@ public class RegisterPageValidationTest {
 
 
 }
-
 
 
 
