@@ -79,10 +79,14 @@ assembleDebug:
     paths:
       - app/build/outputs/
 
-# Run all tests, if any fails, interrupt the pipeline(fail it)
-debugTests:
-  interruptible: true
+unit_tests:
   stage: test
   script:
-    - ./gradlew -Pci --console=plain :app:testDebug
+    - ./gradlew test
+  artifacts:
+    when: always
+    paths:
+      - app/build/reports/tests/
+  tags:
+    - dalfcs_docker_autoscale
 
