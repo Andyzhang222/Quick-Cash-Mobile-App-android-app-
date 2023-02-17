@@ -92,6 +92,7 @@ public class LoginTest {
     @Test
     public void checkIfEmailIsInValid() {
         onView(withId(R.id.emailTextField)).perform(typeText("abc.123gmail.ca"));
+        onView(withId(R.id.passwordTextField)).perform(typeText("Aa123321."));
         Espresso.closeSoftKeyboard();
         onView(withId(R.id.loginButton)).perform(click());
         onView(withId(R.id.statusLabel)).check(matches(withText(R.string.INVALID_EMAIL_ADDRESS)));
@@ -141,7 +142,7 @@ public class LoginTest {
         onView(withId(R.id.emailTextField)).perform(replaceText("abc123@dal.ca"));
         //this is a wrong password because we just want to test if the login is working
         //correct password is Zh1234567
-        onView(withId(R.id.passwordTextField)).perform(replaceText("Zh12345678"));
+        onView(withId(R.id.passwordTextField)).perform(replaceText("Zh12345678."));
         onView(withId(R.id.loginButton)).perform(click());
         onView(withId(R.id.statusLabel)).check(matches(withText(R.string.LOGIN_NOW)));
     }

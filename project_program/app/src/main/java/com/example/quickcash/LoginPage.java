@@ -19,6 +19,9 @@ import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+
 public class LoginPage extends AppCompatActivity implements View.OnClickListener {
 
     FirebaseAuth mAuth;
@@ -60,6 +63,28 @@ public class LoginPage extends AppCompatActivity implements View.OnClickListener
     protected String getPassword(){
         EditText passwordField = findViewById(R.id.passwordTextField);
         return  passwordField.getText().toString().trim();
+    }
+
+    protected boolean isValidEmailAddress(String emailAddress) {
+        Pattern pattern = Pattern.compile("^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,}$", Pattern.CASE_INSENSITIVE);
+        Matcher matcher = pattern.matcher(emailAddress);
+
+        if (matcher.matches()){
+            return true;
+        }
+        return false;
+    }
+
+    protected boolean isValidPassword(String pw){
+        //It contains minimum 8 characters at least 1 Alphabet, 1 Number and 1 Special
+        String PASSWORD_PATTERN = "^(?=.*[A-Z])(?=.*[@_.])(?=.*\\d).{8,}$";
+        Pattern pattern = Pattern.compile(PASSWORD_PATTERN);
+        Matcher matcher = pattern.matcher(pw);
+
+        if (matcher.matches()) {
+            return true;
+        }
+        return false;
     }
 
 
@@ -106,7 +131,11 @@ public class LoginPage extends AppCompatActivity implements View.OnClickListener
             setStatusMessage(getResources().getString(R.string.EMPTY_EMAIL).trim());
         } else if (password.isEmpty()) {
             setStatusMessage(getResources().getString(R.string.EMPTY_PASSWORD).trim());
-        }else{
+        } else if (!isValidEmailAddress(email)){
+            setStatusMessage(getResources().getString(R.string.INVALID_EMAIL_ADDRESS).trim());
+        } else if (!isValidPassword(password)){
+            setStatusMessage(getResources().getString(R.string.INVALID_PASSWORD).trim());
+        } else{
             setStatusMessage(getResources().getString(R.string.LOGIN_NOW).trim());
             login(email,password);
         }
