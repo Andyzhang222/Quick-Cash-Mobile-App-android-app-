@@ -19,7 +19,8 @@
     <string name="WRONG_CREDIT_CARD_LENGTH">WRONG_CREDIT_CARD_LENGTH</string>
     <string name="WRONG_CREDIT_CARD_FORMAT">WRONG_CREDIT_CARD_FORMAT</string>
     <string name="PASSWORD_DOES_NOT_MATCH">PASSWORD_DOES_NOT_MATCH</string>
-
+    <string name="INVALID_EMAIL_ADDRESS">Invalid email address</string>
+    <string name="INVALID_PASSWORD">Invalid password</string>
 
 
 </resources>

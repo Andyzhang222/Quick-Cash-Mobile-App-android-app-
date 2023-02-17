@@ -1,6 +1,7 @@
 package com.example.quickcash;
 import android.content.Context;
 
+import androidx.test.espresso.Espresso;
 import androidx.test.espresso.intent.Intents;
 import androidx.test.espresso.intent.rule.IntentsTestRule;
 import androidx.test.ext.junit.rules.ActivityScenarioRule;
@@ -87,6 +88,52 @@ public class LoginTest {
         onView(withId(R.id.statusLabel)).check(matches(withText(R.string.EMPTY_PASSWORD)));
     }
 
+
+    @Test
+    public void checkIfEmailIsInValid() {
+        onView(withId(R.id.emailTextField)).perform(typeText("abc.123gmail.ca"));
+        Espresso.closeSoftKeyboard();
+        onView(withId(R.id.loginButton)).perform(click());
+        onView(withId(R.id.statusLabel)).check(matches(withText(R.string.INVALID_EMAIL_ADDRESS)));
+    }
+
+    @Test
+    public void checkIfPassWordIsValid(){
+        onView(withId(R.id.emailTextField)).perform(typeText("abc.123@gmail.ca"));
+        onView(withId(R.id.passwordTextField)).perform(typeText("Aa123321."));
+        Espresso.closeSoftKeyboard();
+        onView(withId(R.id.loginButton)).perform(click());
+        onView(withId(R.id.statusLabel)).check(matches(withText(R.string.LOGIN_NOW)));
+    }
+
+    @Test
+    public void checkIfEmailIsValid() {
+        onView(withId(R.id.emailTextField)).perform(typeText("abc.123@gmail.ca"));
+        onView(withId(R.id.passwordTextField)).perform(typeText("Aa123321."));
+        Espresso.closeSoftKeyboard();
+        onView(withId(R.id.loginButton)).perform(click());
+        onView(withId(R.id.statusLabel)).check(matches(withText(R.string.LOGIN_NOW)));
+    }
+
+    @Test
+    public void checkIfPassWordIsInValid(){
+        //less than 8 characters
+        onView(withId(R.id.emailTextField)).perform(typeText("abc.123@gmail.ca"));
+        onView(withId(R.id.passwordTextField)).perform(typeText("abc"));
+        Espresso.closeSoftKeyboard();
+        onView(withId(R.id.loginButton)).perform(click());
+        onView(withId(R.id.statusLabel)).check(matches(withText(R.string.INVALID_PASSWORD)));
+    }
+
+    @Test
+    public void checkIfPassWordIsInValid2(){
+        //miss the Special characters
+        onView(withId(R.id.emailTextField)).perform(typeText("abc.123@gmail.ca"));
+        onView(withId(R.id.passwordTextField)).perform(typeText("A123456789"));
+        Espresso.closeSoftKeyboard();
+        onView(withId(R.id.loginButton)).perform(click());
+        onView(withId(R.id.statusLabel)).check(matches(withText(R.string.INVALID_PASSWORD)));
+    }
 
 
     @Test
