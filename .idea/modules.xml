@@ -3,6 +3,11 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/.idea/3130-project-quick-cash.iml" filepath="$PROJECT_DIR$/.idea/3130-project-quick-cash.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/QuIckCash.iml" filepath="$PROJECT_DIR$/.idea/modules/QuIckCash.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/app/QuIckCash.app.iml" filepath="$PROJECT_DIR$/.idea/modules/app/QuIckCash.app.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/app/QuIckCash.app.androidTest.iml" filepath="$PROJECT_DIR$/.idea/modules/app/QuIckCash.app.androidTest.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/app/QuIckCash.app.main.iml" filepath="$PROJECT_DIR$/.idea/modules/app/QuIckCash.app.main.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/app/QuIckCash.app.unitTest.iml" filepath="$PROJECT_DIR$/.idea/modules/app/QuIckCash.app.unitTest.iml" />
     </modules>
   </component>
 </project>

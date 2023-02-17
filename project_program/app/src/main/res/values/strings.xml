@@ -4,4 +4,22 @@
     <string name="EMPTY_EMAIL">Please Enter Your Email!</string>
     <string name="EMPTY_PASSWORD">Please Enter Your Password!</string>
     <string name="LOGIN_NOW">Logging in now</string>
+
+
+    <string name="WRONG_PASSWORD">WRONG_PASSWORD</string>
+    <string name="WRONG_CREDITCARD_NUMBER">WRONG_CREDITCARD_NUMBER</string>
+    <string name="WRONG_EMAIL">WRONG_EMAIL</string>
+    <string name="EMPTY_STRING">EMPTY_STRING</string>
+
+
+    <string name="WRONG_FORMAT_PASSWORD">WRONG_FORMAT_PASSWORD</string>
+    <string name="WRONG_LENGTH_PASSWORD">WRONG_LENGTH_PASSWORD</string>
+    <string name="WRONG_CREDITCARD_LENGTH">WRONG_CREDITCARD_LENGTH</string>
+    <string name="WRONG_CREDITCARD_FORMAT">WRONG_CREDITCARD_FORMAT</string>
+    <string name="WRONG_CREDIT_CARD_LENGTH">WRONG_CREDIT_CARD_LENGTH</string>
+    <string name="WRONG_CREDIT_CARD_FORMAT">WRONG_CREDIT_CARD_FORMAT</string>
+    <string name="PASSWORD_DOES_NOT_MATCH">PASSWORD_DOES_NOT_MATCH</string>
+
+
+
 </resources>
