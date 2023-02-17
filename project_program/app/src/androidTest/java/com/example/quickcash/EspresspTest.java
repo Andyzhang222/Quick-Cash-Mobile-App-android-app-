@@ -33,10 +33,17 @@ import static org.junit.Assert.*;
  */
 @RunWith(AndroidJUnit4.class)
 public class EspresspTest {
+    @Rule
+    public ActivityScenarioRule<RegisterPage> myRule = new ActivityScenarioRule<>(RegisterPage.class);
+    public IntentsTestRule<RegisterPage> myIntentRule = new IntentsTestRule<>(RegisterPage.class);
+
+
     @Test
     public void useAppContext() {
         // Context of the app under test.
         Context appContext = InstrumentationRegistry.getInstrumentation().getTargetContext();
         assertEquals("com.example.quickcash", appContext.getPackageName());
     }
+
+
 }
