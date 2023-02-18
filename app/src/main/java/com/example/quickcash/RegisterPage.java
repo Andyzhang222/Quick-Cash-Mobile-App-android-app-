@@ -83,17 +83,11 @@ public class RegisterPage extends AppCompatActivity implements View.OnClickListe
     }
 
     protected boolean validatePwdLength(String pwd) {
-        if (validate.validatePwdLength(pwd)) {
-            return true;
-        }
-        return false;
+        return validate.validatePwdLength(pwd);
     }
 
     protected boolean validatePwdFormat(String pwd) {
-        if (validate.validatePwdFormat(pwd)) {
-            return true;
-        }
-        return false;
+        return validate.validatePwdFormat(pwd);
     }
 
     protected boolean validatePwdEmptyNull(String pwd) {
@@ -101,10 +95,7 @@ public class RegisterPage extends AppCompatActivity implements View.OnClickListe
     }
 
     protected boolean validateRepeatPwd (String pwd, String repeatPwd) {
-        if (pwd.equals(repeatPwd)) {
-            return true;
-        }
-        return false;
+        return pwd.equals(repeatPwd);
     }
 
 
@@ -114,15 +105,11 @@ public class RegisterPage extends AppCompatActivity implements View.OnClickListe
 
 
     protected boolean isValidEmail(String email) {
-        if (validate.validateEmail(email)) {
-            return true;
-        }
-        return false;
+        return validate.validateEmail(email);
     }
 
     public boolean validateCCFormat (String cc) {
-        if (validate.validateCCFormat(cc) && validate.validateCCLength(cc)) return true;
-        return false;
+        return validate.validateCCFormat(cc) && validate.validateCCLength(cc);
     }
 
 
