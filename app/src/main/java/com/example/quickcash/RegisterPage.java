@@ -1,3 +1,9 @@
+/**
+ * This activity is used for register activity
+ * Editor: Guangxiang Wang, Haoran Zhang, Qianrong Yang, Ziyue Wang
+ * reviwer:Xinxin Yu
+ */
+
 package com.example.quickcash;
 
 import android.content.Intent;
@@ -22,7 +28,6 @@ public class RegisterPage extends AppCompatActivity implements View.OnClickListe
 
     ValidateRegisterPwd validate = new ValidateRegisterPwd();
     private EditText editTextCreditCard, editTextEmail, editTextPassword, editTextPasswordRepeat;
-    private Button registerUser;
 
     private FirebaseAuth mAuth;
 
@@ -33,13 +38,13 @@ public class RegisterPage extends AppCompatActivity implements View.OnClickListe
 
         mAuth = FirebaseAuth.getInstance();
 
-        registerUser = (Button) findViewById(R.id.RegisterButton);
+        Button registerUser = (Button) findViewById(R.id.RegisterButton);
         registerUser.setOnClickListener(this);
 
-        editTextCreditCard = (EditText) findViewById(R.id.CardTextBox) ;
-        editTextEmail = (EditText) findViewById(R.id.emailTextBox);
-        editTextPassword = (EditText) findViewById(R.id.passwordTextBox);
-        editTextPasswordRepeat = (EditText) findViewById(R.id.passwordRepeatTextBox);
+
+
+
+
 
         TextView loginLink = findViewById(R.id.loginLink);
         loginLink.setOnClickListener(new View.OnClickListener() {
@@ -58,18 +63,22 @@ public class RegisterPage extends AppCompatActivity implements View.OnClickListe
     }
 
     protected String getEmail() {
+        editTextEmail = (EditText) findViewById(R.id.emailTextBox);
         return editTextEmail.getText().toString().trim();
     }
 
     protected String getCreditCard() {
+        editTextCreditCard = (EditText) findViewById(R.id.CardTextBox) ;
         return editTextCreditCard.getText().toString().trim();
     }
 
     protected String getPwd() {
+        editTextPassword = (EditText) findViewById(R.id.passwordTextBox);
         return editTextPassword.getText().toString().trim();
     }
 
     protected String getRepeatPwd() {
+        editTextPasswordRepeat = (EditText) findViewById(R.id.passwordRepeatTextBox);
         return editTextPasswordRepeat.getText().toString().trim();
     }
 
