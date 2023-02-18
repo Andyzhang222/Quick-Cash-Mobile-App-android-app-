@@ -10,11 +10,13 @@
         android:id="@+id/registerText1"
         android:layout_width="271dp"
         android:layout_height="0dp"
-        android:layout_marginStart="12dp"
-        android:layout_marginBottom="10dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginEnd="70dp"
+        android:layout_marginBottom="29dp"
         android:text="REGISTER"
         android:textSize="48sp"
         app:layout_constraintBottom_toTopOf="@+id/emailTextBox"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="@+id/imageView"
         app:layout_constraintTop_toBottomOf="@+id/imageView" />
 
@@ -22,7 +24,7 @@
         android:id="@+id/emailTextBox"
         android:layout_width="239dp"
         android:layout_height="0dp"
-        android:layout_marginBottom="34dp"
+        android:layout_marginBottom="35dp"
         android:background="@drawable/custom_input"
         android:drawableStart="@drawable/baseline_email"
         android:ems="10"
@@ -36,8 +38,44 @@
         app:layout_constraintTop_toBottomOf="@+id/registerText1" />
 
     <EditText
+        android:id="@+id/passwordRepeatTextBox"
+        android:layout_width="240dp"
+        android:layout_height="0dp"
+        android:layout_marginBottom="56dp"
+        android:background="@drawable/custom_input"
+        android:drawableStart="@drawable/baseline_password_24"
+        android:ems="10"
+        android:gravity="center"
+        android:hint="Repeat password"
+        android:inputType="textPassword"
+        android:minHeight="48dp"
+        app:layout_constraintBottom_toTopOf="@+id/RegisterButton"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/passwordTextBox" />
+
+    <EditText
+        android:id="@+id/passwordTextBox"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="1dp"
+        android:layout_marginEnd="1dp"
+        android:layout_marginBottom="29dp"
+        android:background="@drawable/custom_input"
+        android:drawableStart="@drawable/baseline_password_24"
+        android:ems="10"
+        android:gravity="center"
+        android:hint="Enter Password"
+        android:inputType="textPassword"
+        android:minHeight="48dp"
+        app:layout_constraintBottom_toTopOf="@+id/passwordRepeatTextBox"
+        app:layout_constraintEnd_toEndOf="@+id/passwordRepeatTextBox"
+        app:layout_constraintStart_toStartOf="@+id/passwordRepeatTextBox"
+        app:layout_constraintTop_toBottomOf="@+id/CardTextBox" />
+
+    <EditText
         android:id="@+id/CardTextBox"
-        android:layout_width="238dp"
+        android:layout_width="0dp"
         android:layout_height="0dp"
         android:layout_marginBottom="33dp"
         android:background="@drawable/custom_input"
@@ -48,43 +86,9 @@
         android:inputType="textPersonName"
         android:minHeight="48dp"
         app:layout_constraintBottom_toTopOf="@+id/passwordTextBox"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/passwordTextBox"
+        app:layout_constraintStart_toStartOf="@+id/passwordTextBox"
         app:layout_constraintTop_toBottomOf="@+id/emailTextBox" />
-
-    <EditText
-        android:id="@+id/passwordTextBox"
-        android:layout_width="238dp"
-        android:layout_height="0dp"
-        android:layout_marginBottom="28dp"
-        android:background="@drawable/custom_input"
-        android:drawableStart="@drawable/baseline_password_24"
-        android:ems="10"
-        android:gravity="center"
-        android:hint="Enter Password"
-        android:inputType="textPassword"
-        android:minHeight="48dp"
-        app:layout_constraintBottom_toTopOf="@+id/passwordRepeatTextBox"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/CardTextBox" />
-
-    <EditText
-        android:id="@+id/passwordRepeatTextBox"
-        android:layout_width="240dp"
-        android:layout_height="0dp"
-        android:layout_marginBottom="25dp"
-        android:background="@drawable/custom_input"
-        android:drawableStart="@drawable/baseline_password_24"
-        android:ems="10"
-        android:gravity="center"
-        android:hint="Repeat password"
-        android:inputType="textPassword"
-        android:minHeight="48dp"
-        app:layout_constraintBottom_toTopOf="@+id/statusLabel"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/passwordTextBox" />
 
     <Button
         android:id="@+id/RegisterButton"
@@ -95,13 +99,13 @@
         android:text="Register"
         app:layout_constraintBottom_toTopOf="@+id/loginLink"
         app:layout_constraintStart_toStartOf="@+id/loginLink"
-        app:layout_constraintTop_toBottomOf="@+id/statusLabel" />
+        app:layout_constraintTop_toBottomOf="@+id/passwordRepeatTextBox" />
 
     <TextView
         android:id="@+id/loginLink"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="63dp"
+        android:layout_marginBottom="45dp"
         android:text="Click here to Login!"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -110,9 +114,11 @@
 
     <ImageView
         android:id="@+id/imageView"
-        android:layout_width="270dp"
-        android:layout_height="142dp"
+        android:layout_width="200dp"
+        android:layout_height="120dp"
+        android:layout_marginStart="70dp"
         android:layout_marginTop="21dp"
+        android:layout_marginEnd="70dp"
         app:layout_constraintBottom_toTopOf="@+id/registerText1"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -123,13 +129,14 @@
         android:id="@+id/statusLabel"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="249dp"
-        android:layout_marginBottom="12dp"
-        android:text=""
+        android:layout_marginStart="173dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="180dp"
+        android:layout_marginBottom="21dp"
         android:textColor="#FF0000"
         app:layout_constraintBottom_toTopOf="@+id/RegisterButton"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="@+id/RegisterButton"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/passwordRepeatTextBox" />
 
 
