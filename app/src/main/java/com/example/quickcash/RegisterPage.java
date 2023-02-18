@@ -1,7 +1,7 @@
 /**
  * This activity is used for register activity
  * Editor: Guangxiang Wang, Haoran Zhang, Qianrong Yang, Ziyue Wang
- * reviwer:Xinxin Yu
+ * Code Reviewer:Xinxin Yu, Zhiqiang Yu
  */
 
 package com.example.quickcash;
@@ -80,7 +80,6 @@ public class RegisterPage extends AppCompatActivity implements View.OnClickListe
         editTextCreditCard = (EditText) findViewById(R.id.CardTextBox) ;
         return editTextCreditCard.getText().toString().trim();
     }
-
 
     /**
      * This method used to get string of password
@@ -164,64 +163,65 @@ public class RegisterPage extends AppCompatActivity implements View.OnClickListe
         return validate.validateCCFormat(cc) && validate.validateCCLength(cc);
     }
 
-
-
-
     @Override
     public void onClick (View view) {
+        //get email,password, repeat password, credit card
         String email = getEmail();
         String password = getPwd();
         String creditCard = getCreditCard();
         String repeatPwd = getRepeatPwd();
-        String emailErrorMessage = new String();
-        String pwdErrorMessage = new String();
-        String ccErrorMessage = new String();
+        String errorMessage = new String();
 
+        //this part for checking the error of user input
+        //if user input is all fine,we should start register
         if (!isNullEmptyEmail(email)) {
-            pwdErrorMessage = getResources().getString(R.string.EMPTY_EMAIL).trim();
-            setStatusMessage(pwdErrorMessage);
+            errorMessage = getResources().getString(R.string.EMPTY_EMAIL).trim();
+            setStatusMessage(errorMessage);
         }
         else if (!isValidEmail(email)) {
-            emailErrorMessage = getResources().getString(R.string.WRONG_EMAIL).trim();
-            setStatusMessage(emailErrorMessage);
+            errorMessage = getResources().getString(R.string.WRONG_EMAIL).trim();
+            setStatusMessage(errorMessage);
         }
         else if (!validatePwdEmptyNull(password)) {
-            pwdErrorMessage = getResources().getString(R.string.EMPTY_PASSWORD).trim();
-            setStatusMessage(pwdErrorMessage);
+            errorMessage = getResources().getString(R.string.EMPTY_PASSWORD).trim();
+            setStatusMessage(errorMessage);
         }
         else if (!validatePwdLength(password)) {
-            pwdErrorMessage = getResources().getString(R.string.WRONG_LENGTH_PASSWORD).trim();
-            setStatusMessage(pwdErrorMessage);
+            errorMessage = getResources().getString(R.string.WRONG_LENGTH_PASSWORD).trim();
+            setStatusMessage(errorMessage);
         }
         else if (!validatePwdFormat(password)) {
-            pwdErrorMessage = getResources().getString(R.string.WRONG_FORMAT_PASSWORD).trim();
-            setStatusMessage(pwdErrorMessage);
+            errorMessage = getResources().getString(R.string.WRONG_FORMAT_PASSWORD).trim();
+            setStatusMessage(errorMessage);
         }
         else if (creditCard.isEmpty()) {
-            ccErrorMessage = getResources().getString(R.string.EMPTY_CREDITCARD).trim();
-            setStatusMessage(ccErrorMessage);
+            errorMessage = getResources().getString(R.string.EMPTY_CREDITCARD).trim();
+            setStatusMessage(errorMessage);
         }
         else if (!validateCCFormat(creditCard)) {
-            ccErrorMessage = getResources().getString(R.string.WRONG_CREDITCARD_FORMAT).trim();
-            setStatusMessage(ccErrorMessage);
+            errorMessage = getResources().getString(R.string.WRONG_CREDITCARD_FORMAT).trim();
+            setStatusMessage(errorMessage);
         }
         else if (!validateRepeatPwd(password,repeatPwd)) {
-            pwdErrorMessage = getResources().getString(R.string.PASSWORD_DOES_NOT_MATCH).trim();
-            setStatusMessage(pwdErrorMessage);
+            errorMessage = getResources().getString(R.string.PASSWORD_DOES_NOT_MATCH).trim();
+            setStatusMessage(errorMessage);
         }else {
             switch (view.getId()){
                 case R.id.RegisterButton:
-                    registerUser();
+                    registerUser(email, password, creditCard);
                     break;
             }
         }
 
     }
 
-    private void registerUser() {
-        String email= editTextEmail.getText().toString().trim();
-        String password= editTextPassword.getText().toString().trim();
-        String creditCard = editTextCreditCard.getText().toString().trim();
+    /**
+     * This method is used for user register
+     * @param email the string of user's email
+     * @param password the string of user's password
+     * @param creditCard the string of  user's credit card
+     */
+    private void registerUser(String email, String password, String creditCard) {
 
         mAuth.createUserWithEmailAndPassword(email, password).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
             @Override
@@ -252,6 +252,10 @@ public class RegisterPage extends AppCompatActivity implements View.OnClickListe
     }
 
 }
+
+/**
+ * This class for register with user information
+ */
 class User {
 
     public String email, creditCard, password;
