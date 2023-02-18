@@ -1,3 +1,9 @@
+/**
+ * This activity is used for login
+ * Editor: Zhiqiang Yu, Xinxin Yu, Zihao Liu
+ * Code Reviewer:
+ */
+
 package com.example.quickcash;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -29,12 +35,14 @@ public class LoginPage extends AppCompatActivity implements View.OnClickListener
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login_page);
+        //connect to the firebase
         mAuth = FirebaseAuth.getInstance();
 
         //implement login button
         Button loginButton = findViewById(R.id.loginButton);
         loginButton.setOnClickListener(this);
 
+        //this is th register link for transfer to the register page
         TextView registerLink = findViewById(R.id.registerLink);
         registerLink.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -65,6 +73,11 @@ public class LoginPage extends AppCompatActivity implements View.OnClickListener
         return  passwordField.getText().toString().trim();
     }
 
+    /**
+     * This method used to check the format of email
+     * @param emailAddress the string of email
+     * @return true if the format of email is correct,otherwise false
+     */
     protected boolean isValidEmailAddress(String emailAddress) {
         Pattern pattern = Pattern.compile("^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,}$", Pattern.CASE_INSENSITIVE);
         Matcher matcher = pattern.matcher(emailAddress);
@@ -75,6 +88,11 @@ public class LoginPage extends AppCompatActivity implements View.OnClickListener
         return false;
     }
 
+    /**
+     * This method used to check the format of password
+     * @param pw the string of password
+     * @return true if the format of password is correct,otherwise false
+     */
     protected boolean isValidPassword(String pw){
         //It contains minimum 8 characters at least 1 Alphabet, 1 Number and 1 Special
         String PASSWORD_PATTERN = "^(?=.*[A-Z])(?=.*[@_.])(?=.*\\d).{8,}$";
@@ -113,7 +131,7 @@ public class LoginPage extends AppCompatActivity implements View.OnClickListener
                             finish();
                         } else {
 
-                            Toast.makeText(LoginPage.this, "Login failed.",
+                            Toast.makeText(LoginPage.this, "Login failed.\nPlease re-enter the correct email and password.",
                                     Toast.LENGTH_SHORT).show();
                         }
                     }
@@ -122,9 +140,12 @@ public class LoginPage extends AppCompatActivity implements View.OnClickListener
 
     @Override
     public void onClick(View v) {
+        //get email and password
         String email = getEmail();
         String password = getPassword();
 
+        //this part for checking the error of user input
+        //if user input is all fine,we should start login
         if(email.isEmpty()&&password.isEmpty()){
             setStatusMessage(getResources().getString(R.string.EMPTY_All).trim());
         } else if(email.isEmpty()){
@@ -143,6 +164,10 @@ public class LoginPage extends AppCompatActivity implements View.OnClickListener
 
     }
 
+    /**
+     * This part is for check if the user is logged in
+     * If yes,the user should direct to the landing page
+     */
     @Override
     public void onStart() {
         super.onStart();
