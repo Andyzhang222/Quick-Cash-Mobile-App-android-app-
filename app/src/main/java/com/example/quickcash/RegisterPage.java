@@ -40,6 +40,16 @@ public class RegisterPage extends AppCompatActivity implements View.OnClickListe
         editTextEmail = (EditText) findViewById(R.id.emailTextBox);
         editTextPassword = (EditText) findViewById(R.id.passwordTextBox);
         editTextPasswordRepeat = (EditText) findViewById(R.id.passwordRepeatTextBox);
+
+        TextView loginLink = findViewById(R.id.loginLink);
+        loginLink.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(RegisterPage.this, LoginPage.class);
+                startActivity(intent);
+                finish();
+            }
+        });
     }
 
     protected void setStatusMessage(String message) {
@@ -101,6 +111,11 @@ public class RegisterPage extends AppCompatActivity implements View.OnClickListe
         return false;
     }
 
+    public boolean validateCCFormat (String cc) {
+        if (validate.validateCCFormat(cc) && validate.validateCCLength(cc)) return true;
+        return false;
+    }
+
 
 
 
@@ -134,6 +149,14 @@ public class RegisterPage extends AppCompatActivity implements View.OnClickListe
             pwdErrorMessage = getResources().getString(R.string.WRONG_FORMAT_PASSWORD).trim();
             setStatusMessage(pwdErrorMessage);
         }
+        else if (creditCard.isEmpty()) {
+            ccErrorMessage = getResources().getString(R.string.EMPTY_CREDITCARD).trim();
+            setStatusMessage(ccErrorMessage);
+        }
+        else if (!validateCCFormat(creditCard)) {
+            ccErrorMessage = getResources().getString(R.string.WRONG_CREDITCARD_FORMAT).trim();
+            setStatusMessage(ccErrorMessage);
+        }
         else if (!validateRepeatPwd(password,repeatPwd)) {
             pwdErrorMessage = getResources().getString(R.string.PASSWORD_DOES_NOT_MATCH).trim();
             setStatusMessage(pwdErrorMessage);
@@ -144,8 +167,6 @@ public class RegisterPage extends AppCompatActivity implements View.OnClickListe
                     break;
             }
         }
-
-
 
     }
 

@@ -120,6 +120,33 @@ public class RegisterPageValidationTest {
     }
 
     @Test
+    public void checkEmptyNullCC () {
+        Espresso.onView(withId(R.id.emailTextBox)).perform(typeText("abcdef@dal.ca"));
+        Espresso.closeSoftKeyboard();
+        Espresso.onView(withId(R.id.CardTextBox)).perform(typeText(""));
+        Espresso.closeSoftKeyboard();
+        Espresso.onView(withId(R.id.passwordTextBox)).perform(typeText("Wang_Ziyue12"));
+        Espresso.closeSoftKeyboard();
+        Espresso.onView(withId(R.id.passwordRepeatTextBox)).perform(typeText("Wang_Ziyue12"));
+        Espresso.closeSoftKeyboard();
+        Espresso.onView(withId(R.id.RegisterButton)).perform(click());
+        Espresso.onView(withId(R.id.statusLabel)).check(matches(withText(R.string.EMPTY_CREDITCARD)));
+    }
+    @Test
+    public void checkWrongFormatCC () {
+        Espresso.onView(withId(R.id.emailTextBox)).perform(typeText("abcdef@dal.ca"));
+        Espresso.closeSoftKeyboard();
+        Espresso.onView(withId(R.id.CardTextBox)).perform(typeText("111111"));
+        Espresso.closeSoftKeyboard();
+        Espresso.onView(withId(R.id.passwordTextBox)).perform(typeText("Wang_Ziyue12"));
+        Espresso.closeSoftKeyboard();
+        Espresso.onView(withId(R.id.passwordRepeatTextBox)).perform(typeText("Wang_Ziyue12"));
+        Espresso.closeSoftKeyboard();
+        Espresso.onView(withId(R.id.RegisterButton)).perform(click());
+        Espresso.onView(withId(R.id.statusLabel)).check(matches(withText(R.string.WRONG_CREDITCARD_FORMAT)));
+    }
+
+    @Test
     public void checkWrongLengthPwd () {
         Espresso.onView(withId(R.id.emailTextBox)).perform(typeText("abcdef@dal.ca"));
         Espresso.onView(withId(R.id.CardTextBox)).perform(typeText("1234567891234567"));

@@ -162,6 +162,32 @@ public class ValidateRegisterPwdTest extends TestCase {
         assertTrue(v2.validateEmail("asdf@dal.ca"));// right format
     }
 
+    /**
+     * test validate cc
+     */
+    public void testValidateCC () {
+        String cc = "1234567891234567";
+        assertTrue(pwd.validateCCFormat(cc));
+    }
+
+    /**
+     * Test wrong format cc
+     */
+    public void testWrongFormatCC () {
+        String cc = "123456789123456y";
+        assertFalse(pwd.validateCCFormat(cc));
+    }
+
+    /**
+     * Test wrong length cc
+     */
+    public void testWrongLengthCC () {
+        String shortCC = "123";
+        String longCC = "123456789123456789123";
+        assertFalse(pwd.validateCCLength(shortCC));
+        assertFalse(pwd.validateCCLength(longCC));
+    }
+
 
 
 }

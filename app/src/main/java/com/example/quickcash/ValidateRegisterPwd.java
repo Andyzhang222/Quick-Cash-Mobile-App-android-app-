@@ -89,5 +89,21 @@ public class ValidateRegisterPwd {
         return bool;
     }
 
+    public boolean validateCCFormat (String credit) {
+        if (credit == null || credit == "") return false;
+        if (!credit.matches("[0-9]{16}")) {
+            return false;
+        }
+        return true;
+    }
+
+    public boolean validateCCLength (String credit) {
+        if (credit.length() != 16) {
+            return false;
+        }
+        return true;
+    }
+
+
 
 }
