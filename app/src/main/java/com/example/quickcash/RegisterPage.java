@@ -36,16 +36,13 @@ public class RegisterPage extends AppCompatActivity implements View.OnClickListe
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_register_page);
 
+        //connect the Firebase
         mAuth = FirebaseAuth.getInstance();
-
+        //implement register button function
         Button registerUser = (Button) findViewById(R.id.RegisterButton);
         registerUser.setOnClickListener(this);
 
-
-
-
-
-
+        //this is th login link for transfer to the login page
         TextView loginLink = findViewById(R.id.loginLink);
         loginLink.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -57,57 +54,112 @@ public class RegisterPage extends AppCompatActivity implements View.OnClickListe
         });
     }
 
+    /**
+     * This method used to give a hint for user input
+     * @param message hint for user input
+     */
     protected void setStatusMessage(String message) {
         TextView statusLabel = findViewById(R.id.statusLabel);
         statusLabel.setText(message.trim());
     }
 
+    /**
+     * This method used to get string of email
+     * @return the string of email
+     */
     protected String getEmail() {
         editTextEmail = (EditText) findViewById(R.id.emailTextBox);
         return editTextEmail.getText().toString().trim();
     }
 
+    /**
+     * This method used to get string of credit card
+     * @return the string of credit card
+     */
     protected String getCreditCard() {
         editTextCreditCard = (EditText) findViewById(R.id.CardTextBox) ;
         return editTextCreditCard.getText().toString().trim();
     }
 
+
+    /**
+     * This method used to get string of password
+     * @return the string of password
+     */
     protected String getPwd() {
         editTextPassword = (EditText) findViewById(R.id.passwordTextBox);
         return editTextPassword.getText().toString().trim();
     }
 
+    /**
+     * This method used to get string of repeat password
+     * @return the string of repeat password
+     */
     protected String getRepeatPwd() {
         editTextPasswordRepeat = (EditText) findViewById(R.id.passwordRepeatTextBox);
         return editTextPasswordRepeat.getText().toString().trim();
     }
 
+    /**
+     * This method used to check the length of password
+     * @param pwd the string of password
+     * @return true if the length of password is correct,otherwise false
+     */
     protected boolean validatePwdLength(String pwd) {
         return validate.validatePwdLength(pwd);
     }
 
+    /**
+     * This method used to check the format of password
+     * @param pwd the string of password
+     * @return true if the format of password is correct,otherwise false
+     */
     protected boolean validatePwdFormat(String pwd) {
         return validate.validatePwdFormat(pwd);
     }
 
+    /**
+     * This method used to check the password if is empty
+     * @param pwd the string of password
+     * @return true if the password is not empty, otherwise false
+     */
     protected boolean validatePwdEmptyNull(String pwd) {
         return !pwd.isEmpty();
     }
 
+    /**
+     * This method used to check the password and repeat password if is equal
+     * @param pwd the string of password
+     * @param repeatPwd the string of repeat of password
+     * @return true if both password match, otherwise false
+     */
     protected boolean validateRepeatPwd (String pwd, String repeatPwd) {
         return pwd.equals(repeatPwd);
     }
 
-
+    /**
+     * This method used to check the email if is empty
+     * @param email the string of email
+     * @return true if the email is not empty, otherwise false
+     */
     protected boolean isNullEmptyEmail(String email) {
         return !email.isEmpty();
     }
 
-
+    /**
+     * This method used to check the format of email
+     * @param email the string of email
+     * @return true if the format of email is correct,otherwise false
+     */
     protected boolean isValidEmail(String email) {
         return validate.validateEmail(email);
     }
 
+    /**
+     * This method used to check the format of credit card
+     * @param cc the string of credit card
+     * @return true if the format of credit card is correct,otherwise false
+     */
     public boolean validateCCFormat (String cc) {
         return validate.validateCCFormat(cc) && validate.validateCCLength(cc);
     }
