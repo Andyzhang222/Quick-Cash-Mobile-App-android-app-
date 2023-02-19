@@ -63,12 +63,8 @@ public class ValidateRegisterPwd {
      * else return false
      */
     public boolean validatePwd (String pwd) {
-        boolean bool = false;
         boolean correct = validatePwdLength(pwd) && validatePwdFormat(pwd) && validatePwdNullEmpty(pwd);
-        if (correct && pwd.matches("^([A-Z]+|[a-z]+|[0-9]+|[-+_!@#$%^&*.,?]+){8,13}$")){
-            bool = true;
-        }
-        return bool;
+        return correct && pwd.matches("^([A-Z]+|[a-z]+|[0-9]+|[-+_!@#$%^&*.,?]+){8,13}$");
     }
 
 
