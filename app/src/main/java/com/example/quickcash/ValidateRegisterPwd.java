@@ -1,7 +1,11 @@
 /**
- * Author: Ziyue Wang
- * Description: This class is for validating the registers' passwords
- */
+ * Author: Ziyue Wang,Qianrong Yang
+ * Description: ValidateRegisterPwd this class is for validating the registers' passwords.
+ * ValidateEmail this class: for validate the email (check whether it follows the rule
+ * has the right symbol and format)
+ **/
+
+
 package com.example.quickcash;
 
 public class ValidateRegisterPwd {
@@ -21,6 +25,12 @@ public class ValidateRegisterPwd {
         }
         return bool;
     }
+
+    /**
+     * This method that check if the register password has the right length
+     * @param pwd the password that read from register format
+     * @return true if the password is between 8 -13, false if less than 8 or more than 13
+     */
     public boolean validatePwdLength (String pwd) {
         boolean bool = true;
 
@@ -31,6 +41,12 @@ public class ValidateRegisterPwd {
         return bool;
     }
 
+    /**
+     * This method that check if the register password's format
+     * @param pwd the password that read from register format
+     * @return true if the password is following the right format(match the format: has capital and lower letters in the same time,also with numbers and symbols)
+     * false if lose any of the requires
+     */
     public boolean validatePwdFormat (String pwd) {
         Boolean bool = true;
         if (!pwd.matches(".*[A-Z].*")) {
@@ -47,7 +63,12 @@ public class ValidateRegisterPwd {
         }
         return bool;
     }
-
+    /**
+     * This method that check if the register password's format
+     * @param pwd the password that read from register format
+     * @return true if the password is following the right format(match the format in the same time: has capital and lower letters in the same time,also with numbers and symbols)
+     * else return false
+     */
     public boolean validatePwd (String pwd) {
         boolean bool = false;
         boolean correct = validatePwdLength(pwd) && validatePwdFormat(pwd) && validatePwdNullEmpty(pwd);
@@ -56,28 +77,22 @@ public class ValidateRegisterPwd {
         }
         return bool;
     }
-
-
-
-
-
-
-/*
-* Author:Qianrong Yang
-* Description: for validate the email(check whether it follows the rule, has the righ symbol and format)
-* */
-
-//import androidx.appcompat.app.AppCompatActivity;
-// import android.os.Bundle;
-
-    // Validate using regex
-    public boolean validateEmail(String email)
+    /**
+     * This method that check the register email's format
+     * @param email the email that read from register format
+     * @return true if the email fits the format that has a @ symbol in string and and dot symbol at last
+     */
+    public boolean validateEmail (String email)
     {
         //String emailRegex format= "[a-zA-Z0-9._-]+@[a-z]+\\.+[a-z]+";
         String emailRegex = "^([a-zA-Z0-9]*[-_]?[.]?[a-zA-Z0-9]+)*@([a-zA-Z0-9]*[-_]?[a-zA-Z0-9]+)+[\\.][A-Za-z]{2,3}([\\.][A-Za-z]{2})?$";
-        return email.matches(emailRegex);
+        return email.matches ( emailRegex );
     }
-
+    /**
+     * This method that check if the register email's format right or not
+     * @param email the email that read from register format
+     * @return true if the email id not null, false if the email is null
+     */
     public boolean validateEMailNullEmpty (String email) {
         boolean bool = true;
         if (email == null) {
@@ -88,7 +103,11 @@ public class ValidateRegisterPwd {
         }
         return bool;
     }
-
+    /**
+     * This method that check if the register credit card's format right or not
+     * @param credit the credit card number that read from register format
+     * @return true if the credit number is all numbers
+     */
     public boolean validateCCFormat (String credit) {
         if (credit == null || credit == "") return false;
         if (!credit.matches("[0-9]{16}")) {
@@ -96,7 +115,11 @@ public class ValidateRegisterPwd {
         }
         return true;
     }
-
+    /**
+     * This method that check if the register credit card's format right or not
+     * @param credit the credit card number that read from register format
+     * @return true if the numbers' count is 16
+     */
     public boolean validateCCLength (String credit) {
         if (credit.length() != 16) {
             return false;
