@@ -87,10 +87,7 @@ public class LoginPage extends AppCompatActivity implements View.OnClickListener
         Pattern pattern = Pattern.compile("^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,}$", Pattern.CASE_INSENSITIVE);
         Matcher matcher = pattern.matcher(emailAddress);
 
-        if (matcher.matches()){
-            return true;
-        }
-        return false;
+        return matcher.matches();
     }
 
     /**
@@ -104,10 +101,7 @@ public class LoginPage extends AppCompatActivity implements View.OnClickListener
         Pattern pattern = Pattern.compile(PASSWORD_PATTERN);
         Matcher matcher = pattern.matcher(pw);
 
-        if (matcher.matches()) {
-            return true;
-        }
-        return false;
+        return matcher.matches();
     }
 
     /**
