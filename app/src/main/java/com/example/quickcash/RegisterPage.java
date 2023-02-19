@@ -32,7 +32,7 @@ public class RegisterPage extends AppCompatActivity implements View.OnClickListe
     private FirebaseAuth mAuth;
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    protected void onCreate (Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_register_page);
 
@@ -46,7 +46,7 @@ public class RegisterPage extends AppCompatActivity implements View.OnClickListe
         TextView loginLink = findViewById(R.id.loginLink);
         loginLink.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View v) {
+            public void onClick (View v) {
                 Intent intent = new Intent(RegisterPage.this, LoginPage.class);
                 startActivity(intent);
                 finish();
@@ -58,7 +58,7 @@ public class RegisterPage extends AppCompatActivity implements View.OnClickListe
      * This method used to give a hint for user input
      * @param message hint for user input
      */
-    protected void setStatusMessage(String message) {
+    protected void setStatusMessage (String message) {
         TextView statusLabel = findViewById(R.id.statusLabel);
         statusLabel.setText(message.trim());
     }
@@ -67,7 +67,7 @@ public class RegisterPage extends AppCompatActivity implements View.OnClickListe
      * This method used to get string of email
      * @return the string of email
      */
-    protected String getEmail() {
+    protected String getEmail () {
         editTextEmail = (EditText) findViewById(R.id.emailTextBox);
         return editTextEmail.getText().toString().trim();
     }
@@ -76,7 +76,7 @@ public class RegisterPage extends AppCompatActivity implements View.OnClickListe
      * This method used to get string of credit card
      * @return the string of credit card
      */
-    protected String getCreditCard() {
+    protected String getCreditCard () {
         editTextCreditCard = (EditText) findViewById(R.id.CardTextBox) ;
         return editTextCreditCard.getText().toString().trim();
     }
@@ -85,7 +85,7 @@ public class RegisterPage extends AppCompatActivity implements View.OnClickListe
      * This method used to get string of password
      * @return the string of password
      */
-    protected String getPwd() {
+    protected String getPwd () {
         editTextPassword = (EditText) findViewById(R.id.passwordTextBox);
         return editTextPassword.getText().toString().trim();
     }
@@ -94,7 +94,7 @@ public class RegisterPage extends AppCompatActivity implements View.OnClickListe
      * This method used to get string of repeat password
      * @return the string of repeat password
      */
-    protected String getRepeatPwd() {
+    protected String getRepeatPwd () {
         editTextPasswordRepeat = (EditText) findViewById(R.id.passwordRepeatTextBox);
         return editTextPasswordRepeat.getText().toString().trim();
     }
@@ -104,7 +104,7 @@ public class RegisterPage extends AppCompatActivity implements View.OnClickListe
      * @param pwd the string of password
      * @return true if the length of password is correct,otherwise false
      */
-    protected boolean validatePwdLength(String pwd) {
+    protected boolean validatePwdLength (String pwd) {
         return validate.validatePwdLength(pwd);
     }
 
@@ -113,7 +113,7 @@ public class RegisterPage extends AppCompatActivity implements View.OnClickListe
      * @param pwd the string of password
      * @return true if the format of password is correct,otherwise false
      */
-    protected boolean validatePwdFormat(String pwd) {
+    protected boolean validatePwdFormat (String pwd) {
         return validate.validatePwdFormat(pwd);
     }
 
@@ -122,7 +122,7 @@ public class RegisterPage extends AppCompatActivity implements View.OnClickListe
      * @param pwd the string of password
      * @return true if the password is not empty, otherwise false
      */
-    protected boolean validatePwdEmptyNull(String pwd) {
+    protected boolean validatePwdEmptyNull (String pwd) {
         return !pwd.isEmpty();
     }
 
@@ -141,7 +141,7 @@ public class RegisterPage extends AppCompatActivity implements View.OnClickListe
      * @param email the string of email
      * @return true if the email is not empty, otherwise false
      */
-    protected boolean isNullEmptyEmail(String email) {
+    protected boolean isNullEmptyEmail (String email) {
         return !email.isEmpty();
     }
 
@@ -150,7 +150,7 @@ public class RegisterPage extends AppCompatActivity implements View.OnClickListe
      * @param email the string of email
      * @return true if the format of email is correct,otherwise false
      */
-    protected boolean isValidEmail(String email) {
+    protected boolean isValidEmail (String email) {
         return validate.validateEmail(email);
     }
 
@@ -163,6 +163,11 @@ public class RegisterPage extends AppCompatActivity implements View.OnClickListe
         return validate.validateCCFormat(cc) && validate.validateCCLength(cc);
     }
 
+    /**
+     * This method that check the different error message
+     * @param view the information that read from register format
+     * to check whether each fits the require format
+     */
     @Override
     public void onClick (View view) {
         //get email,password, repeat password, credit card
@@ -212,7 +217,6 @@ public class RegisterPage extends AppCompatActivity implements View.OnClickListe
                     break;
             }
         }
-
     }
 
     /**
@@ -242,15 +246,12 @@ public class RegisterPage extends AppCompatActivity implements View.OnClickListe
                                     }
                                 }
                             });
-
                 }else{
                     Toast.makeText(RegisterPage.this, "This Email has been registered! Please change the email!", Toast.LENGTH_LONG).show();
                 }
             }
         });
-
     }
-
 }
 
 /**
