@@ -100,7 +100,7 @@ public class ValidateRegisterPwd {
      * @return true if the credit number is all numbers
      */
     public boolean validateCCFormat (String credit) {
-        if (credit == null || credit == "") return false;
+        if (credit == null || credit.equals("")) return false;
         return credit.matches("[0-9]{16}");
     }
 
@@ -111,10 +111,7 @@ public class ValidateRegisterPwd {
      * @return true if the numbers' count is 16
      */
     public boolean validateCCLength (String credit) {
-        if (credit.length() != 16) {
-            return false;
-        }
-        return true;
+        return credit.length() == 16;
     }
 
 }
