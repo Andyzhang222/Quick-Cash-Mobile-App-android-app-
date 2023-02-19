@@ -15,14 +15,10 @@ public class ValidateRegisterPwd {
      *          and the length is less than 13 more than 8
      */
     public boolean validatePwdNullEmpty (String pwd) {
-        boolean bool = true;
         if (pwd == null) {
-            bool = false;
+            return false;
         }
-        else if (pwd == "") {
-            bool = false;
-        }
-        return bool;
+        return !pwd.equals("");
     }
 
 
@@ -32,13 +28,8 @@ public class ValidateRegisterPwd {
      * @return true if the password is between 8 -13, false if less than 8 or more than 13
      */
     public boolean validatePwdLength (String pwd) {
-        boolean bool = true;
 
-        if (pwd.length() < 8 || pwd.length() > 13) {
-            bool = false;
-        }
-
-        return bool;
+        return pwd.length() >= 8 && pwd.length() <= 13;
     }
 
 
