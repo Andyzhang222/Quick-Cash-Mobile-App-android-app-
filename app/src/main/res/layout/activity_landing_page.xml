@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/background3"
     tools:context=".LandingPage">
 
     <Button
@@ -14,7 +15,7 @@
         android:layout_marginTop="250dp"
         android:layout_marginEnd="162dp"
         android:layout_marginBottom="97dp"
-        android:text="Become a Employee"
+        android:text="Employee"
         app:layout_constraintBottom_toTopOf="@+id/employerButton"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.542"
@@ -29,7 +30,7 @@
         android:layout_marginTop="97dp"
         android:layout_marginEnd="108dp"
         android:layout_marginBottom="260dp"
-        android:text="Become A Employer"
+        android:text="Employer"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

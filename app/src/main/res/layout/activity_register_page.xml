@@ -4,26 +4,32 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/background3"
     tools:context=".RegisterPage">
 
     <TextView
         android:id="@+id/registerText1"
-        android:layout_width="271dp"
+        android:layout_width="0dp"
         android:layout_height="0dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginEnd="70dp"
+        android:layout_marginStart="1dp"
+        android:layout_marginEnd="1dp"
         android:layout_marginBottom="29dp"
+        android:gravity="center"
         android:text="REGISTER"
+        android:textColor="@color/black"
         android:textSize="48sp"
+        android:textStyle="italic"
         app:layout_constraintBottom_toTopOf="@+id/emailTextBox"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="@+id/imageView"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/imageView" />
 
     <EditText
         android:id="@+id/emailTextBox"
-        android:layout_width="239dp"
+        android:layout_width="0dp"
         android:layout_height="0dp"
+        android:layout_marginStart="1dp"
+        android:layout_marginEnd="1dp"
         android:layout_marginBottom="35dp"
         android:background="@drawable/custom_input"
         android:drawableStart="@drawable/baseline_email"
@@ -39,9 +45,9 @@
 
     <EditText
         android:id="@+id/passwordRepeatTextBox"
-        android:layout_width="240dp"
+        android:layout_width="0dp"
         android:layout_height="0dp"
-        android:layout_marginBottom="56dp"
+        android:layout_marginBottom="17dp"
         android:background="@drawable/custom_input"
         android:drawableStart="@drawable/baseline_password_24"
         android:ems="10"
@@ -49,7 +55,7 @@
         android:hint="Repeat password"
         android:inputType="textPassword"
         android:minHeight="48dp"
-        app:layout_constraintBottom_toTopOf="@+id/RegisterButton"
+        app:layout_constraintBottom_toTopOf="@+id/statusLabel"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/passwordTextBox" />
@@ -69,15 +75,17 @@
         android:inputType="textPassword"
         android:minHeight="48dp"
         app:layout_constraintBottom_toTopOf="@+id/passwordRepeatTextBox"
-        app:layout_constraintEnd_toEndOf="@+id/passwordRepeatTextBox"
-        app:layout_constraintStart_toStartOf="@+id/passwordRepeatTextBox"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/CardTextBox" />
 
     <EditText
         android:id="@+id/CardTextBox"
         android:layout_width="0dp"
         android:layout_height="0dp"
-        android:layout_marginBottom="33dp"
+        android:layout_marginStart="1dp"
+        android:layout_marginEnd="1dp"
+        android:layout_marginBottom="34dp"
         android:background="@drawable/custom_input"
         android:drawableStart="@drawable/baseline_credit_card_24"
         android:ems="10"
@@ -86,26 +94,30 @@
         android:inputType="textPersonName"
         android:minHeight="48dp"
         app:layout_constraintBottom_toTopOf="@+id/passwordTextBox"
-        app:layout_constraintEnd_toEndOf="@+id/passwordTextBox"
-        app:layout_constraintStart_toStartOf="@+id/passwordTextBox"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/emailTextBox" />
 
     <Button
         android:id="@+id/RegisterButton"
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginBottom="19dp"
+        android:layout_marginBottom="14dp"
+        android:gravity="center"
         android:text="Register"
         app:layout_constraintBottom_toTopOf="@+id/loginLink"
-        app:layout_constraintStart_toStartOf="@+id/loginLink"
-        app:layout_constraintTop_toBottomOf="@+id/passwordRepeatTextBox" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/statusLabel" />
 
     <TextView
         android:id="@+id/loginLink"
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
+        android:layout_marginStart="1dp"
+        android:layout_marginEnd="1dp"
         android:layout_marginBottom="45dp"
+        android:gravity="center"
         android:text="Click here to Login!"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -114,11 +126,12 @@
 
     <ImageView
         android:id="@+id/imageView"
-        android:layout_width="200dp"
-        android:layout_height="120dp"
-        android:layout_marginStart="70dp"
+        android:layout_width="415dp"
+        android:layout_height="126dp"
+        android:layout_marginStart="1dp"
         android:layout_marginTop="21dp"
-        android:layout_marginEnd="70dp"
+        android:layout_marginEnd="1dp"
+        android:gravity="center"
         app:layout_constraintBottom_toTopOf="@+id/registerText1"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -127,12 +140,12 @@
 
     <TextView
         android:id="@+id/statusLabel"
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="173dp"
-        android:layout_marginTop="16dp"
-        android:layout_marginEnd="180dp"
-        android:layout_marginBottom="21dp"
+        android:layout_marginStart="1dp"
+        android:layout_marginEnd="1dp"
+        android:layout_marginBottom="26dp"
+        android:gravity="center"
         android:textColor="#FF0000"
         app:layout_constraintBottom_toTopOf="@+id/RegisterButton"
         app:layout_constraintEnd_toEndOf="parent"
