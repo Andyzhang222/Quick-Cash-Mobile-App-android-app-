@@ -40,20 +40,19 @@ public class ValidateRegisterPwd {
      * false if lose any of the requires
      */
     public boolean validatePwdFormat (String pwd) {
-        Boolean bool = true;
         if (!pwd.matches(".*[A-Z].*")) {
-            bool = false;
+            return false;
         }
         else if (!pwd.matches(".*[a-z].*")) {
-            bool = false;
+            return false;
         }
         else if (!pwd.matches(".*[0-9].*")) {
-            bool = false;
+            return false;
         }
         else if (!pwd.matches(".*[-+_!@#$%^&*.,?].*")) {
-            bool = false;
+            return false;
         }
-        return bool;
+        return true;
     }
 
 
