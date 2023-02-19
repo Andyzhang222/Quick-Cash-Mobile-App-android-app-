@@ -38,7 +38,6 @@ public class registrationTest {
 
     @Rule
     public ActivityScenarioRule<RegisterPage> myRule = new ActivityScenarioRule<>(RegisterPage.class);
-    public IntentsTestRule<RegisterPage> myIntentRule = new IntentsTestRule<>(RegisterPage.class);
 
 
     @BeforeClass

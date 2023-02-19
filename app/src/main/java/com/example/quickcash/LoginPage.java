@@ -1,30 +1,23 @@
 /**
  * This activity is used for login
  * Editor: Zhiqiang Yu, Xinxin Yu, Zihao Liu
- * Code Reviewer:
+ * Code Reviewer: Zihao Liu
  */
-
 package com.example.quickcash;
-
 import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.os.Bundle;
-import android.text.TextUtils;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
-
 import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.database.*;
 import androidx.annotation.NonNull;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
-import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
-
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -52,7 +45,6 @@ public class LoginPage extends AppCompatActivity implements View.OnClickListener
                 finish();
             }
         });
-
     }
 
     /**
@@ -105,7 +97,6 @@ public class LoginPage extends AppCompatActivity implements View.OnClickListener
         return false;
     }
 
-
     /**
      * This method used to give a hint for user input
      * @param message hint for user input
@@ -130,7 +121,6 @@ public class LoginPage extends AppCompatActivity implements View.OnClickListener
                             startActivity(intent);
                             finish();
                         } else {
-
                             Toast.makeText(LoginPage.this, "Login failed.\nPlease re-enter the correct email and password.",
                                     Toast.LENGTH_SHORT).show();
                         }
@@ -160,8 +150,6 @@ public class LoginPage extends AppCompatActivity implements View.OnClickListener
             setStatusMessage(getResources().getString(R.string.LOGIN_NOW).trim());
             login(email,password);
         }
-
-
     }
 
     /**

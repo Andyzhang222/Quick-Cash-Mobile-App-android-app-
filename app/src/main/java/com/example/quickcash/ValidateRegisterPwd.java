@@ -3,9 +3,8 @@
  * Description: ValidateRegisterPwd this class is for validating the registers' passwords.
  * ValidateEmail this class: for validate the email (check whether it follows the rule
  * has the right symbol and format)
+ * Code Reviewer: Zihao Liu
  **/
-
-
 package com.example.quickcash;
 
 public class ValidateRegisterPwd {
@@ -26,6 +25,7 @@ public class ValidateRegisterPwd {
         return bool;
     }
 
+
     /**
      * This method that check if the register password has the right length
      * @param pwd the password that read from register format
@@ -40,6 +40,7 @@ public class ValidateRegisterPwd {
 
         return bool;
     }
+
 
     /**
      * This method that check if the register password's format
@@ -63,6 +64,8 @@ public class ValidateRegisterPwd {
         }
         return bool;
     }
+
+
     /**
      * This method that check if the register password's format
      * @param pwd the password that read from register format
@@ -77,6 +80,8 @@ public class ValidateRegisterPwd {
         }
         return bool;
     }
+
+
     /**
      * This method that check the register email's format
      * @param email the email that read from register format
@@ -88,6 +93,8 @@ public class ValidateRegisterPwd {
         String emailRegex = "^([a-zA-Z0-9]*[-_]?[.]?[a-zA-Z0-9]+)*@([a-zA-Z0-9]*[-_]?[a-zA-Z0-9]+)+[\\.][A-Za-z]{2,3}([\\.][A-Za-z]{2})?$";
         return email.matches ( emailRegex );
     }
+
+
     /**
      * This method that check if the register email's format right or not
      * @param email the email that read from register format
@@ -103,6 +110,8 @@ public class ValidateRegisterPwd {
         }
         return bool;
     }
+
+
     /**
      * This method that check if the register credit card's format right or not
      * @param credit the credit card number that read from register format
@@ -115,6 +124,8 @@ public class ValidateRegisterPwd {
         }
         return true;
     }
+
+
     /**
      * This method that check if the register credit card's format right or not
      * @param credit the credit card number that read from register format
@@ -126,7 +137,5 @@ public class ValidateRegisterPwd {
         }
         return true;
     }
-
-
 
 }
