@@ -87,14 +87,10 @@ public class ValidateRegisterPwd {
      * @return true if the email id not null, false if the email is null
      */
     public boolean validateEMailNullEmpty (String email) {
-        boolean bool = true;
         if (email == null) {
-            bool = false;
+            return false;
         }
-        else if (email == "") {
-            bool = false;
-        }
-        return bool;
+        else return !email.equals("");
     }
 
 
