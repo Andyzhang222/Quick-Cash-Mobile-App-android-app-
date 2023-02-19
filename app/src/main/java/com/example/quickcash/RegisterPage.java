@@ -226,11 +226,9 @@ public class RegisterPage extends AppCompatActivity implements View.OnClickListe
      * @param creditCard the string of  user's credit card
      */
     private void registerUser(String email, String password, String creditCard) {
-
         mAuth.createUserWithEmailAndPassword(email, password).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
             @Override
             public void onComplete(@NonNull Task<AuthResult> task) {
-
                 if(task.isSuccessful()){
                     User user = new User(email, creditCard, password);
 
@@ -246,7 +244,8 @@ public class RegisterPage extends AppCompatActivity implements View.OnClickListe
                                     }
                                 }
                             });
-                }else{
+                }
+                else{
                     Toast.makeText(RegisterPage.this, "This Email has been registered! Please change the email!", Toast.LENGTH_LONG).show();
                 }
             }

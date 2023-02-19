@@ -1,7 +1,7 @@
 /**
  * This activity is used for login
  * Editor: Zhiqiang Yu, Xinxin Yu, Zihao Liu
- * Code Reviewer:
+ * Code Reviewer: Ziyue Wang, Qianrong Yang
  */
 
 package com.example.quickcash;
@@ -31,8 +31,14 @@ import java.util.regex.Pattern;
 public class LoginPage extends AppCompatActivity implements View.OnClickListener {
 
     FirebaseAuth mAuth;
+
+    /**
+     * This method is create a login page with a login button and a register link.
+     * Connects to the Firebase database to allow users authenticate and access the application
+     * @param savedInstanceState save the instance state of the activity
+     */
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    protected void onCreate (Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login_page);
         //connect to the firebase
@@ -46,20 +52,19 @@ public class LoginPage extends AppCompatActivity implements View.OnClickListener
         TextView registerLink = findViewById(R.id.registerLink);
         registerLink.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View v) {
+            public void onClick (View view) {
                 Intent intent = new Intent(LoginPage.this,RegisterPage.class);
                 startActivity(intent);
                 finish();
             }
         });
-
     }
 
     /**
      * This method used to get string of email
      * @return the string of email
      */
-    protected String getEmail(){
+    protected String getEmail () {
         EditText emailField = findViewById(R.id.emailTextField);
         return  emailField.getText().toString().trim();
     }
@@ -68,7 +73,7 @@ public class LoginPage extends AppCompatActivity implements View.OnClickListener
      * This method used to get string of password
      * @return the string of password
      */
-    protected String getPassword(){
+    protected String getPassword () {
         EditText passwordField = findViewById(R.id.passwordTextField);
         return  passwordField.getText().toString().trim();
     }
@@ -78,7 +83,7 @@ public class LoginPage extends AppCompatActivity implements View.OnClickListener
      * @param emailAddress the string of email
      * @return true if the format of email is correct,otherwise false
      */
-    protected boolean isValidEmailAddress(String emailAddress) {
+    protected boolean isValidEmailAddress (String emailAddress) {
         Pattern pattern = Pattern.compile("^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,}$", Pattern.CASE_INSENSITIVE);
         Matcher matcher = pattern.matcher(emailAddress);
 
@@ -93,7 +98,7 @@ public class LoginPage extends AppCompatActivity implements View.OnClickListener
      * @param pw the string of password
      * @return true if the format of password is correct,otherwise false
      */
-    protected boolean isValidPassword(String pw){
+    protected boolean isValidPassword (String pw){
         //It contains minimum 8 characters at least 1 Alphabet, 1 Number and 1 Special
         String PASSWORD_PATTERN = "^(?=.*[A-Z])(?=.*[@_.])(?=.*\\d).{8,}$";
         Pattern pattern = Pattern.compile(PASSWORD_PATTERN);
@@ -105,12 +110,11 @@ public class LoginPage extends AppCompatActivity implements View.OnClickListener
         return false;
     }
 
-
     /**
      * This method used to give a hint for user input
      * @param message hint for user input
      */
-    protected void setStatusMessage(String message) {
+    protected void setStatusMessage (String message) {
         TextView statusLabel = findViewById(R.id.statusLabel);
         statusLabel.setText(message.trim());
     }
@@ -120,48 +124,54 @@ public class LoginPage extends AppCompatActivity implements View.OnClickListener
      * @param email user's email for login
      * @param password user's password for login
      */
-    protected void login(String email,String password){
+    protected void login (String email,String password) {
         mAuth.signInWithEmailAndPassword(email, password)
                 .addOnCompleteListener(new OnCompleteListener<AuthResult>() {
                     @Override
-                    public void onComplete(@NonNull Task<AuthResult> task) {
+                    public void onComplete (@NonNull Task<AuthResult> task) {
                         if (task.isSuccessful()) {
                             Intent intent = new Intent(LoginPage.this,LandingPage.class);
                             startActivity(intent);
                             finish();
-                        } else {
-
+                        }
+                        else {
                             Toast.makeText(LoginPage.this, "Login failed.\nPlease re-enter the correct email and password.",
                                     Toast.LENGTH_SHORT).show();
                         }
                     }
                 });
     }
-
+    /**
+     * This method that check if the register's email and password empty or not and valid or not
+     * @param view the email & password that read from register format
+     */
     @Override
-    public void onClick(View v) {
+    public void onClick (View view) {
         //get email and password
         String email = getEmail();
         String password = getPassword();
 
         //this part for checking the error of user input
         //if user input is all fine,we should start login
-        if(email.isEmpty()&&password.isEmpty()){
+        if (email.isEmpty()&&password.isEmpty()) {
             setStatusMessage(getResources().getString(R.string.EMPTY_All).trim());
-        } else if(email.isEmpty()){
+        }
+        else if (email.isEmpty()) {
             setStatusMessage(getResources().getString(R.string.EMPTY_EMAIL).trim());
-        } else if (password.isEmpty()) {
+        }
+        else if (password.isEmpty()) {
             setStatusMessage(getResources().getString(R.string.EMPTY_PASSWORD).trim());
-        } else if (!isValidEmailAddress(email)){
+        }
+        else if (!isValidEmailAddress(email)) {
             setStatusMessage(getResources().getString(R.string.INVALID_EMAIL_ADDRESS).trim());
-        } else if (!isValidPassword(password)){
+        }
+        else if (!isValidPassword(password)) {
             setStatusMessage(getResources().getString(R.string.INVALID_PASSWORD).trim());
-        } else{
+        }
+        else {
             setStatusMessage(getResources().getString(R.string.LOGIN_NOW).trim());
             login(email,password);
         }
-
-
     }
 
     /**
@@ -169,10 +179,10 @@ public class LoginPage extends AppCompatActivity implements View.OnClickListener
      * If yes,the user should direct to the landing page
      */
     @Override
-    public void onStart() {
+    public void onStart () {
         super.onStart();
         FirebaseUser currentUser = mAuth.getCurrentUser();
-        if(currentUser != null){
+        if (currentUser != null) {
             Intent i = new Intent(getApplicationContext(),LandingPage.class);
             startActivity(i);
             finish();
