@@ -1,19 +1,16 @@
 /**
  * This activity is used for choosing which become employee and employer
  * Editor: Xinxin Yu
+ * Code Reviewer: Zihao Liu
  */
 
 package com.example.quickcash;
-
 import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
-import android.widget.EditText;
-import android.widget.TextView;
-import com.google.firebase.database.*;
-import androidx.annotation.NonNull;
+
 
 public class LandingPage extends AppCompatActivity {
 

@@ -123,12 +123,6 @@ public class ValidateRegisterPwdTest extends TestCase {
         assertFalse(pwd.validatePwdNullEmpty(blankPwd));
     }
 
-
-
-
-
-
-
     @Test
     public void checkEmailHasAtSymbolTest() {
         ValidateRegisterPwd v1 = new ValidateRegisterPwd();
