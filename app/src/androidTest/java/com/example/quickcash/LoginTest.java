@@ -58,7 +58,7 @@ public class LoginTest {
 
     @Test
     public void checkIfLoginPageIsVisible() {
-        onView(withId(R.id.loginPageText1)).check(matches(withText("LOGIN PAGE")));
+        onView(withId(R.id.loginPageText1)).check(matches(withText("Login")));
         onView(withId(R.id.emailTextField)).check(matches(withText("")));
         onView(withId(R.id.passwordTextField)).check(matches(withText("")));
         onView(withId(R.id.registerLink)).check(matches(withText("Click to Register now!")));
