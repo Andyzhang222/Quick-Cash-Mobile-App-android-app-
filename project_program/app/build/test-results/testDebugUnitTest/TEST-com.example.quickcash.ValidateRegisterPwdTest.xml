@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="com.example.quickcash.ValidateRegisterPwdTest" tests="9" skipped="0" failures="0" errors="0" timestamp="2023-02-17T00:42:35" hostname="t8e9a.wpa.dal.ca" time="0.03">
+  <properties/>
+  <testcase name="testPwdWithoutLowerCase" classname="com.example.quickcash.ValidateRegisterPwdTest" time="0.005"/>
+  <testcase name="testPwdWithoutNumber" classname="com.example.quickcash.ValidateRegisterPwdTest" time="0.004"/>
+  <testcase name="testPwdWithoutSymbol" classname="com.example.quickcash.ValidateRegisterPwdTest" time="0.003"/>
+  <testcase name="testPwdLengthLessEight" classname="com.example.quickcash.ValidateRegisterPwdTest" time="0.003"/>
+  <testcase name="testPwdLengthMoreThanThirteen" classname="com.example.quickcash.ValidateRegisterPwdTest" time="0.003"/>
+  <testcase name="testPwdIsBlank" classname="com.example.quickcash.ValidateRegisterPwdTest" time="0.003"/>
+  <testcase name="testCorrectPwd" classname="com.example.quickcash.ValidateRegisterPwdTest" time="0.003"/>
+  <testcase name="testPwdWithoutCapitalLetter" classname="com.example.quickcash.ValidateRegisterPwdTest" time="0.003"/>
+  <testcase name="testPwdIsNull" classname="com.example.quickcash.ValidateRegisterPwdTest" time="0.003"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

@@ -1,0 +1,16 @@
+#Thu Feb 16 20:35:23 AST 2023
+path.4=5/classes.dex
+path.3=10/classes.dex
+path.2=0/classes.dex
+path.1=0/classes.dex
+path.0=classes.dex
+base.4=/Users/andyzhang/Desktop/3130-project-quick-cash/project_program/app/build/intermediates/dex/debugAndroidTest/mergeProjectDexDebugAndroidTest/5/classes.dex
+base.3=/Users/andyzhang/Desktop/3130-project-quick-cash/project_program/app/build/intermediates/dex/debugAndroidTest/mergeProjectDexDebugAndroidTest/10/classes.dex
+base.2=/Users/andyzhang/Desktop/3130-project-quick-cash/project_program/app/build/intermediates/dex/debugAndroidTest/mergeProjectDexDebugAndroidTest/0/classes.dex
+base.1=/Users/andyzhang/Desktop/3130-project-quick-cash/project_program/app/build/intermediates/dex/debugAndroidTest/mergeLibDexDebugAndroidTest/0/classes.dex
+base.0=/Users/andyzhang/Desktop/3130-project-quick-cash/project_program/app/build/intermediates/dex/debugAndroidTest/mergeExtDexDebugAndroidTest/classes.dex
+renamed.3=classes4.dex
+renamed.2=classes3.dex
+renamed.1=classes2.dex
+renamed.0=classes.dex
+renamed.4=classes5.dex

@@ -1,3 +1,10 @@
+/**
+ * Author: Haoran Zhang, Guanxiang Wang
+ * Registration Test
+ * Test Purpose: To ensure that the user is able to
+ * view the textview and button, then switch to the login page successfully.
+ * Code Reviewer: Guanxiang Wang, Haoran Zhang
+ **/
 package com.example.quickcash;
 
 import android.content.Context;
@@ -59,6 +66,7 @@ public class registrationTest {
 
     }
 
+    //check the all the text field and button is visible to user
     @Test
     public void checkIfRegistrationPageIsVisible() {
         onView(withId(R.id.registerText1)).check(matches(withText("REGISTER")));
@@ -68,6 +76,7 @@ public class registrationTest {
         onView(withId(R.id.passwordRepeatTextBox)).check(matches(withText("")));
     }
 
+    //check if can switch to login page successfully.
     @Test
     public void checkIfSwitched2LoginPage() {
         onView(withId(R.id.emailTextBox)).perform(typeText("aa111111@dal.ca"));

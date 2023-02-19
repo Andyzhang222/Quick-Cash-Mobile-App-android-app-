@@ -1,0 +1,118 @@
+[
+    {
+        "merged": "/Users/andyzhang/.gradle/daemon/7.6/com.example.quickcash.app-merged_res-34:/mipmap-xxhdpi_ic_launcher_round.webp.flat",
+        "source": "/Users/andyzhang/.gradle/daemon/7.6/com.example.quickcash.app-main-36:/mipmap-xxhdpi/ic_launcher_round.webp"
+    },
+    {
+        "merged": "/Users/andyzhang/.gradle/daemon/7.6/com.example.quickcash.app-merged_res-34:/mipmap-xhdpi_ic_launcher.webp.flat",
+        "source": "/Users/andyzhang/.gradle/daemon/7.6/com.example.quickcash.app-main-36:/mipmap-xhdpi/ic_launcher.webp"
+    },
+    {
+        "merged": "/Users/andyzhang/.gradle/daemon/7.6/com.example.quickcash.app-merged_res-34:/layout_activity_employee_page.xml.flat",
+        "source": "/Users/andyzhang/.gradle/daemon/7.6/com.example.quickcash.app-main-36:/layout/activity_employee_page.xml"
+    },
+    {
+        "merged": "/Users/andyzhang/.gradle/daemon/7.6/com.example.quickcash.app-merged_res-34:/mipmap-mdpi_ic_launcher.webp.flat",
+        "source": "/Users/andyzhang/.gradle/daemon/7.6/com.example.quickcash.app-main-36:/mipmap-mdpi/ic_launcher.webp"
+    },
+    {
+        "merged": "/Users/andyzhang/.gradle/daemon/7.6/com.example.quickcash.app-merged_res-34:/layout_activity_landing_page.xml.flat",
+        "source": "/Users/andyzhang/.gradle/daemon/7.6/com.example.quickcash.app-main-36:/layout/activity_landing_page.xml"
+    },
+    {
+        "merged": "/Users/andyzhang/.gradle/daemon/7.6/com.example.quickcash.app-merged_res-34:/drawable_baseline_credit_card_24.xml.flat",
+        "source": "/Users/andyzhang/.gradle/daemon/7.6/com.example.quickcash.app-main-36:/drawable/baseline_credit_card_24.xml"
+    },
+    {
+        "merged": "com.example.quickcash.app-merged_res-34:/layout_activity_register_page.xml.flat",
+        "source": "com.example.quickcash.app-main-36:/layout/activity_register_page.xml"
+    },
+    {
+        "merged": "/Users/andyzhang/.gradle/daemon/7.6/com.example.quickcash.app-merged_res-34:/mipmap-xxxhdpi_ic_launcher.webp.flat",
+        "source": "/Users/andyzhang/.gradle/daemon/7.6/com.example.quickcash.app-main-36:/mipmap-xxxhdpi/ic_launcher.webp"
+    },
+    {
+        "merged": "/Users/andyzhang/.gradle/daemon/7.6/com.example.quickcash.app-merged_res-34:/drawable-v24_ic_launcher_foreground.xml.flat",
+        "source": "/Users/andyzhang/.gradle/daemon/7.6/com.example.quickcash.app-main-36:/drawable-v24/ic_launcher_foreground.xml"
+    },
+    {
+        "merged": "/Users/andyzhang/.gradle/daemon/7.6/com.example.quickcash.app-merged_res-34:/mipmap-xxxhdpi_ic_launcher_round.webp.flat",
+        "source": "/Users/andyzhang/.gradle/daemon/7.6/com.example.quickcash.app-main-36:/mipmap-xxxhdpi/ic_launcher_round.webp"
+    },
+    {
+        "merged": "/Users/andyzhang/.gradle/daemon/7.6/com.example.quickcash.app-merged_res-34:/mipmap-anydpi-v26_ic_launcher.xml.flat",
+        "source": "/Users/andyzhang/.gradle/daemon/7.6/com.example.quickcash.app-main-36:/mipmap-anydpi-v26/ic_launcher.xml"
+    },
+    {
+        "merged": "/Users/andyzhang/.gradle/daemon/7.6/com.example.quickcash.app-merged_res-34:/drawable_wechat27683bfd5282de4606f1c0a0a51ba5ea.png.flat",
+        "source": "/Users/andyzhang/.gradle/daemon/7.6/com.example.quickcash.app-main-36:/drawable/wechat27683bfd5282de4606f1c0a0a51ba5ea.png"
+    },
+    {
+        "merged": "/Users/andyzhang/.gradle/daemon/7.6/com.example.quickcash.app-merged_res-34:/layout_activity_login_page.xml.flat",
+        "source": "/Users/andyzhang/.gradle/daemon/7.6/com.example.quickcash.app-main-36:/layout/activity_login_page.xml"
+    },
+    {
+        "merged": "/Users/andyzhang/.gradle/daemon/7.6/com.example.quickcash.app-merged_res-34:/drawable_custom_input.xml.flat",
+        "source": "/Users/andyzhang/.gradle/daemon/7.6/com.example.quickcash.app-main-36:/drawable/custom_input.xml"
+    },
+    {
+        "merged": "/Users/andyzhang/.gradle/daemon/7.6/com.example.quickcash.app-merged_res-34:/xml_backup_rules.xml.flat",
+        "source": "/Users/andyzhang/.gradle/daemon/7.6/com.example.quickcash.app-main-36:/xml/backup_rules.xml"
+    },
+    {
+        "merged": "/Users/andyzhang/.gradle/daemon/7.6/com.example.quickcash.app-merged_res-34:/mipmap-hdpi_ic_launcher_round.webp.flat",
+        "source": "/Users/andyzhang/.gradle/daemon/7.6/com.example.quickcash.app-main-36:/mipmap-hdpi/ic_launcher_round.webp"
+    },
+    {
+        "merged": "/Users/andyzhang/.gradle/daemon/7.6/com.example.quickcash.app-merged_res-34:/layout_activity_employer_page.xml.flat",
+        "source": "/Users/andyzhang/.gradle/daemon/7.6/com.example.quickcash.app-main-36:/layout/activity_employer_page.xml"
+    },
+    {
+        "merged": "/Users/andyzhang/.gradle/daemon/7.6/com.example.quickcash.app-merged_res-34:/drawable_logo.png.flat",
+        "source": "/Users/andyzhang/.gradle/daemon/7.6/com.example.quickcash.app-main-36:/drawable/logo.png"
+    },
+    {
+        "merged": "/Users/andyzhang/.gradle/daemon/7.6/com.example.quickcash.app-merged_res-34:/mipmap-xxhdpi_ic_launcher.webp.flat",
+        "source": "/Users/andyzhang/.gradle/daemon/7.6/com.example.quickcash.app-main-36:/mipmap-xxhdpi/ic_launcher.webp"
+    },
+    {
+        "merged": "/Users/andyzhang/.gradle/daemon/7.6/com.example.quickcash.app-merged_res-34:/mipmap-anydpi-v33_ic_launcher.xml.flat",
+        "source": "/Users/andyzhang/.gradle/daemon/7.6/com.example.quickcash.app-main-36:/mipmap-anydpi-v33/ic_launcher.xml"
+    },
+    {
+        "merged": "/Users/andyzhang/.gradle/daemon/7.6/com.example.quickcash.app-merged_res-34:/drawable_baseline_password_24.xml.flat",
+        "source": "/Users/andyzhang/.gradle/daemon/7.6/com.example.quickcash.app-main-36:/drawable/baseline_password_24.xml"
+    },
+    {
+        "merged": "/Users/andyzhang/.gradle/daemon/7.6/com.example.quickcash.app-merged_res-34:/mipmap-mdpi_ic_launcher_round.webp.flat",
+        "source": "/Users/andyzhang/.gradle/daemon/7.6/com.example.quickcash.app-main-36:/mipmap-mdpi/ic_launcher_round.webp"
+    },
+    {
+        "merged": "/Users/andyzhang/.gradle/daemon/7.6/com.example.quickcash.app-merged_res-34:/drawable_baseline_email.xml.flat",
+        "source": "/Users/andyzhang/.gradle/daemon/7.6/com.example.quickcash.app-main-36:/drawable/baseline_email.xml"
+    },
+    {
+        "merged": "/Users/andyzhang/.gradle/daemon/7.6/com.example.quickcash.app-merged_res-34:/mipmap-xhdpi_ic_launcher_round.webp.flat",
+        "source": "/Users/andyzhang/.gradle/daemon/7.6/com.example.quickcash.app-main-36:/mipmap-xhdpi/ic_launcher_round.webp"
+    },
+    {
+        "merged": "/Users/andyzhang/.gradle/daemon/7.6/com.example.quickcash.app-merged_res-34:/drawable_ic_launcher_background.xml.flat",
+        "source": "/Users/andyzhang/.gradle/daemon/7.6/com.example.quickcash.app-main-36:/drawable/ic_launcher_background.xml"
+    },
+    {
+        "merged": "/Users/andyzhang/.gradle/daemon/7.6/com.example.quickcash.app-merged_res-34:/mipmap-hdpi_ic_launcher.webp.flat",
+        "source": "/Users/andyzhang/.gradle/daemon/7.6/com.example.quickcash.app-main-36:/mipmap-hdpi/ic_launcher.webp"
+    },
+    {
+        "merged": "/Users/andyzhang/.gradle/daemon/7.6/com.example.quickcash.app-merged_res-34:/layout_activity_register_page.xml.flat",
+        "source": "/Users/andyzhang/.gradle/daemon/7.6/com.example.quickcash.app-main-36:/layout/activity_register_page.xml"
+    },
+    {
+        "merged": "/Users/andyzhang/.gradle/daemon/7.6/com.example.quickcash.app-merged_res-34:/xml_data_extraction_rules.xml.flat",
+        "source": "/Users/andyzhang/.gradle/daemon/7.6/com.example.quickcash.app-main-36:/xml/data_extraction_rules.xml"
+    },
+    {
+        "merged": "/Users/andyzhang/.gradle/daemon/7.6/com.example.quickcash.app-merged_res-34:/mipmap-anydpi-v26_ic_launcher_round.xml.flat",
+        "source": "/Users/andyzhang/.gradle/daemon/7.6/com.example.quickcash.app-main-36:/mipmap-anydpi-v26/ic_launcher_round.xml"
+    }
+]

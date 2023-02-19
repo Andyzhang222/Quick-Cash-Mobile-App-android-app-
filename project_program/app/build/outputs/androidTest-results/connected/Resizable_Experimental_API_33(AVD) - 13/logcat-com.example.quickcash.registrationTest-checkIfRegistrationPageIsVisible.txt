@@ -1,0 +1,158 @@
+02-17 02:57:17.617 31382 31439 I TestRunner: started: checkIfRegistrationPageIsVisible(com.example.quickcash.registrationTest)
+02-17 02:57:17.619   414   508 W TransactionTracing: Could not find layer handle 0xb400007d42953150
+02-17 02:57:17.619   414   508 W TransactionTracing: Could not find layer handle 0xb400007d42959090
+02-17 02:57:17.619   414   508 W TransactionTracing: Could not find layer handle 0xb400007d42959090
+02-17 02:57:17.619   414   508 W TransactionTracing: Could not find layer handle 0xb400007d42953150
+02-17 02:57:17.619   414   508 W TransactionTracing: Could not find layer handle 0xb400007d42956f30
+02-17 02:57:17.619   414   508 W TransactionTracing: Could not find layer handle 0xb400007d42953150
+02-17 02:57:17.622 31382 31439 W Settings: Setting always_finish_activities has moved from android.provider.Settings.System to android.provider.Settings.Global, returning read-only value.
+02-17 02:57:17.626   774  1016 D SplashScreenView: Build android.window.SplashScreenView{f7c43ad V.E...... ......ID 0,0-0,0}
+02-17 02:57:17.626   774  1016 D SplashScreenView: Icon: view: null drawable: null size: 0
+02-17 02:57:17.626   774  1016 D SplashScreenView: Branding: view: android.view.View{955b6e2 G.ED..... ......I. 0,0-0,0 #10204db android:id/splashscreen_branding_view} drawable: null size w: 0 h: 0
+02-17 02:57:17.630  1087  1087 D MainContentCaptureSession: Flushing 1 event(s) for act:com.google.android.apps.nexuslauncher/.NexusLauncherActivity [state=2 (ACTIVE), disabled=false], reason=FULL
+02-17 02:57:17.631 31382 31382 D LifecycleMonitor: Lifecycle status change: com.example.quickcash.RegisterPage@77e7f3a in: PRE_ON_CREATE
+02-17 02:57:17.632 31382 31382 V ActivityScenario: Activity lifecycle changed event received but ignored because the reported transition was not ON_CREATE while the last known transition was PRE_ON_CREATE
+02-17 02:57:17.637 31382 31382 D AutofillManager: Fill dialog is enabled:false, hints=[password, passwordAuto, creditCardNumber, creditCardSecurityCode, creditCardExpirationDate]
+02-17 02:57:17.642 31382 31382 D LifecycleMonitor: Lifecycle status change: com.example.quickcash.RegisterPage@77e7f3a in: CREATED
+02-17 02:57:17.642 31382 31382 V ActivityScenario: Update currentActivityStage to CREATED, currentActivity=com.example.quickcash.RegisterPage@77e7f3a
+02-17 02:57:17.642 31382 31382 D LifecycleMonitor: Lifecycle status change: com.example.quickcash.RegisterPage@77e7f3a in: STARTED
+02-17 02:57:17.642 31382 31382 V ActivityScenario: Update currentActivityStage to STARTED, currentActivity=com.example.quickcash.RegisterPage@77e7f3a
+02-17 02:57:17.643 31382 31382 D LifecycleMonitor: Lifecycle status change: com.example.quickcash.RegisterPage@77e7f3a in: RESUMED
+02-17 02:57:17.643 31382 31382 V ActivityScenario: Update currentActivityStage to RESUMED, currentActivity=com.example.quickcash.RegisterPage@77e7f3a
+02-17 02:57:17.666   414   508 W TransactionTracing: Could not find layer handle 0xb400007d42959570
+02-17 02:57:17.666   414   508 W TransactionTracing: Could not find layer handle 0xb400007d429550d0
+02-17 02:57:17.666   414   508 W TransactionTracing: Could not find layer handle 0xb400007d429579b0
+02-17 02:57:17.683   414   508 W TransactionTracing: Could not find layer handle 0xb400007d429566f0
+02-17 02:57:17.683   414   508 W TransactionTracing: Could not find layer handle 0xb400007d42959930
+02-17 02:57:17.693   386   438 D goldfish-address-space: claimShared: Ask to claim region [0x1749a4000 0x175348000]
+02-17 02:57:17.694   386   438 D goldfish-address-space: claimShared: Ask to claim region [0x175348000 0x175cec000]
+02-17 02:57:17.695   386   438 D goldfish-address-space: claimShared: Ask to claim region [0x175cec000 0x176690000]
+02-17 02:57:17.696 31382 31382 D AutofillManager: Trigger fill request at view entered
+02-17 02:57:17.703   386   438 D goldfish-address-space: claimShared: Ask to claim region [0x176690000 0x177034000]
+02-17 02:57:17.705   386   438 D goldfish-address-space: claimShared: Ask to claim region [0x177034000 0x1779d8000]
+02-17 02:57:17.705 31382 31445 W Parcel  : Expecting binder but got null!
+02-17 02:57:17.706   386   438 D goldfish-address-space: claimShared: Ask to claim region [0x17c000000 0x17c9a4000]
+02-17 02:57:17.708   583   604 W ziparchive: Unable to open '/data/app/~~hLKa2XkOVD2JIqfx783gCg==/com.example.quickcash-dk0NsWLSiPVB0O14ZV4rpg==/base.dm': No such file or directory
+02-17 02:57:17.709 31382 31382 I AssistStructure: Flattened final assist data: 2752 bytes, containing 1 windows, 14 views
+02-17 02:57:17.710   583   604 I ActivityTaskManager: Displayed com.example.quickcash/.RegisterPage: +83ms
+02-17 02:57:17.717   414   508 W TransactionTracing: Could not find layer handle 0xb400007d42954ef0
+02-17 02:57:17.717   414   508 W TransactionTracing: Could not find layer handle 0xb400007d42957f50
+02-17 02:57:17.723   774  1031 W Parcel  : Expecting binder but got null!
+02-17 02:57:17.730  1728  1728 I GsaVoiceInteractionSrv: Handling ACTION_STOP_HOTWORD
+02-17 02:57:17.730  1728  2294 E HwDetectorWithState: (REDACTED) a: %d
+02-17 02:57:17.736  1567  1567 I GoogleInputMethodService: GoogleInputMethodService.onFinishInput():3220
+02-17 02:57:17.737  1567  1567 I GoogleInputMethodService: GoogleInputMethodService.updateDeviceLockedStatus():2114 repeatCheckTimes = 0, unlocked = true
+02-17 02:57:17.737  1567  1567 W KeyboardViewController: KeyboardViewController.show():493 Requesting to show sub view with id 2131428249(#0x7f0b0399) when keyboard HEADER view is not ready to show
+02-17 02:57:17.738  1567  1567 I GoogleInputMethodService: GoogleInputMethodService.onStartInput():1919 onStartInput(EditorInfo{inputType=0x0(NULL) imeOptions=0x0 privateImeOptions=null actionName=UNSPECIFIED actionLabel=null actionId=0 initialSelStart=-1 initialSelEnd=-1 initialCapsMode=0x0 hintText=null label=null packageName=com.example.quickcash fieldId=-1 fieldName=null extras=null}, false)
+02-17 02:57:17.738  1567  1567 I GoogleInputMethodService: GoogleInputMethodService.updateDeviceLockedStatus():2114 repeatCheckTimes = 2, unlocked = true
+02-17 02:57:17.744  1289  1289 W pps     : Pending fill request while another request in the same session was triggered. [CONTEXT service_id=177 ]
+02-17 02:57:17.745   974   974 V InlineSuggestionRenderService: handleDestroySuggestionViews called for 0:1175779276
+02-17 02:57:17.750   414   508 W TransactionTracing: Could not find layer handle 0xb400007d429549b0
+02-17 02:57:17.817   414   508 W TransactionTracing: Could not find layer id -1
+02-17 02:57:17.849   414   508 W TransactionTracing: Could not find layer id -1
+02-17 02:57:17.850   414   508 W TransactionTracing: Could not find layer id -1
+02-17 02:57:17.850   414   508 W TransactionTracing: Could not find layer id -1
+02-17 02:57:17.850   414   508 W TransactionTracing: Could not find layer id -1
+02-17 02:57:17.935   414   508 W TransactionTracing: Could not find layer id -1
+02-17 02:57:18.000   414   508 W TransactionTracing: Could not find layer handle 0xb400007d4295a590
+02-17 02:57:18.000   414   508 W TransactionTracing: Could not find layer handle 0xb400007d42952eb0
+02-17 02:57:18.003 31382 31382 I ViewInteraction: Checking 'MatchesViewAssertion{viewMatcher=an instance of android.widget.TextView and view.getText() with or without transformation to match: is "REGISTER"}' assertion on view view.getId() is <2131231088/com.example.quickcash:id/registerText1>
+02-17 02:57:18.005 31382 31382 I ViewInteraction: Checking 'MatchesViewAssertion{viewMatcher=an instance of android.widget.TextView and view.getText() with or without transformation to match: is ""}' assertion on view view.getId() is <2131230904/com.example.quickcash:id/emailTextBox>
+02-17 02:57:18.006 31382 31382 I ViewInteraction: Checking 'MatchesViewAssertion{viewMatcher=an instance of android.widget.TextView and view.getText() with or without transformation to match: is ""}' assertion on view view.getId() is <2131230724/com.example.quickcash:id/CardTextBox>
+02-17 02:57:18.007   583   764 W InputManager-JNI: Input channel object 'b534f51 Splash Screen com.example.quickcash (client)' was disposed without first being removed with the input manager!
+02-17 02:57:18.007 31382 31382 I ViewInteraction: Checking 'MatchesViewAssertion{viewMatcher=an instance of android.widget.TextView and view.getText() with or without transformation to match: is ""}' assertion on view view.getId() is <2131231071/com.example.quickcash:id/passwordTextBox>
+02-17 02:57:18.008 31382 31382 I ViewInteraction: Checking 'MatchesViewAssertion{viewMatcher=an instance of android.widget.TextView and view.getText() with or without transformation to match: is ""}' assertion on view view.getId() is <2131231070/com.example.quickcash:id/passwordRepeatTextBox>
+02-17 02:57:18.014   774  1016 D SplashScreenView: Build android.window.SplashScreenView{83c5663 V.E...... ......ID 0,0-0,0}
+02-17 02:57:18.014   774  1016 D SplashScreenView: Icon: view: null drawable: null size: 0
+02-17 02:57:18.014   774  1016 D SplashScreenView: Branding: view: android.view.View{7952260 G.ED..... ......I. 0,0-0,0 #10204db android:id/splashscreen_branding_view} drawable: null size w: 0 h: 0
+02-17 02:57:18.016 31382 31382 D LifecycleMonitor: Lifecycle status change: com.example.quickcash.RegisterPage@77e7f3a in: PAUSED
+02-17 02:57:18.016 31382 31382 V ActivityScenario: Update currentActivityStage to PAUSED, currentActivity=com.example.quickcash.RegisterPage@77e7f3a
+02-17 02:57:18.016   414   508 W TransactionTracing: Could not find layer handle 0xb400007d42954ad0
+02-17 02:57:18.016   414   508 W TransactionTracing: Could not find layer handle 0xb400007d42956b70
+02-17 02:57:18.016   414   508 W TransactionTracing: Could not find layer handle 0xb400007d42954ad0
+02-17 02:57:18.016   414   508 W TransactionTracing: Could not find layer handle 0xb400007d42954ad0
+02-17 02:57:18.016   414   508 W TransactionTracing: Could not find layer handle 0xb400007d429551f0
+02-17 02:57:18.016   414   508 W TransactionTracing: Could not find layer handle 0xb400007d429593f0
+02-17 02:57:18.016   414   508 W TransactionTracing: Could not find layer handle 0xb400007d42954ad0
+02-17 02:57:18.016   414   508 W TransactionTracing: Could not find layer handle 0xb400007d429551f0
+02-17 02:57:18.016   414   508 W TransactionTracing: Could not find layer handle 0xb400007d429593f0
+02-17 02:57:18.016   414   508 W TransactionTracing: Could not find layer handle 0xb400007d42956b70
+02-17 02:57:18.016   414   508 W TransactionTracing: Could not find layer handle 0xb400007d42954ad0
+02-17 02:57:18.016   414   508 W TransactionTracing: Could not find layer id -1
+02-17 02:57:18.016   414   508 W TransactionTracing: Could not find layer id -1
+02-17 02:57:18.023   386   438 D goldfish-address-space: claimShared: Ask to claim region [0x176690000 0x177034000]
+02-17 02:57:18.024   386   438 D goldfish-address-space: claimShared: Ask to claim region [0x177034000 0x1779d8000]
+02-17 02:57:18.025   386   438 D goldfish-address-space: claimShared: Ask to claim region [0x19dcec000 0x19e690000]
+02-17 02:57:18.027   774  1031 W Parcel  : Expecting binder but got null!
+02-17 02:57:18.028   838  1179 D BtGatt.ScanManager: uid 10107 isForeground true scanMode -1
+02-17 02:57:18.028   838  1179 D BtGatt.ScanManager: uid 10107 isForeground true scanMode -1
+02-17 02:57:18.030   386   438 D goldfish-address-space: claimShared: Ask to claim region [0x19e690000 0x19ecbc000]
+02-17 02:57:18.033   414   508 W TransactionTracing: Could not find layer handle 0xb400007d4295af50
+02-17 02:57:18.033   414   508 W TransactionTracing: Could not find layer handle 0xb400007d4295af50
+02-17 02:57:18.033   414   508 W TransactionTracing: Could not find layer id -1
+02-17 02:57:18.033   414   508 W TransactionTracing: Could not find layer id -1
+02-17 02:57:18.033   414   508 W TransactionTracing: Could not find layer id -1
+02-17 02:57:18.038   386   438 D goldfish-address-space: claimShared: Ask to claim region [0x17c000000 0x17c62c000]
+02-17 02:57:18.042   386   438 D goldfish-address-space: claimShared: Ask to claim region [0x19ecbc000 0x19f660000]
+02-17 02:57:18.043   386   438 D goldfish-address-space: claimShared: Ask to claim region [0x1a26ec000 0x1a3090000]
+02-17 02:57:18.044   386   438 D goldfish-address-space: claimShared: Ask to claim region [0x1a3090000 0x1a3a34000]
+02-17 02:57:18.046 31484 31507 W Parcel  : Expecting binder but got null!
+02-17 02:57:18.048  1087  1087 D MainContentCaptureSession: Flushing 1 event(s) for act:com.google.android.apps.nexuslauncher/.NexusLauncherActivity [state=2 (ACTIVE), disabled=false], reason=FULL
+02-17 02:57:18.050   414   508 W TransactionTracing: Could not find layer id -1
+02-17 02:57:18.051  1691  1764 I AiAiEcho: Predicting[0]:
+02-17 02:57:18.051  1691  1764 I AiAiEcho: Ranked targets strategy: SORT, count: 0, ranking metadata:
+02-17 02:57:18.051  1691  1764 I AiAiEcho: #postPredictionTargets: Sending updates to UISurface lockscreen with targets# 0
+02-17 02:57:18.051  1691  1764 I AiAiEcho: #postPredictionTargets: Sending updates to UISurface home with targets# 0
+02-17 02:57:18.051  1691  1764 I AiAiEcho: #postPredictionTargets: Sending updates to UISurface media_data_manager with targets# 0
+02-17 02:57:18.051   414   508 W TransactionTracing: Could not find layer id -1
+02-17 02:57:18.051   414   508 W TransactionTracing: Could not find layer id -1
+02-17 02:57:18.052   414   508 W TransactionTracing: Could not find layer id -1
+02-17 02:57:18.052   838  1179 D BtGatt.ScanManager: uid 10107 isForeground true scanMode -1
+02-17 02:57:18.053   838  1179 D BtGatt.ScanManager: uid 10107 isForeground true scanMode -1
+02-17 02:57:18.055   386   438 D goldfish-address-space: claimShared: Ask to claim region [0x1a00a0000 0x1a0a44000]
+02-17 02:57:18.056   386   438 D goldfish-address-space: claimShared: Ask to claim region [0x1a0a44000 0x1a13e8000]
+02-17 02:57:18.056   386   438 D goldfish-address-space: claimShared: Ask to claim region [0x1bd348000 0x1bdcec000]
+02-17 02:57:18.057   386   438 D goldfish-address-space: claimShared: Ask to claim region [0x1bdcec000 0x1be690000]
+02-17 02:57:18.060   386   438 D goldfish-address-space: claimShared: Ask to claim region [0x1d2690000 0x1d3034000]
+02-17 02:57:18.060   386   438 D goldfish-address-space: claimShared: Ask to claim region [0x1d3034000 0x1d39d8000]
+02-17 02:57:18.062  1728  1728 I GsaVoiceInteractionSrv: Handling ACTION_START_HOTWORD
+02-17 02:57:18.062  1728  2294 I GsaVoiceInteractionSrv: (REDACTED) disregardVoiceMatch: %b
+02-17 02:57:18.062  1728  2294 I GsaVoiceInteractionSrv: Cannot start hotword, hotword has been explicitly disabled.
+02-17 02:57:18.063  1087  1087 E BcSmartspaceCard: No tap action can be set up
+02-17 02:57:18.066   414   508 W TransactionTracing: Could not find layer handle 0xb400007d42953a50
+02-17 02:57:18.104  1567  1567 I GoogleInputMethodService: GoogleInputMethodService.onFinishInput():3220
+02-17 02:57:18.105  1567  1567 I GoogleInputMethodService: GoogleInputMethodService.updateDeviceLockedStatus():2114 repeatCheckTimes = 0, unlocked = true
+02-17 02:57:18.105  1567  1567 I GoogleInputMethodService: GoogleInputMethodService.onStartInput():1919 onStartInput(EditorInfo{inputType=0x0(NULL) imeOptions=0x0 privateImeOptions=null actionName=UNSPECIFIED actionLabel=null actionId=0 initialSelStart=-1 initialSelEnd=-1 initialCapsMode=0x0 hintText=null label=null packageName=com.google.android.apps.nexuslauncher fieldId=-1 fieldName=null extras=null}, false)
+02-17 02:57:18.105  1567  1567 I GoogleInputMethodService: GoogleInputMethodService.updateDeviceLockedStatus():2114 repeatCheckTimes = 2, unlocked = true
+02-17 02:57:18.117   414   508 W TransactionTracing: Could not find layer handle 0xb400007d42959090
+02-17 02:57:18.117   414   508 W TransactionTracing: Could not find layer id -1
+02-17 02:57:18.117   414   508 W TransactionTracing: Could not find layer id -1
+02-17 02:57:18.117   414   508 W TransactionTracing: Could not find layer id -1
+02-17 02:57:18.139   774  1031 D EGL_emulation: app_time_stats: avg=16.33ms min=0.61ms max=299.93ms count=46
+02-17 02:57:18.203   774  1031 D EGL_emulation: app_time_stats: avg=37.56ms min=11.13ms max=354.94ms count=27
+02-17 02:57:18.236   414   508 W TransactionTracing: Could not find layer id -1
+02-17 02:57:18.236   414   508 W TransactionTracing: Could not find layer id -1
+02-17 02:57:18.236   414   508 W TransactionTracing: Could not find layer id -1
+02-17 02:57:18.267   414   508 W TransactionTracing: Could not find layer id -1
+02-17 02:57:18.267   414   508 W TransactionTracing: Could not find layer id -1
+02-17 02:57:18.339   583  1804 W InputManager-JNI: Input channel object '4413138 Splash Screen com.example.quickcash.test (client)' was disposed without first being removed with the input manager!
+02-17 02:57:18.418   414   508 W TransactionTracing: Could not find layer id -1
+02-17 02:57:18.456   583   918 W InputManager-JNI: Input channel object '1c7e7bd com.example.quickcash.test/androidx.test.core.app.InstrumentationActivityInvoker$EmptyActivity (client)' was disposed without first being removed with the input manager!
+02-17 02:57:18.467   414   508 W TransactionTracing: Could not find layer handle 0xb400007d42954830
+02-17 02:57:18.467   414   508 W TransactionTracing: Could not find layer handle 0xb400007d4295a830
+02-17 02:57:18.467   414   508 W TransactionTracing: Could not find layer handle 0xb400007d4295a830
+02-17 02:57:18.467   414   508 W TransactionTracing: Could not find layer handle 0xb400007d42954830
+02-17 02:57:18.519   414   508 W TransactionTracing: Could not find layer handle 0xb400007d42953d50
+02-17 02:57:18.519   414   508 W TransactionTracing: Could not find layer handle 0xb400007d42957d70
+02-17 02:57:18.519   414   508 W TransactionTracing: Could not find layer handle 0xb400007d42952250
+02-17 02:57:18.519   414   508 W TransactionTracing: Could not find layer handle 0xb400007d42952250
+02-17 02:57:18.519   414   508 W TransactionTracing: Could not find layer handle 0xb400007d42957d70
+02-17 02:57:18.533   414   508 W TransactionTracing: Could not find layer handle 0xb400007d42954d10
+02-17 02:57:18.533   414   508 W TransactionTracing: Could not find layer handle 0xb400007d42953d50
+02-17 02:57:18.533   414   508 W TransactionTracing: Could not find layer id -1
+02-17 02:57:18.555 31382 31382 D LifecycleMonitor: Lifecycle status change: com.example.quickcash.RegisterPage@77e7f3a in: STOPPED
+02-17 02:57:18.556 31382 31382 V ActivityScenario: Update currentActivityStage to STOPPED, currentActivity=com.example.quickcash.RegisterPage@77e7f3a
+02-17 02:57:18.556 31382 31382 D AutofillManager: onActivityFinishing(): calling cancelLocked()
+02-17 02:57:18.557 31382 31382 D LifecycleMonitor: Lifecycle status change: com.example.quickcash.RegisterPage@77e7f3a in: DESTROYED
+02-17 02:57:18.557 31382 31382 V ActivityScenario: Update currentActivityStage to DESTROYED, currentActivity=null
+02-17 02:57:18.557 31382 31439 I TestRunner: finished: checkIfRegistrationPageIsVisible(com.example.quickcash.registrationTest)
