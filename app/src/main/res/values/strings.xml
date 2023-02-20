@@ -4,7 +4,7 @@
     <string name="EMPTY_EMAIL">Please Enter Your Email!</string>
     <string name="EMPTY_PASSWORD">Please Enter Your Password!</string>
     <string name="EMPTY_CREDITCARD">Please Enter Your Credit Card Number!</string>
-    <string name="LOGIN_NOW">Logging in now</string>
+    <string name="LOGIN_NOW"></string>
 
 
     <string name="WRONG_PASSWORD">WRONG_PASSWORD</string>

@@ -211,6 +211,8 @@ public class RegisterPage extends AppCompatActivity implements View.OnClickListe
             errorMessage = getResources().getString(R.string.PASSWORD_DOES_NOT_MATCH).trim();
             setStatusMessage(errorMessage);
         }else {
+            errorMessage = "";
+            setStatusMessage(errorMessage);
             switch (view.getId()){
                 case R.id.RegisterButton:
                     registerUser(email, password, creditCard);
