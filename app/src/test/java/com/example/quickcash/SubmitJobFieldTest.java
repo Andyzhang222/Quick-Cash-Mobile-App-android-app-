@@ -29,4 +29,18 @@ public class SubmitJobFieldTest extends TestCase {
         assertFalse(employee.equals(null));
     }
 
+    @Test
+    public void testCompareEmployee(){
+
+        employee = new Employee("Jack",90,"zh447118@dal.ca","1111111111111111",
+                "Aq1234567.","employee","free",888);
+
+        Employee employer1 = new Employee("Mike",88,"zh447118@dal.ca","1111111111111111",
+                "Aq1234567.","employee","free",888);
+
+
+        assertFalse(employee.equals(employer1));
+    }
+
+
 }
