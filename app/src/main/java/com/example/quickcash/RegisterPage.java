@@ -266,6 +266,30 @@ class User {
 
     }
 
+    public String getEmail() {
+        return email;
+    }
+
+    public String getCreditCard() {
+        return creditCard;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public void setCreditCard(String creditCard) {
+        this.creditCard = creditCard;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
+    }
+
     public User(String email, String creditCard, String password) {
         this.email = email;
         this.creditCard = creditCard;
