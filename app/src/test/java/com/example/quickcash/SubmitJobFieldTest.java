@@ -22,11 +22,26 @@ public class SubmitJobFieldTest extends TestCase {
     }
 
     @Test
-    public void testCreateEmployee() {
+    public void testCreateEmployee1() {
         employee = new Employee("Jack",90,"zh447118@dal.ca","1111111111111111",
                 "Aq1234567.","employee","free",888);
 
         assertFalse(employee.equals(null));
+    }
+
+    @Test
+    public void testCreateEmployee2() {
+        employee = new Employee("Jack",90,"zh447118@dal.ca","1111111111111111",
+                "Aq1234567.","employee","free",888);
+
+        assertEquals("Jack",employee.getName());
+        assertEquals(90,employee.getAge());
+        assertEquals("zh447118@dal.ca",employee.getEmail());
+        assertEquals("1111111111111111",employee.getCreditCard());
+        assertEquals("Aq1234567.",employee.getPassword());
+        assertEquals("employee",employee.getIdentity());
+        assertEquals("free",employee.getCurrentStatus());
+        assertEquals(888,employee.getTotalIncome());
     }
 
     @Test
@@ -41,6 +56,5 @@ public class SubmitJobFieldTest extends TestCase {
 
         assertFalse(employee.equals(employer1));
     }
-
 
 }
