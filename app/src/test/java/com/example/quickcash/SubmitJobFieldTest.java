@@ -57,4 +57,12 @@ public class SubmitJobFieldTest extends TestCase {
         assertFalse(employee.equals(employer1));
     }
 
+    @Test
+    public void testCreateEmployer1() {
+        employer = new Employer("Bob","zh447118@dal.ca","1111111111111111",
+                "Aq1234567.","employer","Apple");
+
+        assertFalse(employer.equals(null));
+    }
+
 }
