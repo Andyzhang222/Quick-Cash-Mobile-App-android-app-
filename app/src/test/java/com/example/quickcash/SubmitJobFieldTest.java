@@ -109,5 +109,53 @@ public class SubmitJobFieldTest extends TestCase {
         assertTrue(job.validateJobType(job.getJobType()));
     }
 
+    @Test
+    public void testDescriptionIsCorrect(){
+        job = new Job("",
+                "As a truck transporter, you'll be responsible for safely and efficiently transporting goods," +
+                        " following delivery schedules, and communicating with dispatchers and customers. " +
+                        "Strong knowledge of transportation regulations, safety standards, and good communication skills are essential.",
+                "",
+                "",
+                "",
+                "",
+                0
+        );
+
+        assertTrue(job.validateDescription(job.getDescription()));
+
+    }
+
+    @Test
+    public void testDescriptionIsNotCorrect(){
+        job = new Job("",
+                "As a truck transporter, you'll be responsible for safely and efficiently transporting goods," +
+                        " following delivery schedules, and communicating with dispatchers and customers. " +
+                        "Strong knowledge of transportation regulations, safety standards, and good communication skills are essential."+
+                        " following delivery schedules, and communicating with dispatchers and customers. " +
+                        "Strong knowledge of transportation regulations, safety standards, and good communication skills are essential."+
+                        " following delivery schedules, and communicating with dispatchers and customers. " +
+                        "Strong knowledge of transportation regulations, safety standards, and good communication skills are essential."+
+                        " following delivery schedules, and communicating with dispatchers and customers. " +
+                        "Strong knowledge of transportation regulations, safety standards, and good communication skills are essential."+
+                        " following delivery schedules, and communicating with dispatchers and customers. " +
+                        "Strong knowledge of transportation regulations, safety standards, and good communication skills are essential."+
+                        " following delivery schedules, and communicating with dispatchers and customers. " +
+                        "Strong knowledge of transportation regulations, safety standards, and good communication skills are essential."+
+                        " following delivery schedules, and communicating with dispatchers and customers. " +
+                        "Strong knowledge of transportation regulations, safety standards, and good communication skills are essential."+
+                        " following delivery schedules, and communicating with dispatchers and customers. " +
+                        "Strong knowledge of transportation regulations, safety standards, and good communication skills are essential.",
+                "",
+                "",
+                "",
+                "",
+                0
+        );
+
+        assertFalse(job.validateDescription(job.getDescription()));
+
+    }
+
 
 }
