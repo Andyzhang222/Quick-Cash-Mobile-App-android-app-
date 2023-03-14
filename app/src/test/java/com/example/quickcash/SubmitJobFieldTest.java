@@ -80,4 +80,34 @@ public class SubmitJobFieldTest extends TestCase {
 
         assertFalse(job1.equals(job));
     }
+
+    @Test
+    public void testJobIsNotCorrect(){
+        job = new Job("",
+                "",
+                "",
+                "",
+                "",
+                "",
+                0
+        );
+
+        assertFalse(job.validateJobType(job.getJobType()));
+    }
+
+    @Test
+    public void testJobIsCorrect(){
+        job = new Job("Driver",
+                "",
+                "",
+                "",
+                "",
+                "",
+                0
+        );
+
+        assertTrue(job.validateJobType(job.getJobType()));
+    }
+
+
 }
