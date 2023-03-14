@@ -17,7 +17,11 @@ import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.*;
 import androidx.annotation.NonNull;
 
+import java.util.ArrayList;
+
 public class EmployeePage extends AppCompatActivity {
+    //sample list, delete later
+    ArrayList<Job> jobList;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -39,6 +43,22 @@ public class EmployeePage extends AppCompatActivity {
                 finish();
             }
         });
+
+        //sample list, delete llater
+        jobList = new ArrayList<>();
+        jobList.add(new Job("aaa"));
+        jobList.add(new Job("aaa"));
+        jobList.add(new Job("aaa"));
+        jobList.add(new Job("aaa"));
+        jobList.add(new Job("aaa"));
+        jobList.add(new Job("aaa"));
+        jobList.add(new Job("aaa"));
+        jobList.add(new Job("aaa"));
+        jobList.add(new Job("aaa"));
+        jobList.add(new Job("aaa"));
+        jobList.add(new Job("aaa"));
+        jobList.add(new Job("aaa"));
+        jobList.add(new Job("aaa"));
 
     }
 }
