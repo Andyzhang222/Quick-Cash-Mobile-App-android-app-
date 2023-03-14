@@ -157,5 +157,33 @@ public class SubmitJobFieldTest extends TestCase {
 
     }
 
+    @Test
+    public void testDateIsCorrect(){
+        job = new Job("",
+                "",
+                "2023-01-20",
+                "",
+                "",
+                "",
+                0
+        );
+
+        assertTrue(job.validateDate(job.getDate()));
+    }
+
+    @Test
+    public void testDateIsNotCorrect(){
+        job = new Job("",
+                "",
+                "20-2020-20",
+                "",
+                "",
+                "",
+                0
+        );
+
+        assertFalse(job.validateDate(job.getDate()));
+    }
+
 
 }

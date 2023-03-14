@@ -93,8 +93,9 @@ public class Job {
     }
 
 
-    public boolean validateDate(String date){
+    public boolean validateDate(String date) {
         SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+        sdf.setLenient(false);
         try {
             sdf.parse(date);
             return true;
@@ -102,6 +103,7 @@ public class Job {
             return false;
         }
     }
+
 
 
     public boolean validateDuration(String duration){
