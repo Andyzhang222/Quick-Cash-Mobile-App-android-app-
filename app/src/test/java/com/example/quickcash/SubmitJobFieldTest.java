@@ -3,13 +3,15 @@ package com.example.quickcash;
 import junit.framework.TestCase;
 
 import org.junit.AfterClass;
-import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
 public class SubmitJobFieldTest extends TestCase {
-    Employee employee;
-    Employer employer;
+    Job job;
 
     @Before
     public void setup() {
@@ -22,71 +24,60 @@ public class SubmitJobFieldTest extends TestCase {
     }
 
     @Test
-    public void testCreateEmployee1() {
-        employee = new Employee("Jack",90,"zh447118@dal.ca","1111111111111111",
-                "Aq1234567.","employee","free",888);
+    public void testCreateJobSuccessfully() {
+        job = new Job("babysitter",
+                "Babysitting and playing with baby",
+                "2023-05-20",
+                "More than two hours",
+                "University Street",
+                "YES",
+                30
+                );
 
-        assertFalse(employee.equals(null));
+
+        assertFalse(job.equals(null));
     }
 
     @Test
-    public void testCreateEmployee2() {
-        employee = new Employee("Jack",90,"zh447118@dal.ca","1111111111111111",
-                "Aq1234567.","employee","free",888);
+    public void testGetJobFiledSuccessfully() {
+        job = new Job("Babysitter",
+                "Babysitting and playing with baby",
+                "2023-05-20",
+                "More than two hours",
+                "6225 University Street",
+                "YES",
+                30
+        );
 
-        assertEquals("Jack",employee.getName());
-        assertEquals(90,employee.getAge());
-        assertEquals("zh447118@dal.ca",employee.getEmail());
-        assertEquals("1111111111111111",employee.getCreditCard());
-        assertEquals("Aq1234567.",employee.getPassword());
-        assertEquals("employee",employee.getIdentity());
-        assertEquals("free",employee.getCurrentStatus());
-        assertEquals(888,employee.getTotalIncome());
+        assertEquals("Babysitter",job.getJobType());
+        assertEquals("Babysitting and playing with baby",job.getDescription());
+        assertEquals("2023-05-20",job.getDate());
+        assertEquals("More than two hours",job.getDuration());
+        assertEquals("6225 University Street",job.getPlace());
+        assertEquals("YES",job.getUrgency());
+        assertEquals(30,job.getSalary());
     }
 
     @Test
-    public void testCompareEmployee(){
+    public void testCompareJob(){
+        job = new Job("Babysitter",
+                "Babysitting and playing with baby",
+                "2023-05-20",
+                "More than two hours",
+                "6225 University Street",
+                "YES",
+                30
+        );
 
-        employee = new Employee("Jack",90,"zh447118@dal.ca","1111111111111111",
-                "Aq1234567.","employee","free",888);
+        Job job1 = new Job("Truck Drivers",
+                "Babysitting and playing with baby",
+                "2023-05-20",
+                "More than two hours",
+                "6225 University Street",
+                "YES",
+                30
+        );
 
-        Employee employer1 = new Employee("Mike",88,"zh447118@dal.ca","1111111111111111",
-                "Aq1234567.","employee","free",888);
-
-
-        assertFalse(employee.equals(employer1));
+        assertFalse(job1.equals(job));
     }
-
-    @Test
-    public void testCreateEmployer1() {
-        employer = new Employer("Bob","zh447118@dal.ca","1111111111111111",
-                "Aq1234567.","employer","Apple");
-
-        assertFalse(employer.equals(null));
-    }
-
-    @Test
-    public void testCreateEmployer2() {
-        employer = new Employer("Bob","zh447118@dal.ca","1111111111111111",
-                "Aq1234567.","employer","Apple");
-
-        assertEquals("Bob",employer.getName());
-        assertEquals("zh447118@dal.ca",employer.getEmail());
-        assertEquals("1111111111111111",employer.getCreditCard());
-        assertEquals("Aq1234567.",employer.getPassword());
-        assertEquals("employer",employer.getIdentity());
-        assertEquals("Apple",employer.getCompanyName());
-    }
-
-    @Test
-    public void testCompareEmployer() {
-        employer = new Employer("Bob","zh447118@dal.ca","1111111111111111",
-                "Aq1234567.","employer","Apple");
-
-        Employer employer1 = new Employer("Marry","zh4125118@dal.ca","1111111111111111",
-                "Aq1asdsa4567.","employer","Dal");
-
-        assertFalse(employer.equals(employer1));
-    }
-
 }
