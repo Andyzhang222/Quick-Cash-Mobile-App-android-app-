@@ -9,10 +9,10 @@
     <option name="autoReloadType" value="NONE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c72c6d02-fa94-4afb-ab1b-a44c8afda27c" name="Changes" comment="comments for unit test compare Employer">
+    <list default="true" id="c72c6d02-fa94-4afb-ab1b-a44c8afda27c" name="Changes" comment="comments for unit test some cases for SubmitJobFieldTest and clarified the situation">
       <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/quickcash/Employer.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/quickcash/Job.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/quickcash/Job.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/quickcash/Job.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/test/java/com/example/quickcash/SubmitJobFieldTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/test/java/com/example/quickcash/SubmitJobFieldTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -20,7 +20,6 @@
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
-  <component name="ExecutionTargetManager" SELECTED_TARGET="device_and_snapshot_combo_box_target[/Users/zihao/.android/avd/Pixel_6_API_33.avd]" />
   <component name="ExternalProjectsData">
     <projectState path="$PROJECT_DIR$">
       <ProjectState />
@@ -87,7 +86,7 @@
     &quot;settings.editor.selected.configurable&quot;: &quot;memory.settings&quot;
   }
 }</component>
-  <component name="RunManager" selected="Gradle.SubmitJobFieldTest">
+  <component name="RunManager" selected="Gradle.SubmitJobFieldTest.testJobIsCorrect">
     <configuration name="app" type="AndroidRunConfigurationType" factoryName="Android App">
       <module name="QuIckCash.app.main" />
       <option name="DEPLOY" value="true" />
@@ -222,7 +221,7 @@
       <DebugAllEnabled>false</DebugAllEnabled>
       <method v="2" />
     </configuration>
-    <configuration name="SubmitJobFieldTest.testCompareEmployer" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+    <configuration name="SubmitJobFieldTest.testJobIsCorrect" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
         <option name="externalProjectPath" value="$PROJECT_DIR$" />
@@ -235,7 +234,7 @@
           <list>
             <option value=":app:testDebugUnitTest" />
             <option value="--tests" />
-            <option value="&quot;com.example.quickcash.SubmitJobFieldTest.testCompareEmployer&quot;" />
+            <option value="&quot;com.example.quickcash.SubmitJobFieldTest.testJobIsCorrect&quot;" />
           </list>
         </option>
         <option name="vmOptions" />
@@ -245,7 +244,7 @@
       <DebugAllEnabled>false</DebugAllEnabled>
       <method v="2" />
     </configuration>
-    <configuration name="SubmitJobFieldTest.testCreateEmployee1" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+    <configuration name="SubmitJobFieldTest.testJobIsEmpty" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
         <option name="externalProjectPath" value="$PROJECT_DIR$" />
@@ -258,7 +257,7 @@
           <list>
             <option value=":app:testDebugUnitTest" />
             <option value="--tests" />
-            <option value="&quot;com.example.quickcash.SubmitJobFieldTest.testCreateEmployee1&quot;" />
+            <option value="&quot;com.example.quickcash.SubmitJobFieldTest.testJobIsEmpty&quot;" />
           </list>
         </option>
         <option name="vmOptions" />
@@ -268,7 +267,7 @@
       <DebugAllEnabled>false</DebugAllEnabled>
       <method v="2" />
     </configuration>
-    <configuration name="SubmitJobFieldTest.testCreateEmployee2" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+    <configuration name="SubmitJobFieldTest.testJobIsNotCorrect" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
         <option name="externalProjectPath" value="$PROJECT_DIR$" />
@@ -281,7 +280,7 @@
           <list>
             <option value=":app:testDebugUnitTest" />
             <option value="--tests" />
-            <option value="&quot;com.example.quickcash.SubmitJobFieldTest.testCreateEmployee2&quot;" />
+            <option value="&quot;com.example.quickcash.SubmitJobFieldTest.testJobIsNotCorrect&quot;" />
           </list>
         </option>
         <option name="vmOptions" />
@@ -293,11 +292,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Gradle.SubmitJobFieldTest.testJobIsCorrect" />
+        <item itemvalue="Gradle.SubmitJobFieldTest.testJobIsNotCorrect" />
+        <item itemvalue="Gradle.SubmitJobFieldTest.testJobIsEmpty" />
         <item itemvalue="Gradle.SubmitJobFieldTest" />
         <item itemvalue="Android Instrumented Tests.LoginTest" />
-        <item itemvalue="Gradle.SubmitJobFieldTest.testCreateEmployee1" />
-        <item itemvalue="Gradle.SubmitJobFieldTest.testCreateEmployee2" />
-        <item itemvalue="Gradle.SubmitJobFieldTest.testCompareEmployer" />
       </list>
     </recent_temporary>
   </component>
@@ -366,7 +365,14 @@
       <option name="project" value="LOCAL" />
       <updated>1678740293017</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="comments for unit test some cases for SubmitJobFieldTest and clarified the situation">
+      <created>1678835685110</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1678835685110</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -389,6 +395,8 @@
     <MESSAGE value="comments for unit test create Employer successfully" />
     <MESSAGE value="comments for unit test create Employer and get each filed successfully" />
     <MESSAGE value="comments for unit test compare Employer" />
-    <option name="LAST_COMMIT_MESSAGE" value="comments for unit test compare Employer" />
+    <MESSAGE value="comments for unit test SubmitJobFieldTest and clarified the situation" />
+    <MESSAGE value="comments for unit test some cases for SubmitJobFieldTest and clarified the situation" />
+    <option name="LAST_COMMIT_MESSAGE" value="comments for unit test some cases for SubmitJobFieldTest and clarified the situation" />
   </component>
 </project>

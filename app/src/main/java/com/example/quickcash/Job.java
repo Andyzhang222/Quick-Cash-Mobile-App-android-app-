@@ -79,4 +79,55 @@ public class Job {
     public void setSalary(int salary){
         this.salary = salary;
     }
+
+
+    public boolean validateJobType(String jobType){
+        return jobType != "" && !jobType.trim().isEmpty();
+    }
+
+
+    public boolean validateDescription(String description){
+        int minLength = 10;
+        int maxLength = 1000;
+        return description != null && description.length() >= minLength && description.length() <= maxLength;
+    }
+
+
+    public boolean validateDate(String date){
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+        try {
+            sdf.parse(date);
+            return true;
+        } catch (ParseException e) {
+            return false;
+        }
+    }
+
+
+    public boolean validateDuration(String duration){
+        int minDuration = 1;
+        int maxDuration = 24;
+        try {
+            int hours = Integer.parseInt(duration);
+            return hours >= minDuration && hours <= maxDuration;
+        } catch (NumberFormatException e) {
+            return false;
+        }
+    }
+
+    public boolean validateUrgency(String urgency){
+        String yes, no;
+        yes = "YES";
+        no = "NO";
+        if (urgency.equals("YES") || urgency.equals("NO")){
+            return true;
+        }
+        return false;
+    }
+
+    public boolean validateSalary(int salary){
+        int minSalary = 0;
+        int maxSalary = 1000000;
+        return salary >= minSalary && salary <= maxSalary;
+    }
 }
