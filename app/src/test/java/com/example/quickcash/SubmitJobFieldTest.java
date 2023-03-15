@@ -249,4 +249,52 @@ public class SubmitJobFieldTest extends TestCase {
         assertFalse(job.validateUrgency(job.getUrgency()));
     }
 
+    @Test
+    public void testSalaryIsCorrect(){
+        job = new Job("",
+                "",
+                "",
+                "",
+                "",
+                "",
+                0
+        );
+
+        Job job1 = new Job("",
+                "",
+                "",
+                "",
+                "",
+                "NO",
+                2500
+        );
+
+        assertTrue(job.validateSalary(job.getSalary()));
+        assertTrue(job1.validateSalary(job1.getSalary()));
+    }
+
+    @Test
+    public void testSalaryIsNotCorrect(){
+        job = new Job("",
+                "",
+                "",
+                "",
+                "",
+                "",
+                -1
+        );
+
+        Job job1 = new Job("",
+                "",
+                "",
+                "",
+                "",
+                "NO",
+                99999999
+        );
+
+        assertFalse(job.validateSalary(job.getSalary()));
+        assertFalse(job1.validateSalary(job1.getSalary()));
+    }
+
 }
