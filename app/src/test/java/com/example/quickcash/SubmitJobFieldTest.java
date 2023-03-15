@@ -184,7 +184,7 @@ public class SubmitJobFieldTest extends TestCase {
 
         assertFalse(job.validateDate(job.getDate()));
     }
-
+    @Test
     public void testDurationIsCorrect(){
         job = new Job("",
                 "",
@@ -197,7 +197,7 @@ public class SubmitJobFieldTest extends TestCase {
 
         assertTrue(job.validateDuration(job.getDuration()));
     }
-
+    @Test
     public void testDurationIsNotCorrect(){
         job = new Job("",
                 "",
@@ -211,5 +211,42 @@ public class SubmitJobFieldTest extends TestCase {
         assertFalse(job.validateDuration(job.getDuration()));
     }
 
+    @Test
+    public void testUrgencyIsCorrect(){
+        job = new Job("",
+                "",
+                "",
+                "",
+                "",
+                "YES",
+                0
+        );
+
+        Job job1 = new Job("",
+                "",
+                "",
+                "",
+                "",
+                "NO",
+                0
+        );
+
+        assertTrue(job.validateUrgency(job.getUrgency()));
+        assertTrue(job.validateUrgency(job1.getUrgency()));
+    }
+
+    @Test
+    public void testUrgencyIsNotCorrect(){
+        job = new Job("",
+                "",
+                "",
+                "",
+                "",
+                "AAA",
+                0
+        );
+
+        assertFalse(job.validateUrgency(job.getUrgency()));
+    }
 
 }
