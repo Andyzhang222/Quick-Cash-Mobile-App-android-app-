@@ -185,5 +185,31 @@ public class SubmitJobFieldTest extends TestCase {
         assertFalse(job.validateDate(job.getDate()));
     }
 
+    public void testDurationIsCorrect(){
+        job = new Job("",
+                "",
+                "",
+                "23",
+                "",
+                "",
+                0
+        );
+
+        assertTrue(job.validateDuration(job.getDuration()));
+    }
+
+    public void testDurationIsNotCorrect(){
+        job = new Job("",
+                "",
+                "",
+                "25",
+                "",
+                "",
+                0
+        );
+
+        assertFalse(job.validateDuration(job.getDuration()));
+    }
+
 
 }
