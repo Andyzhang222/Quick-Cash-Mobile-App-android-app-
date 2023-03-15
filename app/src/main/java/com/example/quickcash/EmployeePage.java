@@ -16,12 +16,14 @@ import android.widget.TextView;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.*;
 import androidx.annotation.NonNull;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class EmployeePage extends AppCompatActivity {
-    //sample list, delete later
-    ArrayList<Job> jobList;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -44,6 +46,11 @@ public class EmployeePage extends AppCompatActivity {
             }
         });
 
+        RecyclerView recyclerView = findViewById(R.id.recyclerview);
+
+        //sample list, delete later
+        List<Job> jobList;
+
         //sample list, delete llater
         jobList = new ArrayList<>();
         jobList.add(new Job("aaa"));
@@ -59,6 +66,20 @@ public class EmployeePage extends AppCompatActivity {
         jobList.add(new Job("aaa"));
         jobList.add(new Job("aaa"));
         jobList.add(new Job("aaa"));
+        jobList.add(new Job("aaa"));
+        jobList.add(new Job("aaa"));
+        jobList.add(new Job("aaa"));
+        jobList.add(new Job("aaa"));
+        jobList.add(new Job("aaa"));
+        jobList.add(new Job("aaa"));
+        jobList.add(new Job("aaa"));
+        jobList.add(new Job("aaa"));
+        jobList.add(new Job("aaa"));
+        jobList.add(new Job("aaa"));
+
+
+        recyclerView.setLayoutManager(new LinearLayoutManager(this));
+        recyclerView.setAdapter(new JobListAdapter(getApplicationContext(), jobList));
 
     }
 }
