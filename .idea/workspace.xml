@@ -9,10 +9,13 @@
     <option name="autoReloadType" value="NONE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c72c6d02-fa94-4afb-ab1b-a44c8afda27c" name="Changes" comment="comments for unit test and S,I,D principles">
+    <list default="true" id="c72c6d02-fa94-4afb-ab1b-a44c8afda27c" name="Changes" comment="comments for unit test job status">
+      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/example/quickcash/SubmitJobsActivity.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_submit_jobs.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/quickcash/Job.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/quickcash/Job.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/app/build.gradle" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/test/java/com/example/quickcash/SubmitJobFieldTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/test/java/com/example/quickcash/SubmitJobFieldTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -79,6 +82,7 @@
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.cidr.known.project.marker&quot;: &quot;true&quot;,
     &quot;cidr.known.project.marker&quot;: &quot;true&quot;,
+    &quot;com.google.services.firebase.aqiPopupShown&quot;: &quot;true&quot;,
     &quot;last_opened_file_path&quot;: &quot;/Users/zihao/Desktop/3130-project-quick-cash&quot;,
     &quot;memory.settings.postsync.last.time.stamp&quot;: &quot;1678733658504&quot;,
     &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
@@ -87,7 +91,12 @@
     &quot;settings.editor.selected.configurable&quot;: &quot;memory.settings&quot;
   }
 }</component>
-  <component name="RunManager" selected="Gradle.SubmitJobFieldTest.testStatusIsCorrect">
+  <component name="RecentsManager">
+    <key name="android.template.-2012312398">
+      <recent name="com.example.quickcash" />
+    </key>
+  </component>
+  <component name="RunManager" selected="Gradle.SubmitJobFieldTest">
     <configuration name="app" type="AndroidRunConfigurationType" factoryName="Android App">
       <module name="QuIckCash.app.main" />
       <option name="DEPLOY" value="true" />
@@ -263,10 +272,10 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Gradle.SubmitJobFieldTest" />
         <item itemvalue="Gradle.SubmitJobFieldTest.testStatusIsCorrect" />
         <item itemvalue="Gradle.SubmitJobFieldTest.testStatusIsNotCorrect" />
         <item itemvalue="Gradle.SubmitJobFieldTest.testSalaryIsNotCorrect" />
-        <item itemvalue="Gradle.SubmitJobFieldTest" />
         <item itemvalue="Gradle.SubmitJobFieldTest.testSalaryIsCorrect" />
       </list>
     </recent_temporary>
@@ -399,7 +408,14 @@
       <option name="project" value="LOCAL" />
       <updated>1678938726177</updated>
     </task>
-    <option name="localTasksCounter" value="18" />
+    <task id="LOCAL-00018" summary="comments for unit test job status">
+      <created>1678941336985</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1678941336985</updated>
+    </task>
+    <option name="localTasksCounter" value="19" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -432,6 +448,7 @@
     <MESSAGE value="comments for unit test correct/incorrect job Urgency" />
     <MESSAGE value="comments for unit test correct/incorrect job Salary" />
     <MESSAGE value="comments for unit test and S,I,D principles" />
-    <option name="LAST_COMMIT_MESSAGE" value="comments for unit test and S,I,D principles" />
+    <MESSAGE value="comments for unit test job status" />
+    <option name="LAST_COMMIT_MESSAGE" value="comments for unit test job status" />
   </component>
 </project>

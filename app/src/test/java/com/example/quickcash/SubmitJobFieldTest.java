@@ -6,10 +6,6 @@ import org.junit.AfterClass;
 import org.junit.Before;
 import org.junit.Test;
 
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
-import java.util.Date;
-
 public class SubmitJobFieldTest extends TestCase {
     Job job;
 

@@ -12,6 +12,9 @@
         android:theme="@style/Theme.QuIckCash"
         tools:targetApi="31">
         <activity
+            android:name=".SubmitJobsActivity"
+            android:exported="false" />
+        <activity
             android:name=".LandingPage"
             android:exported="false" />
         <activity
