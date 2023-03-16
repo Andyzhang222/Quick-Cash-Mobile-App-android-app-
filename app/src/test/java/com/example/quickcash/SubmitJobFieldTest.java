@@ -25,7 +25,8 @@ public class SubmitJobFieldTest extends TestCase {
 
     @Test
     public void testCreateJobSuccessfully() {
-        job = new Job("babysitter",
+        job = new Job("123456",
+                "babysitter",
                 "Babysitting and playing with baby",
                 "2023-05-20",
                 "More than two hours",
@@ -40,7 +41,8 @@ public class SubmitJobFieldTest extends TestCase {
 
     @Test
     public void testGetJobFiledSuccessfully() {
-        job = new Job("Babysitter",
+        job = new Job("123456",
+                "Babysitter",
                 "Babysitting and playing with baby",
                 "2023-05-20",
                 "More than two hours",
@@ -49,6 +51,7 @@ public class SubmitJobFieldTest extends TestCase {
                 30
         );
 
+        assertEquals("123456",job.getEmployerId());
         assertEquals("Babysitter",job.getJobType());
         assertEquals("Babysitting and playing with baby",job.getDescription());
         assertEquals("2023-05-20",job.getDate());
@@ -60,7 +63,8 @@ public class SubmitJobFieldTest extends TestCase {
 
     @Test
     public void testCompareJob(){
-        job = new Job("Babysitter",
+        job = new Job("123456",
+                "Babysitter",
                 "Babysitting and playing with baby",
                 "2023-05-20",
                 "More than two hours",
@@ -69,7 +73,8 @@ public class SubmitJobFieldTest extends TestCase {
                 30
         );
 
-        Job job1 = new Job("Truck Drivers",
+        Job job1 = new Job("123455",
+                "Truck Drivers",
                 "Babysitting and playing with baby",
                 "2023-05-20",
                 "More than two hours",
@@ -89,6 +94,7 @@ public class SubmitJobFieldTest extends TestCase {
                 "",
                 "",
                 "",
+                "",
                 0
         );
 
@@ -97,7 +103,8 @@ public class SubmitJobFieldTest extends TestCase {
 
     @Test
     public void testJobIsCorrect(){
-        job = new Job("Driver",
+        job = new Job("",
+                "Driver",
                 "",
                 "",
                 "",
@@ -111,7 +118,8 @@ public class SubmitJobFieldTest extends TestCase {
 
     @Test
     public void testDescriptionIsCorrect(){
-        job = new Job("",
+        job = new Job("123456",
+                "",
                 "As a truck transporter, you'll be responsible for safely and efficiently transporting goods," +
                         " following delivery schedules, and communicating with dispatchers and customers. " +
                         "Strong knowledge of transportation regulations, safety standards, and good communication skills are essential.",
@@ -128,7 +136,8 @@ public class SubmitJobFieldTest extends TestCase {
 
     @Test
     public void testDescriptionIsNotCorrect(){
-        job = new Job("",
+        job = new Job("123456",
+                "",
                 "As a truck transporter, you'll be responsible for safely and efficiently transporting goods," +
                         " following delivery schedules, and communicating with dispatchers and customers. " +
                         "Strong knowledge of transportation regulations, safety standards, and good communication skills are essential."+
@@ -159,7 +168,8 @@ public class SubmitJobFieldTest extends TestCase {
 
     @Test
     public void testDateIsCorrect(){
-        job = new Job("",
+        job = new Job("123456",
+                "",
                 "",
                 "2023-01-20",
                 "",
@@ -173,7 +183,8 @@ public class SubmitJobFieldTest extends TestCase {
 
     @Test
     public void testDateIsNotCorrect(){
-        job = new Job("",
+        job = new Job("123456",
+                "",
                 "",
                 "20-2020-20",
                 "",
@@ -186,7 +197,8 @@ public class SubmitJobFieldTest extends TestCase {
     }
     @Test
     public void testDurationIsCorrect(){
-        job = new Job("",
+        job = new Job("123456",
+                "",
                 "",
                 "",
                 "23",
@@ -199,7 +211,8 @@ public class SubmitJobFieldTest extends TestCase {
     }
     @Test
     public void testDurationIsNotCorrect(){
-        job = new Job("",
+        job = new Job("123456",
+                "",
                 "",
                 "",
                 "25",
@@ -213,7 +226,8 @@ public class SubmitJobFieldTest extends TestCase {
 
     @Test
     public void testUrgencyIsCorrect(){
-        job = new Job("",
+        job = new Job("123456",
+                "",
                 "",
                 "",
                 "",
@@ -222,7 +236,8 @@ public class SubmitJobFieldTest extends TestCase {
                 0
         );
 
-        Job job1 = new Job("",
+        Job job1 = new Job("123456",
+                "",
                 "",
                 "",
                 "",
@@ -237,7 +252,8 @@ public class SubmitJobFieldTest extends TestCase {
 
     @Test
     public void testUrgencyIsNotCorrect(){
-        job = new Job("",
+        job = new Job("123456",
+                "",
                 "",
                 "",
                 "",
@@ -251,7 +267,8 @@ public class SubmitJobFieldTest extends TestCase {
 
     @Test
     public void testSalaryIsCorrect(){
-        job = new Job("",
+        job = new Job("123456",
+                "",
                 "",
                 "",
                 "",
@@ -260,7 +277,8 @@ public class SubmitJobFieldTest extends TestCase {
                 0
         );
 
-        Job job1 = new Job("",
+        Job job1 = new Job("123456",
+                "",
                 "",
                 "",
                 "",
@@ -275,7 +293,8 @@ public class SubmitJobFieldTest extends TestCase {
 
     @Test
     public void testSalaryIsNotCorrect(){
-        job = new Job("",
+        job = new Job("123456",
+                "",
                 "",
                 "",
                 "",
@@ -284,7 +303,8 @@ public class SubmitJobFieldTest extends TestCase {
                 -1
         );
 
-        Job job1 = new Job("",
+        Job job1 = new Job("123456",
+                "",
                 "",
                 "",
                 "",

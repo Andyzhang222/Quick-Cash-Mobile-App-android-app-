@@ -2,11 +2,11 @@ package com.example.quickcash;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
-import java.util.Date;
+import java.util.List;
 
 public class Job {
 
-    private String jobType, description,date, duration, place, urgency;
+    private String employerId, jobType, description,date, duration, place, urgency, status;
     private int salary;
 
 
@@ -14,7 +14,8 @@ public class Job {
 
     }
 
-    public Job(String jobType, String description, String date, String duration, String place, String urgency, int salary) {
+    public Job(String employerId, String jobType, String description, String date, String duration, String place, String urgency, int salary) {
+        this.employerId = employerId;
         this.jobType = jobType;
         this.description = description;
         this.date = date;
@@ -22,6 +23,7 @@ public class Job {
         this.place = place;
         this.urgency = urgency;
         this.salary = salary;
+        this.status = "Open";
     }
 
     public String getJobType() {
@@ -52,6 +54,14 @@ public class Job {
         return salary;
     }
 
+    public String getStatus() {
+        return status;
+    }
+
+    public String getEmployerId() {
+        return employerId;
+    }
+
     public void setJobType(String jobType) {
         this.jobType = jobType;
     }
@@ -80,6 +90,13 @@ public class Job {
         this.salary = salary;
     }
 
+    public void setStatus(String status) {
+        this.status = status;
+    }
+
+    public void setEmployerId(String employerId) {
+        this.employerId = employerId;
+    }
 
     public boolean validateJobType(String jobType){
         return jobType != "" && !jobType.trim().isEmpty();
@@ -118,9 +135,6 @@ public class Job {
     }
 
     public boolean validateUrgency(String urgency){
-        String yes, no;
-        yes = "YES";
-        no = "NO";
         if (urgency.equals("YES") || urgency.equals("NO")){
             return true;
         }
@@ -132,4 +146,17 @@ public class Job {
         int maxSalary = 1000000;
         return salary >= minSalary && salary <= maxSalary;
     }
+
+    public boolean validateJobStatus(String status){
+        String str1, str2;
+        str1 = "Open";
+        str2 = "Close";
+
+        if (status.equals(str1) || status.equals(str2)){
+            return true;
+        }
+
+        return false;
+    }
+
 }

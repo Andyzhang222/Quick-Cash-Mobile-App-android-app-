@@ -27,7 +27,7 @@ import org.junit.runner.RunWith;
  * @see <a href="http://d.android.com/tools/testing">Testing documentation</a>
  */
 @RunWith(AndroidJUnit4.class)
-public class EmployerLogoutTest {
+public class JobRepositoryLogoutTest {
     @Rule
     public ActivityScenarioRule<EmployerPage> myRule = new ActivityScenarioRule<>(EmployerPage.class);
     public IntentsTestRule<EmployerPage> myIntentRule = new IntentsTestRule<>(EmployerPage.class);
