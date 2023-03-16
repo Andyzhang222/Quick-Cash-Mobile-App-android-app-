@@ -2,27 +2,12 @@ package com.example.quickcash;
 
 import android.annotation.SuppressLint;
 import android.content.Context;
-import android.location.Address;
-import android.location.Geocoder;
-import android.location.Location;
-import android.os.Looper;
 
+import android.location.Location;
 import com.google.android.gms.location.FusedLocationProviderClient;
 import com.google.android.gms.location.LocationCallback;
-import com.google.android.gms.location.LocationRequest;
-import com.google.android.gms.location.LocationResult;
-import com.google.android.gms.location.LocationServices;
-import com.google.android.gms.location.Priority;
 import com.google.android.gms.tasks.OnSuccessListener;
 
-import java.io.IOException;
-import java.util.List;
-import java.util.Locale;
-
-/**
- * A class for tracking the device's current location and getting the address corresponding to the location.
- * Uses the FusedLocationProviderClient from the Google Play Services Location APIs for location tracking.
- */
 public class LocationTracker {
 
     private FusedLocationProviderClient fusedLocationClient;
@@ -31,88 +16,26 @@ public class LocationTracker {
     private OnSuccessListener<Location> locationSuccessListener;
     private boolean isTracking = false;
 
-    /**
-     * Constructor for LocationTracker class.
-     * @param context Context of the activity or service using the LocationTracker.
-     */
     public LocationTracker(Context context) {
-        this.context = context;
-        fusedLocationClient = LocationServices.getFusedLocationProviderClient(context);
-        locationCallback = new LocationCallback() {
-            @Override
-            public void onLocationResult(LocationResult locationResult) {
-                if (locationResult == null) {
-                    return;
-                }
-                for (Location location : locationResult.getLocations()) {
-                    if (location != null) {
-                        if (locationSuccessListener != null) {
-                            locationSuccessListener.onSuccess(location);
-                        }
-                    }
-                }
-            }
-        };
+        //buggy function,fix it
     }
 
-    /**
-     * Starts tracking the device's current location.
-     * @param locationSuccessListener Listener to receive location updates.
-     */
     @SuppressLint("MissingPermission")
     public void startTracking(OnSuccessListener<Location> locationSuccessListener) {
-        this.locationSuccessListener = locationSuccessListener;
-        isTracking = true;
-        getLastLocation(locationSuccessListener);
-        LocationRequest locationRequest = new LocationRequest.Builder(Priority.PRIORITY_HIGH_ACCURACY,10000).build();
-
-        fusedLocationClient.requestLocationUpdates(locationRequest, locationCallback, Looper.getMainLooper());
+        //buggy function,fix it
     }
 
-    /**
-     * Gets the last known location of the device.
-     * @param locationSuccessListener Listener to receive the location.
-     */
     @SuppressLint("MissingPermission")
     private void getLastLocation(OnSuccessListener<Location> locationSuccessListener) {
-        fusedLocationClient.getLastLocation()
-                .addOnSuccessListener(location -> {
-                    if (location != null) {
-                        locationSuccessListener.onSuccess(location);
-                    }
-                });
+        //buggy function,fix it
     }
 
-    /**
-     * Stops tracking the device's current location.
-     */
     public void stopTracking() {
-        if (isTracking) {
-            fusedLocationClient.removeLocationUpdates(locationCallback);
-            isTracking = false;
-        }
+        //buggy function,fix it
     }
 
-    /**
-     * Gets the address corresponding to the given location.
-     * @param context Context of the activity or service using the LocationTracker.
-     * @param location Location object for which the address is needed.
-     * @return String containing the address corresponding to the given location.
-     */
     public String getAddressFromLocation(Context context,Location location) {
-        Geocoder geocoder = new Geocoder(context, Locale.getDefault());
-        List<Address> addresses = null;
-
-        try {
-            addresses = geocoder.getFromLocation(location.getLatitude(), location.getLongitude(), 1);
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-
-        if (addresses != null && addresses.size() > 0) {
-            Address address = addresses.get(0);
-            return address.getAddressLine(0);
-        }
+        //buggy function,fix it
 
         return null;
     }
