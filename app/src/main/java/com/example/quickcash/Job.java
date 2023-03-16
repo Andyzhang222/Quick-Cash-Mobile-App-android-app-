@@ -14,7 +14,7 @@ public class Job {
 
     }
 
-    public Job(String employerId, String jobType, String description, String date, String duration, String place, String urgency, int salary) {
+    public Job(String employerId, String jobType, String description, String date, String duration, String place, String urgency, int salary, String status) {
         this.employerId = employerId;
         this.jobType = jobType;
         this.description = description;
@@ -23,7 +23,7 @@ public class Job {
         this.place = place;
         this.urgency = urgency;
         this.salary = salary;
-        this.status = "Open";
+        this.status = status;
     }
 
     public String getJobType() {
@@ -158,5 +158,14 @@ public class Job {
 
         return false;
     }
+
+    public boolean validateEmployerId(String employerId) {
+        if (employerId == null) {
+            return false;
+        }
+
+        return employerId.length() < 8;
+    }
+
 
 }

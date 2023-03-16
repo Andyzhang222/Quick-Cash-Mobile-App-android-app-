@@ -32,7 +32,8 @@ public class SubmitJobFieldTest extends TestCase {
                 "More than two hours",
                 "University Street",
                 "YES",
-                30
+                30,
+                ""
                 );
 
 
@@ -48,7 +49,8 @@ public class SubmitJobFieldTest extends TestCase {
                 "More than two hours",
                 "6225 University Street",
                 "YES",
-                30
+                30,
+                ""
         );
 
         assertEquals("123456",job.getEmployerId());
@@ -70,7 +72,8 @@ public class SubmitJobFieldTest extends TestCase {
                 "More than two hours",
                 "6225 University Street",
                 "YES",
-                30
+                30,
+                ""
         );
 
         Job job1 = new Job("123455",
@@ -80,7 +83,8 @@ public class SubmitJobFieldTest extends TestCase {
                 "More than two hours",
                 "6225 University Street",
                 "YES",
-                30
+                30,
+                ""
         );
 
         assertFalse(job1.equals(job));
@@ -95,7 +99,8 @@ public class SubmitJobFieldTest extends TestCase {
                 "",
                 "",
                 "",
-                0
+                0,
+                ""
         );
 
         assertFalse(job.validateJobType(job.getJobType()));
@@ -110,7 +115,8 @@ public class SubmitJobFieldTest extends TestCase {
                 "",
                 "",
                 "",
-                0
+                0,
+                ""
         );
 
         assertTrue(job.validateJobType(job.getJobType()));
@@ -127,7 +133,8 @@ public class SubmitJobFieldTest extends TestCase {
                 "",
                 "",
                 "",
-                0
+                0,
+                ""
         );
 
         assertTrue(job.validateDescription(job.getDescription()));
@@ -159,7 +166,8 @@ public class SubmitJobFieldTest extends TestCase {
                 "",
                 "",
                 "",
-                0
+                0,
+                ""
         );
 
         assertFalse(job.validateDescription(job.getDescription()));
@@ -175,7 +183,8 @@ public class SubmitJobFieldTest extends TestCase {
                 "",
                 "",
                 "",
-                0
+                0,
+                ""
         );
 
         assertTrue(job.validateDate(job.getDate()));
@@ -190,7 +199,8 @@ public class SubmitJobFieldTest extends TestCase {
                 "",
                 "",
                 "",
-                0
+                0,
+                ""
         );
 
         assertFalse(job.validateDate(job.getDate()));
@@ -204,7 +214,8 @@ public class SubmitJobFieldTest extends TestCase {
                 "23",
                 "",
                 "",
-                0
+                0,
+                ""
         );
 
         assertTrue(job.validateDuration(job.getDuration()));
@@ -218,7 +229,8 @@ public class SubmitJobFieldTest extends TestCase {
                 "25",
                 "",
                 "",
-                0
+                0,
+                ""
         );
 
         assertFalse(job.validateDuration(job.getDuration()));
@@ -233,7 +245,8 @@ public class SubmitJobFieldTest extends TestCase {
                 "",
                 "",
                 "YES",
-                0
+                0,
+                ""
         );
 
         Job job1 = new Job("123456",
@@ -243,7 +256,8 @@ public class SubmitJobFieldTest extends TestCase {
                 "",
                 "",
                 "NO",
-                0
+                0,
+                ""
         );
 
         assertTrue(job.validateUrgency(job.getUrgency()));
@@ -259,7 +273,8 @@ public class SubmitJobFieldTest extends TestCase {
                 "",
                 "",
                 "AAA",
-                0
+                0,
+                ""
         );
 
         assertFalse(job.validateUrgency(job.getUrgency()));
@@ -274,7 +289,8 @@ public class SubmitJobFieldTest extends TestCase {
                 "",
                 "",
                 "",
-                0
+                0,
+                ""
         );
 
         Job job1 = new Job("123456",
@@ -284,7 +300,8 @@ public class SubmitJobFieldTest extends TestCase {
                 "",
                 "",
                 "NO",
-                2500
+                2500,
+                ""
         );
 
         assertTrue(job.validateSalary(job.getSalary()));
@@ -300,7 +317,8 @@ public class SubmitJobFieldTest extends TestCase {
                 "",
                 "",
                 "",
-                -1
+                -1,
+                ""
         );
 
         Job job1 = new Job("123456",
@@ -310,11 +328,68 @@ public class SubmitJobFieldTest extends TestCase {
                 "",
                 "",
                 "NO",
-                99999999
+                99999999,
+                ""
         );
 
         assertFalse(job.validateSalary(job.getSalary()));
         assertFalse(job1.validateSalary(job1.getSalary()));
+    }
+
+
+    @Test
+    public void testStatusIsCorrect(){
+        job = new Job("",
+                "",
+                "",
+                "",
+                "",
+                "",
+                "",
+                -1,
+                "Open"
+        );
+
+        Job job1 = new Job("123456",
+                "",
+                "",
+                "",
+                "",
+                "",
+                "",
+                0,
+                "Close"
+        );
+
+        assertTrue(job.validateJobStatus(job.getStatus()));
+        assertTrue(job1.validateJobStatus(job1.getStatus()));
+    }
+    @Test
+    public void testStatusIsNotCorrect(){
+        job = new Job("",
+                "",
+                "",
+                "",
+                "",
+                "",
+                "",
+                -1,
+                "222"
+        );
+
+        Job job1 = new Job("123456",
+                "",
+                "",
+                "",
+                "",
+                "",
+                "",
+                0,
+                "Clasdose"
+        );
+
+        assertFalse(job.validateJobStatus(job.getStatus()));
+        assertFalse(job1.validateJobStatus(job1.getStatus()));
     }
 
 }
