@@ -40,7 +40,9 @@ public class LocationTracker implements LocationProvider {
      */
     @SuppressLint("MissingPermission")
     public void getLastLocation(OnSuccessListener<Location> locationSuccessListener) {
-        //buggy function,fix it
+        Task<Location> task = fusedLocationClient.getLastLocation();
+        task.addOnSuccessListener(locationSuccessListener);
+        task.addOnFailureListener(e -> Log.d(TAG, "Failed to get current location: " + e.getMessage()));
     }
 
 
