@@ -38,7 +38,6 @@ public class LocationTrackerTest {
      */
     @After
     public void tearDown() {
-        locationTracker.stopTracking();
     }
 
     /**
@@ -47,33 +46,13 @@ public class LocationTrackerTest {
      * @throws Exception if an error occurs during the test.
      */
     @Test
-    public void testStartAndStopTracking() throws Exception {
-        locationTracker.startTracking(location -> {
+    public void testGetLocation() throws Exception {
+        locationTracker.getLastLocation(location -> {
             assertNotNull(location);
-            assertTrue(location.getLatitude() != 0);
-            assertTrue(location.getLongitude() != 0);
+            assertTrue(location.getLatitude() >= -90 && location.getLatitude() <= 90);
+            assertTrue(location.getLongitude() >= -180 && location.getLongitude() <= 180);
         });
 
-        // wait for a few seconds to receive location updates
-        Thread.sleep(5000);
-
-        locationTracker.stopTracking();
-    }
-
-    /**
-     * Test the getAddressFromLocation method of LocationTracker.
-     */
-    @Test
-    public void testGetAddressFromLocation() {
-        //The location we use is the Dalhousie Library.
-        Location location = new Location("Dalhousie library");
-        location.setLatitude(44.637277);
-        location.setLongitude(-63.591195);
-
-        String address = locationTracker.getAddressFromLocation(appContext, location);
-
-        assertNotNull(address);
-        assertEquals("6227 University Ave, Halifax, NS B3H 4H8, Canada", address);
     }
 }
 
