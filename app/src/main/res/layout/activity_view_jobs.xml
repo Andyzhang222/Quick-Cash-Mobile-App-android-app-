@@ -20,38 +20,45 @@
             android:layout_height="wrap_content"
             android:orientation="vertical">
 
-            <!-- 添加一些内容 -->
+
             <TextView
+                android:id="@+id/job_title"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="" />
 
             <TextView
+                android:id="@+id/describtion"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="" />
 
             <TextView
+                android:id="@+id/place"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="" />
 
             <TextView
+                android:id="@+id/date"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="" />
 
             <TextView
+                android:id="@+id/duration"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="" />
 
             <TextView
+                android:id="@+id/salary"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="" />
 
             <TextView
+                android:id="@+id/urgency"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="" />
