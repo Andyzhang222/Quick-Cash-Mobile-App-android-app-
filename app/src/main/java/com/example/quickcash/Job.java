@@ -30,6 +30,17 @@ public class Job {
         this.status = status;
     }
 
+    public Job(String jobType, String description, String date, String duration, String place, Boolean urgency, int salary, String status) {
+        this.jobType = jobType;
+        this.description = description;
+        this.date = date;
+        this.duration = duration;
+        this.place = place;
+        this.urgency = urgency;
+        this.salary = salary;
+        this.status = status;
+    }
+
     public String getJobType() {
         return jobType;
     }

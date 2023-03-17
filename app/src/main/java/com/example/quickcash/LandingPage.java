@@ -11,6 +11,8 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 
+import com.google.firebase.auth.FirebaseAuth;
+
 
 public class LandingPage extends AppCompatActivity {
 
@@ -29,6 +31,8 @@ public class LandingPage extends AppCompatActivity {
             public void onClick(View v) {
                 //jump to the employee_page
                 Intent switchIntent = new Intent(LandingPage.this,EmployeePage.class);
+                String userId = FirebaseAuth.getInstance().getCurrentUser().getUid();
+                switchIntent.putExtra("userId", userId);
                 startActivity(switchIntent);
             }
         });

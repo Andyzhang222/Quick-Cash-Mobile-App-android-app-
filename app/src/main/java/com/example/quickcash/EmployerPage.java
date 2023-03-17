@@ -35,7 +35,7 @@ public class EmployerPage extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 FirebaseAuth.getInstance().signOut();;
-                Intent intent = new Intent(getApplicationContext(),LoginPage.class);
+                Intent intent = new Intent(getApplicationContext(),SubmitJobsActivity.class);
                 startActivity(intent);
                 finish();
             }

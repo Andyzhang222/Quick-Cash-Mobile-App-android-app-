@@ -25,8 +25,6 @@ import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.FirebaseDatabase;
 
 public class RegisterPage extends AppCompatActivity implements View.OnClickListener{
-    //*****************
-    static String userId;
     ValidateRegisterPwd validate = new ValidateRegisterPwd();
     private EditText editTextCreditCard, editTextEmail, editTextPassword, editTextPasswordRepeat;
 

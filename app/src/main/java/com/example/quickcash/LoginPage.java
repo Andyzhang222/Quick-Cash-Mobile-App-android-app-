@@ -69,6 +69,11 @@ public class LoginPage extends AppCompatActivity implements View.OnClickListener
         return  emailField.getText().toString().trim();
     }
 
+//    public String getId (String str) {
+//        str = mAuth.getCurrentUser().getUid();
+//        return  mAuth.getCurrentUser().getUid();
+//    }
+
     /**
      * This method used to get string of password
      * @return the string of password
@@ -124,7 +129,23 @@ public class LoginPage extends AppCompatActivity implements View.OnClickListener
                     @Override
                     public void onComplete (@NonNull Task<AuthResult> task) {
                         if (task.isSuccessful()) {
+//
+//                            // 获取当前 Firebase 用户的 ID
+//                            String userId = FirebaseAuth.getInstance().getCurrentUser().getUid();
+//
+//                            // 创建一个 Intent 对象，将用户 ID 作为 Extra 添加到 Intent 中
+//                            Intent intent1 = new Intent(LoginPage.this,SubmitJobsActivity.class);
+//                            intent1.putExtra("userId", userId);
+//
+//                            // 启动另一个 Activity
+//                            startActivity(intent1);
+//
+//                            //sssssssss
+//                            String id = mAuth.getCurrentUser().getUid();
+
                             Intent intent = new Intent(LoginPage.this,LandingPage.class);
+                            String userId = FirebaseAuth.getInstance().getCurrentUser().getUid();
+                            intent.putExtra("userId", userId);
                             startActivity(intent);
                             finish();
                         }

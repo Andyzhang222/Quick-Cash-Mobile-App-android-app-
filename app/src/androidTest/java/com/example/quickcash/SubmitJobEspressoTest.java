@@ -54,6 +54,13 @@ public class SubmitJobEspressoTest {
     @Test
     public void checkIfGetValue() {
         onView(withId(R.id.Job_type)).perform(typeText("Driver"));
+        onView(withId(R.id.Description)).perform(typeText("DriverDriverDriverDriverDriverDriverDriver"));
+        onView(withId(R.id.Place)).perform(typeText("Driver"));
+        onView(withId(R.id.date)).perform(typeText("2023-01-20"));
+        onView(withId(R.id.duration)).perform(typeText("2"));
+        onView(withId(R.id.salary)).perform(typeText("2000"));
+//        onView(withId(R.id.emergency_select)).perform(click());
+
         Espresso.closeSoftKeyboard();
 //        onView(withId(R.id.Job_type)).perform(typeText("Driver"));
 //        onView(withId(R.id.Job_type)).perform(typeText("Driver"));
