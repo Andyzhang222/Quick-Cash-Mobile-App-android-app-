@@ -1,7 +1,6 @@
 package com.example.quickcash;
 
 import android.content.Context;
-import android.location.Location;
 
 import org.junit.After;
 import org.junit.Before;
@@ -13,7 +12,7 @@ import static org.junit.Assert.*;
 import androidx.test.core.app.ApplicationProvider;
 import androidx.test.ext.junit.runners.AndroidJUnit4;
 
-import com.google.android.gms.tasks.OnSuccessListener;
+import com.example.quickcash.LocationTracker.LocationTracker;
 
 /**
  * This is a test class for the LocationTracker class.
@@ -21,7 +20,6 @@ import com.google.android.gms.tasks.OnSuccessListener;
 @RunWith(AndroidJUnit4.class)
 public class LocationTrackerTest {
 
-    private Context appContext;//The context of the application.
     private LocationTracker locationTracker;//The location tracker object being tested.
 
     /**
@@ -29,7 +27,8 @@ public class LocationTrackerTest {
      */
     @Before
     public void setUp() {
-        appContext = ApplicationProvider.getApplicationContext();
+        //The context of the application.
+        Context appContext = ApplicationProvider.getApplicationContext();
         locationTracker = new LocationTracker(appContext);
     }
 
