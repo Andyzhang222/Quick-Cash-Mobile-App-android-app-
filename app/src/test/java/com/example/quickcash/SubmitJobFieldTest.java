@@ -27,7 +27,7 @@ public class SubmitJobFieldTest extends TestCase {
                 "2023-05-20",
                 "More than two hours",
                 "University Street",
-                "YES",
+                false,
                 30,
                 ""
                 );
@@ -44,7 +44,7 @@ public class SubmitJobFieldTest extends TestCase {
                 "2023-05-20",
                 "More than two hours",
                 "6225 University Street",
-                "YES",
+                false,
                 30,
                 ""
         );
@@ -67,7 +67,7 @@ public class SubmitJobFieldTest extends TestCase {
                 "2023-05-20",
                 "More than two hours",
                 "6225 University Street",
-                "YES",
+                false,
                 30,
                 ""
         );
@@ -78,7 +78,7 @@ public class SubmitJobFieldTest extends TestCase {
                 "2023-05-20",
                 "More than two hours",
                 "6225 University Street",
-                "YES",
+                false,
                 30,
                 ""
         );
@@ -94,7 +94,7 @@ public class SubmitJobFieldTest extends TestCase {
                 "",
                 "",
                 "",
-                "",
+                false,
                 0,
                 ""
         );
@@ -110,7 +110,7 @@ public class SubmitJobFieldTest extends TestCase {
                 "",
                 "",
                 "",
-                "",
+                false,
                 0,
                 ""
         );
@@ -128,7 +128,7 @@ public class SubmitJobFieldTest extends TestCase {
                 "",
                 "",
                 "",
-                "",
+                false,
                 0,
                 ""
         );
@@ -161,7 +161,7 @@ public class SubmitJobFieldTest extends TestCase {
                 "",
                 "",
                 "",
-                "",
+                false,
                 0,
                 ""
         );
@@ -178,7 +178,7 @@ public class SubmitJobFieldTest extends TestCase {
                 "2023-01-20",
                 "",
                 "",
-                "",
+                false,
                 0,
                 ""
         );
@@ -194,7 +194,7 @@ public class SubmitJobFieldTest extends TestCase {
                 "20-2020-20",
                 "",
                 "",
-                "",
+                false,
                 0,
                 ""
         );
@@ -209,7 +209,7 @@ public class SubmitJobFieldTest extends TestCase {
                 "",
                 "23",
                 "",
-                "",
+                false,
                 0,
                 ""
         );
@@ -224,56 +224,12 @@ public class SubmitJobFieldTest extends TestCase {
                 "",
                 "25",
                 "",
-                "",
+                false,
                 0,
                 ""
         );
 
         assertFalse(job.validateDuration(job.getDuration()));
-    }
-
-    @Test
-    public void testUrgencyIsCorrect(){
-        job = new Job("123456",
-                "",
-                "",
-                "",
-                "",
-                "",
-                "YES",
-                0,
-                ""
-        );
-
-        Job job1 = new Job("123456",
-                "",
-                "",
-                "",
-                "",
-                "",
-                "NO",
-                0,
-                ""
-        );
-
-        assertTrue(job.validateUrgency(job.getUrgency()));
-        assertTrue(job.validateUrgency(job1.getUrgency()));
-    }
-
-    @Test
-    public void testUrgencyIsNotCorrect(){
-        job = new Job("123456",
-                "",
-                "",
-                "",
-                "",
-                "",
-                "AAA",
-                0,
-                ""
-        );
-
-        assertFalse(job.validateUrgency(job.getUrgency()));
     }
 
     @Test
@@ -284,7 +240,7 @@ public class SubmitJobFieldTest extends TestCase {
                 "",
                 "",
                 "",
-                "",
+                false,
                 0,
                 ""
         );
@@ -295,7 +251,7 @@ public class SubmitJobFieldTest extends TestCase {
                 "",
                 "",
                 "",
-                "NO",
+                false,
                 2500,
                 ""
         );
@@ -312,7 +268,7 @@ public class SubmitJobFieldTest extends TestCase {
                 "",
                 "",
                 "",
-                "",
+                false,
                 -1,
                 ""
         );
@@ -323,7 +279,7 @@ public class SubmitJobFieldTest extends TestCase {
                 "",
                 "",
                 "",
-                "NO",
+                false,
                 99999999,
                 ""
         );
@@ -341,7 +297,7 @@ public class SubmitJobFieldTest extends TestCase {
                 "",
                 "",
                 "",
-                "",
+                false,
                 -1,
                 "Open"
         );
@@ -352,7 +308,7 @@ public class SubmitJobFieldTest extends TestCase {
                 "",
                 "",
                 "",
-                "",
+                false,
                 0,
                 "Close"
         );
@@ -368,7 +324,7 @@ public class SubmitJobFieldTest extends TestCase {
                 "",
                 "",
                 "",
-                "",
+                false,
                 -1,
                 "222"
         );
@@ -379,7 +335,7 @@ public class SubmitJobFieldTest extends TestCase {
                 "",
                 "",
                 "",
-                "",
+                false,
                 0,
                 "Clasdose"
         );

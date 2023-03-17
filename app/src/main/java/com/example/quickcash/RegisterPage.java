@@ -25,7 +25,8 @@ import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.FirebaseDatabase;
 
 public class RegisterPage extends AppCompatActivity implements View.OnClickListener{
-
+    //*****************
+    static String userId;
     ValidateRegisterPwd validate = new ValidateRegisterPwd();
     private EditText editTextCreditCard, editTextEmail, editTextPassword, editTextPasswordRepeat;
 
@@ -233,12 +234,12 @@ public class RegisterPage extends AppCompatActivity implements View.OnClickListe
             public void onComplete(@NonNull Task<AuthResult> task) {
                 if(task.isSuccessful()){
                     User user = new User(email, creditCard, password);
-
+                    //*****************
+//                    System.out.println("----------------------啊啊啊啊啊啊："+task.getResult().getUser().getUid());
                     FirebaseDatabase.getInstance().getReference("Users").child(FirebaseAuth.getInstance().getCurrentUser().getUid()).setValue(user)
                             .addOnCompleteListener(new OnCompleteListener<Void>() {
                                 @Override
                                 public void onComplete(@NonNull Task<Void> task) {
-
                                     if(task.isSuccessful()){
                                         Toast.makeText(RegisterPage.this, "User has been registered successfully", Toast.LENGTH_LONG).show();
                                     }else{

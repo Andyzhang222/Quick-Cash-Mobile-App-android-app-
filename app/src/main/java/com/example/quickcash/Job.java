@@ -1,12 +1,16 @@
 package com.example.quickcash;
 
+import android.widget.CheckBox;
+
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.List;
 
 public class Job {
 
-    private String employerId, jobType, description,date, duration, place, urgency, status;
+    private String employerId, jobType, description,date, duration, place, status;
+    private CheckBox urgencyCheckBox;
+    private Boolean urgency;
     private int salary;
 
 
@@ -14,7 +18,7 @@ public class Job {
 
     }
 
-    public Job(String employerId, String jobType, String description, String date, String duration, String place, String urgency, int salary, String status) {
+    public Job(String employerId, String jobType, String description, String date, String duration, String place, Boolean urgency, int salary, String status) {
         this.employerId = employerId;
         this.jobType = jobType;
         this.description = description;
@@ -46,8 +50,8 @@ public class Job {
         return place;
     }
 
-    public String getUrgency() {
-        return urgency;
+    public Boolean getUrgency() {
+        return urgencyCheckBox.isChecked();
     }
 
     public int getSalary() {
@@ -82,7 +86,7 @@ public class Job {
         this.place = place;
     }
 
-    public void setUrgency(String urgency) {
+    public void setUrgency(Boolean urgency) {
         this.urgency = urgency;
     }
 
@@ -134,12 +138,12 @@ public class Job {
         }
     }
 
-    public boolean validateUrgency(String urgency){
-        if (urgency.equals("YES") || urgency.equals("NO")){
-            return true;
-        }
-        return false;
-    }
+//    public boolean validateUrgency(String urgency){
+//        if (urgency.equals("YES") || urgency.equals("NO")){
+//            return true;
+//        }
+//        return false;
+//    }
 
     public boolean validateSalary(int salary){
         int minSalary = 0;
