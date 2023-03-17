@@ -6,7 +6,7 @@ import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.List;
 
-public class Job {
+public class        Job {
 
     private String employerId, jobType, description,date, duration, place, status;
     private CheckBox urgencyCheckBox;

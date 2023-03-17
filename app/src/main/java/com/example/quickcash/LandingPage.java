@@ -31,8 +31,8 @@ public class LandingPage extends AppCompatActivity {
             public void onClick(View v) {
                 //jump to the employee_page
                 Intent switchIntent = new Intent(LandingPage.this,EmployeePage.class);
-                String userId = FirebaseAuth.getInstance().getCurrentUser().getUid();
-                switchIntent.putExtra("userId", userId);
+
+
                 startActivity(switchIntent);
             }
         });
@@ -42,7 +42,11 @@ public class LandingPage extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 //jump to the employer_page
+
                 Intent switchIntent = new Intent(LandingPage.this, EmployerPage.class);
+                String userId = FirebaseAuth.getInstance().getCurrentUser().getUid();
+                switchIntent.putExtra("userId", userId);
+
                 startActivity(switchIntent);
             }
         });

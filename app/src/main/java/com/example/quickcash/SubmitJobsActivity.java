@@ -55,27 +55,11 @@ public class SubmitJobsActivity extends AppCompatActivity{
                 String salary = editTextSalary.getText().toString();
                 Boolean urgency = checkBoxUrgency.isChecked();
 
-//                db.getReference("U")
-//
-//                reference.child("UserId").setValue(userID);
-
-//                FirebaseUser user = auth.getCurrentUser();
-//
-//                user.getUid();
-
-                // 获取传递过来的 Intent 对象
-//                Intent intent = getIntent();
-//
-//
-//
-//                // 从 Intent Extra 中获取用户 ID
-//                String userId = intent.getStringExtra("userId");
+                String userId = FirebaseAuth.getInstance().getCurrentUser().getUid();
 
 
 
-//                reference.child("UserID").setValue("12345");
-
-                Job job = new Job("123456",
+                Job job = new Job(userId,
                         jobType,
                         description,
                         date,
@@ -87,7 +71,7 @@ public class SubmitJobsActivity extends AppCompatActivity{
                 );
 
 
-                FirebaseDatabase.getInstance().getReference("Jobs").child(FirebaseAuth.getInstance().getCurrentUser().getUid()).setValue(job)
+                FirebaseDatabase.getInstance().getReference("Jobs").child(userId).setValue(job)
                         .addOnCompleteListener(new OnCompleteListener<Void>() {
                             @Override
                             public void onComplete(@NonNull Task<Void> task) {
