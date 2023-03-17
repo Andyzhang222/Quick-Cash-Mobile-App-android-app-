@@ -44,7 +44,7 @@ public class LandingPage extends AppCompatActivity {
                 //jump to the employer_page
 
                 Intent switchIntent = new Intent(LandingPage.this, EmployerPage.class);
-                String userId = FirebaseAuth.getInstance().getCurrentUser().getUid();
+                String userId = getIntent().getStringExtra("userId");
                 switchIntent.putExtra("userId", userId);
 
                 startActivity(switchIntent);

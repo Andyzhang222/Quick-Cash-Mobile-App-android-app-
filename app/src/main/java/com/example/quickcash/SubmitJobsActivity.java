@@ -55,10 +55,10 @@ public class SubmitJobsActivity extends AppCompatActivity{
                 String salary = editTextSalary.getText().toString();
                 Boolean urgency = checkBoxUrgency.isChecked();
 
-                String userId = FirebaseAuth.getInstance().getCurrentUser().getUid();
+                //String userId = FirebaseAuth.getInstance().getCurrentUser().getUid();
 
 
-
+                String userId = getIntent().getStringExtra("userId");
                 Job job = new Job(userId,
                         jobType,
                         description,
@@ -83,17 +83,6 @@ public class SubmitJobsActivity extends AppCompatActivity{
                             }
                         });
 
-//                reference.child("UserId").setValue(userId);
-//
-//
-//                reference.child("JobType").setValue(jobType);
-//                reference.child("Description").setValue(description);
-//                reference.child("Date").setValue(date);
-//                reference.child("Duration").setValue(duration);
-//                reference.child("Place").setValue(place);
-//                reference.child("Salary").setValue(salary);
-//                reference.child("Urgency").setValue(urgency);
-//                System.out.println("======================"+userId);
             }
         });
 
