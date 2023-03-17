@@ -9,7 +9,6 @@ import java.util.List;
 public class        Job {
 
     private String employerId, jobType, description,date, duration, place, status;
-    private CheckBox urgencyCheckBox;
     private Boolean urgency;
     private int salary;
 
@@ -62,7 +61,7 @@ public class        Job {
     }
 
     public Boolean getUrgency() {
-        return urgencyCheckBox.isChecked();
+        return urgency;
     }
 
     public int getSalary() {

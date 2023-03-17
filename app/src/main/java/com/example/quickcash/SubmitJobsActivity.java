@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.text.TextUtils;
 import android.view.View;
 import android.widget.Button;
 import android.widget.CheckBox;
@@ -23,9 +24,9 @@ public class SubmitJobsActivity extends AppCompatActivity{
     private CheckBox checkBoxUrgency;
     private Button submitButton;
 
-    private FirebaseAuth auth;
-    private FirebaseDatabase db = FirebaseDatabase.getInstance();
-    private DatabaseReference reference = db.getReference().child("Jobs");
+    private FirebaseAuth mAuth;
+    private FirebaseDatabase db;
+    private DatabaseReference mJobs;
 
 
     @Override
@@ -33,8 +34,17 @@ public class SubmitJobsActivity extends AppCompatActivity{
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_submit_jobs);
 
-        auth = FirebaseAuth.getInstance();
+        mAuth = FirebaseAuth.getInstance();
+        FirebaseUser mUser = mAuth.getCurrentUser();
+        String uId = mUser.getUid();
 
+        mJobs = FirebaseDatabase.getInstance().getReference().child("Job Post");
+
+        submitJob();
+
+    }
+
+    public void submitJob(){
         editTextJobType = findViewById(R.id.Job_type);
         editTextDescription = findViewById(R.id.Description);
         editTextPlace = findViewById(R.id.Place);
@@ -56,10 +66,35 @@ public class SubmitJobsActivity extends AppCompatActivity{
                 Boolean urgency = checkBoxUrgency.isChecked();
 
                 //String userId = FirebaseAuth.getInstance().getCurrentUser().getUid();
+                if (TextUtils.isEmpty(jobType)){
+                    editTextJobType.setError("Require Field...");
+                    return;
+                }
+                if (TextUtils.isEmpty(description)){
+                    editTextDescription.setError("Require Field...");
+                    return;
+                }
+                if (TextUtils.isEmpty(date)){
+                    editTextDate.setError("Require Field...");
+                    return;
+                }
+                if (TextUtils.isEmpty(duration)){
+                    editTextDuration.setError("Require Field...");
+                    return;
+                }
+                if (TextUtils.isEmpty(place)){
+                    editTextPlace.setError("Require Field...");
+                    return;
+                }
+                if (TextUtils.isEmpty(salary)){
+                    editTextSalary.setError("Require Field...");
+                    return;
+                }
 
+                //String id = mJobs.push().getKey();
+                String id = getIntent().getStringExtra("userId");
 
-                String userId = getIntent().getStringExtra("userId");
-                Job job = new Job(userId,
+                Job job = new Job(id,
                         jobType,
                         description,
                         date,
@@ -70,23 +105,9 @@ public class SubmitJobsActivity extends AppCompatActivity{
                         ""
                 );
 
-
-                FirebaseDatabase.getInstance().getReference("Jobs").child(userId).setValue(job)
-                        .addOnCompleteListener(new OnCompleteListener<Void>() {
-                            @Override
-                            public void onComplete(@NonNull Task<Void> task) {
-                                if (task.isSuccessful()){
-                                    Toast.makeText(SubmitJobsActivity.this, "Job has been post successfully", Toast.LENGTH_LONG).show();
-                                }else {
-                                    Toast.makeText(SubmitJobsActivity.this, "Fail to Submit Job! Try again!", Toast.LENGTH_LONG).show();
-                                }
-                            }
-                        });
-
+                mJobs.child(id).setValue(job);
             }
         });
-
-
     }
 
 }
