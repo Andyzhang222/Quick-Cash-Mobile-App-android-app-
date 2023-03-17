@@ -23,7 +23,7 @@ import java.util.Locale;
  * A class for tracking the device's current location and getting the address corresponding to the location.
  * Uses the FusedLocationProviderClient from the Google Play Services Location APIs for location tracking.
  */
-public class LocationTracker {
+public class LocationTracker implements LocationProvider {
 
     private FusedLocationProviderClient fusedLocationClient;
     private LocationCallback locationCallback;
