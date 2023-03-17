@@ -106,6 +106,10 @@ public class SubmitJobsActivity extends AppCompatActivity{
                 );
 
                 mJobs.child(id).setValue(job);
+
+                Toast.makeText(getApplicationContext(),"Post Job Successfully",Toast.LENGTH_LONG).show();
+
+                //跳转到查看Job页面
             }
         });
     }
