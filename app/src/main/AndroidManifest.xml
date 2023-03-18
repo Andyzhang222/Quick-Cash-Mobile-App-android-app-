@@ -20,7 +20,7 @@
 
         <activity
             android:name=".SubmitJobsActivity"
-            android:exported="false" />
+            android:exported="true" />
         <activity
             android:name=".LandingPage"
             android:exported="false" />

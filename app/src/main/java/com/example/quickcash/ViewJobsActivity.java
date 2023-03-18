@@ -40,58 +40,14 @@ public class ViewJobsActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_view_jobs);
 
+        Intent intent = getIntent();
+        JobRepository jobRepository = (JobRepository) intent.getSerializableExtra("JobRepository");
+        System.out.println("aaaaaaaaaaaa===========list大小为："+jobRepository.getJobList().size());
+        List<Job> jobList = jobRepository.getJobList();
+
         recyclerView = findViewById(R.id.mRecyclerView);
 
 
-
-
-
-        List<Job> jobList = new ArrayList<>();
-
-
-        jobList.add(new Job("123456",
-                "babysitter",
-                "Babysitting and playing with baby",
-                "2023-05-20",
-                "More than two hours",
-                "University Street",
-                false,
-                30,
-                ""
-        ));
-
-        jobList.add(new Job("123456",
-                "babysitter",
-                "Babysitting and playing with baby",
-                "2023-05-20",
-                "More than two hours",
-                "University Street",
-                false,
-                30,
-                ""
-        ));
-
-        jobList.add(new Job("123456",
-                "babysitter",
-                "Babysitting and playing with baby",
-                "2023-05-20",
-                "More than two hours",
-                "University Street",
-                false,
-                30,
-                ""
-        ));
-
-        jobList.add(new Job("123456",
-                "babysitter",
-                "Babysitting and playing with baby",
-                "2023-05-20",
-                "More than two hours",
-                "University Street",
-                false,
-                30,
-                ""
-        ));
 
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
         recyclerView.setAdapter(new JobAdapter(getApplicationContext(),jobList));
