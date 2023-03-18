@@ -2,11 +2,12 @@ package com.example.quickcash;
 
 import android.widget.CheckBox;
 
+import java.io.Serializable;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.List;
 
-public class        Job {
+public class Job implements Serializable {
 
     private String employerId, jobType, description,date, duration, place, status;
     private Boolean urgency;

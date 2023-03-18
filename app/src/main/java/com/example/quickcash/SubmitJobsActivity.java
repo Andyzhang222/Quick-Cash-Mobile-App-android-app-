@@ -16,8 +16,14 @@ import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class SubmitJobsActivity extends AppCompatActivity{
     private EditText editTextJobType, editTextDescription, editTextPlace, editTextDate, editTextDuration, editTextSalary;
@@ -38,7 +44,7 @@ public class SubmitJobsActivity extends AppCompatActivity{
         FirebaseUser mUser = mAuth.getCurrentUser();
         String uId = mUser.getUid();
 
-        mJobs = FirebaseDatabase.getInstance().getReference().child("Job Post");
+        mJobs = FirebaseDatabase.getInstance().getReference().child("Job Post").child(uId);
 
         submitJob();
 
@@ -93,8 +99,9 @@ public class SubmitJobsActivity extends AppCompatActivity{
 
                 //String id = mJobs.push().getKey();
                 String id = getIntent().getStringExtra("userId");
+                String jobId = mJobs.push().getKey();
 
-                Job job = new Job(id,
+                Job job = new Job(jobId,
                         jobType,
                         description,
                         date,
@@ -105,18 +112,63 @@ public class SubmitJobsActivity extends AppCompatActivity{
                         ""
                 );
 
-                mJobs.child(id).setValue(job);
+                mJobs.child(jobId).setValue(job);
+                JobRepository jobRepository = new JobRepository();
+                jobRepository.addJob(job);
 
                 Toast.makeText(getApplicationContext(),"Post Job Successfully",Toast.LENGTH_LONG).show();
 
-                Intent intent = new Intent(SubmitJobsActivity.this, ViewJobsActivity.class);
-                String userId = getIntent().getStringExtra("userId");
-                intent.putExtra("userId",userId);
-                startActivity(intent);
-                finish();
-                //跳转到查看Job页面
+                /*
+                1. 每个用户只能post一个job，重新submit job的话会覆盖之前提交的job
+                2.
+                 */
+
+                //在保存job到数据库后，从数据库中获取所有jobs并传递给下一个Activity
+                fetchJobsFromDatabase();
+//
+//                Intent intent = new Intent(SubmitJobsActivity.this, ViewJobsActivity.class);
+//                String userId = getIntent().getStringExtra("userId");
+//
+//                intent.putExtra("userId",userId);
+////                intent.putExtra("JobRepository",jobRepository);
+//
+//                startActivity(intent);
+//                finish();
+////                跳转到查看Job页面
             }
         });
+    }
+
+    private void fetchJobsFromDatabase() {
+        mJobs.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                List<Job> jobList = new ArrayList<>();
+                for (DataSnapshot jobSnapshot : dataSnapshot.getChildren()) {
+                    Job job = jobSnapshot.getValue(Job.class);
+                    jobList.add(job);
+                }
+
+                System.out.println("有多少个job：========"+jobList.size());
+                passJobsToNextActivity(jobList);
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+                //处理错误
+            }
+        });
+
+    }
+
+    private void passJobsToNextActivity(List<Job> jobs) {
+        JobRepository jobRepository = new JobRepository(jobs);
+        Intent intent = new Intent(SubmitJobsActivity.this, ViewJobsActivity.class);
+        String userId = getIntent().getStringExtra("userId");
+
+        intent.putExtra("userId",userId);
+        intent.putExtra("JobRepository", jobRepository);
+//        startActivity(intent);
     }
 
 }

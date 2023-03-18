@@ -1,9 +1,10 @@
 package com.example.quickcash;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
-public class JobRepository implements JobInterface{
+public class JobRepository implements JobInterface, Serializable {
     private List<Job> jobList = new ArrayList<>();
 
     public JobRepository() {
@@ -11,6 +12,10 @@ public class JobRepository implements JobInterface{
 
     public JobRepository(List<Job> jobList) {
         this.jobList = jobList;
+    }
+
+    public List<Job> getJobList(){
+        return jobList;
     }
 
     @Override
