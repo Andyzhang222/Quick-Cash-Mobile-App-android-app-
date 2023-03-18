@@ -28,6 +28,11 @@ public class ViewJobsActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+
+
+        System.out.println("ddddddddd");
+
+
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_view_jobs);
 
