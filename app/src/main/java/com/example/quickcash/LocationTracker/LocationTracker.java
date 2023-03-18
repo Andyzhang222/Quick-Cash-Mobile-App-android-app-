@@ -54,12 +54,34 @@ public class LocationTracker implements LocationProvider {
         task.addOnFailureListener(e -> Log.d(TAG, "Failed to get current location: " + e.getMessage()));
     }
 
+
+    /**
+     * Get the city name and country/region name of the current device location.
+     *
+     * @param localAreaListener An OnSuccessListener to receive the city name and country/region name.
+     *                          If the device's location cannot be obtained, null will be returned.
+     */
     @Override
-    public void getLocalArea(OnSuccessListener<String> cityListener) {
-        //buggy function,fix it
+    public void getLocalArea(OnSuccessListener<String> localAreaListener) {
+        // Get the last known location of the device
+        getLastLocation(location -> {
+            // Use the Geocoder class to get address information from the location
+            Geocoder geocoder = new Geocoder(context, Locale.getDefault());
+            List<Address> addresses;
+            try {
+                addresses = geocoder.getFromLocation(location.getLatitude(), location.getLongitude(), 1);
+                // If the Geocoder successfully returned at least one address, extract the city name and country name from the address
+                if (!addresses.isEmpty()) {
+                    Address address = addresses.get(0);
+                    String cityName = address.getLocality();
+                    String countryName = addresses.get(0).getCountryName();
+                    localAreaListener.onSuccess(cityName+" "+countryName);
+                }
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        });
     }
-
-
 
 }
 
