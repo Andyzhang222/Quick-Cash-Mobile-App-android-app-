@@ -22,7 +22,7 @@ public class MyJobViewHolder extends RecyclerView.ViewHolder {
         jobType = itemView.findViewById(R.id.JobType);
         description = itemView.findViewById(R.id.Description);
         date = itemView.findViewById(R.id.Date);
-        duration = itemView.findViewById(R.id.Duration);
+        duration = itemView.findViewById(R.id.postedjjjjj);
         place = itemView.findViewById(R.id.Place);
         urgency = itemView.findViewById(R.id.Urgency);
         salary = itemView.findViewById(R.id.Salary);

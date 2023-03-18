@@ -3,68 +3,137 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:layout_marginTop="10dp"
+    android:background="@color/common_google_signin_btn_text_dark"
     xmlns:tools="http://schemas.android.com/tools">
-    
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/JobType"
-        android:textColor="@color/black"
-        tools:text="Job Type"/>
+
 
     <TextView
-        android:layout_width="match_parent"
+        android:id="@+id/postedjjjjj"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/Description"
-        android:layout_below="@+id/JobType"
-        android:textColor="@color/black"
-        tools:text="Description"/>
-
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/Date"
-        android:layout_below="@+id/Description"
-        android:textColor="@color/black"
-        tools:text="Date"/>
-
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/Duration"
         android:layout_below="@+id/Date"
+        android:layout_marginTop="2dp"
+        android:layout_toEndOf="@+id/duratioon99"
         android:textColor="@color/black"
-        tools:text="Duration"/>
+        tools:text="Duration" />
 
     <TextView
-        android:layout_width="match_parent"
+        android:id="@+id/Date"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/Place"
-        android:layout_below="@+id/Duration"
+        android:layout_below="@+id/Description"
+        android:layout_toEndOf="@+id/date99"
         android:textColor="@color/black"
-        tools:text="Duration"/>
-
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/Urgency"
-        android:layout_below="@+id/Place"
-        android:textColor="@color/black"
-        tools:text="Urgency"/>
-
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/Salary"
-        android:layout_below="@+id/Urgency"
-        android:textColor="@color/black"
-        tools:text="Salary"/>
+        tools:text="Date" />
 
     <LinearLayout
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="2dp"
         android:layout_below="@+id/JobType"
-        android:layout_marginTop="10dp"
-        />
+        android:layout_marginTop="10dp" />
 
+    <TextView
+        android:id="@+id/JobType"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@color/black"
+        android:layout_toEndOf="@+id/Jtitle"
+        tools:text="Job Type" />
+
+    <TextView
+        android:id="@+id/Description"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/JobType"
+        android:textColor="@color/black"
+        android:layout_toEndOf="@+id/des"
+        tools:text="Description" />
+
+    <TextView
+        android:id="@+id/Urgency"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/Place"
+        android:layout_toEndOf="@+id/urgent99"
+        android:textColor="@color/black"
+        tools:text="Urgency" />
+
+    <TextView
+        android:id="@+id/Salary"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/Urgency"
+        android:textColor="@color/black"
+        android:layout_toEndOf="@+id/salary99"
+        tools:text="Salary" />
+
+    <TextView
+        android:id="@+id/Place"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/postedjjjjj"
+        android:layout_marginLeft="2dp"
+        android:layout_toEndOf="@+id/loca99"
+        android:textColor="@color/black"
+        tools:text="Duration" />
+
+    <TextView
+        android:id="@+id/Jtitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@color/teal_200"
+        android:text="Job Type:  " />
+
+    <TextView
+        android:id="@+id/des"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@color/teal_200"
+        android:layout_below="@+id/Jtitle"
+        android:top="@color/teal_200"
+        android:text="Description:  " />
+
+    <TextView
+        android:id="@+id/date99"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@color/teal_200"
+        android:layout_below="@+id/des"
+        android:top="@color/teal_200"
+        android:text="Date:   " />
+    <TextView
+        android:id="@+id/duratioon99"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@color/teal_200"
+        android:layout_below="@+id/date99"
+        android:top="@color/teal_200"
+        android:text="Duration:   " />
+
+    <TextView
+        android:id="@+id/loca99"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@color/teal_200"
+        android:layout_below="@+id/duratioon99"
+        android:top="@color/teal_200"
+        android:text="Location:   " />
+
+    <TextView
+        android:id="@+id/urgent99"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@color/teal_200"
+        android:layout_below="@+id/loca99"
+        android:top="@color/teal_200"
+        android:text="Urgent:   " />
+
+    <TextView
+        android:id="@+id/salary99"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@color/teal_200"
+        android:layout_below="@+id/urgent99"
+        android:top="@color/teal_200"
+        android:text="Salary:   " />
 </RelativeLayout>

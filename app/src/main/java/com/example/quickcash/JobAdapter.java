@@ -31,6 +31,7 @@ public class JobAdapter extends RecyclerView.Adapter<MyJobViewHolder> {
 
     @Override
     public void onBindViewHolder(@NonNull MyJobViewHolder holder, int position) {
+
         holder.jobType.setText(jobList.get(position).getJobType());
         holder.description.setText(jobList.get(position).getDescription());
         holder.date.setText(jobList.get(position).getDate());

@@ -31,6 +31,7 @@ public class EmployerPage extends AppCompatActivity {
         //After that we redirect to the login page
         Button logoutBtn = findViewById(R.id.LogoutButton2);
         Button postBtn = findViewById(R.id.post);
+        Button checkPostedJob = findViewById(R.id.checkPostedJob);
         logoutBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -51,6 +52,20 @@ public class EmployerPage extends AppCompatActivity {
                 switchIntent.putExtra("userId", userId);
                 //test for if get the id
                 Toast.makeText(EmployerPage.this, "-------------------"+userId, Toast.LENGTH_SHORT).show();
+                startActivity(switchIntent);
+                finish();
+            }
+        });
+
+        checkPostedJob.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                //FirebaseAuth.getInstance().signOut();;
+                Intent switchIntent = new Intent(getApplicationContext(),ViewJobsActivity.class);
+                String userId = getIntent().getStringExtra("userId");
+                switchIntent.putExtra("userId", userId);
+                //test for if get the id
+                //Toast.makeText(EmployerPage.this, "-------------------"+userId, Toast.LENGTH_SHORT).show();
                 startActivity(switchIntent);
                 finish();
             }

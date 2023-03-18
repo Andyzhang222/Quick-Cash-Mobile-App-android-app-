@@ -114,7 +114,6 @@ public class SubmitJobsActivity extends AppCompatActivity{
 
                 Toast.makeText(getApplicationContext(),"Post Job Successfully",Toast.LENGTH_LONG).show();
 
-                //在保存job到数据库后，从数据库中获取所有jobs并传递给下一个Activity
                 fetchJobsFromDatabase();
             }
         });

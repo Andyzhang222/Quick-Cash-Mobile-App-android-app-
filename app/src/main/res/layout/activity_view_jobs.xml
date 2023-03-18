@@ -1,21 +1,53 @@
 <?xml version="1.0" encoding="utf-8"?>
 
 
-
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/backtoprofile"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/background3"
+
     tools:context=".ViewJobsActivity">
 
 
+    <TextView
+        android:id="@+id/postedjjjjj"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/mRecyclerView"
+        android:layout_alignParentEnd="true"
+        android:layout_marginTop="2dp"
+        android:layout_marginEnd="181dp"
+        android:layout_marginBottom="40dp"
+        android:textColor="@color/black"
+        tools:text="POSTED JOB" />
 
     <androidx.recyclerview.widget.RecyclerView
-        android:layout_width="match_parent"
+        android:id="@+id/mRecyclerView"
+        android:layout_width="345dp"
         android:layout_height="wrap_content"
-        android:id="@+id/mRecyclerView">
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
 
-    </androidx.recyclerview.widget.RecyclerView>
+
+        android:layout_alignParentEnd="true"
+        android:layout_marginStart="33dp"
+        android:layout_marginTop="24dp"
+        android:layout_marginEnd="33dp"></androidx.recyclerview.widget.RecyclerView>
+
+    <Button
+        android:id="@+id/button2"
+        android:layout_width="234dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/mRecyclerView"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginStart="87dp"
+        android:layout_marginTop="37dp"
+        android:layout_marginEnd="89dp"
+        android:layout_marginBottom="484dp"
+        android:text="back to the profile page" />
 
 </RelativeLayout>

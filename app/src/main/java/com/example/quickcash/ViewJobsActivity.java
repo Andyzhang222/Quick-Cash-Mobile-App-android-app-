@@ -10,6 +10,7 @@ import android.os.Bundle;
 import android.text.TextUtils;
 import android.view.View;
 import android.widget.Button;
+import android.widget.Toast;
 
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
@@ -20,10 +21,13 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class ViewJobsActivity extends AppCompatActivity {
-//    private FirebaseAuth mAuth;
-//    private Button viewJobsButton;
-//    private DatabaseReference jobPostDb;
+    private FirebaseAuth mAuth;
+    private Button viewJobsButton;
+    private DatabaseReference jobPostDb;
     private RecyclerView recyclerView;
+
+
+
 
 
     @Override
@@ -36,15 +40,76 @@ public class ViewJobsActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_view_jobs);
 
-        //从submitActivity里面获取JobList
-        Intent intent = getIntent();
-        JobRepository jobRepository = (JobRepository) intent.getSerializableExtra("JobRepository");
-        //从上一层的jobRepository里面，提取Job然后存在下面这个List里面
-        List<Job> jobs = jobRepository.getJobList();
-
         recyclerView = findViewById(R.id.mRecyclerView);
 
+
+
+
+
+        List<Job> jobList = new ArrayList<>();
+
+
+        jobList.add(new Job("123456",
+                "babysitter",
+                "Babysitting and playing with baby",
+                "2023-05-20",
+                "More than two hours",
+                "University Street",
+                false,
+                30,
+                ""
+        ));
+
+        jobList.add(new Job("123456",
+                "babysitter",
+                "Babysitting and playing with baby",
+                "2023-05-20",
+                "More than two hours",
+                "University Street",
+                false,
+                30,
+                ""
+        ));
+
+        jobList.add(new Job("123456",
+                "babysitter",
+                "Babysitting and playing with baby",
+                "2023-05-20",
+                "More than two hours",
+                "University Street",
+                false,
+                30,
+                ""
+        ));
+
+        jobList.add(new Job("123456",
+                "babysitter",
+                "Babysitting and playing with baby",
+                "2023-05-20",
+                "More than two hours",
+                "University Street",
+                false,
+                30,
+                ""
+        ));
+
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
-        recyclerView.setAdapter(new JobAdapter(getApplicationContext(),jobs));
+        recyclerView.setAdapter(new JobAdapter(getApplicationContext(),jobList));
+
+
+
+        @SuppressLint({"MissingInflatedId", "LocalSuppress"}) Button back_to_profile_btn = findViewById(R.id.button2);
+        back_to_profile_btn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick (View view) {
+                Intent intent = new Intent(ViewJobsActivity.this,EmployerPage.class);
+                startActivity(intent);
+                finish();
+            }
+        });
+
+
+
+
     }
 }
