@@ -15,7 +15,6 @@ public class JobPosting extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        Toast.makeText(JobPosting.this, "Your message heresssssss", Toast.LENGTH_SHORT).show();
         setContentView(R.layout.activity_job_postings_page);
         //connect to the firebase
         FirebaseAuth auth = FirebaseAuth.getInstance();

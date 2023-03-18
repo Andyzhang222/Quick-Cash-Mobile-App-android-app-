@@ -10,7 +10,7 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.recyclerview.widget.RecyclerView;
-
+//Used S of the SOLID Principle
 public class JobListHolder extends RecyclerView.ViewHolder {
 
     TextView title;

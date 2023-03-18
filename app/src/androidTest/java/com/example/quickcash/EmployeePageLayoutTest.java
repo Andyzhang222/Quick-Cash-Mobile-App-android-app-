@@ -1,6 +1,7 @@
 package com.example.quickcash;
 
 import static androidx.test.espresso.Espresso.onView;
+import static androidx.test.espresso.Espresso.pressBack;
 import static androidx.test.espresso.action.ViewActions.click;
 import static androidx.test.espresso.action.ViewActions.typeText;
 import static androidx.test.espresso.intent.Intents.intended;
@@ -11,9 +12,11 @@ import static androidx.test.espresso.matcher.ViewMatchers.isChecked;
 import static androidx.test.espresso.matcher.ViewMatchers.isDisplayed;
 import static androidx.test.espresso.matcher.ViewMatchers.withId;
 import static androidx.test.espresso.matcher.ViewMatchers.withText;
+import static org.hamcrest.core.StringContains.containsString;
 import static org.junit.Assert.assertEquals;
 import static androidx.test.espresso.assertion.ViewAssertions.matches;
 
+import static java.util.EnumSet.allOf;
 import static java.util.regex.Pattern.matches;
 
 import android.content.Context;
@@ -70,10 +73,6 @@ public class EmployeePageLayoutTest {
                 // Check that the title of the second item matches the expected text
                 .check(matches(isDisplayed()));
     }
-
-
-
-
     @Test
     public void checkIfSwitched2JobPostingsPage() {
         Espresso.onView(withId(R.id.recyclerview)).perform(RecyclerViewActions.actionOnItemAtPosition(0,click()));

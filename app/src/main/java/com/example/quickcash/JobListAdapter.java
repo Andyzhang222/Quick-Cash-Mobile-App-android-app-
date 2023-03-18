@@ -12,8 +12,9 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.List;
 
+//Used S of the SOLID Principle
+//Used I of the SOLID Principle
 public class JobListAdapter extends RecyclerView.Adapter<JobListHolder> {
-
     Context context;
     List<Job> jobs;
 
@@ -32,19 +33,16 @@ public class JobListAdapter extends RecyclerView.Adapter<JobListHolder> {
     @Override
     public void onBindViewHolder(@NonNull JobListHolder holder, int position) {
         holder.title.setText(jobs.get(position).getJobTitle());
-//        holder.JobLayout.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//
-//                Intent switchIntent = new Intent(context, JobPosting.class);
-//                //context.startActivity(switchIntent);
-//
-//            }
-//        });
     }
 
     @Override
     public int getItemCount() {
         return jobs.size();
+    }
+
+    //this is for the search filter
+    public void setFilteredJobList(List<Job> filteredJobList){
+        this.jobs = filteredJobList;
+        notifyDataSetChanged();
     }
 }
