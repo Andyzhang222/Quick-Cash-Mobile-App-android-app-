@@ -42,16 +42,27 @@ public class LocationTrackerTest {
     /**
      * Test the start and stop tracking methods of LocationTracker.
      *
-     * @throws Exception if an error occurs during the test.
      */
     @Test
-    public void testGetLocation() throws Exception {
+    public void testGetLocation(){
         locationTracker.getLastLocation(location -> {
             assertNotNull(location);
             assertTrue(location.getLatitude() >= -90 && location.getLatitude() <= 90);
             assertTrue(location.getLongitude() >= -180 && location.getLongitude() <= 180);
         });
-
     }
+
+    /**
+     * Test the getLocalArea() method of the LocationTracker class.
+     * This test ensures that the method returns a non-null and non-empty city name.
+     */
+    @Test
+    public void testGetLocalArea() {
+        locationTracker.getLocalArea(area -> {
+            assertNotNull(area);// Make sure the returned city name is not null
+            assertNotSame("",area);// Make sure the returned city name is not an empty string
+        });
+    }
+
 }
 
