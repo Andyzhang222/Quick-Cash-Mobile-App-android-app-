@@ -22,10 +22,10 @@ public class JobRepository implements JobInterface{
         如果employerId匹配，则存入过滤过的Jobs里面
      */
     @Override
-    public List<Job> getJobsByEmployer(String employerId) {
+    public List<Job> getJobsByUserId(String userId) {
         List<Job> filteredJobs = new ArrayList<>();
         for (Job job : jobList) {
-            if (job.getEmployerId().equals(employerId)) {
+            if (job.getEmployerId().equals(userId)) {
                 filteredJobs.add(job);
             }
         }

@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginTop="10dp"
+    xmlns:tools="http://schemas.android.com/tools">
+    
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/JobType"
+        android:textColor="@color/black"
+        tools:text="Job Type"/>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/Description"
+        android:layout_below="@+id/JobType"
+        android:textColor="@color/black"
+        tools:text="Description"/>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/Date"
+        android:layout_below="@+id/Description"
+        android:textColor="@color/black"
+        tools:text="Date"/>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/Duration"
+        android:layout_below="@+id/Date"
+        android:textColor="@color/black"
+        tools:text="Duration"/>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/Place"
+        android:layout_below="@+id/Duration"
+        android:textColor="@color/black"
+        tools:text="Duration"/>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/Urgency"
+        android:layout_below="@+id/Place"
+        android:textColor="@color/black"
+        tools:text="Urgency"/>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/Salary"
+        android:layout_below="@+id/Urgency"
+        android:textColor="@color/black"
+        tools:text="Salary"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="2dp"
+        android:layout_below="@+id/JobType"
+        android:layout_marginTop="10dp"
+        />
+
+</RelativeLayout>

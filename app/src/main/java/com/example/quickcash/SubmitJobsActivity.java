@@ -109,6 +109,11 @@ public class SubmitJobsActivity extends AppCompatActivity{
 
                 Toast.makeText(getApplicationContext(),"Post Job Successfully",Toast.LENGTH_LONG).show();
 
+                Intent intent = new Intent(SubmitJobsActivity.this, ViewJobsActivity.class);
+                String userId = getIntent().getStringExtra("userId");
+                intent.putExtra("userId",userId);
+                startActivity(intent);
+                finish();
                 //跳转到查看Job页面
             }
         });
