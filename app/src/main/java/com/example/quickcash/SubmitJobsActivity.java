@@ -12,8 +12,6 @@ import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.Toast;
 
-import com.google.android.gms.tasks.OnCompleteListener;
-import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DataSnapshot;
@@ -97,8 +95,6 @@ public class SubmitJobsActivity extends AppCompatActivity{
                     return;
                 }
 
-                //String id = mJobs.push().getKey();
-                String id = getIntent().getStringExtra("userId");
                 String jobId = mJobs.push().getKey();
 
                 Job job = new Job(jobId,
@@ -108,8 +104,8 @@ public class SubmitJobsActivity extends AppCompatActivity{
                         duration,
                         place,
                         urgency,
-                        30,
-                        ""
+                        Integer.parseInt(salary),
+                        "Open"
                 );
 
                 mJobs.child(jobId).setValue(job);
@@ -118,23 +114,8 @@ public class SubmitJobsActivity extends AppCompatActivity{
 
                 Toast.makeText(getApplicationContext(),"Post Job Successfully",Toast.LENGTH_LONG).show();
 
-                /*
-                1. 每个用户只能post一个job，重新submit job的话会覆盖之前提交的job
-                2.
-                 */
-
                 //在保存job到数据库后，从数据库中获取所有jobs并传递给下一个Activity
                 fetchJobsFromDatabase();
-//
-//                Intent intent = new Intent(SubmitJobsActivity.this, ViewJobsActivity.class);
-//                String userId = getIntent().getStringExtra("userId");
-//
-//                intent.putExtra("userId",userId);
-////                intent.putExtra("JobRepository",jobRepository);
-//
-//                startActivity(intent);
-//                finish();
-////                跳转到查看Job页面
             }
         });
     }
@@ -168,7 +149,7 @@ public class SubmitJobsActivity extends AppCompatActivity{
 
         intent.putExtra("userId",userId);
         intent.putExtra("JobRepository", jobRepository);
-//        startActivity(intent);
+        startActivity(intent);
     }
 
 }
