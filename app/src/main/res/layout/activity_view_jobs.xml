@@ -5,66 +5,64 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-
-    <ScrollView
-        android:id="@+id/scrollView2"
+    <LinearLayout
+        android:id="@+id/linearLayout"
         android:layout_width="0dp"
         android:layout_height="0dp"
+        android:layout_marginStart="1dp"
+        android:layout_marginTop="1dp"
+        android:layout_marginEnd="1dp"
+        android:layout_marginBottom="1dp"
+        android:orientation="vertical"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
-        <LinearLayout
+        <TextView
+            android:id="@+id/outputjob"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical">
+            android:text="TextView" />
 
+        <TextView
+            android:id="@+id/outputdes"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="TextView" />
 
-            <TextView
-                android:id="@+id/job_title"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="" />
+        <TextView
+            android:id="@+id/outplace"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="TextView" />
 
-            <TextView
-                android:id="@+id/describtion"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="" />
+        <TextView
+            android:id="@+id/outdate"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="TextView" />
 
-            <TextView
-                android:id="@+id/place"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="" />
+        <TextView
+            android:id="@+id/outduration"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="TextView" />
 
-            <TextView
-                android:id="@+id/date"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="" />
+        <TextView
+            android:id="@+id/outsalary"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="TextView" />
 
-            <TextView
-                android:id="@+id/duration"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="" />
+        <TextView
+            android:id="@+id/outemergency"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="TextView" />
 
-            <TextView
-                android:id="@+id/salary"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="" />
-
-            <TextView
-                android:id="@+id/urgency"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="" />
-
-
-        </LinearLayout>
-
-    </ScrollView>
+        <androidx.recyclerview.widget.RecyclerView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+    </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>
