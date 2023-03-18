@@ -41,6 +41,11 @@ public class SubmitJobsActivity extends AppCompatActivity{
         mJobs = FirebaseDatabase.getInstance().getReference().child("Job Post");
 
         submitJob();
+//        Intent intent = new Intent(SubmitJobsActivity.this, ViewJobsActivity.class);
+//        String userId = getIntent().getStringExtra("userId");
+//        intent.putExtra("userId",userId);
+//        //startActivity(intent);
+//        finish();
 
     }
 
@@ -112,11 +117,11 @@ public class SubmitJobsActivity extends AppCompatActivity{
                 Intent intent = new Intent(SubmitJobsActivity.this, ViewJobsActivity.class);
                 String userId = getIntent().getStringExtra("userId");
                 intent.putExtra("userId",userId);
-                startActivity(intent);
+                //startActivity(intent);
                 finish();
-                //跳转到查看Job页面
             }
         });
     }
+
 
 }

@@ -37,7 +37,8 @@ public class JobAdapter extends RecyclerView.Adapter<MyJobViewHolder> {
         holder.duration.setText(jobList.get(position).getDuration());
         holder.place.setText(jobList.get(position).getPlace());
         holder.urgency.setText(Boolean.toString(jobList.get(position).getUrgency()));
-        holder.salary.setText(jobList.get(position).getSalary());
+        holder.salary.setText(String.valueOf(jobList.get(position).getSalary()));
+
 
     }
 
