@@ -4,21 +4,30 @@
  */
  package com.example.quickcash;
 
+import static com.google.android.gms.location.Priority.PRIORITY_HIGH_ACCURACY;
+
+import static java.lang.Thread.sleep;
+
 import androidx.appcompat.app.AppCompatActivity;
+
+import android.Manifest;
 import android.content.Intent;
+import android.content.pm.PackageManager;
+import android.location.Address;
+import android.location.Geocoder;
+import android.location.Location;
 import android.os.Bundle;
 import android.os.Handler;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.Button;
-import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.quickcash.JobListAdapter;
 import com.example.quickcash.LoginPage;
 import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.database.*;
+
 import androidx.annotation.NonNull;
 import androidx.appcompat.widget.SearchView;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -40,6 +49,7 @@ public class EmployeePage extends AppCompatActivity{
     JobListAdapter jobListAdapter;
     List<Job> filteredJobList;
 
+    FirebaseAuth auth;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -49,12 +59,19 @@ public class EmployeePage extends AppCompatActivity{
         mDatabaseRef = FirebaseDatabase.getInstance().getReference();
 
         //connect to the firebase
-        FirebaseAuth auth = FirebaseAuth.getInstance();
+        auth = FirebaseAuth.getInstance();
 
         //implement the logout button function
+        LogoutBtn();
+    }
+
+    /**
+     * This method used to implement the logout button function
+     */
+    private void LogoutBtn() {
+        Button logoutBtn = findViewById(R.id.LogoutButton1);
         //when user click the button, we should log out
         //After that we redirect to the login page
-        Button logoutBtn = findViewById(R.id.LogoutButton1);
         logoutBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

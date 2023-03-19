@@ -2,16 +2,25 @@ package com.example.quickcash;
 
 import static androidx.test.espresso.Espresso.onView;
 import static androidx.test.espresso.action.ViewActions.click;
+import static androidx.test.espresso.assertion.ViewAssertions.matches;
 import static androidx.test.espresso.intent.Intents.intended;
 import static androidx.test.espresso.intent.matcher.IntentMatchers.hasComponent;
+import static androidx.test.espresso.matcher.ViewMatchers.isNotEnabled;
 import static androidx.test.espresso.matcher.ViewMatchers.withId;
+import static androidx.test.espresso.matcher.ViewMatchers.withText;
+import static org.hamcrest.Matchers.not;
 import static org.junit.Assert.assertEquals;
+
+import static java.lang.Thread.sleep;
+
 import android.content.Context;
+
 import androidx.test.espresso.intent.Intents;
 import androidx.test.espresso.intent.rule.IntentsTestRule;
 import androidx.test.ext.junit.rules.ActivityScenarioRule;
 import androidx.test.ext.junit.runners.AndroidJUnit4;
 import androidx.test.platform.app.InstrumentationRegistry;
+
 import org.junit.AfterClass;
 import org.junit.BeforeClass;
 import org.junit.Rule;
@@ -24,12 +33,9 @@ import org.junit.runner.RunWith;
  * @see <a href="http://d.android.com/tools/testing">Testing documentation</a>
  */
 @RunWith(AndroidJUnit4.class)
-public class LandingPageTest {
-
+public class EmployeeLocationTest {
     @Rule
-    public ActivityScenarioRule<LandingPage> myRule = new ActivityScenarioRule<>(LandingPage.class);
-    public IntentsTestRule<LandingPage> myIntentRule = new IntentsTestRule<>(LandingPage.class);
-
+    public ActivityScenarioRule<EmployeePage> myRule = new ActivityScenarioRule<>(EmployeePage.class);
 
     @BeforeClass
     public static void setup() {
@@ -42,21 +48,8 @@ public class LandingPageTest {
     }
 
     @Test
-    public void useAppContext() {
-        // Context of the app under test.
-        Context appContext = InstrumentationRegistry.getInstrumentation().getTargetContext();
-        assertEquals("com.example.quickcash", appContext.getPackageName());
-    }
-
-    @Test
-    public void checkIfSwitched2EmployeePage() {
-        onView(withId(R.id.employeeButton)).perform(click());
-        intended(hasComponent(EmployeePage.class.getName()));
-    }
-
-    @Test
-    public void checkIfSwitched2EmployerPage() {
-        onView(withId(R.id.employerButton)).perform(click());
-        intended(hasComponent(EmployerPage.class.getName()));
+    public void checkIflocationIsThere() throws InterruptedException {
+        sleep(20*1000);
+        onView(withId(R.id.nowLocation)).check(matches(not(withText(""))));
     }
 }
