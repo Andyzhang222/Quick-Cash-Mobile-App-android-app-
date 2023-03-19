@@ -12,6 +12,7 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 import com.example.quickcash.JobEmployer.JobEmployer;
+import com.example.quickcash.LocationTracker.LocationTracker;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
@@ -24,7 +25,7 @@ public class SubmitJobsActivity extends AppCompatActivity{
     private FirebaseAuth mAuth;
     private FirebaseDatabase db;
     private DatabaseReference mJobs;
-
+    String area;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -34,6 +35,11 @@ public class SubmitJobsActivity extends AppCompatActivity{
         mAuth = FirebaseAuth.getInstance();
 
         mJobs = FirebaseDatabase.getInstance().getReference().child("Job Post");
+        LocationTracker locationTracker = new LocationTracker(this);
+        locationTracker.startTracking(location -> {
+            area = locationTracker.getLocalArea(location);
+            locationTracker.stopTracking();
+        });
 
         submitJob();
 
@@ -56,7 +62,7 @@ public class SubmitJobsActivity extends AppCompatActivity{
                 String description = editTextDescription.getText().toString();
                 String date = editTextDate.getText().toString();
                 String duration = editTextDuration.getText().toString();
-                String place = editTextPlace.getText().toString();
+                String place = area;
                 String salary = editTextSalary.getText().toString();
                 Boolean urgency = checkBoxUrgency.isChecked();
                 String userId = FirebaseAuth.getInstance().getCurrentUser().getUid();
