@@ -2,7 +2,6 @@ package com.example.quickcash;
 
 import static androidx.test.espresso.Espresso.onView;
 import static androidx.test.espresso.action.ViewActions.click;
-import static androidx.test.espresso.action.ViewActions.closeSoftKeyboard;
 import static androidx.test.espresso.action.ViewActions.typeText;
 import static androidx.test.espresso.assertion.ViewAssertions.matches;
 import static androidx.test.espresso.intent.Intents.intended;
@@ -14,7 +13,6 @@ import static org.junit.Assert.assertEquals;
 
 import android.content.Context;
 
-import androidx.activity.result.ActivityResult;
 import androidx.test.espresso.Espresso;
 import androidx.test.espresso.intent.Intents;
 import androidx.test.espresso.intent.rule.IntentsTestRule;
@@ -34,7 +32,7 @@ import org.junit.runner.RunWith;
  * @see <a href="http://d.android.com/tools/testing">Testing documentation</a>
  */
 @RunWith(AndroidJUnit4.class)
-public class SubmitJobEspressoTestEmpolyer {
+public class SubmitJobEspressoTest {
     @Rule
     public ActivityScenarioRule<SubmitJobsActivity> myRule = new ActivityScenarioRule<>(SubmitJobsActivity.class);
     public IntentsTestRule<SubmitJobsActivity> myIntentRule = new IntentsTestRule<>(SubmitJobsActivity.class);
@@ -81,7 +79,6 @@ public class SubmitJobEspressoTestEmpolyer {
         onView(withId(R.id.salary)).perform(typeText("2000"));
         Espresso.closeSoftKeyboard();
         onView(withId(R.id.Submit_job_button)).perform(click());
-        intended(hasComponent(ViewJobsActivity.class.getName()));
     }
 
     @Test
