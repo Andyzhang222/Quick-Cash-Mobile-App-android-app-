@@ -73,7 +73,7 @@ public class LocationTrackerTest {
         String address = locationTracker.getLocalArea(location);
 
         assertNotNull(address);
-        assertEquals("Halifax Canada", address);
+        assertEquals("Halifax, Nova Scotia, Canada", address);
     }
 }
 

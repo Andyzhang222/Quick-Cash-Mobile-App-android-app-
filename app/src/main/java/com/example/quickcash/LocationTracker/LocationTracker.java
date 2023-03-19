@@ -109,7 +109,7 @@ public class LocationTracker implements LocationProvider {
         assert addresses != null;
         if (!addresses.isEmpty()) {
             Address address = addresses.get(0);
-            return address.getLocality()+" "+address.getCountryName();
+            return address.getLocality()+", "+address.getAdminArea()+", "+address.getCountryName();
         }
 
         return null;
