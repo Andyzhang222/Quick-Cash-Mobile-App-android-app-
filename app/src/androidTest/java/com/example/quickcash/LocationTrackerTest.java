@@ -1,6 +1,7 @@
 package com.example.quickcash;
 
 import android.content.Context;
+import android.location.Location;
 
 import org.junit.After;
 import org.junit.Before;
@@ -13,6 +14,7 @@ import androidx.test.core.app.ApplicationProvider;
 import androidx.test.ext.junit.runners.AndroidJUnit4;
 
 import com.example.quickcash.LocationTracker.LocationTracker;
+import com.google.android.gms.tasks.OnSuccessListener;
 
 /**
  * This is a test class for the LocationTracker class.
@@ -20,6 +22,7 @@ import com.example.quickcash.LocationTracker.LocationTracker;
 @RunWith(AndroidJUnit4.class)
 public class LocationTrackerTest {
 
+    private Context appContext;//The context of the application.
     private LocationTracker locationTracker;//The location tracker object being tested.
 
     /**
@@ -27,8 +30,7 @@ public class LocationTrackerTest {
      */
     @Before
     public void setUp() {
-        //The context of the application.
-        Context appContext = ApplicationProvider.getApplicationContext();
+        appContext = ApplicationProvider.getApplicationContext();
         locationTracker = new LocationTracker(appContext);
     }
 
@@ -37,6 +39,7 @@ public class LocationTrackerTest {
      */
     @After
     public void tearDown() {
+        locationTracker.stopTracking();
     }
 
     /**
@@ -45,13 +48,32 @@ public class LocationTrackerTest {
      * @throws Exception if an error occurs during the test.
      */
     @Test
-    public void testGetLocation() throws Exception {
-        locationTracker.getLastLocation(location -> {
+    public void testStartAndStopTracking() throws Exception {
+        locationTracker.startTracking(location -> {
             assertNotNull(location);
-            assertTrue(location.getLatitude() >= -90 && location.getLatitude() <= 90);
-            assertTrue(location.getLongitude() >= -180 && location.getLongitude() <= 180);
+            assertNotEquals("0", location.getLatitude()+"");
+            assertNotEquals("0", location.getLongitude()+"");
         });
 
+
+
+        locationTracker.stopTracking();
+    }
+
+    /**
+     * Test the getLocalArea method of LocationTracker.
+     */
+    @Test
+    public void testGetAddressFromLocation() {
+        //The location we use is the Dalhousie Library.
+        Location location = new Location("Dalhousie library");
+        location.setLatitude(44.637277);
+        location.setLongitude(-63.591195);
+
+        String address = locationTracker.getLocalArea(location);
+
+        assertNotNull(address);
+        assertEquals("Halifax, Nova Scotia, Canada", address);
     }
 }
 
