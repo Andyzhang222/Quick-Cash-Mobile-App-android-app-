@@ -67,12 +67,12 @@ public class EmployeePageLayoutTest {
      * Test if the employee page's recycleView is displayed
      */
     @Test public void testTextViewNotEmpty() {
-        onView(withId(R.id.recyclerview))
-                // Select the second item in the list
-                //.perform(RecyclerViewActions.actionOnItemAtPosition(1, click()))
-                // Check that the title of the second item matches the expected text
-                .check(matches(isDisplayed()));
+        onView(withId(R.id.recyclerview)).check(matches(isDisplayed()));
     }
+
+    /**
+     * Test if employee click one job's block, will it switch to the next screen
+     */
     @Test
     public void checkIfSwitched2JobPostingsPage() {
         Espresso.onView(withId(R.id.recyclerview)).perform(RecyclerViewActions.actionOnItemAtPosition(0,click()));

@@ -1,6 +1,7 @@
 package com.example.quickcash;
 /**
  * This class is for reference to small layout of one job
+ * Editor: Ziyue Wang, Guanxiang Wang
  */
 
 import android.content.Intent;
@@ -16,12 +17,15 @@ public class JobListHolder extends RecyclerView.ViewHolder {
     TextView title;
     ConstraintLayout JobLayout;
 
+
     public JobListHolder(@NonNull View itemView) {
         super(itemView);
 
+        // Set up the views in the layout
         title = itemView.findViewById(R.id.title);
         JobLayout = itemView.findViewById(R.id.oneLineJobTitle);
 
+        //implement when user click each job's block, then it job to JobPosting.class
         itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
