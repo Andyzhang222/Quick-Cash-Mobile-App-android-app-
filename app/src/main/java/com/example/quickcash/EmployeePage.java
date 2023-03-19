@@ -27,6 +27,11 @@ import android.widget.Toast;
 import com.example.quickcash.JobListAdapter;
 import com.example.quickcash.LoginPage;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.widget.SearchView;
@@ -145,7 +150,6 @@ public class EmployeePage extends AppCompatActivity{
             public void onDataChange(DataSnapshot dataSnapshot) {
                 // Retrieve the preference data and do something with it
                 String preference = dataSnapshot.getValue(String.class);
-                // TODO: Do something with the preference data
                 SearchView searchView = findViewById(R.id.searchView); // Replace with your search bar ID
                 searchView.setQuery(preference, false); // Set the search bar text to the preference data
             }
