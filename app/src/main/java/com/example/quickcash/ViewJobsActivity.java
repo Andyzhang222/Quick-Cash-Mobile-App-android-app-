@@ -65,8 +65,5 @@ public class ViewJobsActivity extends AppCompatActivity {
             }
         });
 
-
-
-
     }
 }
