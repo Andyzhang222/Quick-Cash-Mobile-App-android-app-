@@ -6,5 +6,5 @@ import com.google.android.gms.tasks.OnSuccessListener;
 
 public interface LocationProvider {
     void getLastLocation(OnSuccessListener<Location> locationSuccessListener);
-    void getLocalArea(OnSuccessListener<String> localAreaListener);
+    String getLocalArea(Location location);
 }
