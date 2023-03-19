@@ -7,17 +7,12 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
-import android.text.TextUtils;
 import android.view.View;
 import android.widget.Button;
-import android.widget.Toast;
 
 import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DatabaseReference;
-import com.google.firebase.database.FirebaseDatabase;
 
-import java.util.ArrayList;
 import java.util.List;
 
 public class ViewJobsActivity extends AppCompatActivity {
@@ -42,7 +37,7 @@ public class ViewJobsActivity extends AppCompatActivity {
 
         Intent intent = getIntent();
         JobRepository jobRepository = (JobRepository) intent.getSerializableExtra("JobRepository");
-        System.out.println("aaaaaaaaaaaa===========list大小为："+jobRepository.getJobList().size());
+//        System.out.println("aaaaaaaaaaaa===========list大小为："+jobRepository.getJobList().size());
         List<Job> jobList = jobRepository.getJobList();
 
         recyclerView = findViewById(R.id.mRecyclerView);
@@ -54,7 +49,7 @@ public class ViewJobsActivity extends AppCompatActivity {
 
 
 
-        @SuppressLint({"MissingInflatedId", "LocalSuppress"}) Button back_to_profile_btn = findViewById(R.id.button2);
+        @SuppressLint({"MissingInflatedId", "LocalSuppress"}) Button back_to_profile_btn = findViewById(R.id.back2pro);
         back_to_profile_btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick (View view) {

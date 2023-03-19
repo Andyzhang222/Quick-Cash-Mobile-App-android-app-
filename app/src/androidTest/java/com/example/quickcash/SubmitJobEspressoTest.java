@@ -68,7 +68,6 @@ public class SubmitJobEspressoTest {
         onView(withId(R.id.emergency_select)).check(matches(withText("emergency")));
     }
 
-
     @Test
     public void postedJobSuccessfully() {
         onView(withId(R.id.Job_type)).perform(typeText("Driver"));
@@ -84,9 +83,6 @@ public class SubmitJobEspressoTest {
         onView(withId(R.id.Submit_job_button)).perform(click());
         intended(hasComponent(ViewJobsActivity.class.getName()));
     }
-
-
-
 
     @Test
     public void postedJobUnSuccessfully() {
@@ -114,7 +110,4 @@ public class SubmitJobEspressoTest {
         onView(withId(R.id.salary)).check(matches(isEnabled()));
         onView(withId(R.id.Submit_job_button)).check(matches(isEnabled()));
     }
-
-
-
 }
