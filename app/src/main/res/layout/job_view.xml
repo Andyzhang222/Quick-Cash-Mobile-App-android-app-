@@ -3,8 +3,13 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:layout_marginTop="10dp"
-    android:background="@color/common_google_signin_btn_text_dark"
+    android:background="@color/common_google_signin_btn_text_dark_default"
+
     xmlns:tools="http://schemas.android.com/tools">
+
+
+
+
 
 
     <TextView
@@ -136,4 +141,5 @@
         android:layout_below="@+id/urgent99"
         android:top="@color/teal_200"
         android:text="Salary:   " />
+
 </RelativeLayout>

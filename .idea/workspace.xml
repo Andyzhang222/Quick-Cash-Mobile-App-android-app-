@@ -9,14 +9,13 @@
     <option name="autoReloadType" value="NONE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c72c6d02-fa94-4afb-ab1b-a44c8afda27c" name="Changes" comment="finished dispaly of view recycle.">
+    <list default="true" id="c72c6d02-fa94-4afb-ab1b-a44c8afda27c" name="Changes" comment="finished the espresso test for the viewjobsActivity">
+      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable/profile.jpeg" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/androidTestResultsUserPreferences.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/androidTestResultsUserPreferences.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/androidTest/java/com/example/quickcash/SubmitJobEspressoTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/androidTest/java/com/example/quickcash/SubmitJobEspressoTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_employer_page.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_employer_page.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_submit_jobs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_submit_jobs.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/local.properties" beforeDir="false" afterPath="$PROJECT_DIR$/local.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_view_jobs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_view_jobs.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/job_view.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/job_view.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -105,13 +104,14 @@
       <recent name="" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/app/src/main/res/drawable" />
       <recent name="$PROJECT_DIR$/app/src/main/java/com/example/quickcash" />
     </key>
     <key name="CreateTestDialog.RecentsKey">
       <recent name="com.example.quickcash" />
     </key>
   </component>
-  <component name="RunManager" selected="Android Instrumented Tests.SubmitJobEspressoTest">
+  <component name="RunManager" selected="Android App.app">
     <configuration name="app" type="AndroidRunConfigurationType" factoryName="Android App">
       <module name="QuIckCash.app.main" />
       <option name="DEPLOY" value="true" />
@@ -630,7 +630,14 @@
       <option name="project" value="LOCAL" />
       <updated>1679165653416</updated>
     </task>
-    <option name="localTasksCounter" value="25" />
+    <task id="LOCAL-00025" summary="finished the espresso test for the viewjobsActivity">
+      <created>1679188789889</created>
+      <option name="number" value="00025" />
+      <option name="presentableId" value="LOCAL-00025" />
+      <option name="project" value="LOCAL" />
+      <updated>1679188789889</updated>
+    </task>
+    <option name="localTasksCounter" value="26" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -645,7 +652,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="comments for RegisterPage" />
     <MESSAGE value="comments for unit test create employee successfully" />
     <MESSAGE value="comments for unit test compare employee" />
     <MESSAGE value="comments for unit test employee filed" />
@@ -670,6 +676,7 @@
     <MESSAGE value="comments for temp" />
     <MESSAGE value="comments for Haorang" />
     <MESSAGE value="comments for combine with Haoran" />
-    <option name="LAST_COMMIT_MESSAGE" value="comments for combine with Haoran" />
+    <MESSAGE value="finished the espresso test for the viewjobsActivity" />
+    <option name="LAST_COMMIT_MESSAGE" value="finished the espresso test for the viewjobsActivity" />
   </component>
 </project>
