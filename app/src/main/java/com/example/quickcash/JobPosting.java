@@ -1,4 +1,8 @@
 package com.example.quickcash;
+/**
+ * This activity  is for the page after employee click one job's block in employee page
+ * Editor: Ziyue Wang, Guanxiang Wang
+ */
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -18,10 +22,6 @@ public class JobPosting extends AppCompatActivity {
         setContentView(R.layout.activity_job_postings_page);
         //connect to the firebase
         FirebaseAuth auth = FirebaseAuth.getInstance();
-    }
-
-    public String getTitleOfJob () {
-        return "a";
     }
 
 }
