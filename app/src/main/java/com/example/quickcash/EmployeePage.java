@@ -169,21 +169,19 @@ public class EmployeePage extends AppCompatActivity{
         jobPostRef.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot jobPostSnapshot) {
-                for (DataSnapshot userID : jobPostSnapshot.getChildren()) {
-                    for (DataSnapshot jobPostID : userID.getChildren()) {
-                        String status = (String) jobPostID.child("status").getValue(String.class);
-                        if (status.equals("Open")) {
-                            String jobType = (String) jobPostID.child("jobType").getValue(String.class);
-                            String description = (String) jobPostID.child("description").getValue(String.class);
-                            String salary = jobPostID.child("salary").getValue().toString();
-                            String duration = jobPostID.child("duration").getValue().toString();
-                            String place = (String) jobPostID.child("place").getValue(String.class);
+                for (DataSnapshot jobPostID : jobPostSnapshot.getChildren()) {
 
-
-                            String jobTitle = String.format("Job Type: %s\nDescription: %s\nSalary: %s\nduration: %s\nplace: %s\n", jobType, description, salary, duration, place);
-                            jobList.add(new Job(jobTitle));
-                        }
+                    String status = (String) jobPostID.child("status").getValue(String.class);
+                    if (status.equals("Open")) {
+                        String jobType = (String) jobPostID.child("jobType").getValue(String.class);
+                        String description = (String) jobPostID.child("description").getValue(String.class);
+                        String salary = jobPostID.child("salary").getValue().toString();
+                        String duration = jobPostID.child("duration").getValue().toString();
+                        String place = (String) jobPostID.child("place").getValue(String.class);
+                        String jobTitle = String.format("Job Type: %s\nDescription: %s\nSalary: %s\nduration: %s\nplace: %s\n", jobType, description, salary, duration, place);
+                        jobList.add(new Job(jobTitle));
                     }
+
                 }
 
                 //set the layout manager, Arrange the items in a one-dimensional list.
