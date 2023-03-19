@@ -1,24 +1,21 @@
-package com.example.quickcash;
-
-import android.widget.CheckBox;
+package com.example.quickcash.JobEmployer;
 
 import java.io.Serializable;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
-import java.util.List;
 
-public class Job implements Serializable {
+public class JobEmployer implements Serializable {
 
     private String employerId, jobType, description,date, duration, place, status;
     private Boolean urgency;
     private int salary;
 
 
-    public Job() {
+    public JobEmployer() {
 
     }
 
-    public Job(String employerId, String jobType, String description, String date, String duration, String place, Boolean urgency, int salary, String status) {
+    public JobEmployer(String employerId, String jobType, String description, String date, String duration, String place, Boolean urgency, int salary, String status) {
         this.employerId = employerId;
         this.jobType = jobType;
         this.description = description;
@@ -30,7 +27,7 @@ public class Job implements Serializable {
         this.status = status;
     }
 
-    public Job(String jobType, String description, String date, String duration, String place, Boolean urgency, int salary, String status) {
+    public JobEmployer(String jobType, String description, String date, String duration, String place, Boolean urgency, int salary, String status) {
         this.jobType = jobType;
         this.description = description;
         this.date = date;

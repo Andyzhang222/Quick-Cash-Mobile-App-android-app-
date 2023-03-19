@@ -1,6 +1,5 @@
 package com.example.quickcash;
 
-import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
@@ -12,16 +11,10 @@ import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import com.example.quickcash.JobEmployer.JobEmployer;
 import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.auth.FirebaseUser;
-import com.google.firebase.database.DataSnapshot;
-import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
-import com.google.firebase.database.ValueEventListener;
-
-import java.util.ArrayList;
-import java.util.List;
 
 public class SubmitJobsActivity extends AppCompatActivity{
     private EditText editTextJobType, editTextDescription, editTextPlace, editTextDate, editTextDuration, editTextSalary;
@@ -94,7 +87,7 @@ public class SubmitJobsActivity extends AppCompatActivity{
 
                 String jobId = mJobs.push().getKey();
 
-                Job job = new Job(userId,
+                JobEmployer jobEmployer = new JobEmployer(userId,
                         jobType,
                         description,
                         date,
@@ -105,7 +98,7 @@ public class SubmitJobsActivity extends AppCompatActivity{
                         "Open"
                 );
 
-                mJobs.child(jobId).setValue(job);
+                mJobs.child(jobId).setValue(jobEmployer);
 
 
                 Toast.makeText(getApplicationContext(),"Post Job Successfully",Toast.LENGTH_LONG).show();

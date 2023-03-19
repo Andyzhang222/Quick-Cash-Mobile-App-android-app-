@@ -10,8 +10,9 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
-import android.widget.Toast;
 
+import com.example.quickcash.JobEmployer.JobEmployer;
+import com.example.quickcash.JobEmployer.JobEmployerAdapter;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -21,17 +22,10 @@ import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Objects;
 
 public class ViewJobsActivity extends AppCompatActivity {
-    private Button viewJobsButton;
-    private DatabaseReference jobPostDb;
     private RecyclerView recyclerView;
     private DatabaseReference mJobs;
-
-
-
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -45,11 +39,11 @@ public class ViewJobsActivity extends AppCompatActivity {
         ValueEventListener allJobsListener = new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
-                List<Job> jobs = new ArrayList<>();
+                List<JobEmployer> jobEmployers = new ArrayList<>();
                 for (DataSnapshot userSnapshot : snapshot.getChildren()) {
                     if(userId.equals(userSnapshot.child("employerId").getValue())){
-                        jobs.add(userSnapshot.getValue(Job.class));
-                        recyclerView.setAdapter(new JobAdapter(getApplicationContext(),jobs));
+                        jobEmployers.add(userSnapshot.getValue(JobEmployer.class));
+                        recyclerView.setAdapter(new JobEmployerAdapter(getApplicationContext(), jobEmployers));
                     }
                 }
             }

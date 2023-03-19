@@ -1,13 +1,15 @@
 package com.example.quickcash;
 
+import com.example.quickcash.JobEmployer.JobEmployer;
+
 import junit.framework.TestCase;
 
 import org.junit.AfterClass;
 import org.junit.Before;
 import org.junit.Test;
 
-public class SubmitJobFieldTest extends TestCase {
-    Job job;
+public class SubmitJobFieldTestEmpolyer extends TestCase {
+    JobEmployer jobEmployer;
 
     @Before
     public void setup() {
@@ -21,7 +23,7 @@ public class SubmitJobFieldTest extends TestCase {
 
     @Test
     public void testCreateJobSuccessfully() {
-        job = new Job("123456",
+        jobEmployer = new JobEmployer("123456",
                 "babysitter",
                 "Babysitting and playing with baby",
                 "2023-05-20",
@@ -33,12 +35,12 @@ public class SubmitJobFieldTest extends TestCase {
                 );
 
 
-        assertFalse(job.equals(null));
+        assertFalse(jobEmployer.equals(null));
     }
 
     @Test
     public void testGetJobFiledSuccessfully() {
-        job = new Job("123456",
+        jobEmployer = new JobEmployer("123456",
                 "Babysitter",
                 "Babysitting and playing with baby",
                 "2023-05-20",
@@ -49,19 +51,19 @@ public class SubmitJobFieldTest extends TestCase {
                 ""
         );
 
-        assertEquals("123456",job.getEmployerId());
-        assertEquals("Babysitter",job.getJobType());
-        assertEquals("Babysitting and playing with baby",job.getDescription());
-        assertEquals("2023-05-20",job.getDate());
-        assertEquals("More than two hours",job.getDuration());
-        assertEquals("6225 University Street",job.getPlace());
-        assertEquals("YES",job.getUrgency());
-        assertEquals(30,job.getSalary());
+        assertEquals("123456", jobEmployer.getEmployerId());
+        assertEquals("Babysitter", jobEmployer.getJobType());
+        assertEquals("Babysitting and playing with baby", jobEmployer.getDescription());
+        assertEquals("2023-05-20", jobEmployer.getDate());
+        assertEquals("More than two hours", jobEmployer.getDuration());
+        assertEquals("6225 University Street", jobEmployer.getPlace());
+        assertFalse(jobEmployer.getUrgency());
+        assertEquals(30, jobEmployer.getSalary());
     }
 
     @Test
     public void testCompareJob(){
-        job = new Job("123456",
+        jobEmployer = new JobEmployer("123456",
                 "Babysitter",
                 "Babysitting and playing with baby",
                 "2023-05-20",
@@ -72,7 +74,7 @@ public class SubmitJobFieldTest extends TestCase {
                 ""
         );
 
-        Job job1 = new Job("123455",
+        JobEmployer jobEmployer1 = new JobEmployer("123455",
                 "Truck Drivers",
                 "Babysitting and playing with baby",
                 "2023-05-20",
@@ -83,12 +85,12 @@ public class SubmitJobFieldTest extends TestCase {
                 ""
         );
 
-        assertFalse(job1.equals(job));
+        assertFalse(jobEmployer1.equals(jobEmployer));
     }
 
     @Test
     public void testJobIsNotCorrect(){
-        job = new Job("",
+        jobEmployer = new JobEmployer("",
                 "",
                 "",
                 "",
@@ -99,12 +101,12 @@ public class SubmitJobFieldTest extends TestCase {
                 ""
         );
 
-        assertFalse(job.validateJobType(job.getJobType()));
+        assertFalse(jobEmployer.validateJobType(jobEmployer.getJobType()));
     }
 
     @Test
     public void testJobIsCorrect(){
-        job = new Job("",
+        jobEmployer = new JobEmployer("",
                 "Driver",
                 "",
                 "",
@@ -115,12 +117,12 @@ public class SubmitJobFieldTest extends TestCase {
                 ""
         );
 
-        assertTrue(job.validateJobType(job.getJobType()));
+        assertTrue(jobEmployer.validateJobType(jobEmployer.getJobType()));
     }
 
     @Test
     public void testDescriptionIsCorrect(){
-        job = new Job("123456",
+        jobEmployer = new JobEmployer("123456",
                 "",
                 "As a truck transporter, you'll be responsible for safely and efficiently transporting goods," +
                         " following delivery schedules, and communicating with dispatchers and customers. " +
@@ -133,13 +135,13 @@ public class SubmitJobFieldTest extends TestCase {
                 ""
         );
 
-        assertTrue(job.validateDescription(job.getDescription()));
+        assertTrue(jobEmployer.validateDescription(jobEmployer.getDescription()));
 
     }
 
     @Test
     public void testDescriptionIsNotCorrect(){
-        job = new Job("123456",
+        jobEmployer = new JobEmployer("123456",
                 "",
                 "As a truck transporter, you'll be responsible for safely and efficiently transporting goods," +
                         " following delivery schedules, and communicating with dispatchers and customers. " +
@@ -166,13 +168,13 @@ public class SubmitJobFieldTest extends TestCase {
                 ""
         );
 
-        assertFalse(job.validateDescription(job.getDescription()));
+        assertFalse(jobEmployer.validateDescription(jobEmployer.getDescription()));
 
     }
 
     @Test
     public void testDateIsCorrect(){
-        job = new Job("123456",
+        jobEmployer = new JobEmployer("123456",
                 "",
                 "",
                 "2023-01-20",
@@ -183,12 +185,12 @@ public class SubmitJobFieldTest extends TestCase {
                 ""
         );
 
-        assertTrue(job.validateDate(job.getDate()));
+        assertTrue(jobEmployer.validateDate(jobEmployer.getDate()));
     }
 
     @Test
     public void testDateIsNotCorrect(){
-        job = new Job("123456",
+        jobEmployer = new JobEmployer("123456",
                 "",
                 "",
                 "20-2020-20",
@@ -199,11 +201,11 @@ public class SubmitJobFieldTest extends TestCase {
                 ""
         );
 
-        assertFalse(job.validateDate(job.getDate()));
+        assertFalse(jobEmployer.validateDate(jobEmployer.getDate()));
     }
     @Test
     public void testDurationIsCorrect(){
-        job = new Job("123456",
+        jobEmployer = new JobEmployer("123456",
                 "",
                 "",
                 "",
@@ -214,11 +216,11 @@ public class SubmitJobFieldTest extends TestCase {
                 ""
         );
 
-        assertTrue(job.validateDuration(job.getDuration()));
+        assertTrue(jobEmployer.validateDuration(jobEmployer.getDuration()));
     }
     @Test
     public void testDurationIsNotCorrect(){
-        job = new Job("123456",
+        jobEmployer = new JobEmployer("123456",
                 "",
                 "",
                 "",
@@ -229,12 +231,12 @@ public class SubmitJobFieldTest extends TestCase {
                 ""
         );
 
-        assertFalse(job.validateDuration(job.getDuration()));
+        assertFalse(jobEmployer.validateDuration(jobEmployer.getDuration()));
     }
 
     @Test
     public void testSalaryIsCorrect(){
-        job = new Job("123456",
+        jobEmployer = new JobEmployer("123456",
                 "",
                 "",
                 "",
@@ -245,7 +247,7 @@ public class SubmitJobFieldTest extends TestCase {
                 ""
         );
 
-        Job job1 = new Job("123456",
+        JobEmployer jobEmployer1 = new JobEmployer("123456",
                 "",
                 "",
                 "",
@@ -256,13 +258,13 @@ public class SubmitJobFieldTest extends TestCase {
                 ""
         );
 
-        assertTrue(job.validateSalary(job.getSalary()));
-        assertTrue(job1.validateSalary(job1.getSalary()));
+        assertTrue(jobEmployer.validateSalary(jobEmployer.getSalary()));
+        assertTrue(jobEmployer1.validateSalary(jobEmployer1.getSalary()));
     }
 
     @Test
     public void testSalaryIsNotCorrect(){
-        job = new Job("123456",
+        jobEmployer = new JobEmployer("123456",
                 "",
                 "",
                 "",
@@ -273,7 +275,7 @@ public class SubmitJobFieldTest extends TestCase {
                 ""
         );
 
-        Job job1 = new Job("123456",
+        JobEmployer jobEmployer1 = new JobEmployer("123456",
                 "",
                 "",
                 "",
@@ -284,14 +286,14 @@ public class SubmitJobFieldTest extends TestCase {
                 ""
         );
 
-        assertFalse(job.validateSalary(job.getSalary()));
-        assertFalse(job1.validateSalary(job1.getSalary()));
+        assertFalse(jobEmployer.validateSalary(jobEmployer.getSalary()));
+        assertFalse(jobEmployer1.validateSalary(jobEmployer1.getSalary()));
     }
 
 
     @Test
     public void testStatusIsCorrect(){
-        job = new Job("",
+        jobEmployer = new JobEmployer("",
                 "",
                 "",
                 "",
@@ -302,7 +304,7 @@ public class SubmitJobFieldTest extends TestCase {
                 "Open"
         );
 
-        Job job1 = new Job("123456",
+        JobEmployer jobEmployer1 = new JobEmployer("123456",
                 "",
                 "",
                 "",
@@ -313,12 +315,12 @@ public class SubmitJobFieldTest extends TestCase {
                 "Close"
         );
 
-        assertTrue(job.validateJobStatus(job.getStatus()));
-        assertTrue(job1.validateJobStatus(job1.getStatus()));
+        assertTrue(jobEmployer.validateJobStatus(jobEmployer.getStatus()));
+        assertTrue(jobEmployer1.validateJobStatus(jobEmployer1.getStatus()));
     }
     @Test
     public void testStatusIsNotCorrect(){
-        job = new Job("",
+        jobEmployer = new JobEmployer("",
                 "",
                 "",
                 "",
@@ -329,7 +331,7 @@ public class SubmitJobFieldTest extends TestCase {
                 "222"
         );
 
-        Job job1 = new Job("123456",
+        JobEmployer jobEmployer1 = new JobEmployer("123456",
                 "",
                 "",
                 "",
@@ -340,8 +342,8 @@ public class SubmitJobFieldTest extends TestCase {
                 "Clasdose"
         );
 
-        assertFalse(job.validateJobStatus(job.getStatus()));
-        assertFalse(job1.validateJobStatus(job1.getStatus()));
+        assertFalse(jobEmployer.validateJobStatus(jobEmployer.getStatus()));
+        assertFalse(jobEmployer1.validateJobStatus(jobEmployer1.getStatus()));
     }
 
 }
