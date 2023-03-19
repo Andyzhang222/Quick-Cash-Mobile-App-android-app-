@@ -94,7 +94,6 @@ public class SubmitJobEspressoTest {
         onView(withId(R.id.salary)).perform(typeText(""));
         Espresso.closeSoftKeyboard();
         onView(withId(R.id.Submit_job_button)).perform(click());
-        Intents.intending(hasComponent(ViewJobsActivity.class.getName()));
     }
 
     @Test

@@ -17,12 +17,6 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.database.*;
-import androidx.annotation.NonNull;
-import com.google.android.gms.tasks.OnCompleteListener;
-import com.google.android.gms.tasks.Task;
-import com.google.firebase.auth.AuthResult;
-import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 
 import java.util.regex.Matcher;
@@ -50,13 +44,10 @@ public class LoginPage extends AppCompatActivity implements View.OnClickListener
 
         //this is th register link for transfer to the register page
         TextView registerLink = findViewById(R.id.registerLink);
-        registerLink.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick (View view) {
-                Intent intent = new Intent(LoginPage.this,RegisterPage.class);
-                startActivity(intent);
-                finish();
-            }
+        registerLink.setOnClickListener(view -> {
+            Intent intent = new Intent(LoginPage.this,RegisterPage.class);
+            startActivity(intent);
+            finish();
         });
     }
 
@@ -69,10 +60,7 @@ public class LoginPage extends AppCompatActivity implements View.OnClickListener
         return  emailField.getText().toString().trim();
     }
 
-//    public String getId (String str) {
-//        str = mAuth.getCurrentUser().getUid();
-//        return  mAuth.getCurrentUser().getUid();
-//    }
+
 
     /**
      * This method used to get string of password
@@ -102,8 +90,8 @@ public class LoginPage extends AppCompatActivity implements View.OnClickListener
      */
     protected boolean isValidPassword (String pw){
         //It contains minimum 8 characters at least 1 Alphabet, 1 Number and 1 Special
-        String PASSWORD_PATTERN = "^(?=.*[A-Z])(?=.*[@_.])(?=.*\\d).{8,}$";
-        Pattern pattern = Pattern.compile(PASSWORD_PATTERN);
+        String passwordPattern = "^(?=.*[A-Z])(?=.*[@_.])(?=.*\\d).{8,}$";
+        Pattern pattern = Pattern.compile(passwordPattern);
         Matcher matcher = pattern.matcher(pw);
 
         return matcher.matches();
@@ -125,28 +113,18 @@ public class LoginPage extends AppCompatActivity implements View.OnClickListener
      */
     protected void login (String email,String password) {
         mAuth.signInWithEmailAndPassword(email, password)
-                .addOnCompleteListener(new OnCompleteListener<AuthResult>() {
-                    @Override
-                    public void onComplete (@NonNull Task<AuthResult> task) {
-                        if (task.isSuccessful()) {
-//
-//                            // 获取当前 Firebase 用户的 ID
-//                            String userId = FirebaseAuth.getInstance().getCurrentUser().getUid();
-//
-                            // 创建一个 Intent 对象，将用户 ID 作为 Extra 添加到 Intent 中
-                            //Intent intent1 = new Intent(LoginPage.this,LandingPage.class);
+                .addOnCompleteListener(task -> {
+                    if (task.isSuccessful()) {
 
-
-                            Intent intent = new Intent(LoginPage.this,LandingPage.class);
-                            String userId = FirebaseAuth.getInstance().getCurrentUser().getUid();
-                            intent.putExtra("userId", userId);
-                            startActivity(intent);
-                            finish();
-                        }
-                        else {
-                            Toast.makeText(LoginPage.this, "Login failed.\nPlease re-enter the correct email and password.",
-                                    Toast.LENGTH_SHORT).show();
-                        }
+                        Intent intent = new Intent(LoginPage.this,LandingPage.class);
+                        String userId = FirebaseAuth.getInstance().getCurrentUser().getUid();
+                        intent.putExtra("userId", userId);
+                        startActivity(intent);
+                        finish();
+                    }
+                    else {
+                        Toast.makeText(LoginPage.this, "Login failed.\nPlease re-enter the correct email and password.",
+                                Toast.LENGTH_SHORT).show();
                     }
                 });
     }

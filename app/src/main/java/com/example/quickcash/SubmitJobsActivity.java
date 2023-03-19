@@ -18,12 +18,8 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
 public class SubmitJobsActivity extends AppCompatActivity{
-    private EditText editTextJobType, editTextDescription, editTextPlace, editTextDate, editTextDuration, editTextSalary;
-    private CheckBox checkBoxUrgency;
-    private Button submitButton;
+    public static final String REQUIRE_FIELD = "Require Field...";
 
-    private FirebaseAuth mAuth;
-    private FirebaseDatabase db;
     private DatabaseReference mJobs;
     String area;
 
@@ -32,7 +28,6 @@ public class SubmitJobsActivity extends AppCompatActivity{
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_submit_jobs);
 
-        mAuth = FirebaseAuth.getInstance();
 
         mJobs = FirebaseDatabase.getInstance().getReference().child("Job Post");
         LocationTracker locationTracker = new LocationTracker(this);
@@ -46,6 +41,13 @@ public class SubmitJobsActivity extends AppCompatActivity{
     }
 
     public void submitJob(){
+        EditText editTextJobType;
+        EditText editTextDescription;
+        EditText editTextPlace;
+        EditText editTextDate;
+        EditText editTextDuration;
+        EditText editTextSalary;
+        CheckBox checkBoxUrgency;
         editTextJobType = findViewById(R.id.Job_type);
         editTextDescription = findViewById(R.id.Description);
         editTextPlace = findViewById(R.id.Place);
@@ -54,67 +56,64 @@ public class SubmitJobsActivity extends AppCompatActivity{
         editTextSalary = findViewById(R.id.salary);
         checkBoxUrgency = findViewById(R.id.emergency_select);
 
-        submitButton = findViewById(R.id.Submit_job_button);
-        submitButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                String jobType = editTextJobType.getText().toString();
-                String description = editTextDescription.getText().toString();
-                String date = editTextDate.getText().toString();
-                String duration = editTextDuration.getText().toString();
-                String place = area;
-                String salary = editTextSalary.getText().toString();
-                Boolean urgency = checkBoxUrgency.isChecked();
-                String userId = FirebaseAuth.getInstance().getCurrentUser().getUid();
-                if (TextUtils.isEmpty(jobType)){
-                    editTextJobType.setError("Require Field...");
-                    return;
-                }
-                if (TextUtils.isEmpty(description)){
-                    editTextDescription.setError("Require Field...");
-                    return;
-                }
-                if (TextUtils.isEmpty(date)){
-                    editTextDate.setError("Require Field...");
-                    return;
-                }
-                if (TextUtils.isEmpty(duration)){
-                    editTextDuration.setError("Require Field...");
-                    return;
-                }
-                if (TextUtils.isEmpty(place)){
-                    editTextPlace.setError("Require Field...");
-                    return;
-                }
-                if (TextUtils.isEmpty(salary)){
-                    editTextSalary.setError("Require Field...");
-                    return;
-                }
-
-                String jobId = mJobs.push().getKey();
-
-                JobEmployer jobEmployer = new JobEmployer(userId,
-                        jobType,
-                        description,
-                        date,
-                        duration,
-                        place,
-                        urgency,
-                        Integer.parseInt(salary),
-                        "Open"
-                );
-
-                mJobs.child(jobId).setValue(jobEmployer);
-
-
-                Toast.makeText(getApplicationContext(),"Post Job Successfully",Toast.LENGTH_LONG).show();
-
-                Intent switchIntent = new Intent(getApplicationContext(),EmployerPage.class);
-                startActivity(switchIntent);
-                finish();
-
-
+        Button submitButton = findViewById(R.id.Submit_job_button);
+        submitButton.setOnClickListener(view -> {
+            String jobType = editTextJobType.getText().toString();
+            String description = editTextDescription.getText().toString();
+            String date = editTextDate.getText().toString();
+            String duration = editTextDuration.getText().toString();
+            String place = area;
+            String salary = editTextSalary.getText().toString();
+            Boolean urgency = checkBoxUrgency.isChecked();
+            String userId = FirebaseAuth.getInstance().getCurrentUser().getUid();
+            if (TextUtils.isEmpty(jobType)){
+                editTextJobType.setError(REQUIRE_FIELD);
+                return;
             }
+            if (TextUtils.isEmpty(description)){
+                editTextDescription.setError(REQUIRE_FIELD);
+                return;
+            }
+            if (TextUtils.isEmpty(date)){
+                editTextDate.setError(REQUIRE_FIELD);
+                return;
+            }
+            if (TextUtils.isEmpty(duration)){
+                editTextDuration.setError(REQUIRE_FIELD);
+                return;
+            }
+            if (TextUtils.isEmpty(place)){
+                editTextPlace.setError(REQUIRE_FIELD);
+                return;
+            }
+            if (TextUtils.isEmpty(salary)){
+                editTextSalary.setError(REQUIRE_FIELD);
+                return;
+            }
+
+            String jobId = mJobs.push().getKey();
+
+            JobEmployer jobEmployer = new JobEmployer(userId,
+                    jobType,
+                    description,
+                    date,
+                    duration,
+                    place,
+                    urgency,
+                    Integer.parseInt(salary),
+                    "Open"
+            );
+
+            mJobs.child(jobId).setValue(jobEmployer);
+
+
+            Toast.makeText(getApplicationContext(),"Post Job Successfully",Toast.LENGTH_LONG).show();
+
+            Intent switchIntent = new Intent(getApplicationContext(),EmployerPage.class);
+            startActivity(switchIntent);
+            finish();
+
+
         });
     }
 

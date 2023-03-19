@@ -6,7 +6,13 @@ import java.text.SimpleDateFormat;
 
 public class JobEmployer implements Serializable {
 
-    private String employerId, jobType, description,date, duration, place, status;
+    private String employerId;
+    private String jobType;
+    private String description;
+    private String date;
+    private String duration;
+    private String place;
+    private String status;
     private Boolean urgency;
     private int salary;
 
@@ -111,7 +117,7 @@ public class JobEmployer implements Serializable {
     }
 
     public boolean validateJobType(String jobType){
-        return jobType != "" && !jobType.trim().isEmpty();
+        return (!jobType.equals("")) && (!jobType.trim().isEmpty());
     }
 
 
@@ -146,13 +152,6 @@ public class JobEmployer implements Serializable {
         }
     }
 
-//    public boolean validateUrgency(String urgency){
-//        if (urgency.equals("YES") || urgency.equals("NO")){
-//            return true;
-//        }
-//        return false;
-//    }
-
     public boolean validateSalary(int salary){
         int minSalary = 0;
         int maxSalary = 1000000;
@@ -160,15 +159,10 @@ public class JobEmployer implements Serializable {
     }
 
     public boolean validateJobStatus(String status){
-        String str1, str2;
-        str1 = "Open";
-        str2 = "Close";
+        String str1 = "Open";
+        String str2 = "Close";
 
-        if (status.equals(str1) || status.equals(str2)){
-            return true;
-        }
-
-        return false;
+        return status.equals(str1) || status.equals(str2);
     }
 
     public boolean validateEmployerId(String employerId) {

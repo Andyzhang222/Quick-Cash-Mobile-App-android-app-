@@ -26,7 +26,7 @@ import com.google.firebase.database.FirebaseDatabase;
 
 public class RegisterPage extends AppCompatActivity implements View.OnClickListener{
     ValidateRegisterPwd validate = new ValidateRegisterPwd();
-    private EditText editTextCreditCard, editTextEmail, editTextPassword, editTextPasswordRepeat;
+
 
     private FirebaseAuth mAuth;
 
@@ -43,13 +43,10 @@ public class RegisterPage extends AppCompatActivity implements View.OnClickListe
 
         //this is th login link for transfer to the login page
         TextView loginLink = findViewById(R.id.loginLink);
-        loginLink.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick (View v) {
-                Intent intent = new Intent(RegisterPage.this, LoginPage.class);
-                startActivity(intent);
-                finish();
-            }
+        loginLink.setOnClickListener(v -> {
+            Intent intent = new Intent(RegisterPage.this, LoginPage.class);
+            startActivity(intent);
+            finish();
         });
     }
 
@@ -67,7 +64,7 @@ public class RegisterPage extends AppCompatActivity implements View.OnClickListe
      * @return the string of email
      */
     protected String getEmail () {
-        editTextEmail = (EditText) findViewById(R.id.emailTextBox);
+        EditText editTextEmail = (EditText) findViewById(R.id.emailTextBox);
         return editTextEmail.getText().toString().trim();
     }
 
@@ -76,7 +73,7 @@ public class RegisterPage extends AppCompatActivity implements View.OnClickListe
      * @return the string of credit card
      */
     protected String getCreditCard () {
-        editTextCreditCard = (EditText) findViewById(R.id.CardTextBox) ;
+        EditText editTextCreditCard = (EditText) findViewById(R.id.CardTextBox) ;
         return editTextCreditCard.getText().toString().trim();
     }
 
@@ -85,7 +82,7 @@ public class RegisterPage extends AppCompatActivity implements View.OnClickListe
      * @return the string of password
      */
     protected String getPwd () {
-        editTextPassword = (EditText) findViewById(R.id.passwordTextBox);
+        EditText editTextPassword = (EditText) findViewById(R.id.passwordTextBox);
         return editTextPassword.getText().toString().trim();
     }
 
@@ -94,6 +91,7 @@ public class RegisterPage extends AppCompatActivity implements View.OnClickListe
      * @return the string of repeat password
      */
     protected String getRepeatPwd () {
+        EditText editTextPasswordRepeat;
         editTextPasswordRepeat = (EditText) findViewById(R.id.passwordRepeatTextBox);
         return editTextPasswordRepeat.getText().toString().trim();
     }
@@ -174,44 +172,35 @@ public class RegisterPage extends AppCompatActivity implements View.OnClickListe
         String password = getPwd();
         String creditCard = getCreditCard();
         String repeatPwd = getRepeatPwd();
-        String errorMessage = new String();
+
 
         //this part for checking the error of user input
         //if user input is all fine,we should start register
         if (!isNullEmptyEmail(email)) {
-            errorMessage = getResources().getString(R.string.EMPTY_EMAIL).trim();
-            setStatusMessage(errorMessage);
+            setStatusMessage(getResources().getString(R.string.EMPTY_EMAIL).trim());
         }
         else if (!isValidEmail(email)) {
-            errorMessage = getResources().getString(R.string.WRONG_EMAIL).trim();
-            setStatusMessage(errorMessage);
+            setStatusMessage(getResources().getString(R.string.WRONG_EMAIL).trim());
         }
         else if (!validatePwdEmptyNull(password)) {
-            errorMessage = getResources().getString(R.string.EMPTY_PASSWORD).trim();
-            setStatusMessage(errorMessage);
+            setStatusMessage( getResources().getString(R.string.EMPTY_PASSWORD).trim());
         }
         else if (!validatePwdLength(password)) {
-            errorMessage = getResources().getString(R.string.WRONG_LENGTH_PASSWORD).trim();
-            setStatusMessage(errorMessage);
+            setStatusMessage(getResources().getString(R.string.WRONG_LENGTH_PASSWORD).trim());
         }
         else if (!validatePwdFormat(password)) {
-            errorMessage = getResources().getString(R.string.WRONG_FORMAT_PASSWORD).trim();
-            setStatusMessage(errorMessage);
+            setStatusMessage( getResources().getString(R.string.WRONG_FORMAT_PASSWORD).trim());
         }
         else if (creditCard.isEmpty()) {
-            errorMessage = getResources().getString(R.string.EMPTY_CREDITCARD).trim();
-            setStatusMessage(errorMessage);
+            setStatusMessage( getResources().getString(R.string.EMPTY_CREDITCARD).trim());
         }
         else if (!validateCCFormat(creditCard)) {
-            errorMessage = getResources().getString(R.string.WRONG_CREDITCARD_FORMAT).trim();
-            setStatusMessage(errorMessage);
+            setStatusMessage(getResources().getString(R.string.WRONG_CREDITCARD_FORMAT).trim());
         }
         else if (!validateRepeatPwd(password,repeatPwd)) {
-            errorMessage = getResources().getString(R.string.PASSWORD_DOES_NOT_MATCH).trim();
-            setStatusMessage(errorMessage);
+            setStatusMessage(getResources().getString(R.string.PASSWORD_DOES_NOT_MATCH).trim());
         }else {
-            errorMessage = "";
-            setStatusMessage(errorMessage);
+            setStatusMessage("");
             switch (view.getId()){
                 case R.id.RegisterButton:
                     registerUser(email, password, creditCard);
@@ -227,28 +216,23 @@ public class RegisterPage extends AppCompatActivity implements View.OnClickListe
      * @param creditCard the string of  user's credit card
      */
     private void registerUser(String email, String password, String creditCard) {
-        mAuth.createUserWithEmailAndPassword(email, password).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
-            @Override
-            public void onComplete(@NonNull Task<AuthResult> task) {
-                if(task.isSuccessful()){
-                    User user = new User(email, creditCard, password);
-                    //*****************
-//                    System.out.println("----------------------啊啊啊啊啊啊："+task.getResult().getUser().getUid());
-                    FirebaseDatabase.getInstance().getReference("Users").child(FirebaseAuth.getInstance().getCurrentUser().getUid()).setValue(user)
-                            .addOnCompleteListener(new OnCompleteListener<Void>() {
-                                @Override
-                                public void onComplete(@NonNull Task<Void> task) {
-                                    if(task.isSuccessful()){
-                                        Toast.makeText(RegisterPage.this, "User has been registered successfully", Toast.LENGTH_LONG).show();
-                                    }else{
-                                        Toast.makeText(RegisterPage.this, "Fail to register! Try again!", Toast.LENGTH_LONG).show();
-                                    }
+        mAuth.createUserWithEmailAndPassword(email, password).addOnCompleteListener(task -> {
+            if(task.isSuccessful()){
+                User user = new User(email, creditCard, password);
+                FirebaseDatabase.getInstance().getReference("Users").child(FirebaseAuth.getInstance().getCurrentUser().getUid()).setValue(user)
+                        .addOnCompleteListener(new OnCompleteListener<Void>() {
+                            @Override
+                            public void onComplete(@NonNull Task<Void> task) {
+                                if(task.isSuccessful()){
+                                    Toast.makeText(RegisterPage.this, "User has been registered successfully", Toast.LENGTH_LONG).show();
+                                }else{
+                                    Toast.makeText(RegisterPage.this, "Fail to register! Try again!", Toast.LENGTH_LONG).show();
                                 }
-                            });
-                }
-                else{
-                    Toast.makeText(RegisterPage.this, "This Email has been registered! Please change the email!", Toast.LENGTH_LONG).show();
-                }
+                            }
+                        });
+            }
+            else{
+                Toast.makeText(RegisterPage.this, "This Email has been registered! Please change the email!", Toast.LENGTH_LONG).show();
             }
         });
     }
@@ -259,7 +243,9 @@ public class RegisterPage extends AppCompatActivity implements View.OnClickListe
  */
 class User {
 
-    public String email, creditCard, password;
+    private String email;
+    private String creditCard;
+    private String password;
 
     public User(){
 

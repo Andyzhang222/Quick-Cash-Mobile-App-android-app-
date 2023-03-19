@@ -25,7 +25,6 @@ import java.util.List;
 
 public class ViewJobsActivity extends AppCompatActivity {
     private RecyclerView recyclerView;
-    private DatabaseReference mJobs;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -35,7 +34,7 @@ public class ViewJobsActivity extends AppCompatActivity {
         recyclerView = findViewById(R.id.mRecyclerView);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
         String userId = FirebaseAuth.getInstance().getCurrentUser().getUid();
-        mJobs = FirebaseDatabase.getInstance().getReference().child("Job Post");
+        DatabaseReference mJobs = FirebaseDatabase.getInstance().getReference().child("Job Post");
         ValueEventListener allJobsListener = new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
@@ -50,19 +49,16 @@ public class ViewJobsActivity extends AppCompatActivity {
 
             @Override
             public void onCancelled(@NonNull DatabaseError error) {
-
+                //empty
             }
         };
         mJobs.addListenerForSingleValueEvent(allJobsListener);
 
-        @SuppressLint({"MissingInflatedId", "LocalSuppress"}) Button back_to_profile_btn = findViewById(R.id.back2pro);
-        back_to_profile_btn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick (View view) {
-                Intent intent = new Intent(ViewJobsActivity.this,EmployerPage.class);
-                startActivity(intent);
-                finish();
-            }
+        @SuppressLint({"MissingInflatedId", "LocalSuppress"}) Button backToProfileBtn = findViewById(R.id.back2pro);
+        backToProfileBtn.setOnClickListener(view -> {
+            Intent intent = new Intent(ViewJobsActivity.this,EmployerPage.class);
+            startActivity(intent);
+            finish();
         });
 
     }

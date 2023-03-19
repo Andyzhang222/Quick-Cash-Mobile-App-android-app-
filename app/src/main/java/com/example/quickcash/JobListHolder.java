@@ -15,7 +15,7 @@ import androidx.recyclerview.widget.RecyclerView;
 public class JobListHolder extends RecyclerView.ViewHolder {
 
     TextView title;
-    ConstraintLayout JobLayout;
+    ConstraintLayout jobLayout;
 
 
     public JobListHolder(@NonNull View itemView) {
@@ -23,18 +23,15 @@ public class JobListHolder extends RecyclerView.ViewHolder {
 
         // Set up the views in the layout
         title = itemView.findViewById(R.id.title);
-        JobLayout = itemView.findViewById(R.id.oneLineJobTitle);
+        jobLayout = itemView.findViewById(R.id.oneLineJobTitle);
 
         //implement when user click each job's block, then it job to JobPosting.class
-        itemView.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
+        itemView.setOnClickListener(view -> {
 
-                Intent switchIntent = new Intent(view.getContext(), JobPosting.class);
-                switchIntent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-                view.getContext().startActivity(switchIntent);
+            Intent switchIntent = new Intent(view.getContext(), JobPosting.class);
+            switchIntent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+            view.getContext().startActivity(switchIntent);
 
-            }
         });
     }
 }

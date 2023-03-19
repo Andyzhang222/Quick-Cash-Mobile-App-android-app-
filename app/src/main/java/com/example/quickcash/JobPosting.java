@@ -20,8 +20,6 @@ public class JobPosting extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_job_postings_page);
-        //connect to the firebase
-        FirebaseAuth auth = FirebaseAuth.getInstance();
     }
 
 }

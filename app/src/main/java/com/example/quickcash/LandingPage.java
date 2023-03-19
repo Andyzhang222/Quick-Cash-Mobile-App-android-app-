@@ -5,16 +5,12 @@
  */
 
 package com.example.quickcash;
-import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
-import android.widget.Toast;
 
-import com.google.android.gms.tasks.OnCompleteListener;
-import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -31,6 +27,9 @@ import java.util.Objects;
  */
 public class LandingPage extends AppCompatActivity {
 
+    public static final String USERS = "Users";
+    public static final String USER_TYPE = "userType";
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -39,8 +38,8 @@ public class LandingPage extends AppCompatActivity {
         //if user already set his user type,we just jump his page
         checkUserType();
         //click the corresponding button
-        EmployeeBtn();
-        EmployerBtn();
+        employeeBtn();
+        employerBtn();
 
     }
 
@@ -48,25 +47,16 @@ public class LandingPage extends AppCompatActivity {
      * This method initializes the employee button and sets an onClickListener to change the user type to "Employee".
      * It then starts the EmployeePage activity.
      */
-    private void EmployeeBtn() {
+    private void employeeBtn() {
         Button employeeBtn = findViewById(R.id.employeeButton);
         String userID = Objects.requireNonNull(FirebaseAuth.getInstance().getCurrentUser()).getUid();
-        employeeBtn.setOnClickListener(new View.OnClickListener() {
-            //when we click the employee button, we jump to the employee page
-            @Override
-            public void onClick(View v) {
-                FirebaseDatabase.getInstance().getReference("Users").child(userID).child("userType").setValue("Employee")
-                        .addOnCompleteListener(new OnCompleteListener<Void>() {
-                            @Override
-                            public void onComplete(@NonNull Task<Void> task) {
-
-                            }
-                        });
-                //jump to the employee_page
-                Intent switchIntent = new Intent(LandingPage.this,EmployeePage.class);
-                startActivity(switchIntent);
-                finish();
-            }
+        //when we click the employee button, we jump to the employee page
+        employeeBtn.setOnClickListener(v -> {
+            FirebaseDatabase.getInstance().getReference(USERS).child(userID).child(USER_TYPE).setValue("Employee");
+            //jump to the employee_page
+            Intent switchIntent = new Intent(LandingPage.this,EmployeePage.class);
+            startActivity(switchIntent);
+            finish();
         });
     }
 
@@ -74,25 +64,16 @@ public class LandingPage extends AppCompatActivity {
      * This method initializes the employer button and sets an onClickListener to change the user type to "Employer".
      * It then starts the EmployerPage activity.
      */
-    private void EmployerBtn() {
+    private void employerBtn() {
         Button employerBtn = findViewById(R.id.employerButton);
         String userID = Objects.requireNonNull(FirebaseAuth.getInstance().getCurrentUser()).getUid();
-        employerBtn.setOnClickListener(new View.OnClickListener() {
-            //when we click the employer button, we jump to the employer page
-            @Override
-            public void onClick(View v) {
-                FirebaseDatabase.getInstance().getReference("Users").child(userID).child("userType").setValue("Employer")
-                        .addOnCompleteListener(new OnCompleteListener<Void>() {
-                            @Override
-                            public void onComplete(@NonNull Task<Void> task) {
-
-                            }
-                        });
-                //jump to the employer_page
-                Intent switchIntent = new Intent(LandingPage.this, EmployerPage.class);
-                startActivity(switchIntent);
-                finish();
-            }
+        //when we click the employer button, we jump to the employer page
+        employerBtn.setOnClickListener(v -> {
+            FirebaseDatabase.getInstance().getReference(USERS).child(userID).child(USER_TYPE).setValue("Employer");
+            //jump to the employer_page
+            Intent switchIntent = new Intent(LandingPage.this, EmployerPage.class);
+            startActivity(switchIntent);
+            finish();
         });
     }
 
@@ -100,12 +81,12 @@ public class LandingPage extends AppCompatActivity {
      * This method reads the user type from the Firebase Realtime Database and redirects the user to the corresponding page.
      */
     private void readUserType(){
-        DatabaseReference ref = FirebaseDatabase.getInstance().getReference("Users");
+        DatabaseReference ref = FirebaseDatabase.getInstance().getReference(USERS);
 
         ref.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
-                String userType = dataSnapshot.child(Objects.requireNonNull(FirebaseAuth.getInstance().getCurrentUser()).getUid()).child("userType").getValue(String.class);
+                String userType = dataSnapshot.child(Objects.requireNonNull(FirebaseAuth.getInstance().getCurrentUser()).getUid()).child(USER_TYPE).getValue(String.class);
                 if(userType.equals("Employee")){
                     Intent switchIntent = new Intent(LandingPage.this,EmployeePage.class);
                     startActivity(switchIntent);
@@ -119,6 +100,7 @@ public class LandingPage extends AppCompatActivity {
 
             @Override
             public void onCancelled(DatabaseError databaseError) {
+                //empty
             }
         });
     }
@@ -128,11 +110,11 @@ public class LandingPage extends AppCompatActivity {
      * If they have, it redirects them to the corresponding page using the read
      */
     private void checkUserType(){
-        DatabaseReference ref = FirebaseDatabase.getInstance().getReference("Users");
+        DatabaseReference ref = FirebaseDatabase.getInstance().getReference(USERS);
         ref.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
-                boolean hasType = dataSnapshot.child(Objects.requireNonNull(FirebaseAuth.getInstance().getCurrentUser()).getUid()).hasChild("userType");
+                boolean hasType = dataSnapshot.child(Objects.requireNonNull(FirebaseAuth.getInstance().getCurrentUser()).getUid()).hasChild(USER_TYPE);
                 if(hasType){
                     readUserType();
                 }
@@ -140,6 +122,7 @@ public class LandingPage extends AppCompatActivity {
 
             @Override
             public void onCancelled(DatabaseError databaseError) {
+                //empty
             }
         });
     }

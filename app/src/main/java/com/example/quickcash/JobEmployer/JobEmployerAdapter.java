@@ -12,7 +12,6 @@ import java.util.List;
 
 public class JobEmployerAdapter extends RecyclerView.Adapter<MyJobViewHolder> {
 
-//    Context context;
     android.content.Context context;
     List<JobEmployer> jobEmployerList;
 

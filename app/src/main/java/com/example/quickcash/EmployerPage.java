@@ -28,18 +28,12 @@ import java.util.List;
 
 
 public class EmployerPage extends AppCompatActivity {
-    private DatabaseReference mJobs;
-    private FirebaseAuth mAuth;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_employer_page);
-        //connect to the firebase
-        mAuth = FirebaseAuth.getInstance();
-        FirebaseUser mUser = mAuth.getCurrentUser();
-        String uId = mUser.getUid();
-        mJobs = FirebaseDatabase.getInstance().getReference().child("Job Post").child(uId);
 
         //implement the log out button function
         //when user click the button, we should log out
@@ -47,32 +41,23 @@ public class EmployerPage extends AppCompatActivity {
         Button logoutBtn = findViewById(R.id.LogoutButton2);
         Button postBtn = findViewById(R.id.post);
         Button checkPostedJob = findViewById(R.id.checkPostedJob);
-        logoutBtn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                FirebaseAuth.getInstance().signOut();;
-                Intent intent = new Intent(getApplicationContext(),LoginPage.class);
-                startActivity(intent);
-                finish();
-            }
+        logoutBtn.setOnClickListener(v -> {
+            FirebaseAuth.getInstance().signOut();
+            Intent intent = new Intent(getApplicationContext(),LoginPage.class);
+            startActivity(intent);
+            finish();
         });
 
 
-        postBtn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent switchIntent = new Intent(getApplicationContext(),SubmitJobsActivity.class);
-                startActivity(switchIntent);
-                finish();
-            }
+        postBtn.setOnClickListener(v -> {
+            Intent switchIntent = new Intent(getApplicationContext(),SubmitJobsActivity.class);
+            startActivity(switchIntent);
+            finish();
         });
 
-        checkPostedJob.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(EmployerPage.this, ViewJobsActivity.class);
-                startActivity(intent);
-            }
+        checkPostedJob.setOnClickListener(v -> {
+            Intent intent = new Intent(EmployerPage.this, ViewJobsActivity.class);
+            startActivity(intent);
         });
 
 

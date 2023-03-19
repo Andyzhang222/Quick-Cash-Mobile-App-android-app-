@@ -15,7 +15,7 @@ public class Filter {
      * @param jobList1 the list of all jobs
      * @return the list that contain all the jobs that employees want
      */
-    public List<Job> filter(String text, List<Job> jobList1) {
+    public static List<Job> filter(String text, List<Job> jobList1) {
         List<Job> filteredJobList = new ArrayList<>();
         for (Job job : jobList1) {
             if (job.getJobTitle().toLowerCase().contains(text.toLowerCase())) {
