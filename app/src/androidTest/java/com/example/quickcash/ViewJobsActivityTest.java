@@ -31,8 +31,6 @@ import org.mockito.Mock;
 @RunWith(AndroidJUnit4.class)
 public class ViewJobsActivityTest {
 
-    @Mock
-    private JobRepository jobRepository;
 
 
 
@@ -52,19 +50,15 @@ public class ViewJobsActivityTest {
     }
     @Before
     public void setUp() {
-
     }
-
     @BeforeClass
     public static void setup() {
         Intents.init();
     }
-
     @AfterClass
     public static void tearDown() {
         System.gc();
     }
-
     @Test
     public void checkvisible() {
         onView(withId(R.id.checkPostedJob)).perform(click());
@@ -72,7 +66,6 @@ public class ViewJobsActivityTest {
         onView(withId(R.id.p3)).perform(click()).check(matches(withText("POSTED JOBS")));
         onView(withId(R.id.back2pro)).check(matches(withText("back to the profile page")));
     }
-
     @Test
     public void checkBack2profile() {
         onView(withId(R.id.checkPostedJob)).perform(click());

@@ -61,13 +61,7 @@ public class EmployerPage extends AppCompatActivity {
         postBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                //FirebaseAuth.getInstance().signOut();;
                 Intent switchIntent = new Intent(getApplicationContext(),SubmitJobsActivity.class);
-                String userId = getIntent().getStringExtra("userId");
-                switchIntent.putExtra("userId", userId);
-                //test for if get the id
-                System.out.println("poooooooooooost 按钮被按了");
-                Toast.makeText(EmployerPage.this, "-------------------"+userId, Toast.LENGTH_SHORT).show();
                 startActivity(switchIntent);
                 finish();
             }
@@ -76,29 +70,8 @@ public class EmployerPage extends AppCompatActivity {
         checkPostedJob.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                mJobs.addValueEventListener(new ValueEventListener() {
-                    @Override
-                    public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                        List<Job> jobList = new ArrayList<>();
-                        for (DataSnapshot jobSnapshot : dataSnapshot.getChildren()) {
-                            Job job = jobSnapshot.getValue(Job.class);
-                            jobList.add(job);
-                        }
-
-                        JobRepository jobRepository = new JobRepository(jobList);
-                        Intent intent = new Intent(EmployerPage.this, ViewJobsActivity.class);
-                        String userId = getIntent().getStringExtra("userId");
-
-                        intent.putExtra("userId",userId);
-                        intent.putExtra("JobRepository", jobRepository);
-                        startActivity(intent);
-                    }
-
-                    @Override
-                    public void onCancelled(@NonNull DatabaseError error) {
-                        //处理错误
-                    }
-                });
+                Intent intent = new Intent(EmployerPage.this, ViewJobsActivity.class);
+                startActivity(intent);
             }
         });
 

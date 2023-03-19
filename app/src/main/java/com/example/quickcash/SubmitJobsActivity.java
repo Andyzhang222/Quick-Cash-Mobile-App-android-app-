@@ -39,10 +39,8 @@ public class SubmitJobsActivity extends AppCompatActivity{
         setContentView(R.layout.activity_submit_jobs);
 
         mAuth = FirebaseAuth.getInstance();
-        FirebaseUser mUser = mAuth.getCurrentUser();
-        String uId = mUser.getUid();
 
-        mJobs = FirebaseDatabase.getInstance().getReference().child("Job Post").child(uId);
+        mJobs = FirebaseDatabase.getInstance().getReference().child("Job Post");
 
         submitJob();
 
@@ -68,8 +66,7 @@ public class SubmitJobsActivity extends AppCompatActivity{
                 String place = editTextPlace.getText().toString();
                 String salary = editTextSalary.getText().toString();
                 Boolean urgency = checkBoxUrgency.isChecked();
-
-                //String userId = FirebaseAuth.getInstance().getCurrentUser().getUid();
+                String userId = FirebaseAuth.getInstance().getCurrentUser().getUid();
                 if (TextUtils.isEmpty(jobType)){
                     editTextJobType.setError("Require Field...");
                     return;
@@ -97,7 +94,7 @@ public class SubmitJobsActivity extends AppCompatActivity{
 
                 String jobId = mJobs.push().getKey();
 
-                Job job = new Job(jobId,
+                Job job = new Job(userId,
                         jobType,
                         description,
                         date,
@@ -109,46 +106,19 @@ public class SubmitJobsActivity extends AppCompatActivity{
                 );
 
                 mJobs.child(jobId).setValue(job);
-                JobRepository jobRepository = new JobRepository();
-                jobRepository.addJob(job);
+
 
                 Toast.makeText(getApplicationContext(),"Post Job Successfully",Toast.LENGTH_LONG).show();
 
-                fetchJobsFromDatabase();
+                Intent switchIntent = new Intent(getApplicationContext(),EmployerPage.class);
+                startActivity(switchIntent);
+                finish();
+
+
             }
         });
     }
 
-    private void fetchJobsFromDatabase() {
-        mJobs.addValueEventListener(new ValueEventListener() {
-            @Override
-            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                List<Job> jobList = new ArrayList<>();
-                for (DataSnapshot jobSnapshot : dataSnapshot.getChildren()) {
-                    Job job = jobSnapshot.getValue(Job.class);
-                    jobList.add(job);
-                }
 
-                System.out.println("有多少个job：========"+jobList.size());
-                passJobsToNextActivity(jobList);
-            }
-
-            @Override
-            public void onCancelled(@NonNull DatabaseError error) {
-                //处理错误
-            }
-        });
-
-    }
-
-    private void passJobsToNextActivity(List<Job> jobs) {
-        JobRepository jobRepository = new JobRepository(jobs);
-        Intent intent = new Intent(SubmitJobsActivity.this, ViewJobsActivity.class);
-        String userId = getIntent().getStringExtra("userId");
-
-        intent.putExtra("userId",userId);
-        intent.putExtra("JobRepository", jobRepository);
-        startActivity(intent);
-    }
 
 }
