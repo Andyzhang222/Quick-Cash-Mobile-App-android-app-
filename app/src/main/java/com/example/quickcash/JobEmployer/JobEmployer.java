@@ -146,13 +146,6 @@ public class JobEmployer implements Serializable {
         }
     }
 
-//    public boolean validateUrgency(String urgency){
-//        if (urgency.equals("YES") || urgency.equals("NO")){
-//            return true;
-//        }
-//        return false;
-//    }
-
     public boolean validateSalary(int salary){
         int minSalary = 0;
         int maxSalary = 1000000;

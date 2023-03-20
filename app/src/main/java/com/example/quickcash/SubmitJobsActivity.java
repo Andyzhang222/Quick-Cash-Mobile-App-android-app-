@@ -20,9 +20,7 @@ public class SubmitJobsActivity extends AppCompatActivity{
     private EditText editTextJobType, editTextDescription, editTextPlace, editTextDate, editTextDuration, editTextSalary;
     private CheckBox checkBoxUrgency;
     private Button submitButton;
-
     private FirebaseAuth mAuth;
-    private FirebaseDatabase db;
     private DatabaseReference mJobs;
 
 
@@ -60,32 +58,12 @@ public class SubmitJobsActivity extends AppCompatActivity{
                 String salary = editTextSalary.getText().toString();
                 Boolean urgency = checkBoxUrgency.isChecked();
                 String userId = FirebaseAuth.getInstance().getCurrentUser().getUid();
-                if (TextUtils.isEmpty(jobType)){
-                    editTextJobType.setError("Require Field...");
-                    return;
-                }
-                if (TextUtils.isEmpty(description)){
-                    editTextDescription.setError("Require Field...");
-                    return;
-                }
-                if (TextUtils.isEmpty(date)){
-                    editTextDate.setError("Require Field...");
-                    return;
-                }
-                if (TextUtils.isEmpty(duration)){
-                    editTextDuration.setError("Require Field...");
-                    return;
-                }
-                if (TextUtils.isEmpty(place)){
-                    editTextPlace.setError("Require Field...");
-                    return;
-                }
-                if (TextUtils.isEmpty(salary)){
-                    editTextSalary.setError("Require Field...");
-                    return;
-                }
+
+                //All Required fields are not empty
+                if (RequiredFieldsNotEmpty(jobType, description, date, duration, place, salary));
 
                 String jobId = mJobs.push().getKey();
+
 
                 JobEmployer jobEmployer = new JobEmployer(userId,
                         jobType,
@@ -108,6 +86,34 @@ public class SubmitJobsActivity extends AppCompatActivity{
                 finish();
 
 
+            }
+
+            private boolean RequiredFieldsNotEmpty(String jobType, String description, String date, String duration, String place, String salary) {
+                if (TextUtils.isEmpty(jobType)){
+                    editTextJobType.setError("Require Field...");
+                    return true;
+                }
+                if (TextUtils.isEmpty(description)){
+                    editTextDescription.setError("Require Field...");
+                    return true;
+                }
+                if (TextUtils.isEmpty(date)){
+                    editTextDate.setError("Require Field...");
+                    return true;
+                }
+                if (TextUtils.isEmpty(duration)){
+                    editTextDuration.setError("Require Field...");
+                    return true;
+                }
+                if (TextUtils.isEmpty(place)){
+                    editTextPlace.setError("Require Field...");
+                    return true;
+                }
+                if (TextUtils.isEmpty(salary)){
+                    editTextSalary.setError("Require Field...");
+                    return true;
+                }
+                return false;
             }
         });
     }
