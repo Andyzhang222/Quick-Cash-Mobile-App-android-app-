@@ -6,6 +6,7 @@ package com.example.quickcash;
 
 import android.content.Intent;
 import android.view.View;
+import android.widget.Button;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -32,6 +33,12 @@ public class JobListHolder extends RecyclerView.ViewHolder {
             switchIntent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
             view.getContext().startActivity(switchIntent);
 
+        });
+
+        //implement when user click apply button, then text change to applied
+        Button applyBtn = itemView.findViewById(R.id.applyButton);
+        applyBtn.setOnClickListener(view -> {
+            applyBtn.setText("Applied");
         });
     }
 }

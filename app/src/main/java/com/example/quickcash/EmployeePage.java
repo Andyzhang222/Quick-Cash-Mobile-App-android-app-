@@ -65,6 +65,7 @@ public class EmployeePage extends AppCompatActivity{
         logoutBtn();
         showSearchView();
         notificationIcon();
+
     }
 
     /**
@@ -316,6 +317,8 @@ public class EmployeePage extends AppCompatActivity{
          icon.setOnClickListener(iconListener);
 
      }
+
+
 
 
 }
