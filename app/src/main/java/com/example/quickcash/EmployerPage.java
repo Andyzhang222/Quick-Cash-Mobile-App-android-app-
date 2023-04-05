@@ -61,7 +61,20 @@ public class EmployerPage extends AppCompatActivity {
         });
 
 
-
-
+    }
+    /**
+     * This method is called when the activity is starting. It checks if the current user has set a username.
+     * If the username is not set, it displays the UsernameDialog for the user to set their username.
+     */
+    @Override
+    protected void onStart() {
+        super.onStart();
+        UsernameDialog.checkIfUsernameSet(this, username -> {
+            FirebaseUser currentUser = FirebaseAuth.getInstance().getCurrentUser();
+            if (currentUser != null) {
+                String userId = currentUser.getUid();
+                UsernameDialog.setUserUsername(userId, username);
+            }
+        });
     }
 }

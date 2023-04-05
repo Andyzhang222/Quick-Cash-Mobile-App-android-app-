@@ -18,6 +18,7 @@ import android.widget.Toast;
 
 import com.example.quickcash.LocationTracker.LocationTracker;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.ChildEventListener;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -132,6 +133,7 @@ public class EmployeePage extends AppCompatActivity{
              String userId = FirebaseAuth.getInstance().getCurrentUser().getUid();
 
              userRef.child(userId).child("preference").setValue(searchText);
+             preferenceJob = searchText;
 
              Toast.makeText(EmployeePage.this, "Search text saved successfully", Toast.LENGTH_SHORT).show();
          };
@@ -318,4 +320,19 @@ public class EmployeePage extends AppCompatActivity{
      }
 
 
-}
+     /**
+      * This method is called when the activity is starting. It checks if the current user has set a username.
+      * If the username is not set, it displays the UsernameDialog for the user to set their username.
+      */
+     @Override
+     protected void onStart() {
+         super.onStart();
+         UsernameDialog.checkIfUsernameSet(this, username -> {
+             FirebaseUser currentUser = FirebaseAuth.getInstance().getCurrentUser();
+             if (currentUser != null) {
+                 String userId = currentUser.getUid();
+                 UsernameDialog.setUserUsername(userId, username);
+             }
+         });
+     }
+ }
