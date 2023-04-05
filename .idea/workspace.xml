@@ -9,12 +9,12 @@
     <option name="autoReloadType" value="NONE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c72c6d02-fa94-4afb-ab1b-a44c8afda27c" name="Changes" comment="123">
+    <list default="true" id="c72c6d02-fa94-4afb-ab1b-a44c8afda27c" name="Changes" comment="Create the branch &quot;applyJobAndPayment&quot;">
       <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/deploymentTargetDropDown.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/deploymentTargetDropDown.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/androidTestResultsUserPreferences.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/androidTestResultsUserPreferences.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_employee_page.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_employee_page.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/local.properties" beforeDir="false" afterPath="$PROJECT_DIR$/local.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/androidTest/java/com/example/quickcash/ViewJobsActivityTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/androidTest/java/com/example/quickcash/ViewJobsActivityTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/job_employer_view.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/job_employer_view.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -81,26 +81,29 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "RunOnceActivity.cidr.known.project.marker": "true",
-    "cidr.known.project.marker": "true",
-    "last_opened_file_path": "/Users/zihao/Desktop/3130Project/3130-project-quick-cash",
-    "memory.settings.postsync.last.time.stamp": "1678833832966",
-    "project.structure.last.edited": "Modules",
-    "project.structure.proportion": "0.17",
-    "project.structure.side.proportion": "0.2",
-    "settings.editor.selected.configurable": "AndroidSdkUpdater"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.cidr.known.project.marker&quot;: &quot;true&quot;,
+    &quot;cidr.known.project.marker&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/Users/zihao/Desktop/3130Project/3130-project-quick-cash&quot;,
+    &quot;memory.settings.postsync.last.time.stamp&quot;: &quot;1678833832966&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.17&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;AndroidSdkUpdater&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
+    <key name="android.template.428693571">
+      <recent name="com.example.quickcash" />
+    </key>
     <key name="ExtractSuperBase.RECENT_KEYS">
       <recent name="com.example.quickcash" />
     </key>
   </component>
-  <component name="RunManager" selected="Android App.app">
+  <component name="RunManager" selected="Android Instrumented Tests.ViewJobsActivityTest">
     <configuration name="app" type="AndroidRunConfigurationType" factoryName="Android App">
       <module name="QuIckCash.app.main" />
       <option name="DEPLOY" value="true" />
@@ -212,11 +215,11 @@
         <option name="Android.Gradle.BeforeRunTask" enabled="true" />
       </method>
     </configuration>
-    <configuration name="EmployerLogoutTest" type="AndroidTestRunConfigurationType" factoryName="Android Instrumented Tests" temporary="true" nameIsGenerated="true">
+    <configuration name="ViewJobsActivityTest" type="AndroidTestRunConfigurationType" factoryName="Android Instrumented Tests" temporary="true" nameIsGenerated="true">
       <module name="QuIckCash.app.androidTest" />
       <option name="TESTING_TYPE" value="2" />
       <option name="METHOD_NAME" value="" />
-      <option name="CLASS_NAME" value="com.example.quickcash.EmployerLogoutTest" />
+      <option name="CLASS_NAME" value="com.example.quickcash.ViewJobsActivityTest" />
       <option name="PACKAGE_NAME" value="" />
       <option name="TEST_NAME_REGEX" value="" />
       <option name="INSTRUMENTATION_RUNNER_CLASS" value="" />
@@ -265,11 +268,11 @@
         <option name="Android.Gradle.BeforeRunTask" enabled="true" />
       </method>
     </configuration>
-    <configuration name="checkIfLoginPageIsVisible()" type="AndroidTestRunConfigurationType" factoryName="Android Instrumented Tests" temporary="true" nameIsGenerated="true">
+    <configuration name="checkBack2profile()" type="AndroidTestRunConfigurationType" factoryName="Android Instrumented Tests" temporary="true" nameIsGenerated="true">
       <module name="QuIckCash.app.androidTest" />
       <option name="TESTING_TYPE" value="3" />
-      <option name="METHOD_NAME" value="checkIfLoginPageIsVisible" />
-      <option name="CLASS_NAME" value="com.example.quickcash.LoginTest" />
+      <option name="METHOD_NAME" value="checkBack2profile" />
+      <option name="CLASS_NAME" value="com.example.quickcash.ViewJobsActivityTest" />
       <option name="PACKAGE_NAME" value="" />
       <option name="TEST_NAME_REGEX" value="" />
       <option name="INSTRUMENTATION_RUNNER_CLASS" value="" />
@@ -371,11 +374,11 @@
         <option name="Android.Gradle.BeforeRunTask" enabled="true" />
       </method>
     </configuration>
-    <configuration name="testTextViewNotEmpty()" type="AndroidTestRunConfigurationType" factoryName="Android Instrumented Tests" temporary="true" nameIsGenerated="true">
+    <configuration name="checkvisible()" type="AndroidTestRunConfigurationType" factoryName="Android Instrumented Tests" temporary="true" nameIsGenerated="true">
       <module name="QuIckCash.app.androidTest" />
       <option name="TESTING_TYPE" value="3" />
-      <option name="METHOD_NAME" value="testTextViewNotEmpty" />
-      <option name="CLASS_NAME" value="com.example.quickcash.EmployeePageLayoutTest" />
+      <option name="METHOD_NAME" value="checkvisible" />
+      <option name="CLASS_NAME" value="com.example.quickcash.ViewJobsActivityTest" />
       <option name="PACKAGE_NAME" value="" />
       <option name="TEST_NAME_REGEX" value="" />
       <option name="INSTRUMENTATION_RUNNER_CLASS" value="" />
@@ -426,19 +429,19 @@
     </configuration>
     <list>
       <item itemvalue="Android App.app" />
+      <item itemvalue="Android Instrumented Tests.ViewJobsActivityTest" />
+      <item itemvalue="Android Instrumented Tests.checkBack2profile()" />
+      <item itemvalue="Android Instrumented Tests.checkvisible()" />
       <item itemvalue="Android Instrumented Tests.EmployeePageLayoutTest" />
-      <item itemvalue="Android Instrumented Tests.EmployerLogoutTest" />
-      <item itemvalue="Android Instrumented Tests.checkIfLoginPageIsVisible()" />
       <item itemvalue="Android Instrumented Tests.checkIfSwitched2JobPostingsPage()" />
-      <item itemvalue="Android Instrumented Tests.testTextViewNotEmpty()" />
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="Android Instrumented Tests.checkIfSwitched2JobPostingsPage()" />
-        <item itemvalue="Android Instrumented Tests.testTextViewNotEmpty()" />
+        <item itemvalue="Android Instrumented Tests.ViewJobsActivityTest" />
         <item itemvalue="Android Instrumented Tests.EmployeePageLayoutTest" />
-        <item itemvalue="Android Instrumented Tests.checkIfLoginPageIsVisible()" />
-        <item itemvalue="Android Instrumented Tests.EmployerLogoutTest" />
+        <item itemvalue="Android Instrumented Tests.checkIfSwitched2JobPostingsPage()" />
+        <item itemvalue="Android Instrumented Tests.checkvisible()" />
+        <item itemvalue="Android Instrumented Tests.checkBack2profile()" />
       </list>
     </recent_temporary>
   </component>
@@ -465,7 +468,14 @@
       <option name="project" value="LOCAL" />
       <updated>1676768815860</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="Create the branch &quot;applyJobAndPayment&quot;">
+      <created>1680373413289</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1680373413289</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -482,6 +492,7 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="comments for ValidateRegisterPwd" />
     <MESSAGE value="comments for RegisterPage" />
-    <option name="LAST_COMMIT_MESSAGE" value="comments for RegisterPage" />
+    <MESSAGE value="Create the branch &quot;applyJobAndPayment&quot;" />
+    <option name="LAST_COMMIT_MESSAGE" value="Create the branch &quot;applyJobAndPayment&quot;" />
   </component>
 </project>
