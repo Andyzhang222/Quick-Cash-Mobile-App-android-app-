@@ -7,9 +7,14 @@ import androidx.test.ext.junit.runners.AndroidJUnit4;
 import org.junit.Rule;
 import org.junit.Test;
 import org.junit.runner.RunWith;
+
+import static androidx.test.espresso.Espresso.onView;
+import static androidx.test.espresso.action.ViewActions.pressImeActionButton;
+import static androidx.test.espresso.action.ViewActions.typeText;
 import static androidx.test.espresso.assertion.ViewAssertions.matches;
 import static androidx.test.espresso.matcher.ViewMatchers.isDisplayed;
 import static androidx.test.espresso.matcher.ViewMatchers.withId;
+import static androidx.test.espresso.matcher.ViewMatchers.withText;
 
 import com.example.quickcash.Explore.*;
 
@@ -21,7 +26,19 @@ public class ExplorePageTest {
 
     @Test
     public void checkIfSearchViewIsDisplayed() {
-        Espresso.onView(withId(R.id.search_view)).check(matches(isDisplayed()));
+        onView(withId(R.id.search_view)).check(matches(isDisplayed()));
+    }
+
+    @Test
+    public void testSearchFunctionality() {
+        String query = "Wgx";
+
+        onView(withId(R.id.search_view))
+                .perform(typeText(query), pressImeActionButton());
+
+
+        onView(withText(query))
+                .check(matches(isDisplayed()));
     }
 }
 
