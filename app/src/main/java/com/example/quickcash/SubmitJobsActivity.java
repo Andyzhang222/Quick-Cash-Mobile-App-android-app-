@@ -36,6 +36,9 @@ public class SubmitJobsActivity extends AppCompatActivity{
             locationTracker.stopTracking();
         });
 
+
+
+
         submitJob();
 
     }
@@ -43,7 +46,10 @@ public class SubmitJobsActivity extends AppCompatActivity{
     public void submitJob(){
         EditText editTextJobType;
         EditText editTextDescription;
+
         EditText editTextPlace;
+
+
         EditText editTextDate;
         EditText editTextDuration;
         EditText editTextSalary;
@@ -51,6 +57,18 @@ public class SubmitJobsActivity extends AppCompatActivity{
         editTextJobType = findViewById(R.id.Job_type);
         editTextDescription = findViewById(R.id.Description);
         editTextPlace = findViewById(R.id.Place);
+
+
+
+        //System.out.println("-------------------" + area);
+
+        editTextPlace.setText(area);
+
+
+
+
+
+
         editTextDate = findViewById(R.id.date);
         editTextDuration = findViewById(R.id.duration);
         editTextSalary = findViewById(R.id.salary);
@@ -82,10 +100,10 @@ public class SubmitJobsActivity extends AppCompatActivity{
                 editTextDuration.setError(REQUIRE_FIELD);
                 return;
             }
-            if (TextUtils.isEmpty(place)){
-                editTextPlace.setError(REQUIRE_FIELD);
-                return;
-            }
+//            if (TextUtils.isEmpty(place)){
+//                editTextPlace.setError(REQUIRE_FIELD);
+//                return;
+//            }
             if (TextUtils.isEmpty(salary)){
                 editTextSalary.setError(REQUIRE_FIELD);
                 return;
