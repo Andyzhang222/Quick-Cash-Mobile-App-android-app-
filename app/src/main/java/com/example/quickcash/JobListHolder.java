@@ -53,8 +53,9 @@ public class JobListHolder extends RecyclerView.ViewHolder {
             applyBtn.setText("Applied");
 
             String jobId = this.jobId;
-            System.out.println("-------------jjjjoooobbbbb=======:"+jobId);
 
+            DatabaseReference jobRef = FirebaseDatabase.getInstance().getReference().child("Job Post").child(jobId).child("status");
+            jobRef.setValue("Close");
         });
     }
 }
