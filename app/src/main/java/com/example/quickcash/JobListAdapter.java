@@ -6,9 +6,7 @@ package com.example.quickcash;
 
 import android.content.Context;
 import android.view.LayoutInflater;
-import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
@@ -42,6 +40,7 @@ public class JobListAdapter extends RecyclerView.Adapter<JobListHolder> {
     @Override
     public void onBindViewHolder(@NonNull JobListHolder holder, int position) {
         holder.title.setText(jobs.get(position).getJobTitle());
+        holder.jobId = jobs.get(position).getJobId();
     }
 
     @Override
