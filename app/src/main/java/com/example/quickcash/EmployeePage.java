@@ -16,6 +16,7 @@ import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.Toast;
 
+import com.example.quickcash.Explore.ExploreEmployeeActivity;
 import com.example.quickcash.LocationTracker.LocationTracker;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
@@ -66,9 +67,22 @@ public class EmployeePage extends AppCompatActivity{
         logoutBtn();
         showSearchView();
         notificationIcon();
+
+        exploreButton();
     }
 
-    /**
+     /**
+      * Sets up the functionality of the explore button on the EmployeePage activity.
+      */
+     private void exploreButton() {
+         Button btnExplore = findViewById(R.id.btn_explore);
+         btnExplore.setOnClickListener(v -> {
+             Intent intent = new Intent(EmployeePage.this, ExploreEmployeeActivity.class);
+             startActivity(intent);
+         });
+     }
+
+     /**
      * This method used to implement the logout button function
      */
     private void logoutBtn() {

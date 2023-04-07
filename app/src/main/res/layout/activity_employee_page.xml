@@ -2,27 +2,11 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/Expl"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/background3"
     tools:context=".EmployeePage">
-
-    <!--    <TextView-->
-    <!--        android:id="@+id/textView"-->
-    <!--        android:layout_width="wrap_content"-->
-    <!--        android:layout_height="wrap_content"-->
-    <!--        android:text="Employee Page"-->
-    <!--        android:textSize="48sp"-->
-    <!--        tools:layout_editor_absoluteX="40dp"-->
-    <!--        tools:layout_editor_absoluteY="55dp" />-->
-
-    <!--    <SearchView-->
-    <!--        android:id="@+id/searchView"-->
-    <!--        android:layout_width="match_parent"-->
-    <!--        android:layout_height="wrap_content"-->
-    <!--        android:layout_below="@id/LogoutButton1"-->
-    <!--        android:iconifiedByDefault="false"-->
-    <!--        android:queryHint="Search"/>-->
 
     <Button
         android:id="@+id/LogoutButton1"
@@ -92,5 +76,19 @@
         app:layout_constraintStart_toEndOf="@+id/button"
         app:layout_constraintTop_toBottomOf="@+id/searchView"
         app:srcCompat="@drawable/notification" />
+
+    <Button
+        android:id="@+id/btn_explore"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="23dp"
+        android:layout_marginTop="14dp"
+        android:layout_marginEnd="21dp"
+        android:layout_marginBottom="20dp"
+        android:text="Explore"
+        app:layout_constraintBottom_toTopOf="@+id/recyclerview"
+        app:layout_constraintEnd_toStartOf="@+id/button"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/searchView" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

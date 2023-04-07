@@ -5,26 +5,15 @@
 
 package com.example.quickcash;
 
-import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
-import android.view.View;
 import android.widget.Button;
-import android.widget.Toast;
 
+import com.example.quickcash.Explore.ExploreEmployerActivity;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
-import com.google.firebase.database.DataSnapshot;
-import com.google.firebase.database.DatabaseError;
-import com.google.firebase.database.DatabaseReference;
-import com.google.firebase.database.FirebaseDatabase;
-import com.google.firebase.database.ValueEventListener;
-
-import java.util.ArrayList;
-import java.util.List;
 
 
 public class EmployerPage extends AppCompatActivity {
@@ -61,7 +50,20 @@ public class EmployerPage extends AppCompatActivity {
         });
 
 
+        exploreButton();
     }
+
+    /**
+     * Sets up the functionality of the explore button on the EmployeePage activity.
+     */
+    private void exploreButton() {
+        Button btnExplore = findViewById(R.id.btn_explore);
+        btnExplore.setOnClickListener(v -> {
+            Intent intent = new Intent(EmployerPage.this, ExploreEmployerActivity.class);
+            startActivity(intent);
+        });
+    }
+
     /**
      * This method is called when the activity is starting. It checks if the current user has set a username.
      * If the username is not set, it displays the UsernameDialog for the user to set their username.

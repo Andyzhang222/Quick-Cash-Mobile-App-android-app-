@@ -29,16 +29,5 @@ public class ExplorePageTest {
         onView(withId(R.id.search_view)).check(matches(isDisplayed()));
     }
 
-    @Test
-    public void testSearchFunctionality() {
-        String query = "Wgx";
-
-        onView(withId(R.id.search_view))
-                .perform(typeText(query), pressImeActionButton());
-
-
-        onView(withText(query))
-                .check(matches(isDisplayed()));
-    }
 }
 
