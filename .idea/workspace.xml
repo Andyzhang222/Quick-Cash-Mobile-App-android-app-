@@ -9,23 +9,21 @@
     <option name="autoReloadType" value="NONE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c72c6d02-fa94-4afb-ab1b-a44c8afda27c" name="Changes" comment="commit for Haoran">
+    <list default="true" id="c72c6d02-fa94-4afb-ab1b-a44c8afda27c" name="Changes" comment="Create the branch &quot;applyJobAndPayment&quot;">
       <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/androidTestResultsUserPreferences.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/androidTestResultsUserPreferences.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/quickcash/EmployeePage.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/quickcash/EmployeePage.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/quickcash/Job.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/quickcash/Job.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/quickcash/JobListAdapter.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/quickcash/JobListAdapter.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/quickcash/JobListHolder.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/quickcash/JobListHolder.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/test/java/com/example/quickcash/JobListAdapterTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/test/java/com/example/quickcash/JobListAdapterTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/quickcash/SubmitJobsActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/quickcash/SubmitJobsActivity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/quickcash/ViewJobsActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/quickcash/ViewJobsActivity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/job_employer_view.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/job_employer_view.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/local.properties" beforeDir="false" afterPath="$PROJECT_DIR$/local.properties" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
-  <component name="ExecutionTargetManager" SELECTED_TARGET="device_and_snapshot_combo_box_target[/Users/zihao/.android/avd/Pixel_6_API_33.avd]" />
+  <component name="ExecutionTargetManager" SELECTED_TARGET="device_and_snapshot_combo_box_target[/Users/andyzhang/.android/avd/Resizable_Experimental_API_33.avd]" />
   <component name="ExternalProjectsData">
     <projectState path="$PROJECT_DIR$">
       <ProjectState />
@@ -85,20 +83,22 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.cidr.known.project.marker&quot;: &quot;true&quot;,
-    &quot;cidr.known.project.marker&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;/Users/zihao/Desktop/3130Project/3130-project-quick-cash&quot;,
-    &quot;memory.settings.postsync.last.time.stamp&quot;: &quot;1678833832966&quot;,
-    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
-    &quot;project.structure.proportion&quot;: &quot;0.17&quot;,
-    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;AndroidSdkUpdater&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.cidr.known.project.marker": "true",
+    "android-custom-view/Users/andyzhang/.gradle/caches/modules-2/files-2.1/androidx.recyclerview/recyclerview/1.3.0/f4de7876e10ff121102f131b26d4a98b1613a012/recyclerview-1.3.0-sources.jar!/androidx/recyclerview/widget/RecyclerView.java_SELECTED": "RecyclerView",
+    "cidr.known.project.marker": "true",
+    "com.android.tools.idea.emulator.zoom.toolbar.visible": "false",
+    "last_opened_file_path": "/Users/zihao/Desktop/3130Project/3130-project-quick-cash",
+    "memory.settings.postsync.last.time.stamp": "1678833832966",
+    "project.structure.last.edited": "Modules",
+    "project.structure.proportion": "0.17",
+    "project.structure.side.proportion": "0.2",
+    "settings.editor.selected.configurable": "AndroidSdkUpdater"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="android.template.428693571">
       <recent name="com.example.quickcash" />
@@ -107,8 +107,8 @@
       <recent name="com.example.quickcash" />
     </key>
   </component>
-  <component name="RunManager" selected="Android App.EmployeePage">
-    <configuration name="EmployeePage" type="AndroidRunConfigurationType" factoryName="Android App" temporary="true">
+  <component name="RunManager" selected="Android App.ViewJobsActivity">
+    <configuration name="JobPosting" type="AndroidRunConfigurationType" factoryName="Android App" temporary="true">
       <module name="QuIckCash.app.main" />
       <option name="DEPLOY" value="true" />
       <option name="DEPLOY_APK_FROM_BUNDLE" value="false" />
@@ -159,65 +159,7 @@
         <option name="NATIVE_MEMORY_SAMPLE_RATE_BYTES" value="2048" />
       </Profilers>
       <option name="DEEP_LINK" value="" />
-      <option name="ACTIVITY_CLASS" value="com.example.quickcash.EmployeePage" />
-      <option name="SEARCH_ACTIVITY_IN_GLOBAL_SCOPE" value="false" />
-      <option name="SKIP_ACTIVITY_VALIDATION" value="false" />
-      <method v="2">
-        <option name="Android.Gradle.BeforeRunTask" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="EmployerPage" type="AndroidRunConfigurationType" factoryName="Android App" temporary="true">
-      <module name="QuIckCash.app.main" />
-      <option name="DEPLOY" value="true" />
-      <option name="DEPLOY_APK_FROM_BUNDLE" value="false" />
-      <option name="DEPLOY_AS_INSTANT" value="false" />
-      <option name="ARTIFACT_NAME" value="" />
-      <option name="PM_INSTALL_OPTIONS" value="" />
-      <option name="ALL_USERS" value="false" />
-      <option name="ALWAYS_INSTALL_WITH_PM" value="false" />
-      <option name="CLEAR_APP_STORAGE" value="false" />
-      <option name="DYNAMIC_FEATURES_DISABLED_LIST" value="" />
-      <option name="ACTIVITY_EXTRA_FLAGS" value="" />
-      <option name="MODE" value="specific_activity" />
-      <option name="CLEAR_LOGCAT" value="false" />
-      <option name="SHOW_LOGCAT_AUTOMATICALLY" value="false" />
-      <option name="INSPECTION_WITHOUT_ACTIVITY_RESTART" value="false" />
-      <option name="TARGET_SELECTION_MODE" value="DEVICE_AND_SNAPSHOT_COMBO_BOX" />
-      <option name="SELECTED_CLOUD_MATRIX_CONFIGURATION_ID" value="-1" />
-      <option name="SELECTED_CLOUD_MATRIX_PROJECT_ID" value="" />
-      <option name="DEBUGGER_TYPE" value="Auto" />
-      <Auto>
-        <option name="USE_JAVA_AWARE_DEBUGGER" value="false" />
-        <option name="SHOW_STATIC_VARS" value="true" />
-        <option name="WORKING_DIR" value="" />
-        <option name="TARGET_LOGGING_CHANNELS" value="lldb process:gdb-remote packets" />
-        <option name="SHOW_OPTIMIZED_WARNING" value="true" />
-      </Auto>
-      <Hybrid>
-        <option name="USE_JAVA_AWARE_DEBUGGER" value="false" />
-        <option name="SHOW_STATIC_VARS" value="true" />
-        <option name="WORKING_DIR" value="" />
-        <option name="TARGET_LOGGING_CHANNELS" value="lldb process:gdb-remote packets" />
-        <option name="SHOW_OPTIMIZED_WARNING" value="true" />
-      </Hybrid>
-      <Java />
-      <Native>
-        <option name="USE_JAVA_AWARE_DEBUGGER" value="false" />
-        <option name="SHOW_STATIC_VARS" value="true" />
-        <option name="WORKING_DIR" value="" />
-        <option name="TARGET_LOGGING_CHANNELS" value="lldb process:gdb-remote packets" />
-        <option name="SHOW_OPTIMIZED_WARNING" value="true" />
-      </Native>
-      <Profilers>
-        <option name="ADVANCED_PROFILING_ENABLED" value="false" />
-        <option name="STARTUP_PROFILING_ENABLED" value="false" />
-        <option name="STARTUP_CPU_PROFILING_ENABLED" value="false" />
-        <option name="STARTUP_CPU_PROFILING_CONFIGURATION_NAME" value="Java/Kotlin Method Sample (legacy)" />
-        <option name="STARTUP_NATIVE_MEMORY_PROFILING_ENABLED" value="false" />
-        <option name="NATIVE_MEMORY_SAMPLE_RATE_BYTES" value="2048" />
-      </Profilers>
-      <option name="DEEP_LINK" value="" />
-      <option name="ACTIVITY_CLASS" value="com.example.quickcash.EmployerPage" />
+      <option name="ACTIVITY_CLASS" value="com.example.quickcash.JobPosting" />
       <option name="SEARCH_ACTIVITY_IN_GLOBAL_SCOPE" value="false" />
       <option name="SKIP_ACTIVITY_VALIDATION" value="false" />
       <method v="2">
@@ -398,11 +340,64 @@
         <option name="Android.Gradle.BeforeRunTask" enabled="true" />
       </method>
     </configuration>
-    <configuration name="testApplyButton()" type="AndroidTestRunConfigurationType" factoryName="Android Instrumented Tests" temporary="true" nameIsGenerated="true">
+    <configuration name="EmployeePageLayoutTest" type="AndroidTestRunConfigurationType" factoryName="Android Instrumented Tests" temporary="true" nameIsGenerated="true">
       <module name="QuIckCash.app.androidTest" />
-      <option name="TESTING_TYPE" value="3" />
-      <option name="METHOD_NAME" value="testApplyButton" />
+      <option name="TESTING_TYPE" value="2" />
+      <option name="METHOD_NAME" value="" />
       <option name="CLASS_NAME" value="com.example.quickcash.EmployeePageLayoutTest" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="TEST_NAME_REGEX" value="" />
+      <option name="INSTRUMENTATION_RUNNER_CLASS" value="" />
+      <option name="EXTRA_OPTIONS" value="" />
+      <option name="RETENTION_ENABLED" value="No" />
+      <option name="RETENTION_MAX_SNAPSHOTS" value="2" />
+      <option name="RETENTION_COMPRESS_SNAPSHOTS" value="false" />
+      <option name="CLEAR_LOGCAT" value="false" />
+      <option name="SHOW_LOGCAT_AUTOMATICALLY" value="false" />
+      <option name="INSPECTION_WITHOUT_ACTIVITY_RESTART" value="false" />
+      <option name="TARGET_SELECTION_MODE" value="DEVICE_AND_SNAPSHOT_COMBO_BOX" />
+      <option name="SELECTED_CLOUD_MATRIX_CONFIGURATION_ID" value="-1" />
+      <option name="SELECTED_CLOUD_MATRIX_PROJECT_ID" value="" />
+      <option name="DEBUGGER_TYPE" value="Auto" />
+      <Auto>
+        <option name="USE_JAVA_AWARE_DEBUGGER" value="false" />
+        <option name="SHOW_STATIC_VARS" value="true" />
+        <option name="WORKING_DIR" value="" />
+        <option name="TARGET_LOGGING_CHANNELS" value="lldb process:gdb-remote packets" />
+        <option name="SHOW_OPTIMIZED_WARNING" value="true" />
+      </Auto>
+      <Hybrid>
+        <option name="USE_JAVA_AWARE_DEBUGGER" value="false" />
+        <option name="SHOW_STATIC_VARS" value="true" />
+        <option name="WORKING_DIR" value="" />
+        <option name="TARGET_LOGGING_CHANNELS" value="lldb process:gdb-remote packets" />
+        <option name="SHOW_OPTIMIZED_WARNING" value="true" />
+      </Hybrid>
+      <Java />
+      <Native>
+        <option name="USE_JAVA_AWARE_DEBUGGER" value="false" />
+        <option name="SHOW_STATIC_VARS" value="true" />
+        <option name="WORKING_DIR" value="" />
+        <option name="TARGET_LOGGING_CHANNELS" value="lldb process:gdb-remote packets" />
+        <option name="SHOW_OPTIMIZED_WARNING" value="true" />
+      </Native>
+      <Profilers>
+        <option name="ADVANCED_PROFILING_ENABLED" value="false" />
+        <option name="STARTUP_PROFILING_ENABLED" value="false" />
+        <option name="STARTUP_CPU_PROFILING_ENABLED" value="false" />
+        <option name="STARTUP_CPU_PROFILING_CONFIGURATION_NAME" value="Java/Kotlin Method Sample (legacy)" />
+        <option name="STARTUP_NATIVE_MEMORY_PROFILING_ENABLED" value="false" />
+        <option name="NATIVE_MEMORY_SAMPLE_RATE_BYTES" value="2048" />
+      </Profilers>
+      <method v="2">
+        <option name="Android.Gradle.BeforeRunTask" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="SubmitJobEspressoTest" type="AndroidTestRunConfigurationType" factoryName="Android Instrumented Tests" temporary="true" nameIsGenerated="true">
+      <module name="QuIckCash.app.androidTest" />
+      <option name="TESTING_TYPE" value="2" />
+      <option name="METHOD_NAME" value="" />
+      <option name="CLASS_NAME" value="com.example.quickcash.SubmitJobEspressoTest" />
       <option name="PACKAGE_NAME" value="" />
       <option name="TEST_NAME_REGEX" value="" />
       <option name="INSTRUMENTATION_RUNNER_CLASS" value="" />
@@ -453,19 +448,19 @@
     </configuration>
     <list>
       <item itemvalue="Android App.app" />
-      <item itemvalue="Android App.EmployeePage" />
-      <item itemvalue="Android App.EmployerPage" />
+      <item itemvalue="Android App.JobPosting" />
       <item itemvalue="Android App.SubmitJobsActivity" />
       <item itemvalue="Android App.ViewJobsActivity" />
-      <item itemvalue="Android Instrumented Tests.testApplyButton()" />
+      <item itemvalue="Android Instrumented Tests.SubmitJobEspressoTest" />
+      <item itemvalue="Android Instrumented Tests.EmployeePageLayoutTest" />
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="Android App.EmployeePage" />
-        <item itemvalue="Android App.SubmitJobsActivity" />
         <item itemvalue="Android App.ViewJobsActivity" />
-        <item itemvalue="Android App.EmployerPage" />
-        <item itemvalue="Android Instrumented Tests.testApplyButton()" />
+        <item itemvalue="Android Instrumented Tests.EmployeePageLayoutTest" />
+        <item itemvalue="Android App.SubmitJobsActivity" />
+        <item itemvalue="Android App.JobPosting" />
+        <item itemvalue="Android Instrumented Tests.SubmitJobEspressoTest" />
       </list>
     </recent_temporary>
   </component>
@@ -499,14 +494,7 @@
       <option name="project" value="LOCAL" />
       <updated>1680373413289</updated>
     </task>
-    <task id="LOCAL-00004" summary="commit for Haoran">
-      <created>1680736857687</created>
-      <option name="number" value="00004" />
-      <option name="presentableId" value="LOCAL-00004" />
-      <option name="project" value="LOCAL" />
-      <updated>1680736857687</updated>
-    </task>
-    <option name="localTasksCounter" value="5" />
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -524,7 +512,6 @@
     <MESSAGE value="comments for ValidateRegisterPwd" />
     <MESSAGE value="comments for RegisterPage" />
     <MESSAGE value="Create the branch &quot;applyJobAndPayment&quot;" />
-    <MESSAGE value="commit for Haoran" />
-    <option name="LAST_COMMIT_MESSAGE" value="commit for Haoran" />
+    <option name="LAST_COMMIT_MESSAGE" value="Create the branch &quot;applyJobAndPayment&quot;" />
   </component>
 </project>
