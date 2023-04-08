@@ -19,7 +19,6 @@ import com.example.quickcash.JobEmployer.JobEmployer;
 import com.example.quickcash.LocationTracker.LocationTracker;
 //import com.example.quickcash.recommendEmployees.PopUpEmployee;
 import com.example.quickcash.recommendEmployees.PopUpRecycleAdapter;
-import com.example.quickcash.recommendEmployees.US2FillInEmployeeList;
 import com.example.quickcash.recommendEmployees.us2_Employee;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
