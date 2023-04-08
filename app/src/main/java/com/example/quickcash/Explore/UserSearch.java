@@ -54,7 +54,7 @@ public class UserSearch {
      */
     private User convertSnapshotToUser(DataSnapshot userSnapshot) {
         User user = userSnapshot.getValue(User.class);
-        if (user != null && user.getUsername() != null) {
+        if (user != null) {
             if (user.getRating() == null) {
                 user.setRating(0.00);
             }
@@ -82,9 +82,11 @@ public class UserSearch {
                 userList.clear();
                 for (DataSnapshot userSnapshot : dataSnapshot.getChildren()) {
                     User user = convertSnapshotToUser(userSnapshot);
-                    if (user != null && user.getUsername().toLowerCase().contains(searchString.toLowerCase())) {
+                    if(user != null && (user.getUsername() != null && (user.getUsername().toLowerCase().contains(searchString.toLowerCase())))) {
                         userList.add(user);
                     }
+
+
                 }
                 resultListener.onSearchResult(userList);
             }

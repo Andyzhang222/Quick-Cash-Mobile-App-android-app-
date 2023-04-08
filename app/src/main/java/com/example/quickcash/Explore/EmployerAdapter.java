@@ -1,15 +1,27 @@
 package com.example.quickcash.Explore;
 
 import android.annotation.SuppressLint;
+import android.content.Context;
+import android.content.DialogInterface;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.LinearLayout;
+import android.widget.ScrollView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
+import androidx.appcompat.app.AlertDialog;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.quickcash.JobEmployer.JobEmployer;
+import com.example.quickcash.JobEmployer.JobEmployerAdapter;
 import com.example.quickcash.R;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -36,6 +48,12 @@ public class EmployerAdapter extends RecyclerView.Adapter<EmployerAdapter.UserVi
         return new UserViewHolder(view);
     }
 
+
+    /**
+     * Called by RecyclerView to display the data at the specified position.
+     * @param holder the UserViewHolder to bind the data to
+     * @param position the position of the item within the adapter's data set
+     */
     @SuppressLint("SetTextI18n")
     @Override
     public void onBindViewHolder(@NonNull UserViewHolder holder, int position) {
@@ -44,7 +62,76 @@ public class EmployerAdapter extends RecyclerView.Adapter<EmployerAdapter.UserVi
         holder.usernameTextView.setText("Name: " +user.getUsername());
         holder.emailTextView.setText("Email: " + user.getEmail());
         holder.ratingTextView.setText("Rating: " + user.getRating());
+
+        holder.itemView.setOnClickListener(v -> {
+            String userId = user.getUid();
+            DatabaseReference mJobs = FirebaseDatabase.getInstance().getReference().child("Job Post");
+            ValueEventListener allJobsListener = new ValueEventListener() {
+                @Override
+                public void onDataChange(@NonNull DataSnapshot snapshot) {
+                    List<JobEmployer> jobEmployers = new ArrayList<>();
+                    for (DataSnapshot userSnapshot : snapshot.getChildren()) {
+                        if (userId.equals(userSnapshot.child("employerId").getValue())) {
+                            jobEmployers.add(userSnapshot.getValue(JobEmployer.class));
+                        }
+                    }
+                    showMultipleJobDetailsDialog(v.getContext(), jobEmployers);
+                }
+
+                @Override
+                public void onCancelled(@NonNull DatabaseError error) {
+                    // empty
+                }
+            };
+            // Add the ValueEventListener to the DatabaseReference
+            mJobs.addListenerForSingleValueEvent(allJobsListener);
+        });
+
+
+
+
     }
+
+    /**
+     * Shows a dialog with details of multiple jobs.
+     * @param context the context of the dialog
+     * @param jobs the list of jobs to display
+     */
+    @SuppressLint("SetTextI18n")
+    private void showMultipleJobDetailsDialog(Context context, List<JobEmployer> jobs) {
+        AlertDialog.Builder builder = new AlertDialog.Builder(context);
+        builder.setTitle("Job Details");
+
+        LinearLayout linearLayout = new LinearLayout(context);
+        linearLayout.setOrientation(LinearLayout.VERTICAL);
+        linearLayout.setLayoutParams(new LinearLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT));
+
+        int count = 0;
+        for (JobEmployer job : jobs) {
+            count++;
+            TextView jobItem = new TextView(context);
+            String place ="";
+            if( job.getPlace() != null){
+                place = " at "+job.getPlace();
+            }
+            jobItem.setText("Job"+count+":\n"+job.getJobType() +place+"\nDescription: "+job.getDescription());
+            jobItem.setPadding(16, 16, 16, 16);
+
+
+            linearLayout.addView(jobItem);
+        }
+
+        ScrollView scrollView = new ScrollView(context);
+        scrollView.addView(linearLayout);
+        builder.setView(scrollView);
+
+        builder.setPositiveButton("Close", (dialog, which) -> dialog.dismiss());
+
+        AlertDialog dialog = builder.create();
+        dialog.show();
+    }
+
+
 
     @Override
     public int getItemCount() {
