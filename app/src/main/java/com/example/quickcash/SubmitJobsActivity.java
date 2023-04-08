@@ -120,8 +120,9 @@ public class SubmitJobsActivity extends AppCompatActivity{
                     urgency,
                     Integer.parseInt(salary),
                     "Open",
-                    "111"
+                    ""
             );
+            jobEmployer.setJobId(jobId);
 
             mJobs.child(jobId).setValue(jobEmployer);
 

@@ -51,9 +51,16 @@ public class MyJobViewHolder extends RecyclerView.ViewHolder {
 //            Intent intent = new Intent(itemView.getContext(), Paypal.class);
 //            startActivity(intent);
 
-        DatabaseReference jobRef = FirebaseDatabase.getInstance().getReference().child("Job Post").child(this.jobId).child("status");
-        System.out.println("employerrrrrr----jobId------:"+jobRef.getKey());
+//        String jobId = this.jobId;
+//        System.out.println("jobId-------------"+jobId);
+//        DatabaseReference jobRef = FirebaseDatabase.getInstance().getReference().child("Job Post").child(this.jobId).child("status");
+//        System.out.println("employerrrrrr----jobId------:"+jobRef.getKey());
 
+        Button payBtn = itemView.findViewById(R.id.Pay_btn);
+        payBtn.setOnClickListener(view -> {
+            String jobId = this.jobId;
+            System.out.println("jobId-------------"+jobId);
+        });
 
         itemView.setOnClickListener(view -> {
 
