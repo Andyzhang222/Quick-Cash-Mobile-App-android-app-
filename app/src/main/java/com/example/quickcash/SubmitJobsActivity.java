@@ -124,13 +124,11 @@ public class SubmitJobsActivity extends AppCompatActivity{
 
             mJobs.child(jobId).setValue(jobEmployer);
 
-
             Toast.makeText(getApplicationContext(),"Post Job Successfully",Toast.LENGTH_LONG).show();
 
             Intent switchIntent = new Intent(getApplicationContext(),EmployerPage.class);
             startActivity(switchIntent);
             finish();
-
 
         });
     }

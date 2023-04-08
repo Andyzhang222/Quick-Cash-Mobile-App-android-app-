@@ -1,12 +1,20 @@
 package com.example.quickcash.JobEmployer;
 
+import android.content.Intent;
 import android.view.View;
+import android.widget.Button;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.quickcash.JobPosting;
+import com.example.quickcash.LandingPage;
+import com.example.quickcash.LoginPage;
+import com.example.quickcash.Paypal;
 import com.example.quickcash.R;
+import com.example.quickcash.ViewJobsActivity;
+import com.google.firebase.auth.FirebaseAuth;
 
 public class MyJobViewHolder extends RecyclerView.ViewHolder {
 
@@ -28,5 +36,28 @@ public class MyJobViewHolder extends RecyclerView.ViewHolder {
         place = itemView.findViewById(R.id.Place);
         urgency = itemView.findViewById(R.id.Urgency);
         salary = itemView.findViewById(R.id.Salary);
+
+
+
+//        Button pay_Btn = itemView.findViewById(R.id.Pay_btn);
+//        pay_Btn.setOnClickListener(v -> {
+//            Intent intent = new Intent(v.getContext(), Paypal.class);
+//            itemView.getContext().startActivity(intent);
+
+//
+//            Intent intent = new Intent(itemView.getContext(), Paypal.class);
+//            startActivity(intent);
+
+
+
+
+        itemView.setOnClickListener(view -> {
+
+            Intent switchIntent = new Intent(view.getContext(), Paypal.class);
+            switchIntent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+            view.getContext().startActivity(switchIntent);
+
+
+        });
     }
 }
