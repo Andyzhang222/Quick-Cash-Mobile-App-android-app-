@@ -31,7 +31,9 @@ public class PaymentObservable {
      * This is done by calling the onPaymentCompleted method for each observer in the list.
      */
     public void notifyObservers() {
-        //fix it
+        for (RatingObserver observer : observers) {
+            observer.onPaymentCompleted();
+        }
     }
 }
 
