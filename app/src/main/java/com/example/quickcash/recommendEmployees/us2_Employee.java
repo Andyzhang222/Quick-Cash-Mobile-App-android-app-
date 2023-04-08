@@ -1,5 +1,9 @@
 package com.example.quickcash.recommendEmployees;
 
+/**
+ * This file is for a employee class for user2 story
+ * Editor: Ziyue Wang, Guanxiang Wang
+ */
 public class us2_Employee {
     private String name;
     private double star;

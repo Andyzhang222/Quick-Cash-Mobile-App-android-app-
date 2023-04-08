@@ -2,7 +2,7 @@ package com.example.quickcash.recommendEmployees;
 
 
 /**
- * This class is for reference to small layout of one job
+ * This class is for reference to small layout of one employees
  * Editor: Ziyue Wang, Guanxiang Wang
  */
 

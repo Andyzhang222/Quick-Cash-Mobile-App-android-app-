@@ -1,4 +1,8 @@
 package com.example.quickcash;
+/**
+ * Test for the pop up function
+ * Editor: Guanxiang Wang, Ziyue Wang
+ */
 
 import static androidx.test.espresso.Espresso.onView;
 import static androidx.test.espresso.action.ViewActions.click;
@@ -34,6 +38,9 @@ public class US2PopUpDialogTest {
     public void tearDown() throws Exception {
     }
 
+    /**
+     * test if the dialog can display after correct type in the click on the button
+     */
     @Test
     public void testPopUpDialog () {
         onView(withId(R.id.Job_type)).perform(typeText("Driver"));

@@ -1,7 +1,7 @@
 package com.example.quickcash.recommendEmployees;
 
 /**
- * The activity is for connect the the data to the views in the job view
+ * The activity is for connect the the data to the views in the employee view
  * Editor: Ziyue Wang, Guanxiang Wang
  */
 

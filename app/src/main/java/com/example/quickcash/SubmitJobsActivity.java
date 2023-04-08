@@ -1,4 +1,12 @@
 package com.example.quickcash;
+/**
+ * The posting job form
+ * Editor: Zihao Liu, Haoran Zhang\
+ */
+/**
+ * Add the pop list of employees after post job
+ * Editor: Guanxiang Wang, Ziyue Wang
+ */
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -128,6 +136,7 @@ public class SubmitJobsActivity extends AppCompatActivity{
             Toast.makeText(getApplicationContext(),"Post Job Successfully",Toast.LENGTH_LONG).show();
 
 
+            //open the dialog for recommended employees
             openDialog();
 
 
