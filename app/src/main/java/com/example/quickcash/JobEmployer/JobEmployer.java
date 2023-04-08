@@ -16,12 +16,14 @@ public class JobEmployer implements Serializable {
     private Boolean urgency;
     private int salary;
 
+    private String jobId;
+
 
     public JobEmployer() {
 
     }
 
-    public JobEmployer(String employerId, String jobType, String description, String date, String duration, String place, Boolean urgency, int salary, String status) {
+    public JobEmployer(String employerId, String jobType, String description, String date, String duration, String place, Boolean urgency, int salary, String status, String jobId) {
         this.employerId = employerId;
         this.jobType = jobType;
         this.description = description;
@@ -31,6 +33,7 @@ public class JobEmployer implements Serializable {
         this.urgency = urgency;
         this.salary = salary;
         this.status = status;
+        this.jobId = jobId;
     }
 
     public JobEmployer(String jobType, String description, String date, String duration, String place, Boolean urgency, int salary, String status) {
@@ -78,6 +81,14 @@ public class JobEmployer implements Serializable {
 
     public String getEmployerId() {
         return employerId;
+    }
+
+    public String getJobId() {
+        return jobId;
+    }
+
+    public void setJobId(String jobId) {
+        this.jobId = jobId;
     }
 
     public void setJobType(String jobType) {

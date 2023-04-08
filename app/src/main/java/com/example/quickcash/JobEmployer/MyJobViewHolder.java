@@ -15,6 +15,8 @@ import com.example.quickcash.Paypal;
 import com.example.quickcash.R;
 import com.example.quickcash.ViewJobsActivity;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 
 public class MyJobViewHolder extends RecyclerView.ViewHolder {
 
@@ -25,6 +27,7 @@ public class MyJobViewHolder extends RecyclerView.ViewHolder {
     TextView place;
     TextView urgency;
     TextView salary;
+    String jobId;
 
     public MyJobViewHolder(@NonNull View itemView) {
         super(itemView);
@@ -48,7 +51,8 @@ public class MyJobViewHolder extends RecyclerView.ViewHolder {
 //            Intent intent = new Intent(itemView.getContext(), Paypal.class);
 //            startActivity(intent);
 
-
+        DatabaseReference jobRef = FirebaseDatabase.getInstance().getReference().child("Job Post").child(this.jobId).child("status");
+        System.out.println("employerrrrrr----jobId------:"+jobRef.getKey());
 
 
         itemView.setOnClickListener(view -> {
@@ -56,7 +60,6 @@ public class MyJobViewHolder extends RecyclerView.ViewHolder {
             Intent switchIntent = new Intent(view.getContext(), Paypal.class);
             switchIntent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
             view.getContext().startActivity(switchIntent);
-
 
         });
     }
