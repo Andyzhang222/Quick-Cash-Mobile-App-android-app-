@@ -1,14 +1,17 @@
 package com.example.quickcash.recommendEmployees;
 
 public class us2_Employee {
-    String name;
-    double star;
-    String employeeTitle;
+    private String name;
+    private double star;
+    private String employeeTitle;
 
-    public us2_Employee (String name, double star,String title) {
+    private String emial;
+
+    public us2_Employee (String name, double star,String title, String UID) {
         this.name = name;
         this.star = star;
         employeeTitle = title;
+        this.emial = UID;
     }
 
     public String getName() {
@@ -34,4 +37,6 @@ public class us2_Employee {
     public String getEmployeeTitle () {
         return employeeTitle;
     }
+
+    public String getEmial() { return emial;}
 }

@@ -32,8 +32,8 @@
 
     <Button
         android:id="@+id/popUpClosedButton"
-        android:layout_width="75dp"
-        android:layout_height="30dp"
+        android:layout_width="90dp"
+        android:layout_height="60dp"
         android:layout_below="@+id/popUpRecycleView"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="16dp"

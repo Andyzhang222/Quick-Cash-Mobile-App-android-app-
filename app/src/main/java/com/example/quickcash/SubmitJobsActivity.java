@@ -1,5 +1,6 @@
 package com.example.quickcash;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -12,19 +13,20 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.EditText;
-import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.quickcash.JobEmployer.JobEmployer;
 import com.example.quickcash.LocationTracker.LocationTracker;
 //import com.example.quickcash.recommendEmployees.PopUpEmployee;
 import com.example.quickcash.recommendEmployees.PopUpRecycleAdapter;
-import com.example.quickcash.recommendEmployees.PopUpRecycleViewHolder;
 import com.example.quickcash.recommendEmployees.US2FillInEmployeeList;
 import com.example.quickcash.recommendEmployees.us2_Employee;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -36,6 +38,8 @@ public class SubmitJobsActivity extends AppCompatActivity{
     String area;
 
     Dialog dialog;
+    RecyclerView.LayoutManager layoutManager;
+    PopUpRecycleAdapter popUpRecycleAdapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -141,22 +145,17 @@ public class SubmitJobsActivity extends AppCompatActivity{
 
         RecyclerView employeeViewList = (RecyclerView) dialog.findViewById(R.id.popUpRecycleView);
 
-        RecyclerView.LayoutManager layoutManager;
-        PopUpRecycleAdapter popUpRecycleAdapter;
+
         //set the layout manager, Arrange the items in a one-dimensional list.
         layoutManager = new LinearLayoutManager(this);
         employeeViewList.setLayoutManager(layoutManager);
 
-        //create a list for the list to pop up
-        US2FillInEmployeeList us2FillInEmployeeList = new US2FillInEmployeeList();
-        List<us2_Employee> employeeList = new ArrayList<>();
-        us2FillInEmployeeList.fillInList(employeeList);
-
-        popUpRecycleAdapter = new PopUpRecycleAdapter(this, employeeList);
-        employeeViewList.setAdapter(popUpRecycleAdapter);
+        //fill the recycle list
+        fillInList(employeeViewList);
 
         Button closeButton = (Button) dialog.findViewById(R.id.popUpClosedButton);
 
+        //when close back to the employee page
         closeButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -173,5 +172,53 @@ public class SubmitJobsActivity extends AppCompatActivity{
 
     }
 
+
+    /**
+     * Fill in the recycleView with employee name, rating, and email which can let the employer to contact
+     * @param employeeViewList the recycleList need to be filled in
+     */
+    private void fillInList (RecyclerView employeeViewList) {
+        DatabaseReference rootRef = FirebaseDatabase.getInstance().getReference();
+        DatabaseReference userRef = rootRef.child("Users");
+        List<us2_Employee> employeeList = new ArrayList<>();
+
+        userRef.addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot employeeSnapshot) {
+                String userType = "";
+
+                for (DataSnapshot employees : employeeSnapshot.getChildren()) {
+
+                    userType = employees.child("userType").getValue(String.class);
+                    double rating = 0;
+
+                    if (employees.child("rating").getValue() != null) {
+
+                        rating = (double) employees.child("rating").getValue(Double.class);
+
+                        //only show the employee who have more then 4.7 rating
+                        if (userType.equals("Employee") && rating >= 4.7) {
+
+
+                            String employeeName = employees.child("username").getValue(String.class);
+                            String email = employees.child("email").getValue(String.class);
+
+                            String employeeTitle = String.format("Employee Name: %s\nRating: %.1f\nEmployee Email: %s\n", employeeName, rating,email);
+                            employeeList.add(new us2_Employee(employeeName, rating, employeeTitle, email));
+                        }
+                    }
+
+                    popUpRecycleAdapter = new PopUpRecycleAdapter(getApplicationContext(), employeeList);
+                    employeeViewList.setAdapter(popUpRecycleAdapter);
+                }
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+                //We don't need to control this situation
+            }
+        });
+
+    }
 
 }
