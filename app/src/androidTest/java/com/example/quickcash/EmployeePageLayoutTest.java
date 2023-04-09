@@ -94,8 +94,6 @@ public class EmployeePageLayoutTest {
     public void testApplyButton(){
         SystemClock.sleep(2000);
         onView(withId(R.id.recyclerview)).perform(RecyclerViewActions.actionOnItemAtPosition(1, clickChildViewWithId(R.id.applyButton)));
-//        SystemClock.sleep(2000);
-//        Espresso.onView(withId(R.id.recyclerview)).check(matches(atPositionOnView(1, withText("Applied"), R.id.applyButton)));
         SystemClock.sleep(2000);
     }
 
@@ -128,51 +126,6 @@ public class EmployeePageLayoutTest {
         };
     }
 
-//    public static ViewAction clickChildViewWithId(final int id) {
-//        return new ViewAction() {
-//            @Override
-//            public Matcher<View> getConstraints() {
-//                return null;
-//            }
-//
-//            @Override
-//            public String getDescription() {
-//                return "Click on a child view with specified id.";
-//            }
-//
-//            @Override
-//            public void perform(UiController uiController, View view) {
-//                View v = view.findViewById(id);
-//                if (v != null) {
-//                    v.performClick();
-//                }
-//            }
-//        };
-//    }
-
-//    public static Matcher<View> atPositionOnView(final int position, final Matcher<View> itemMatcher, final int targetViewId) {
-//        return new TypeSafeMatcher<View>() {
-//            @Override
-//            protected boolean matchesSafely(View item) {
-//                View targetView = item.findViewById(targetViewId);
-//                if (targetView == null) {
-//                    return false;
-//                }
-//                RecyclerView.ViewHolder viewHolder = ((RecyclerView) item).findViewHolderForAdapterPosition(position);
-//                if (viewHolder == null) {
-//                    // has no item on such position
-//                    return false;
-//                }
-//                return itemMatcher.matches(targetView);
-//            }
-//
-//            @Override
-//            public void describeTo(Description description) {
-//                description.appendText("has view id " + targetViewId + " at position " + position + ": ");
-//                itemMatcher.describeTo(description);
-//            }
-//        };
-//    }
 
 
 }

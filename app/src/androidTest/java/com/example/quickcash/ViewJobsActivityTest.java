@@ -10,12 +10,10 @@ import static androidx.test.espresso.matcher.ViewMatchers.withId;
 import static androidx.test.espresso.matcher.ViewMatchers.withText;
 
 import static org.junit.Assert.assertEquals;
-import static org.mockito.Mockito.mock;
 
 import android.content.Context;
 
 import androidx.test.espresso.intent.Intents;
-import androidx.test.espresso.intent.rule.IntentsTestRule;
 import androidx.test.ext.junit.rules.ActivityScenarioRule;
 import androidx.test.ext.junit.runners.AndroidJUnit4;
 import androidx.test.platform.app.InstrumentationRegistry;
@@ -36,8 +34,6 @@ public class ViewJobsActivityTest {
 
     @Rule
     public ActivityScenarioRule<EmployerPage> myRule = new ActivityScenarioRule<>(EmployerPage.class);
-    public IntentsTestRule<EmployerPage> myIntentRule = new IntentsTestRule<>(EmployerPage.class);
-
 
 
 
@@ -60,7 +56,7 @@ public class ViewJobsActivityTest {
         System.gc();
     }
     @Test
-    public void checkvisible() {
+    public void checkVisible() {
         onView(withId(R.id.checkPostedJob)).perform(click());
         intended(hasComponent(ViewJobsActivity.class.getName()));
         onView(withId(R.id.p3)).perform(click()).check(matches(withText("POSTED JOBS")));
@@ -72,6 +68,8 @@ public class ViewJobsActivityTest {
         //intended(hasComponent(ViewJobsActivity.class.getName()));
         onView(withId(R.id.back2pro)).perform(click());
     }
+
+
 
 
 }
