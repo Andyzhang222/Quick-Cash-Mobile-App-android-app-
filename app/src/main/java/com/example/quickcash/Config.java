@@ -2,7 +2,7 @@ package com.example.quickcash;
 
 public class Config {
 
-    public static final String PAYPAL_CLIENT_ID = "AZG09BjwhDBKm1D_QhMraqh0AI9Up6lJp5hGR9S6rEhP8GPCpRZHMe0D69WAj5NqFBoVxkmfwCkPjHG6";
+    public static final String PAYPAL_CLIENT_ID = "Ab7oXFo7yWYEdz_mQHvPtmPkt_5h2KUSRKjnIPVi0jv9E71YWJfefK-ZMJiICRF5fz2uPDNFSsEOwB2w";
 
 
 
