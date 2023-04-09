@@ -43,31 +43,13 @@ public class ViewJobsActivity extends AppCompatActivity {
                     if(userId.equals(userSnapshot.child("employerId").getValue()) ){
                         jobEmployers.add(userSnapshot.getValue(JobEmployer.class));
                         recyclerView.setAdapter(new JobEmployerAdapter(getApplicationContext(), jobEmployers));
-
-
                     }
                 }
             }
-
-
             @Override
             public void onCancelled(@NonNull DatabaseError error) {
-                //empty
             }
-
-
-
-
         };
-
-
-
-
-
-
-
-
-
 
         mJobs.addListenerForSingleValueEvent(allJobsListener);
 

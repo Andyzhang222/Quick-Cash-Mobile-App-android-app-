@@ -61,8 +61,6 @@ public class Paypal extends AppCompatActivity {
     }
 
 
-
-    //
     private void init() {
         //initializing ui elements
         enterAmtET = findViewById(R.id.input_amount);
@@ -148,17 +146,4 @@ public class Paypal extends AppCompatActivity {
         // Starting Activity Request launcher
         activityResultLauncher.launch(intent);
     }
-
-
-
-
-
-
-
-
-
-
-
-
-
 }

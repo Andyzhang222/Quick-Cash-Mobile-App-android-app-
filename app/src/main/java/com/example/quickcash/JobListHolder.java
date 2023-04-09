@@ -54,6 +54,7 @@ public class JobListHolder extends RecyclerView.ViewHolder {
 
             String jobId = this.jobId;
 
+            //Get the employee jobId and set to close
             DatabaseReference jobRef = FirebaseDatabase.getInstance().getReference().child("Job Post").child(jobId).child("status");
             jobRef.setValue("Closed");
         });

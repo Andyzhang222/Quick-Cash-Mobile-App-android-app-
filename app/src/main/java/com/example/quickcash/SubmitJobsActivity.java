@@ -57,11 +57,6 @@ public class SubmitJobsActivity extends AppCompatActivity{
         editTextJobType = findViewById(R.id.Job_type);
         editTextDescription = findViewById(R.id.Description);
         editTextPlace = findViewById(R.id.Place);
-
-
-
-        //System.out.println("-------------------" + area);
-
         editTextPlace.setText(area);
 
 
@@ -100,10 +95,6 @@ public class SubmitJobsActivity extends AppCompatActivity{
                 editTextDuration.setError(REQUIRE_FIELD);
                 return;
             }
-//            if (TextUtils.isEmpty(place)){
-//                editTextPlace.setError(REQUIRE_FIELD);
-//                return;
-//            }
             if (TextUtils.isEmpty(salary)){
                 editTextSalary.setError(REQUIRE_FIELD);
                 return;

@@ -13,9 +13,6 @@ import com.example.quickcash.R;
 import java.util.List;
 
 public class JobEmployerAdapter extends RecyclerView.Adapter<MyJobViewHolder> {
-
-   // String status;
-
     android.content.Context context;
     List<JobEmployer> jobEmployerList;
 
@@ -46,24 +43,12 @@ public class JobEmployerAdapter extends RecyclerView.Adapter<MyJobViewHolder> {
 
         JobEmployer jobEmployer = jobEmployerList.get(position);
 
+        //get jobId
         holder.jobId = jobEmployer.getJobId();
+        //get jobStatus
         String status = jobEmployer.getStatus();
-
+        //pass the jobStatus
         holder = new MyJobViewHolder(holder.itemView,status);
-
-        //holder.status.setText(String.valueOf(jobEmployerList.get(position).getStatus()));
-        //holder.status = jobEmployerList.get(position).getStatus();
-
-        // status = jobEmployerList.get(position).getStatus();
-
-       // System.out.println(jobEmployerList.get(position).getStatus() + "--------------------------:");
-
-        //
-        //holder.status.setText(String.valueOf(jobEmployerList.get(position).getSalary()));
-        //holder.status = jobEmployerList.get(position).getStatus();
-
-
-
     }
 
     @Override
