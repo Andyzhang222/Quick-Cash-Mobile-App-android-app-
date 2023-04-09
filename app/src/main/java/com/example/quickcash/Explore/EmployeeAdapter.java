@@ -2,9 +2,11 @@ package com.example.quickcash.Explore;
 
 import android.annotation.SuppressLint;
 import android.content.Context;
+import android.icu.text.DecimalFormat;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.ScrollView;
 import android.widget.TextView;
@@ -15,6 +17,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.quickcash.JobEmployer.JobEmployer;
 import com.example.quickcash.R;
+import com.example.quickcash.Rating.RatingDialog;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -54,7 +57,16 @@ public class EmployeeAdapter extends RecyclerView.Adapter<EmployeeAdapter.UserVi
         holder.usernameTextView.setText("Name: " +user.getUsername());
         holder.emailTextView.setText("Email: " + user.getEmail());
         holder.incomeTextView.setText("Income Earned: " + user.getIncomeEarned());
-        holder.ratingTextView.setText("Rating: " + user.getRating());
+        DecimalFormat decimalFormat = new DecimalFormat("0.00");
+        String formattedRating = decimalFormat.format(user.getRating());
+        holder.ratingTextView.setText("Rating: " + formattedRating);
+
+        holder.ratingButton.setOnClickListener(v -> {
+            // Show the RatingDialog
+            String userId = user.getUid(); // Make sure you have a getUserId method or another way to get the userId
+            showRatingDialog(v.getContext(), userId);
+        });
+
 
         holder.itemView.setOnClickListener(v -> {
             String userId = user.getUid();
@@ -80,6 +92,23 @@ public class EmployeeAdapter extends RecyclerView.Adapter<EmployeeAdapter.UserVi
             mJobs.addListenerForSingleValueEvent(allJobsListener);
         });
     }
+
+    /**
+     * Creates and displays a RatingDialog for submitting a rating for the specified user.
+     * The OnRatingSubmitListener is used to handle the rating submission event.
+     *
+     * @param context the context of the dialog, usually the activity that called this method
+     * @param userId the ID of the user for whom the rating is being submitted
+     */
+    private void showRatingDialog(Context context, String userId) {
+        RatingDialog.OnRatingSubmitListener listener = rating -> {
+            // Call the updateRating method from the adapter
+        };
+
+        RatingDialog ratingDialog = new RatingDialog(context, userId, listener);
+        ratingDialog.show();
+    }
+
 
     /**
      * Shows a dialog with details of multiple jobs.
@@ -154,6 +183,7 @@ public class EmployeeAdapter extends RecyclerView.Adapter<EmployeeAdapter.UserVi
         TextView emailTextView;
         TextView incomeTextView;
         TextView ratingTextView;
+        Button ratingButton;
 
         public UserViewHolder(@NonNull View itemView) {
             super(itemView);
@@ -162,6 +192,7 @@ public class EmployeeAdapter extends RecyclerView.Adapter<EmployeeAdapter.UserVi
             emailTextView = itemView.findViewById(R.id.email_text_view);
             incomeTextView = itemView.findViewById(R.id.income_text_view);
             ratingTextView = itemView.findViewById(R.id.rating_text_view);
+            ratingButton = itemView.findViewById(R.id.rating_button);
         }
     }
 }
