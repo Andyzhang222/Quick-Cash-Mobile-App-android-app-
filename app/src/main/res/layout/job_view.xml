@@ -12,12 +12,14 @@
     android:background="@color/common_google_signin_btn_text_dark_default">
 
     <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
         android:id="@+id/title"
-        android:textColor="@color/black"
+        android:layout_width="287dp"
+        android:layout_height="150dp"
         android:text="job title"
+        android:textColor="@color/black"
         android:textSize="18sp"
+        app:layout_constraintEnd_toStartOf="@+id/applyButton"
+        app:layout_constraintStart_toStartOf="parent"
         tools:ignore="MissingConstraints" />
 
     <Button
