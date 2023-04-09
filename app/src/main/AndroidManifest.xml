@@ -44,19 +44,19 @@
             android:exported="true" />
         <activity
             android:name=".LandingPage"
-            android:exported="false" />
+            android:exported="true" />
         <activity
             android:name=".EmployeePage"
-            android:exported="false" />
+            android:exported="true" />
         <activity
             android:name=".EmployerPage"
             android:exported="true" />
         <activity
             android:name=".RegisterPage"
-            android:exported="false" />
+            android:exported="true" />
         <activity
             android:name=".JobPosting"
-            android:exported="false" />
+            android:exported="true" />
         <activity
             android:name=".LoginPage"
             android:exported="true">
