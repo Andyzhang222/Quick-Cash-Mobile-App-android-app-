@@ -3,7 +3,6 @@ package com.example.quickcash.JobEmployer;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
@@ -26,7 +25,8 @@ public class JobEmployerAdapter extends RecyclerView.Adapter<MyJobViewHolder> {
     public MyJobViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View itemView = LayoutInflater.from(context).inflate(R.layout.job_employer_view,parent,false);
         String status = "";
-        return new MyJobViewHolder(itemView,status);
+        String jobEmployerId = "";
+        return new MyJobViewHolder(itemView,status,jobEmployerId);
     }
 
     @Override
@@ -39,16 +39,15 @@ public class JobEmployerAdapter extends RecyclerView.Adapter<MyJobViewHolder> {
         holder.place.setText(jobEmployerList.get(position).getPlace());
         holder.urgency.setText(Boolean.toString(jobEmployerList.get(position).getUrgency()));
         holder.salary.setText(String.valueOf(jobEmployerList.get(position).getSalary()));
-        holder.jobId = jobEmployerList.get(position).getJobId();
+        holder.jobEmployerId = jobEmployerList.get(position).getJobId();
 
         JobEmployer jobEmployer = jobEmployerList.get(position);
-
         //get jobId
-        holder.jobId = jobEmployer.getJobId();
+        holder.jobEmployerId = jobEmployer.getJobId();
         //get jobStatus
         String status = jobEmployer.getStatus();
         //pass the jobStatus
-        holder = new MyJobViewHolder(holder.itemView,status);
+        holder = new MyJobViewHolder(holder.itemView,status,jobEmployer.getJobId());
     }
 
     @Override

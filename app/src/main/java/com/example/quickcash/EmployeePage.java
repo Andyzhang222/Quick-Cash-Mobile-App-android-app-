@@ -188,7 +188,6 @@ public class EmployeePage extends AppCompatActivity{
 
                         Job job = new Job(jobTitle,"");
                         job.setJobId(jobId);
-
                         jobList.add(job);
                     }
 
@@ -331,8 +330,5 @@ public class EmployeePage extends AppCompatActivity{
          icon.setOnClickListener(iconListener);
 
      }
-
-
-
 
 }

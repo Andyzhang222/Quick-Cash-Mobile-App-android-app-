@@ -15,7 +15,6 @@ public class JobEmployer implements Serializable {
     private String status;
     private Boolean urgency;
     private int salary;
-
     private String jobId;
 
 

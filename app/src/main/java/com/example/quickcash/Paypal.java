@@ -19,6 +19,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.paypal.android.sdk.payments.PayPalConfiguration;
 import com.paypal.android.sdk.payments.PayPalPayment;
@@ -47,13 +48,15 @@ public class Paypal extends AppCompatActivity {
     private Button payNowBtn;
     private TextView paymentStatusTV;
 
-
+    private String employerId;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_paypal);
 
+        //get the employerId from the MyjobViewHolder activity through the payBtn
+        this.employerId = getIntent().getStringExtra("employerId");
         init();
         configPayPal();
         initActivityLauncher();

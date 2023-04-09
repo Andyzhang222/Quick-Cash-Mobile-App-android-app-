@@ -20,9 +20,10 @@ public class MyJobViewHolder extends RecyclerView.ViewHolder {
     TextView place;
     TextView urgency;
     TextView salary;
-    String jobId;
+    String jobEmployerId;
+    String jobEmployeeId;
 
-    public MyJobViewHolder(@NonNull View itemView, String status) {
+    public MyJobViewHolder(@NonNull View itemView, String status,String employerId) {
         super(itemView);
 
         jobType = itemView.findViewById(R.id.JobType);
@@ -41,10 +42,14 @@ public class MyJobViewHolder extends RecyclerView.ViewHolder {
             payBtn.setVisibility(View.GONE);
         }
 
+
+
         //click pay button jump to the PalPay
         payBtn.setOnClickListener(view -> {
             Intent switchIntent = new Intent(view.getContext(), Paypal.class);
             switchIntent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+            //Pass the employerId to next activity
+            switchIntent.putExtra("employerId", employerId);
             view.getContext().startActivity(switchIntent);
         });
 
