@@ -52,6 +52,13 @@ public class EmployeePage extends AppCompatActivity{
 
     FirebaseAuth auth;
     String preferenceJob = " ";
+
+
+    //String userId;
+
+     String userId = FirebaseAuth.getInstance().getCurrentUser().getUid();
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -146,6 +153,8 @@ public class EmployeePage extends AppCompatActivity{
              //get id
              String userId = FirebaseAuth.getInstance().getCurrentUser().getUid();
 
+             //System.out.println("=================================" + userId);
+
              userRef.child(userId).child("preference").setValue(searchText);
              preferenceJob = searchText;
 
@@ -189,8 +198,12 @@ public class EmployeePage extends AppCompatActivity{
             public void onDataChange(@NonNull DataSnapshot jobPostSnapshot) {
                 for (DataSnapshot jobPostID : jobPostSnapshot.getChildren()) {
 
+
                     String status = jobPostID.child("status").getValue(String.class);
                     if (status.equals("Open")) {
+
+                        System.out.println("=================================" + userId);
+
 
                         String jobId = jobPostID.getKey();
 
@@ -239,6 +252,7 @@ public class EmployeePage extends AppCompatActivity{
         for (Job job : jobList) {
             if (job.getJobTitle().toLowerCase().contains(query.toLowerCase())) {
                 filteredJobList.add(job);
+                //System.out.println("=================================" + userId);
             }
         }
 
@@ -287,6 +301,11 @@ public class EmployeePage extends AppCompatActivity{
                          locationTracker.startTracking(location -> {
 
                              String jobId = dataSnapshot.getKey();
+
+                             //
+                             String employeeid = dataSnapshot.child("employeeId").getValue(String.class);
+
+                             System.out.println("--------------------------------"+ employeeid);
 
                              String area = locationTracker.getLocalArea(location);
                              String jobType = dataSnapshot.child("jobType").getValue(String.class);

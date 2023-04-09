@@ -17,6 +17,8 @@ public class JobEmployer implements Serializable {
     private int salary;
     private String jobId;
 
+    private String employeeId;
+
 
     public JobEmployer() {
 
@@ -76,6 +78,11 @@ public class JobEmployer implements Serializable {
 
     public String getStatus() {
         return status;
+    }
+
+    public String getEmployeeID() {
+
+        return employeeId;
     }
 
     public String getEmployerId() {

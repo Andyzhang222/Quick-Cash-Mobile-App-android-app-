@@ -49,6 +49,7 @@ public class MyJobViewHolder extends RecyclerView.ViewHolder {
             Intent switchIntent = new Intent(view.getContext(), Paypal.class);
             switchIntent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
             //Pass the employerId to next activity
+            //switchIntent.putExtra("employeeId", employerId);
             switchIntent.putExtra("employerId", employerId);
             view.getContext().startActivity(switchIntent);
         });

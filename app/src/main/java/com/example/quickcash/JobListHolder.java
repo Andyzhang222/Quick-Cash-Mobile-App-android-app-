@@ -27,6 +27,11 @@ import com.google.firebase.database.ValueEventListener;
 //Used S of the SOLID Principle
 public class JobListHolder extends RecyclerView.ViewHolder {
 
+
+
+
+
+
     TextView title;
     String jobId;
     ConstraintLayout jobLayout;
@@ -50,6 +55,16 @@ public class JobListHolder extends RecyclerView.ViewHolder {
         //implement when user click apply button, then text change to applied
         Button applyBtn = itemView.findViewById(R.id.applyButton);
         applyBtn.setOnClickListener(view -> {
+
+            String userId = FirebaseAuth.getInstance().getCurrentUser().getUid();
+
+
+            DatabaseReference mJobs = FirebaseDatabase.getInstance().getReference().child("Job Post");
+            System.out.println("+++++++++++click the apply button and get the++" + userId);
+            mJobs.child(jobId).child("employeeID").setValue(userId);
+
+
+            //jobPostID.child("status").getValue(String.class);
             applyBtn.setText("Applied");
 
             String jobId = this.jobId;
