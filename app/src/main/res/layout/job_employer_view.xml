@@ -1,11 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
+
     android:id="@+id/statusID"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-
-
     android:layout_marginTop="10dp"
     android:background="@color/common_google_signin_btn_text_dark_default">
 
@@ -18,6 +17,7 @@
         android:layout_marginTop="2dp"
         android:layout_toEndOf="@+id/duratioon99"
         android:textColor="@color/black"
+        android:textSize="18sp"
         tools:text="Duration" />
 
     <TextView
@@ -27,12 +27,14 @@
         android:layout_below="@+id/Description"
         android:layout_toEndOf="@+id/date99"
         android:textColor="@color/black"
+        android:textSize="18sp"
         tools:text="Date" />
 
     <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="2dp"
         android:layout_below="@+id/JobType"
+        android:textSize="18sp"
         android:layout_marginTop="10dp" />
 
     <TextView
@@ -41,6 +43,7 @@
         android:layout_height="wrap_content"
         android:layout_toEndOf="@+id/Jtitle"
         android:textColor="@color/black"
+        android:textSize="18sp"
         tools:text="Job Type" />
 
     <TextView
@@ -50,6 +53,7 @@
         android:layout_below="@+id/JobType"
         android:layout_toEndOf="@+id/des"
         android:textColor="@color/black"
+        android:textSize="18sp"
         tools:text="Description" />
 
     <TextView
@@ -59,6 +63,7 @@
         android:layout_below="@+id/Place"
         android:layout_toEndOf="@+id/urgent99"
         android:textColor="@color/black"
+        android:textSize="18sp"
         tools:text="Urgency" />
 
     <TextView
@@ -68,6 +73,7 @@
         android:layout_below="@+id/Urgency"
         android:layout_toEndOf="@+id/salary99"
         android:textColor="@color/black"
+        android:textSize="18sp"
         tools:text="Salary" />
 
     <TextView
@@ -78,6 +84,7 @@
         android:layout_marginLeft="2dp"
         android:layout_toEndOf="@+id/loca99"
         android:textColor="@color/black"
+        android:textSize="18sp"
         tools:text="Duration" />
 
     <TextView
@@ -85,6 +92,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Job Type:  "
+        android:textSize="18sp"
         android:textColor="@color/teal_200" />
 
     <TextView
@@ -93,6 +101,7 @@
         android:layout_height="wrap_content"
         android:layout_below="@+id/Jtitle"
         android:text="Description:  "
+        android:textSize="18sp"
         android:textColor="@color/teal_200"
         android:top="@color/teal_200" />
 
@@ -102,6 +111,7 @@
         android:layout_height="wrap_content"
         android:layout_below="@+id/des"
         android:text="Date:   "
+        android:textSize="18sp"
         android:textColor="@color/teal_200"
         android:top="@color/teal_200" />
 
@@ -111,6 +121,7 @@
         android:layout_height="wrap_content"
         android:layout_below="@+id/date99"
         android:text="Duration:   "
+        android:textSize="18sp"
         android:textColor="@color/teal_200"
         android:top="@color/teal_200" />
 
@@ -120,6 +131,7 @@
         android:layout_height="wrap_content"
         android:layout_below="@+id/duratioon99"
         android:text="Location:   "
+        android:textSize="18sp"
         android:textColor="@color/teal_200"
         android:top="@color/teal_200" />
 
@@ -129,6 +141,7 @@
         android:layout_height="wrap_content"
         android:layout_below="@+id/loca99"
         android:text="Urgent:   "
+        android:textSize="18sp"
         android:textColor="@color/teal_200"
         android:top="@color/teal_200" />
 
@@ -138,6 +151,7 @@
         android:layout_height="wrap_content"
         android:layout_below="@+id/urgent99"
         android:text="Salary:   "
+        android:textSize="18sp"
         android:textColor="@color/teal_200"
         android:top="@color/teal_200" />
 
@@ -149,16 +163,6 @@
         android:layout_alignParentEnd="true"
         android:layout_marginTop="29dp"
         android:layout_marginEnd="22dp"
-        android:text="Pay now" />
-
-    <TextView
-        android:id="@+id/statusID"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentEnd="true"
-        android:layout_marginTop="45dp"
-        android:layout_marginEnd="151dp"
-        android:text="TextView" />
+        android:text="need to pay now!" />
 
 </RelativeLayout>
