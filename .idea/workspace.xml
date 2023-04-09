@@ -9,19 +9,13 @@
     <option name="autoReloadType" value="NONE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c72c6d02-fa94-4afb-ab1b-a44c8afda27c" name="Changes" comment="implement the payment and list of status open posted jobs">
-      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/example/quickcash/Config.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/example/quickcash/Paypal.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_paypal.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_paypal_page.xml" afterDir="false" />
+    <list default="true" id="c72c6d02-fa94-4afb-ab1b-a44c8afda27c" name="Changes" comment="finish the paypal payment!">
       <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/app/build.gradle" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/quickcash/JobEmployer/JobEmployerAdapter.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/quickcash/JobEmployer/JobEmployerAdapter.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/quickcash/JobEmployer/MyJobViewHolder.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/quickcash/JobEmployer/MyJobViewHolder.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/quickcash/JobListAdapter.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/quickcash/JobListAdapter.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/quickcash/SubmitJobsActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/quickcash/SubmitJobsActivity.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/quickcash/ViewJobsActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/quickcash/ViewJobsActivity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/job_employer_view.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/job_employer_view.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -116,7 +110,7 @@
       <recent name="com.example.quickcash" />
     </key>
   </component>
-  <component name="RunManager" selected="Android App.Paypal">
+  <component name="RunManager" selected="Android App.app">
     <configuration name="EmployerPage" type="AndroidRunConfigurationType" factoryName="Android App" temporary="true">
       <module name="QuIckCash.app.main" />
       <option name="DEPLOY" value="true" />
@@ -470,9 +464,9 @@
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Android App.ViewJobsActivity" />
         <item itemvalue="Android App.Paypal" />
         <item itemvalue="Android App.EmployerPage" />
-        <item itemvalue="Android App.ViewJobsActivity" />
         <item itemvalue="Android Instrumented Tests.EmployeePageLayoutTest" />
         <item itemvalue="Android App.SubmitJobsActivity" />
       </list>
@@ -515,7 +509,14 @@
       <option name="project" value="LOCAL" />
       <updated>1680746452262</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="finish the paypal payment!">
+      <created>1680920912670</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1680920912670</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -534,6 +535,7 @@
     <MESSAGE value="comments for RegisterPage" />
     <MESSAGE value="Create the branch &quot;applyJobAndPayment&quot;" />
     <MESSAGE value="implement the payment and list of status open posted jobs" />
-    <option name="LAST_COMMIT_MESSAGE" value="implement the payment and list of status open posted jobs" />
+    <MESSAGE value="finish the paypal payment!" />
+    <option name="LAST_COMMIT_MESSAGE" value="finish the paypal payment!" />
   </component>
 </project>

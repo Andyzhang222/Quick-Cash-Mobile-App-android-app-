@@ -1,7 +1,9 @@
 package com.example.quickcash.JobEmployer;
 
 import android.view.LayoutInflater;
+import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
@@ -11,6 +13,8 @@ import com.example.quickcash.R;
 import java.util.List;
 
 public class JobEmployerAdapter extends RecyclerView.Adapter<MyJobViewHolder> {
+
+   // String status;
 
     android.content.Context context;
     List<JobEmployer> jobEmployerList;
@@ -23,7 +27,9 @@ public class JobEmployerAdapter extends RecyclerView.Adapter<MyJobViewHolder> {
     @NonNull
     @Override
     public MyJobViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        return new MyJobViewHolder(LayoutInflater.from(context).inflate(R.layout.job_employer_view,parent,false));
+        View itemView = LayoutInflater.from(context).inflate(R.layout.job_employer_view,parent,false);
+        String status = "";
+        return new MyJobViewHolder(itemView,status);
     }
 
     @Override
@@ -37,6 +43,27 @@ public class JobEmployerAdapter extends RecyclerView.Adapter<MyJobViewHolder> {
         holder.urgency.setText(Boolean.toString(jobEmployerList.get(position).getUrgency()));
         holder.salary.setText(String.valueOf(jobEmployerList.get(position).getSalary()));
         holder.jobId = jobEmployerList.get(position).getJobId();
+
+        JobEmployer jobEmployer = jobEmployerList.get(position);
+
+        holder.jobId = jobEmployer.getJobId();
+        String status = jobEmployer.getStatus();
+
+        holder = new MyJobViewHolder(holder.itemView,status);
+
+        //holder.status.setText(String.valueOf(jobEmployerList.get(position).getStatus()));
+        //holder.status = jobEmployerList.get(position).getStatus();
+
+        // status = jobEmployerList.get(position).getStatus();
+
+       // System.out.println(jobEmployerList.get(position).getStatus() + "--------------------------:");
+
+        //
+        //holder.status.setText(String.valueOf(jobEmployerList.get(position).getSalary()));
+        //holder.status = jobEmployerList.get(position).getStatus();
+
+
+
     }
 
     @Override

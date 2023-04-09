@@ -40,11 +40,9 @@ public class ViewJobsActivity extends AppCompatActivity {
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 List<JobEmployer> jobEmployers = new ArrayList<>();
                 for (DataSnapshot userSnapshot : snapshot.getChildren()) {
-                    if(userId.equals(userSnapshot.child("employerId").getValue()) && userSnapshot.child("status").getValue().equals("Open")){
+                    if(userId.equals(userSnapshot.child("employerId").getValue()) ){
                         jobEmployers.add(userSnapshot.getValue(JobEmployer.class));
                         recyclerView.setAdapter(new JobEmployerAdapter(getApplicationContext(), jobEmployers));
-
-
 
 
                     }
