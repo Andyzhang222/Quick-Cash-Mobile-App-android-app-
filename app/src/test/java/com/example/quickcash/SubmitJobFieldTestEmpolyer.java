@@ -31,7 +31,8 @@ public class SubmitJobFieldTestEmpolyer extends TestCase {
                 "University Street",
                 false,
                 30,
-                ""
+                "",
+                "111"
                 );
 
 
@@ -48,7 +49,8 @@ public class SubmitJobFieldTestEmpolyer extends TestCase {
                 "6225 University Street",
                 false,
                 30,
-                ""
+                "",
+                "111"
         );
 
         assertEquals("123456", jobEmployer.getEmployerId());
@@ -71,7 +73,8 @@ public class SubmitJobFieldTestEmpolyer extends TestCase {
                 "6225 University Street",
                 false,
                 30,
-                ""
+                "",
+                "111"
         );
 
         JobEmployer jobEmployer1 = new JobEmployer("123455",
@@ -82,7 +85,8 @@ public class SubmitJobFieldTestEmpolyer extends TestCase {
                 "6225 University Street",
                 false,
                 30,
-                ""
+                "",
+                "111"
         );
 
         assertFalse(jobEmployer1.equals(jobEmployer));
@@ -98,7 +102,8 @@ public class SubmitJobFieldTestEmpolyer extends TestCase {
                 "",
                 false,
                 0,
-                ""
+                "",
+                "111"
         );
 
         assertFalse(jobEmployer.validateJobType(jobEmployer.getJobType()));
@@ -114,7 +119,8 @@ public class SubmitJobFieldTestEmpolyer extends TestCase {
                 "",
                 false,
                 0,
-                ""
+                "",
+                "111"
         );
 
         assertTrue(jobEmployer.validateJobType(jobEmployer.getJobType()));
@@ -132,7 +138,8 @@ public class SubmitJobFieldTestEmpolyer extends TestCase {
                 "",
                 false,
                 0,
-                ""
+                "",
+                "111"
         );
 
         assertTrue(jobEmployer.validateDescription(jobEmployer.getDescription()));
@@ -165,7 +172,8 @@ public class SubmitJobFieldTestEmpolyer extends TestCase {
                 "",
                 false,
                 0,
-                ""
+                "",
+                "111"
         );
 
         assertFalse(jobEmployer.validateDescription(jobEmployer.getDescription()));
@@ -182,7 +190,8 @@ public class SubmitJobFieldTestEmpolyer extends TestCase {
                 "",
                 false,
                 0,
-                ""
+                "",
+                "111"
         );
 
         assertTrue(jobEmployer.validateDate(jobEmployer.getDate()));
@@ -198,7 +207,8 @@ public class SubmitJobFieldTestEmpolyer extends TestCase {
                 "",
                 false,
                 0,
-                ""
+                "",
+                "111"
         );
 
         assertFalse(jobEmployer.validateDate(jobEmployer.getDate()));
@@ -213,7 +223,8 @@ public class SubmitJobFieldTestEmpolyer extends TestCase {
                 "",
                 false,
                 0,
-                ""
+                "",
+                "111"
         );
 
         assertTrue(jobEmployer.validateDuration(jobEmployer.getDuration()));
@@ -228,7 +239,8 @@ public class SubmitJobFieldTestEmpolyer extends TestCase {
                 "",
                 false,
                 0,
-                ""
+                "",
+                "111"
         );
 
         assertFalse(jobEmployer.validateDuration(jobEmployer.getDuration()));
@@ -244,7 +256,8 @@ public class SubmitJobFieldTestEmpolyer extends TestCase {
                 "",
                 false,
                 0,
-                ""
+                "",
+                "111"
         );
 
         JobEmployer jobEmployer1 = new JobEmployer("123456",
@@ -255,7 +268,8 @@ public class SubmitJobFieldTestEmpolyer extends TestCase {
                 "",
                 false,
                 2500,
-                ""
+                "",
+                "111"
         );
 
         assertTrue(jobEmployer.validateSalary(jobEmployer.getSalary()));
@@ -272,7 +286,8 @@ public class SubmitJobFieldTestEmpolyer extends TestCase {
                 "",
                 false,
                 -1,
-                ""
+                "",
+                "111"
         );
 
         JobEmployer jobEmployer1 = new JobEmployer("123456",
@@ -283,7 +298,8 @@ public class SubmitJobFieldTestEmpolyer extends TestCase {
                 "",
                 false,
                 99999999,
-                ""
+                "",
+                "111"
         );
 
         assertFalse(jobEmployer.validateSalary(jobEmployer.getSalary()));
@@ -301,7 +317,8 @@ public class SubmitJobFieldTestEmpolyer extends TestCase {
                 "",
                 false,
                 -1,
-                "Open"
+                "Open",
+                "111"
         );
 
         JobEmployer jobEmployer1 = new JobEmployer("123456",
@@ -312,7 +329,8 @@ public class SubmitJobFieldTestEmpolyer extends TestCase {
                 "",
                 false,
                 0,
-                "Close"
+                "Close",
+                "111"
         );
 
         assertTrue(jobEmployer.validateJobStatus(jobEmployer.getStatus()));
@@ -328,7 +346,8 @@ public class SubmitJobFieldTestEmpolyer extends TestCase {
                 "",
                 false,
                 -1,
-                "222"
+                "222",
+                "111"
         );
 
         JobEmployer jobEmployer1 = new JobEmployer("123456",
@@ -339,7 +358,8 @@ public class SubmitJobFieldTestEmpolyer extends TestCase {
                 "",
                 false,
                 0,
-                "Clasdose"
+                "Clasdose",
+                "111"
         );
 
         assertFalse(jobEmployer.validateJobStatus(jobEmployer.getStatus()));

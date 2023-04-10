@@ -6,6 +6,15 @@
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
     <uses-permission android:name="android.permission.POST_NOTIFICATIONS" />
 
+    <uses-permission android:name="android.permission.INTERNET" />
+
+
+
+
+
+
+
+
     <application
         android:allowBackup="true"
         android:dataExtractionRules="@xml/data_extraction_rules"
@@ -15,33 +24,39 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.QuIckCash"
         tools:targetApi="31">
+
+
+
+        <activity android:name="com.paypal.android.sdk.payments.PaymentActivity" />
+        <activity android:name="com.paypal.android.sdk.payments.LoginActivity" />
+        <activity android:name="com.paypal.android.sdk.payments.PaymentMethodActivity" />
+        <activity android:name="com.paypal.android.sdk.payments.PaymentConfirmActivity" />
+
+
         <activity
-            android:name=".Explore.ExploreEmployeeActivity"
-            android:exported="false" />
-        <activity
-            android:name=".Explore.ExploreEmployerActivity"
-            android:exported="false" />
+            android:name=".Paypal"
+            android:exported="true" />
         <activity
             android:name=".ViewJobsActivity"
-            android:exported="false" />
+            android:exported="true" />
         <activity
             android:name=".SubmitJobsActivity"
             android:exported="false" />
         <activity
             android:name=".LandingPage"
-            android:exported="false" />
+            android:exported="true" />
         <activity
             android:name=".EmployeePage"
-            android:exported="false" />
+            android:exported="true" />
         <activity
             android:name=".EmployerPage"
             android:exported="false" />
         <activity
             android:name=".RegisterPage"
-            android:exported="false" />
+            android:exported="true" />
         <activity
             android:name=".JobPosting"
-            android:exported="false" />
+            android:exported="true" />
         <activity
             android:name=".LoginPage"
             android:exported="true">
@@ -51,6 +66,9 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
+
+
     </application>
 
 </manifest>

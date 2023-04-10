@@ -36,6 +36,9 @@ public class SubmitJobsActivity extends AppCompatActivity{
             locationTracker.stopTracking();
         });
 
+
+
+
         submitJob();
 
     }
@@ -43,7 +46,10 @@ public class SubmitJobsActivity extends AppCompatActivity{
     public void submitJob(){
         EditText editTextJobType;
         EditText editTextDescription;
+
         EditText editTextPlace;
+
+
         EditText editTextDate;
         EditText editTextDuration;
         EditText editTextSalary;
@@ -51,6 +57,13 @@ public class SubmitJobsActivity extends AppCompatActivity{
         editTextJobType = findViewById(R.id.Job_type);
         editTextDescription = findViewById(R.id.Description);
         editTextPlace = findViewById(R.id.Place);
+        editTextPlace.setText(area);
+
+
+
+
+
+
         editTextDate = findViewById(R.id.date);
         editTextDuration = findViewById(R.id.duration);
         editTextSalary = findViewById(R.id.salary);
@@ -82,10 +95,6 @@ public class SubmitJobsActivity extends AppCompatActivity{
                 editTextDuration.setError(REQUIRE_FIELD);
                 return;
             }
-            if (TextUtils.isEmpty(place)){
-                editTextPlace.setError(REQUIRE_FIELD);
-                return;
-            }
             if (TextUtils.isEmpty(salary)){
                 editTextSalary.setError(REQUIRE_FIELD);
                 return;
@@ -101,18 +110,18 @@ public class SubmitJobsActivity extends AppCompatActivity{
                     place,
                     urgency,
                     Integer.parseInt(salary),
-                    "Open"
+                    "Open",
+                    ""
             );
+            jobEmployer.setJobId(jobId);
 
             mJobs.child(jobId).setValue(jobEmployer);
-
 
             Toast.makeText(getApplicationContext(),"Post Job Successfully",Toast.LENGTH_LONG).show();
 
             Intent switchIntent = new Intent(getApplicationContext(),EmployerPage.class);
             startActivity(switchIntent);
             finish();
-
 
         });
     }
