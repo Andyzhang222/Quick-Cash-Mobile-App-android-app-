@@ -205,7 +205,7 @@ public class SubmitJobsActivity extends AppCompatActivity{
                         rating = (double) employees.child("rating").getValue(Double.class);
 
                         //only show the employee who have more then 4.7 rating
-                        if (userType.equals("Employee") && rating >= 4.7) {
+                        if (userType.equals("Employee") && rating >= 4.5) {
 
 
                             String employeeName = employees.child("username").getValue(String.class);
