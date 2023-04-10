@@ -1,6 +1,6 @@
  /**
  * This activity is used for employer activity
- * Editor: Zhiqiang Yu
+ * Editor: liuzihao haoran guanxiang
  */
  package com.example.quickcash;
 
