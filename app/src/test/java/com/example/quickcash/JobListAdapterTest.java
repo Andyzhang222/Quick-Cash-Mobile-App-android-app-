@@ -18,14 +18,14 @@ public class JobListAdapterTest {
 
         jobList = new ArrayList<>();
 
-        jobList.add(new Job("aaaadddd"));
-        jobList.add(new Job("aacc"));
-        jobList.add(new Job("word"));
-        jobList.add(new Job("salary no"));
-        jobList.add(new Job("free"));
-        jobList.add(new Job("oops"));
-        jobList.add(new Job("ijijijddslsld"));
-        jobList.add(new Job("aaaaapotato"));
+        jobList.add(new Job("aaaadddd","asdsa"));
+        jobList.add(new Job("aacc","asdsa"));
+        jobList.add(new Job("word","asdsa"));
+        jobList.add(new Job("salary no","asdsa"));
+        jobList.add(new Job("free","asdsa"));
+        jobList.add(new Job("oops","asdsa"));
+        jobList.add(new Job("ijijijddslsld","asdsa"));
+        jobList.add(new Job("aaaaapotato","asdsa"));
 
         filteredList = Filter.filter("a", jobList);
 
