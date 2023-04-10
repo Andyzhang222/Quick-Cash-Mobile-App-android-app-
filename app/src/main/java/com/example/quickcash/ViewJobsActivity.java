@@ -40,18 +40,17 @@ public class ViewJobsActivity extends AppCompatActivity {
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 List<JobEmployer> jobEmployers = new ArrayList<>();
                 for (DataSnapshot userSnapshot : snapshot.getChildren()) {
-                    if(userId.equals(userSnapshot.child("employerId").getValue())){
+                    if(userId.equals(userSnapshot.child("employerId").getValue()) ){
                         jobEmployers.add(userSnapshot.getValue(JobEmployer.class));
                         recyclerView.setAdapter(new JobEmployerAdapter(getApplicationContext(), jobEmployers));
                     }
                 }
             }
-
             @Override
             public void onCancelled(@NonNull DatabaseError error) {
-                //empty
             }
         };
+
         mJobs.addListenerForSingleValueEvent(allJobsListener);
 
         @SuppressLint({"MissingInflatedId", "LocalSuppress"}) Button backToProfileBtn = findViewById(R.id.back2pro);

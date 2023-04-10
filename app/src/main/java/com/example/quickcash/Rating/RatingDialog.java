@@ -64,7 +64,6 @@ public class RatingDialog extends Dialog {
             float rating = ratingBar.getRating();
             updateRating(userId, rating);
             listener.onSubmit(rating);
-            dismiss();
         });
     }
 
@@ -75,7 +74,7 @@ public class RatingDialog extends Dialog {
      * @param newRating the new rating to submit
      */
     private void updateRating(String userId, float newRating) {
-        DatabaseReference userRef = FirebaseDatabase.getInstance().getReference("users").child(userId);
+        DatabaseReference userRef = FirebaseDatabase.getInstance().getReference("Users").child(userId);
 
         userRef.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
@@ -97,7 +96,7 @@ public class RatingDialog extends Dialog {
                     int updatedRatingCount = ratingCount + 1;
 
                     // Update Firebase with the new rating and rating count
-                    userRef.child(RATING).setValue(updatedRating);
+                    userRef.child(RATING).setValue(Math.round(updatedRating * 100.0f) / 100.0f);
                     userRef.child(RATING_COUNT).setValue(updatedRatingCount);
                 }
             }

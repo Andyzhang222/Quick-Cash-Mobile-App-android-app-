@@ -16,8 +16,10 @@ import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.Toast;
 
+import com.example.quickcash.Explore.ExploreEmployeeActivity;
 import com.example.quickcash.LocationTracker.LocationTracker;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.ChildEventListener;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -50,6 +52,13 @@ public class EmployeePage extends AppCompatActivity{
 
     FirebaseAuth auth;
     String preferenceJob = " ";
+
+
+    //String userId;
+
+     String userId = FirebaseAuth.getInstance().getCurrentUser().getUid();
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -65,9 +74,22 @@ public class EmployeePage extends AppCompatActivity{
         logoutBtn();
         showSearchView();
         notificationIcon();
+
+        exploreButton();
     }
 
-    /**
+     /**
+      * Sets up the functionality of the explore button on the EmployeePage activity.
+      */
+     private void exploreButton() {
+         Button btnExplore = findViewById(R.id.btn_explore);
+         btnExplore.setOnClickListener(v -> {
+             Intent intent = new Intent(EmployeePage.this, ExploreEmployeeActivity.class);
+             startActivity(intent);
+         });
+     }
+
+     /**
      * This method used to implement the logout button function
      */
     private void logoutBtn() {
@@ -89,7 +111,7 @@ public class EmployeePage extends AppCompatActivity{
       * Allows the user to save their search preference to Firebase and loads their preference if they have one.
       */
      private void showSearchView() {
-         //sample list, delete llater
+         //sample list, delete later
          fillJobList();
 
          recyclerView = (RecyclerView) findViewById(R.id.recyclerview);
@@ -131,7 +153,10 @@ public class EmployeePage extends AppCompatActivity{
              //get id
              String userId = FirebaseAuth.getInstance().getCurrentUser().getUid();
 
+             //System.out.println("=================================" + userId);
+
              userRef.child(userId).child("preference").setValue(searchText);
+             preferenceJob = searchText;
 
              Toast.makeText(EmployeePage.this, "Search text saved successfully", Toast.LENGTH_SHORT).show();
          };
@@ -173,15 +198,26 @@ public class EmployeePage extends AppCompatActivity{
             public void onDataChange(@NonNull DataSnapshot jobPostSnapshot) {
                 for (DataSnapshot jobPostID : jobPostSnapshot.getChildren()) {
 
+
                     String status = jobPostID.child("status").getValue(String.class);
                     if (status.equals("Open")) {
+
+                        System.out.println("=================================" + userId);
+
+
+                        String jobId = jobPostID.getKey();
+
                         String jobType = jobPostID.child("jobType").getValue(String.class);
                         String description = jobPostID.child("description").getValue(String.class);
                         String salary = jobPostID.child("salary").getValue().toString();
                         String duration = jobPostID.child("duration").getValue().toString();
                         String place =  jobPostID.child(PLACE).getValue(String.class);
                         String jobTitle = String.format("Job Type: %s\nDescription: %s\nSalary: %s\nduration: %s\nplace: %s\n", jobType, description, salary, duration, place);
-                        jobList.add(new Job(jobTitle));
+
+                        Job job = new Job(jobTitle,"");
+                        job.setJobId(jobId);
+
+                        jobList.add(job);
                     }
 
                 }
@@ -216,6 +252,7 @@ public class EmployeePage extends AppCompatActivity{
         for (Job job : jobList) {
             if (job.getJobTitle().toLowerCase().contains(query.toLowerCase())) {
                 filteredJobList.add(job);
+                //System.out.println("=================================" + userId);
             }
         }
 
@@ -262,6 +299,14 @@ public class EmployeePage extends AppCompatActivity{
                      @Override
                      public void onChildAdded(DataSnapshot dataSnapshot, String previousChildName) {
                          locationTracker.startTracking(location -> {
+
+                             String jobId = dataSnapshot.getKey();
+
+                             //
+                             String employeeid = dataSnapshot.child("employeeId").getValue(String.class);
+
+                             System.out.println("--------------------------------"+ employeeid);
+
                              String area = locationTracker.getLocalArea(location);
                              String jobType = dataSnapshot.child("jobType").getValue(String.class);
                              String description = dataSnapshot.child("description").getValue(String.class);
@@ -269,11 +314,15 @@ public class EmployeePage extends AppCompatActivity{
                              String duration = dataSnapshot.child("duration").getValue().toString();
                              String place = dataSnapshot.child(PLACE).getValue(String.class);
                              String jobTitle = String.format("Job Type: %s\nDescription: %s\nSalary: %s\nduration: %s\nplace: %s\n", jobType, description, salary, duration, place);
-                             jobList.add(new Job(jobTitle));
+
+                             Job newJob = new Job(jobTitle,"");
+                             newJob.setJobId(jobId);
+
+                             jobList.add(newJob);
                              boolean samePlace = area.equals(dataSnapshot.child(PLACE).getValue());
-                             boolean newJob = !currentJobID.contains(dataSnapshot.getKey());
+                             boolean isNewJob = !currentJobID.contains(dataSnapshot.getKey());
                              boolean contains = jobTitle.toLowerCase().contains(preferenceJob);
-                             if (samePlace && newJob && contains){
+                             if (samePlace && isNewJob && contains){
                                      icon.setImageResource(R.drawable.notification_red_dot);
 
                              }
@@ -318,4 +367,19 @@ public class EmployeePage extends AppCompatActivity{
      }
 
 
-}
+     /**
+      * This method is called when the activity is starting. It checks if the current user has set a username.
+      * If the username is not set, it displays the UsernameDialog for the user to set their username.
+      */
+     @Override
+     protected void onStart() {
+         super.onStart();
+         UsernameDialog.checkIfUsernameSet(this, username -> {
+             FirebaseUser currentUser = FirebaseAuth.getInstance().getCurrentUser();
+             if (currentUser != null) {
+                 String userId = currentUser.getUid();
+                 UsernameDialog.setUserUsername(userId, username);
+             }
+         });
+     }
+ }

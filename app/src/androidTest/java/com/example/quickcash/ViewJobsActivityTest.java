@@ -71,9 +71,10 @@ public class ViewJobsActivityTest {
         onView(withId(R.id.checkPostedJob)).perform(click());
         //intended(hasComponent(ViewJobsActivity.class.getName()));
         onView(withId(R.id.back2pro)).perform(click());
-
-
     }
+
+
+
 
 
 }
