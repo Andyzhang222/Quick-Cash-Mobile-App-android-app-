@@ -131,6 +131,7 @@ public class EmployeePage extends AppCompatActivity{
              //get id
              String userId = FirebaseAuth.getInstance().getCurrentUser().getUid();
 
+
              userRef.child(userId).child("preference").setValue(searchText);
 
              Toast.makeText(EmployeePage.this, "Search text saved successfully", Toast.LENGTH_SHORT).show();
@@ -142,23 +143,26 @@ public class EmployeePage extends AppCompatActivity{
          //get current user id to get their preference
          String userId = FirebaseAuth.getInstance().getCurrentUser().getUid();
 
-         //get preference data
-         userRef.child(userId).child("preference").addValueEventListener(new ValueEventListener() {
-             @Override
-             public void onDataChange(DataSnapshot dataSnapshot) {
-                 // Retrieve the preference data and do something with it
-                 String preference = dataSnapshot.getValue(String.class);
-                 preferenceJob = preference;
-                 searchView.setQuery(preference, false); // Set the search bar text to the preference data
-             }
+         if (userRef.child(userId).child("preference") != null) {
+             //get preference data
+             userRef.child(userId).child("preference").addValueEventListener(new ValueEventListener() {
+                 @Override
+                 public void onDataChange(DataSnapshot dataSnapshot) {
+                     // Retrieve the preference data and do something with it
+                     String preference = dataSnapshot.getValue(String.class);
+                     if (preference != null) {
+                         preferenceJob = preference;
+                     }
+                     searchView.setQuery(preference, false); // Set the search bar text to the preference data
+                 }
 
-             @Override
-             public void onCancelled(DatabaseError databaseError) {
-                 // Handle errors here
-             }
-         });
+                 @Override
+                 public void onCancelled(DatabaseError databaseError) {
+                     // Handle errors here
+                 }
+             });
+         }
      }
-
 
      /**
       * This method fills the job list by retrieving all "Open" job posts from the database and creating a job object for each
