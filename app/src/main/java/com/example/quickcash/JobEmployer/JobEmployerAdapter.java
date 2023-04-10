@@ -1,6 +1,7 @@
 package com.example.quickcash.JobEmployer;
 
 import android.view.LayoutInflater;
+import android.view.View;
 import android.view.ViewGroup;
 
 import androidx.annotation.NonNull;
@@ -11,7 +12,6 @@ import com.example.quickcash.R;
 import java.util.List;
 
 public class JobEmployerAdapter extends RecyclerView.Adapter<MyJobViewHolder> {
-
     android.content.Context context;
     List<JobEmployer> jobEmployerList;
 
@@ -23,7 +23,11 @@ public class JobEmployerAdapter extends RecyclerView.Adapter<MyJobViewHolder> {
     @NonNull
     @Override
     public MyJobViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        return new MyJobViewHolder(LayoutInflater.from(context).inflate(R.layout.job_employer_view,parent,false));
+        View itemView = LayoutInflater.from(context).inflate(R.layout.job_employer_view,parent,false);
+        String status = "";
+        String jobEmployerId = "";
+        String employeeId = "";
+        return new MyJobViewHolder(itemView,status,jobEmployerId,employeeId);
     }
 
     @Override
@@ -36,8 +40,22 @@ public class JobEmployerAdapter extends RecyclerView.Adapter<MyJobViewHolder> {
         holder.place.setText(jobEmployerList.get(position).getPlace());
         holder.urgency.setText(Boolean.toString(jobEmployerList.get(position).getUrgency()));
         holder.salary.setText(String.valueOf(jobEmployerList.get(position).getSalary()));
+        holder.jobEmployerId = jobEmployerList.get(position).getJobId();
 
+        holder.employeeId = jobEmployerList.get(position).getEmployeeID();
 
+        JobEmployer jobEmployer = jobEmployerList.get(position);
+        //get jobId
+        holder.jobEmployerId = jobEmployer.getJobId();
+        //get jobStatus
+        String status = jobEmployer.getStatus();
+
+        String employeeId = jobEmployer.getEmployeeID();
+
+       // System.out.println("test for if get the emploee id  and status " + jobEmployer.getEmployeeID() + "dddd" + status);
+
+        //pass the jobStatus
+        holder = new MyJobViewHolder(holder.itemView,status,jobEmployer.getJobId(),employeeId);
     }
 
     @Override

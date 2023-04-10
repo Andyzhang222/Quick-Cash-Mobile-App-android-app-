@@ -5,18 +5,36 @@ package com.example.quickcash;
  */
 
 import android.content.Intent;
+import android.util.JsonToken;
+import android.util.Log;
 import android.view.View;
+import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.recyclerview.widget.RecyclerView;
+
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
+
 //Used S of the SOLID Principle
 public class JobListHolder extends RecyclerView.ViewHolder {
 
-    TextView title;
-    ConstraintLayout jobLayout;
 
+
+
+
+
+    TextView title;
+    String jobId;
+    ConstraintLayout jobLayout;
 
     public JobListHolder(@NonNull View itemView) {
         super(itemView);
@@ -32,6 +50,28 @@ public class JobListHolder extends RecyclerView.ViewHolder {
             switchIntent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
             view.getContext().startActivity(switchIntent);
 
+        });
+
+        //implement when user click apply button, then text change to applied
+        Button applyBtn = itemView.findViewById(R.id.applyButton);
+        applyBtn.setOnClickListener(view -> {
+
+            String userId = FirebaseAuth.getInstance().getCurrentUser().getUid();
+
+
+            DatabaseReference mJobs = FirebaseDatabase.getInstance().getReference().child("Job Post");
+            System.out.println("+++++++++++click the apply button and get the++" + userId);
+            mJobs.child(jobId).child("employeeID").setValue(userId);
+
+
+            //jobPostID.child("status").getValue(String.class);
+            applyBtn.setText("Applied");
+
+            String jobId = this.jobId;
+
+            //Get the employee jobId and set to close
+            DatabaseReference jobRef = FirebaseDatabase.getInstance().getReference().child("Job Post").child(jobId).child("status");
+            jobRef.setValue("Closed");
         });
     }
 }

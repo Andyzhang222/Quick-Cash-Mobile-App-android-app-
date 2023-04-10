@@ -52,6 +52,13 @@ public class EmployeePage extends AppCompatActivity{
 
     FirebaseAuth auth;
     String preferenceJob = " ";
+
+
+    //String userId;
+
+     String userId = FirebaseAuth.getInstance().getCurrentUser().getUid();
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -104,7 +111,7 @@ public class EmployeePage extends AppCompatActivity{
       * Allows the user to save their search preference to Firebase and loads their preference if they have one.
       */
      private void showSearchView() {
-         //sample list, delete llater
+         //sample list, delete later
          fillJobList();
 
          recyclerView = (RecyclerView) findViewById(R.id.recyclerview);
@@ -145,6 +152,8 @@ public class EmployeePage extends AppCompatActivity{
 
              //get id
              String userId = FirebaseAuth.getInstance().getCurrentUser().getUid();
+
+             //System.out.println("=================================" + userId);
 
              userRef.child(userId).child("preference").setValue(searchText);
              preferenceJob = searchText;
@@ -189,15 +198,26 @@ public class EmployeePage extends AppCompatActivity{
             public void onDataChange(@NonNull DataSnapshot jobPostSnapshot) {
                 for (DataSnapshot jobPostID : jobPostSnapshot.getChildren()) {
 
+
                     String status = jobPostID.child("status").getValue(String.class);
                     if (status.equals("Open")) {
+
+                        System.out.println("=================================" + userId);
+
+
+                        String jobId = jobPostID.getKey();
+
                         String jobType = jobPostID.child("jobType").getValue(String.class);
                         String description = jobPostID.child("description").getValue(String.class);
                         String salary = jobPostID.child("salary").getValue().toString();
                         String duration = jobPostID.child("duration").getValue().toString();
                         String place =  jobPostID.child(PLACE).getValue(String.class);
                         String jobTitle = String.format("Job Type: %s\nDescription: %s\nSalary: %s\nduration: %s\nplace: %s\n", jobType, description, salary, duration, place);
-                        jobList.add(new Job(jobTitle));
+
+                        Job job = new Job(jobTitle,"");
+                        job.setJobId(jobId);
+
+                        jobList.add(job);
                     }
 
                 }
@@ -232,6 +252,7 @@ public class EmployeePage extends AppCompatActivity{
         for (Job job : jobList) {
             if (job.getJobTitle().toLowerCase().contains(query.toLowerCase())) {
                 filteredJobList.add(job);
+                //System.out.println("=================================" + userId);
             }
         }
 
@@ -278,6 +299,14 @@ public class EmployeePage extends AppCompatActivity{
                      @Override
                      public void onChildAdded(DataSnapshot dataSnapshot, String previousChildName) {
                          locationTracker.startTracking(location -> {
+
+                             String jobId = dataSnapshot.getKey();
+
+                             //
+                             String employeeid = dataSnapshot.child("employeeId").getValue(String.class);
+
+                             System.out.println("--------------------------------"+ employeeid);
+
                              String area = locationTracker.getLocalArea(location);
                              String jobType = dataSnapshot.child("jobType").getValue(String.class);
                              String description = dataSnapshot.child("description").getValue(String.class);
@@ -285,11 +314,15 @@ public class EmployeePage extends AppCompatActivity{
                              String duration = dataSnapshot.child("duration").getValue().toString();
                              String place = dataSnapshot.child(PLACE).getValue(String.class);
                              String jobTitle = String.format("Job Type: %s\nDescription: %s\nSalary: %s\nduration: %s\nplace: %s\n", jobType, description, salary, duration, place);
-                             jobList.add(new Job(jobTitle));
+
+                             Job newJob = new Job(jobTitle,"");
+                             newJob.setJobId(jobId);
+
+                             jobList.add(newJob);
                              boolean samePlace = area.equals(dataSnapshot.child(PLACE).getValue());
-                             boolean newJob = !currentJobID.contains(dataSnapshot.getKey());
+                             boolean isNewJob = !currentJobID.contains(dataSnapshot.getKey());
                              boolean contains = jobTitle.toLowerCase().contains(preferenceJob);
-                             if (samePlace && newJob && contains){
+                             if (samePlace && isNewJob && contains){
                                      icon.setImageResource(R.drawable.notification_red_dot);
 
                              }

@@ -31,6 +31,11 @@ public class JobListAdapter extends RecyclerView.Adapter<JobListHolder> {
         return new JobListHolder(LayoutInflater.from(context).inflate(R.layout.job_view, parent, false));
     }
 
+    @NonNull
+
+
+
+
     /**
      * Bind the data to the views in the job view
      * @param holder   The ViewHolder which should be updated to represent the contents of the
@@ -40,6 +45,7 @@ public class JobListAdapter extends RecyclerView.Adapter<JobListHolder> {
     @Override
     public void onBindViewHolder(@NonNull JobListHolder holder, int position) {
         holder.title.setText(jobs.get(position).getJobTitle());
+        holder.jobId = jobs.get(position).getJobId();
     }
 
     @Override
