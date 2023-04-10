@@ -272,7 +272,11 @@ public class EmployeePage extends AppCompatActivity{
                              jobList.add(new Job(jobTitle));
                              boolean samePlace = area.equals(dataSnapshot.child(PLACE).getValue());
                              boolean newJob = !currentJobID.contains(dataSnapshot.getKey());
-                             boolean contains = jobTitle.toLowerCase().contains(preferenceJob);
+                             //boolean contains = jobTitle.toLowerCase().contains(preferenceJob);
+                             boolean contains = false;
+                             if (preferenceJob != null) {
+                                 contains = jobTitle.toLowerCase().contains(preferenceJob);
+                             }
                              if (samePlace && newJob && contains){
                                      icon.setImageResource(R.drawable.notification_red_dot);
 
