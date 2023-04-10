@@ -13,6 +13,7 @@ import com.example.quickcash.R;
 
 public class MyJobViewHolder extends RecyclerView.ViewHolder {
 
+    String employeeId;
     TextView jobType;
     TextView description;
     TextView date;
@@ -21,9 +22,9 @@ public class MyJobViewHolder extends RecyclerView.ViewHolder {
     TextView urgency;
     TextView salary;
     String jobEmployerId;
-    String jobEmployeeId;
 
-    public MyJobViewHolder(@NonNull View itemView, String status,String employerId) {
+
+    public MyJobViewHolder(@NonNull View itemView, String status,String employerId,String employeeId) {
         super(itemView);
 
         jobType = itemView.findViewById(R.id.JobType);
@@ -49,8 +50,10 @@ public class MyJobViewHolder extends RecyclerView.ViewHolder {
             Intent switchIntent = new Intent(view.getContext(), Paypal.class);
             switchIntent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
             //Pass the employerId to next activity
-            //switchIntent.putExtra("employeeId", employerId);
+            switchIntent.putExtra("employeeId", employeeId);
             switchIntent.putExtra("employerId", employerId);
+
+            System.out.println("test for both EMPLOEE id get    " + employeeId + "---AND EMPLOYER --" + employerId);
             view.getContext().startActivity(switchIntent);
         });
 

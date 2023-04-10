@@ -26,7 +26,8 @@ public class JobEmployerAdapter extends RecyclerView.Adapter<MyJobViewHolder> {
         View itemView = LayoutInflater.from(context).inflate(R.layout.job_employer_view,parent,false);
         String status = "";
         String jobEmployerId = "";
-        return new MyJobViewHolder(itemView,status,jobEmployerId);
+        String employeeId = "";
+        return new MyJobViewHolder(itemView,status,jobEmployerId,employeeId);
     }
 
     @Override
@@ -41,13 +42,20 @@ public class JobEmployerAdapter extends RecyclerView.Adapter<MyJobViewHolder> {
         holder.salary.setText(String.valueOf(jobEmployerList.get(position).getSalary()));
         holder.jobEmployerId = jobEmployerList.get(position).getJobId();
 
+        holder.employeeId = jobEmployerList.get(position).getEmployeeID();
+
         JobEmployer jobEmployer = jobEmployerList.get(position);
         //get jobId
         holder.jobEmployerId = jobEmployer.getJobId();
         //get jobStatus
         String status = jobEmployer.getStatus();
+
+        String employeeId = jobEmployer.getEmployeeID();
+
+       // System.out.println("test for if get the emploee id  and status " + jobEmployer.getEmployeeID() + "dddd" + status);
+
         //pass the jobStatus
-        holder = new MyJobViewHolder(holder.itemView,status,jobEmployer.getJobId());
+        holder = new MyJobViewHolder(holder.itemView,status,jobEmployer.getJobId(),employeeId);
     }
 
     @Override
